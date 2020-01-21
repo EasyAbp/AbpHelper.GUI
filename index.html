@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/nativize.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/about.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/section.css">
+  <link rel="stylesheet" href="assets/css/demo.css">
+  <link rel="stylesheet" href="assets/css/github.css">
+
+  <link rel="import" href="sections/about.html">
+  <link rel="import" href="sections/abp-cli/abp-cli-installation.html">
+  <link rel="import" href="sections/abp-cli/abp-cli-new.html">
+  <link rel="import" href="sections/abp-cli/abp-cli-add.html">
+  <link rel="import" href="sections/abp-cli/abp-cli-update.html">
+  <link rel="import" href="sections/abp-cli/abp-cli-account.html">
+  <link rel="import" href="sections/code-generator/code-generator-entity.html">
+  <link rel="import" href="sections/code-generator/code-generator-ui.html">
+  <link rel="import" href="sections/modules-manager/modules-manager-local.html">
+  <link rel="import" href="sections/modules-manager/modules-manager-discover.html">
+  <link rel="import" href="sections/awesome-tools/awesome-tools-ef-provider.html">
+</head>
+<body>
+
+  <nav class="nav js-nav">
+    <header class="nav-header">
+      <h1 class="nav-title"><strong>Abp</strong> Helper</h1>
+      <svg class="nav-header-icon"><use xlink:href="assets/img/icons.svg#icon-electron"></use></svg>
+    </header>
+
+    <div class="nav-item u-category-abp-cli">
+      <h5 class="nav-category">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+        Abp CLI
+      </h5>
+      <button type="button" id="button-abp-cli-installation" data-section="abp-cli-installation" class="nav-button">Installs or updates <em>Abp-CLI</em></button>
+      <button type="button" id="button-abp-cli-new" data-section="abp-cli-new" class="nav-button">Generates a new <em>Abp solution</em></button>
+      <button type="button" id="button-abp-cli-add" data-section="abp-cli-add" class="nav-button"><em>Adds</em> an Abp package or module</button>
+      <button type="button" id="button-abp-cli-update" data-section="abp-cli-update" class="nav-button"><em>Updates</em> framework and modules</button>
+      <button type="button" id="button-abp-cli-account" data-section="abp-cli-account" class="nav-button">Manages your <em>Abp.io account</em></button>
+    </div>
+
+    <div class="nav-item u-category-code-generator">
+      <h5 class="nav-category">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+        Code Generator
+      </h5>
+      <button type="button" id="button-code-generator-entity" data-section="code-generator-entity" class="nav-button">Generates codes for <em>Entity</em></button>
+      <button type="button" id="button-code-generator-ui" data-section="code-generator-ui" class="nav-button">Generates a <em>UI</em> project</button>
+    </div>
+
+    <div class="nav-item u-category-modules-manager">
+      <h5 class="nav-category">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+        Modules Manager
+      </h5>
+      <button type="button" id="button-modules-manager-local" data-section="modules-manager-local" class="nav-button">Manages my <em>local modules</em></button>
+      <button type="button" id="button-modules-manager-discover" data-section="modules-manager-discover" class="nav-button">Discovers <em>more awesome modules</em></button>
+    </div>
+
+    <div class="nav-item u-category-awesome-tools">
+      <h5 class="nav-category">
+        <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+        Awesome Tools
+      </h5>
+      <button type="button" id="button-awesome-tools-ef-provider" data-section="awesome-tools-ef-provider" class="nav-button">Change <em>EF Core</em> provider</button>
+    </div>
+
+    <footer class="nav-footer">
+      <button type="button" id="button-about" data-modal="about" class="nav-footer-button">About</button>
+      <a class="nav-footer-logo" href="https://github.com" aria-label="Homepage">
+        <svg class="nav-footer-icon"><use xlink:href="assets/img/icons.svg#icon-love"></use></svg>
+      </a>
+    </footer>
+  </nav>
+
+  <main class="content js-content"></main>
+
+  <script>
+    require('./assets/imports')
+    require('./assets/ex-links')
+    require('./assets/nav')
+    require('./assets/demo-btns')
+    require('./assets/code-blocks')
+    require('./assets/normalize-shortcuts')
+  </script>
+</body>
+</html>

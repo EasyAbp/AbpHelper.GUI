@@ -1,0 +1,64 @@
+{
+  "name": "abp-helper",
+  "productName": "Abp-Helper",
+  "version": "0.0.1",
+  "description": "AbpHelper is a tool to help you with developing Abp vNext applications.",
+  "main": "main.js",
+  "bin": "cli.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --debug",
+    "test": "mocha && standard",
+    "package": "npm-run-all package:*",
+    "package:mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=out --icon=assets/app-icon/mac/app.icns --osx-sign.identity='Developer ID Application: GitHub' --extend-info=assets/mac/info.plist",
+    "package:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out --icon=assets/app-icon/win/app.ico",
+    "package:linux": "electron-packager . --overwrite --platform=linux --arch=x64 --out=out",
+    "package:sign-exe": "signcode './out/Abp-Helper-win32-ia32/Abp-Helper.exe' --cert ~/Abp-Helper.p12 --prompt --name 'Abp-Helper' --url 'http://electron.atom.io'",
+    "package:installer": "node ./script/installer.js",
+    "package:sign-installer": "signcode './out/windows-installer/ElectronAPIDemosSetup.exe' --cert ~/Abp-Helper.p12 --prompt --name 'Abp-Helper' --url 'http://electron.atom.io'",
+    "xpackage:mas": "./script/mas.sh",
+    "windows-store": "node ./script/windows-store.js",
+    "release": "node ./script/release.js",
+    "prepack": "check-for-leaks",
+    "prepush": "check-for-leaks"
+  },
+  "repository": "https://github.com/EasyAbp/AbpHelper.GUI",
+  "keywords": [
+    "EasyAbp",
+    "Abp",
+    "Helper"
+  ],
+  "author": "EasyAbp",
+  "license": "Apache 2.0",
+  "devDependencies": {
+    "@octokit/rest": "^16.3.2",
+    "chai": "^3.4.1",
+    "chai-as-promised": "^6.0.0",
+    "check-for-leaks": "^1.2.1",
+    "devtron": "^1.3.0",
+    "electron-packager": "^12.1.0",
+    "electron-winstaller": "^2.2.0",
+    "husky": "^0.14.3",
+    "mocha": "^5.2.0",
+    "npm-run-all": "^4.0.2",
+    "request": "^2.70.0",
+    "rimraf": "^2.5.2",
+    "signcode": "^0.5.0",
+    "spectron": "^5.0.0",
+    "standard": "^8.2.0"
+  },
+  "dependencies": {
+    "electron": "^5.0.1",
+    "electron-log": "^2.2.14",
+    "electron-settings": "^3.0.7",
+    "electron-shortcut-normalizer": "^1.0.0",
+    "glob": "^7.1.0",
+    "highlight.js": "^9.3.0",
+    "update-electron-app": "^1.1.1"
+  },
+  "standard": {
+    "env": {
+      "mocha": true
+    }
+  }
+}

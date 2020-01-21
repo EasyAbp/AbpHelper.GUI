@@ -1,0 +1,73 @@
+<template class="task-template">
+  <section id="abp-cli-update-section" class="section js-section u-category-abp-cli">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+          Abp CLI: <code>update</code>
+        </h1>
+        <h3>Updating all ABP related packages can be tedious since there are many packages of the framework and modules. This command automatically updates all ABP related NuGet and NPM packages in a solution or project to the latest versions.</h3>
+        <p>See the <a href="https://docs.abp.io/en/abp/latest/CLI#update">ABP framework documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser for more informations.</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Update a solution or project
+          <div class="demo-meta u-avoid-clicks">Updating all ABP related packages can be tedious since there are many packages of the framework and modules</div>
+        </button>
+        <div id="box-abp-cli-update" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abp update [options]</code></pre>
+
+          <div id="update-info">
+            <h5>Select Solution or Project</h5>
+            <input id="update-folder" class="demo-input" type="text" />
+            <button id="update-select-folder-btn" class="demo-button">Select</button>
+          </div>
+
+          <div id="update-options">
+            <h5>Extra Options</h5>
+            <div>
+              <div>
+                <input id="update-include-previews" type="checkbox" />
+                <label>Includes Previews</label>
+              </div>
+              <p id="update-include-previews-desc">Includes preview, beta and rc packages while checking the latest versions.</p>
+              <div>
+                <input id="update-only-npm" type="checkbox" />
+                <label>NPM Packages Only</label>
+              </div>
+              <p id="update-only-npm-desc">Only updates NPM packages.</p>
+              <div>
+                <input id="update-only-nuget" type="checkbox" />
+                <label>NuGet Packages Only</label>
+              </div>
+              <p id="update-only-nuget-desc">Only updates NuGet packages.</p>
+            </div>
+          </div>
+
+          <div class="demo-protip">
+            <h2>Tips</h2>
+            <p>If you run in a directory with a <code>.sln</code> file, it updates all ABP related packages of the all projects of the solution to the latest versions.</p>
+            <p>If you run in a directory with a <code>.csproj</code> file, it updates all ABP related packages of the project to the latest versions.</p>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="update-execute">Execute</button>
+          </h5>
+
+          <div id="update-process" class="demo-input hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/abp-cli/abp-cli-update.js')
+    </script>
+
+  </section>
+</template>
