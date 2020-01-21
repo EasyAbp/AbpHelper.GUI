@@ -101,7 +101,7 @@ let tray = null
 
 let checkUpdateMenuItem = {
   id: 'checkUpdate',
-  label: '',
+  label: 'Ready for update checking',
   enabled: false,
   click: async () => await checkForUpdate()
 }
@@ -170,7 +170,7 @@ async function checkForUpdate() {
   downloadReleaseMenuItem.visible = false
   checkUpdateMenuItem.label = 'Checking for Update....'
   checkUpdateMenuItem.enabled = false
-  const data = await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.GUI/releases/latest', {type: 'text'})
+  const data = JSON.parse(await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.GUI/releases/latest', {type: 'text'}))
   console.log(data)
   if (data.tag_name) {
     checkUpdateMenuItem.label = 'Latest: ' + data.tag_name + ' (Current: ' + currentVersion + ')'
@@ -178,7 +178,7 @@ async function checkForUpdate() {
     if (currentVersion != data.tag_name) {
       downloadReleaseMenuItem.visible = true
     }
-  } else if (data.message.indexOf('API rate limit exceeded') == 0) {
+  } else if (data.message && data.message.indexOf('API rate limit exceeded') == 0) {
     checkUpdateMenuItem.label = 'Update checking failed: API rate limit exceeded'
     checkUpdateMenuItem.enabled = true
   } else {
