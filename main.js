@@ -1,16 +1,18 @@
-require('update-electron-app')({
-  logger: require('electron-log')
-})
+// require('update-electron-app')({
+//   logger: require('electron-log')
+// })
 
+const fetch = require('electron-main-fetch')
 const path = require('path')
 const glob = require('glob')
-const {app, Menu, Tray, BrowserWindow, ipcMain, shell} = require('electron')
+const {app, Menu, Tray, BrowserWindow, shell} = require('electron')
 
 const debug = /--debug/.test(process.argv[2])
 
 if (process.mas) app.setName('Abp Helper')
 
 let mainWindow = null
+let contextMenu = null
 
 let forceQuit = false
 
@@ -21,9 +23,8 @@ function initialize () {
 
   function createTray() {
     tray = new Tray(path.join(__dirname, '/assets/app-icon/png/32.png'))
-    const contextMenu = Menu.buildFromTemplate(template)
-    tray.setToolTip('Abp Helper')
-    tray.setContextMenu(contextMenu)
+    buildTrayMenuFromTemplate()
+    checkForUpdate()
 
     tray.on('double-click', function () {
       if (mainWindow) {
@@ -98,6 +99,20 @@ function initialize () {
 
 let tray = null
 
+let checkUpdateMenuItem = {
+  id: 'checkUpdate',
+  label: '',
+  enabled: false,
+  click: async () => await checkForUpdate()
+}
+
+let downloadReleaseMenuItem = {
+  id: 'downloadRelease',
+  label: 'Download latest release',
+  visible: false,
+  click: () => shell.openExternal('https://github.com/EasyAbp/AbpHelper.GUI/releases')
+}
+
 let template = [{
   label: 'Abp-CLI...',
   click: () => loadShowPage('abp-cli-new')
@@ -126,7 +141,8 @@ let template = [{
       label: 'Abp Helper',
       click: () => shell.openExternal('https://github.com/EasyAbp/AbpHelper.GUI')
     }]
-  }, {
+  }, checkUpdateMenuItem,
+  downloadReleaseMenuItem, {
     label: 'About...',
     click: () => loadShowPage('about')
   }]
@@ -143,35 +159,34 @@ function loadShowPage(tag) {
   mainWindow.show()
 }
 
-function addUpdateMenuItems (items, position) {
-  if (process.mas) return
-
-  const version = app.getVersion()
-  let updateItems = [{
-    label: 'Checking for Update......',
-    enabled: false,
-    key: 'checkingForUpdate'
-  }, {
-    label: 'Check for Update',
-    visible: false,
-    key: 'checkForUpdate',
-    click: () => {
-      require('electron').autoUpdater.checkForUpdates()
-    }
-  }, {
-    label: 'Restart to Update',
-    enabled: true,
-    visible: false,
-    key: 'restartToUpdate',
-    click: () => {
-      require('electron').autoUpdater.quitAndInstall()
-    }
-  }]
-
-  items.splice.apply(items, [position, 0].concat(updateItems))
+function buildTrayMenuFromTemplate() {
+  contextMenu = Menu.buildFromTemplate(template)
+  tray.setToolTip('Abp Helper')
+  tray.setContextMenu(contextMenu)
 }
 
-addUpdateMenuItems(template[template.length - 2].submenu, 1)
+async function checkForUpdate() {
+  const currentVersion = app.getVersion()
+  downloadReleaseMenuItem.visible = false
+  checkUpdateMenuItem.label = 'Checking for Update....'
+  checkUpdateMenuItem.enabled = false
+  const data = await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.GUI/releases/latest', {type: 'text'})
+  console.log(data)
+  if (data.tag_name) {
+    checkUpdateMenuItem.label = 'Latest: ' + data.tag_name + ' (Current: ' + currentVersion + ')'
+    checkUpdateMenuItem.enabled = true
+    if (currentVersion != data.tag_name) {
+      downloadReleaseMenuItem.visible = true
+    }
+  } else if (data.message.indexOf('API rate limit exceeded') == 0) {
+    checkUpdateMenuItem.label = 'Update checking failed: API rate limit exceeded'
+    checkUpdateMenuItem.enabled = true
+  } else {
+    checkUpdateMenuItem.label = 'Update checking failed'
+    checkUpdateMenuItem.enabled = true
+  }
+  buildTrayMenuFromTemplate()
+}
 
 // Make this app a single instance app.
 //
