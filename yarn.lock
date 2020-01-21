@@ -927,6 +927,11 @@ electron-log@^2.2.14:
   resolved "https://registry.npm.taobao.org/electron-log/download/electron-log-2.2.17.tgz#e71e2ebb949fc96ded7cdb99eeee7202e48981d2"
   integrity sha1-5x4uu5SfyW3tfNuZ7u5yAuSJgdI=
 
+electron-main-fetch@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npm.taobao.org/electron-main-fetch/download/electron-main-fetch-0.2.0.tgz#84890064bbb75a982b06fd788f78685183b440b5"
+  integrity sha1-hIkAZLu3WpgrBv14j3hoUYO0QLU=
+
 electron-osx-sign@^0.4.1:
   version "0.4.15"
   resolved "https://registry.npm.taobao.org/electron-osx-sign/download/electron-osx-sign-0.4.15.tgz#560e190297f0dbf40d4c192e06f160f669c2d015"
@@ -3602,7 +3607,7 @@ universalify@^0.1.0:
   resolved "https://registry.npm.taobao.org/universalify/download/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"
   integrity sha1-tkb2m+OULavOzJ1mOcgNwQXvqmY=
 
-update-electron-app@^1.1.1:
+update-electron-app@^1.5.0:
   version "1.5.0"
   resolved "https://registry.npm.taobao.org/update-electron-app/download/update-electron-app-1.5.0.tgz#492cb904db07a0b28dbd83fb52e0fe500bbe3463"
   integrity sha1-SSy5BNsHoLKNvYP7UuD+UAu+NGM=
