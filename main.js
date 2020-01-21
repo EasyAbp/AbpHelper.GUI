@@ -173,7 +173,7 @@ async function checkForUpdate() {
   const data = JSON.parse(await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.GUI/releases/latest', {type: 'text'}))
   console.log(data)
   if (data.tag_name) {
-    checkUpdateMenuItem.label = 'Latest: ' + data.tag_name + ' (Current: ' + currentVersion + ')'
+    checkUpdateMenuItem.label = 'Latest: v' + data.tag_name + ' (Current: v' + currentVersion + ')'
     checkUpdateMenuItem.enabled = true
     if (currentVersion != data.tag_name) {
       downloadReleaseMenuItem.visible = true
