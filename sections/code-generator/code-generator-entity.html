@@ -6,18 +6,113 @@
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
           Entity Code Generator
         </h1>
-        <h3>Automatically generate entity codes: <code>Entity</code>, <code>Migration</code>, <code>Repository</code>, <code>DomainService</code>, <code>AppService</code>, <code>Dtos</code>, <code>Automapper profile</code>.</h3>
-        <p>Don't repeat yourself.</p>
+        <h3>Automatically generate related codes for sepecified entity: <code>Entity</code>, <code>Migration</code>, <code>Repository</code>, <code>AppService</code>, <code>Dtos</code>, <code>Mapping</code>, <code>Test</code> and more.</h3>
+        <p>See the <a href="https://github.com/EasyAbp/AbpHelper.CLI">AbpHelper CLI Github repository<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser for more informations.</p>
       </div>
     </header>
 
     <div class="demo">
       <div class="demo-wrapper">
-        <p>Comming soon...</p>
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Generator codes
+          <div class="demo-meta u-avoid-clicks">Generator related codes for spercified entity</div>
+        </button>
+        <div id="box-code-generator-entity" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abphelper generate &lt;entity-name&gt; [options]</code></pre>
+          <div id="entity-info">
+            <h5>Entity Name</h5>
+            <input id="entity-entity-name" class="demo-input" type="text" />
+            <h5>Solution</h5>
+            <input id="entity-solution-file" class="demo-input" type="text" />
+            <button id="entity-select-solution-file-btn" class="demo-button">Select</button>
+          </div>
+
+          <div id="entity-options-basic">
+            <h5>Basic Options</h5>
+            <div>
+              <div>
+                <input id="entity-options-basic-dbcontext" type="checkbox" checked disabled />
+                <label>Add to DbContext</label>
+              </div>
+              <div>
+                <input id="entity-options-basic-configure" type="checkbox" checked disabled />
+                <label>Configure Entity</label>
+              </div>
+              <div>
+                <input id="entity-options-basic-add-migration" type="checkbox" checked disabled />
+                <label>Add Migration</label>
+              </div>
+              <div>
+                <input id="entity-options-basic-update-database" type="checkbox" checked disabled />
+                <label>Update Database</label>
+              </div>
+              <div>
+                <input id="entity-options-basic-repository" type="checkbox" disabled />
+                <label>Create a Custom Repository</label>
+              </div>
+              <div>
+                <input id="entity-options-basic-dto" type="checkbox" checked disabled />
+                <label>Create Dtos</label>
+              </div>
+              <div>
+                <input id="entity-options-basic-mapping" type="checkbox" checked disabled />
+                <label>Add Dtos to Automapper Profile</label>
+              </div>
+              <div>
+                <input id="entity-options-basic-appservice" type="checkbox" checked disabled />
+                <label>Create CRUD Application Service</label>
+              </div>
+              <div>
+                <input id="entity-options-basic-localization" type="checkbox" checked disabled />
+                <label>Add to Localization Resource</label>
+              </div>
+              <div>
+                <input id="entity-options-basic-test" type="checkbox" checked disabled />
+                <label>Create Test Code</label>
+              </div>
+            </div>
+          </div>
+          
+          <div id="entity-options-ui-mvc">
+            <h5>MVC UI Options</h5>
+            <div>
+              <div>
+                <input id="entity-options-ui-mvc-menu" type="checkbox" checked disabled />
+                <label>Add to MenuContributor</label>
+              </div>
+              <div>
+                <input id="entity-options-ui-mvc-mapping" type="checkbox" checked disabled />
+                <label>Add Dtos to Automapper Profile</label>
+              </div>
+              <div>
+                <input id="entity-options-ui-mvc-page-index" type="checkbox" checked disabled />
+                <label>Generate Index Page</label>
+              </div>
+              <div>
+                <input id="entity-options-ui-mvc-page-creation" type="checkbox" checked disabled />
+                <label>Generate Creation Page</label>
+              </div>
+              <div>
+                <input id="entity-options-ui-mvc-page-edit" type="checkbox" checked disabled />
+                <label>Generate Edit Page</label>
+              </div>
+            </div>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="entity-execute">Execute</button>
+          </h5>
+
+          <div id="entity-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
       </div>
     </div>
 
     <script type="text/javascript">
+      require('./renderer-process/code-generator/code-generator-entity.js')
     </script>
 
   </section>

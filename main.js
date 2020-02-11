@@ -171,7 +171,6 @@ async function checkForUpdate() {
   checkUpdateMenuItem.label = 'Checking for Update....'
   checkUpdateMenuItem.enabled = false
   const data = JSON.parse(await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.GUI/releases/latest', {type: 'text'}))
-  console.log(data)
   if (data.tag_name) {
     checkUpdateMenuItem.label = 'Latest: v' + data.tag_name + ' (Current: v' + currentVersion + ')'
     checkUpdateMenuItem.enabled = true
