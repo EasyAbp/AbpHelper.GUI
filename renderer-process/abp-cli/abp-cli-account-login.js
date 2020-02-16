@@ -20,7 +20,7 @@ function runExec() {
 
   let cmdStr = 'abp login ' + username
   clearConsoleContent()
-  addConsoleContent('Running...\n')
+  addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()
   console.log(cmdStr)
   // Todo: how to input password?

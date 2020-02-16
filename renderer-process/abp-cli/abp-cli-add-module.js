@@ -60,7 +60,7 @@ function runExec() {
   if (document.getElementById('add-module-skip-db-migrations').checked) cmdStr += ' --skip-db-migrations'
   if (spCheckbox.checked) cmdStr += ' -sp ' + document.getElementById('add-module-startup-project-file').value
   clearConsoleContent()
-  addConsoleContent('Running...\n')
+  addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()
   console.log(cmdStr)
   workerProcess = exec('chcp 65001 & ' + cmdStr, {})

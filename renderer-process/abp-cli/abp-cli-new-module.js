@@ -42,7 +42,7 @@ function runExec() {
   if (isNoUi) cmdStr += ' --no-ui'
   if (abpVersion.trim() !== 'latest') cmdStr += ' -v ' + abpVersion
   clearConsoleContent()
-  addConsoleContent('Running...\n')
+  addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()
   console.log(cmdStr)
   workerProcess = exec('chcp 65001 & ' + cmdStr, {cwd: cmdPath})

@@ -36,7 +36,7 @@ function runExec(action) {
 
   let cmdStr = 'dotnet tool ' + action + ' -g Volo.Abp.Cli'
   clearConsoleContent()
-  addConsoleContent('Running...\n')
+  addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()
   console.log(cmdStr)
   workerProcess = exec('chcp 65001 & ' + cmdStr, {})

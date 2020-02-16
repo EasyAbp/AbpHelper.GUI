@@ -96,7 +96,7 @@ function runExec() {
   if (basicOptions.repository) cmdStr += ' --custom-repository'
   if (extraOptions.separateDto) cmdStr += ' --separate-dto'
   clearConsoleContent()
-  addConsoleContent('Running...\n')
+  addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()
   console.log(cmdStr)
   workerProcess = exec('chcp 65001 & ' + cmdStr)
