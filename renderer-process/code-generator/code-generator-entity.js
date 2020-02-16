@@ -6,23 +6,28 @@ let isRunning = false
 let basicOptions = {
   dbcontext : true,
   configure : true,
-  addMigration : true,
-  updateDatabase : true,
   repository : false,
   dto : true,
-  mapping : true,
   appservice : true,
+  mapping : true,
   localization : true,
-  test : true
+  ui : true,
+  test : true,
+  addMigration : true,
+  updateDatabase : true
+}
+
+let extraOptions = {
+  separateDto : false
 }
 
 let uiOptions = {
   mvc: {
-    menu: true,
-    mapping: true,
     pageIndex: true,
     pageCreation: true,
-    pageEdit: true
+    pageEdit: true,
+    menu: true,
+    mapping: true
   }
 }
 
@@ -33,20 +38,25 @@ const selectSolutionFileBtn = document.getElementById('entity-select-solution-fi
 const basicOptionsCheckBox = {
   dbcontext: document.getElementById('entity-options-basic-dbcontext'),
   configure: document.getElementById('entity-options-basic-configure'),
-  addMigration: document.getElementById('entity-options-basic-addMigration'),
-  updateDatabase: document.getElementById('entity-options-basic-updateDatabase'),
+  repository: document.getElementById('entity-options-basic-repository'),
   dto: document.getElementById('entity-options-basic-dto'),
-  mapping: document.getElementById('entity-options-basic-mapping'),
   appservice: document.getElementById('entity-options-basic-appservice'),
+  mapping: document.getElementById('entity-options-basic-mapping'),
   localization: document.getElementById('entity-options-basic-localization'),
-  test: document.getElementById('entity-options-basic-test')
+  ui: document.getElementById('entity-options-basic-ui'),
+  test: document.getElementById('entity-options-basic-test'),
+  addMigration: document.getElementById('entity-options-basic-addMigration'),
+  updateDatabase: document.getElementById('entity-options-basic-updateDatabase')
+}
+const extraOptionsCheckBox = {
+  separateDto: document.getElementById('entity-options-extra-separateDto'),
 }
 const mvcUiOptionsCheckBox = {
+  pageIndex: document.getElementById('entity-options-uiMvcPageIndex'),
+  pageCreation: document.getElementById('entity-options-uiMvcPageCreation'),
+  pageEdit: document.getElementById('entity-options-uiMvcPageEdit'),
   menu: document.getElementById('entity-options-ui-mvc-menu'),
-  mapping: document.getElementById('entity-options-ui-mvc-mapping'),
-  pageIndex: document.getElementById('entity-options-ui-mvc-pageIndex'),
-  pageCreation: document.getElementById('entity-options-ui-mvc-pageCreation'),
-  pageEdit: document.getElementById('entity-options-ui-mvc-pageEdit')
+  mapping: document.getElementById('entity-options-ui-mvc-mapping')
 }
 
 selectSolutionFileBtn.addEventListener('click', (event) => {
@@ -66,8 +76,12 @@ execBtn.addEventListener('click', (event) => {
   runExec()
 })
 
-basicOptionsCheckBox.dbcontext.addEventListener('click', (event) => {
-  basicOptions.dbcontext = basicOptionsCheckBox.dbcontext.checked
+basicOptionsCheckBox.repository.addEventListener('click', (event) => {
+  basicOptions.repository = basicOptionsCheckBox.repository.checked
+})
+
+extraOptionsCheckBox.separateDto.addEventListener('click', (event) => {
+  extraOptions.separateDto = extraOptionsCheckBox.separateDto.checked
 })
 
 function runExec() {
@@ -78,7 +92,9 @@ function runExec() {
   execBtn.disabled = true
   document.getElementById('entity-process').style.display = 'block'
 
-  let cmdStr = 'abphelper generate ' + entityName + ' -s ' + solutionFile
+  let cmdStr = 'abphelper generate -e' + entityName + ' -s ' + solutionFile
+  if (basicOptions.repository) cmdStr += ' --custom-repository'
+  if (extraOptions.separateDto) cmdStr += ' --separate-dto'
   clearConsoleContent()
   addConsoleContent('Running...\n')
   scrollConsoleToBottom()
