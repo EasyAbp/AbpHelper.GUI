@@ -17,9 +17,9 @@ function getInstallerConfig () {
   const outPath = path.join(rootPath, 'out')
 
   return Promise.resolve({
-    appDirectory: path.join(outPath, 'Abp-Helper-win32-ia32'),
-    exe: 'Abp-Helper.exe',
-    iconUrl: 'https://raw.githubusercontent.com/EasyAbp/Abp-Helper/master/assets/app-icon/win/app.ico',
+    appDirectory: path.join(outPath, 'AbpHelper-win32-ia32'),
+    exe: 'AbpHelper.exe',
+    iconUrl: 'https://raw.githubusercontent.com/EasyAbp/AbpHelper/master/assets/app-icon/win/app.ico',
     loadingGif: path.join(rootPath, 'assets', 'img', 'loading.gif'),
     noMsi: true,
     outputDirectory: path.join(outPath, 'windows-installer'),

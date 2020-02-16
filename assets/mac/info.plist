@@ -7,7 +7,7 @@
     <dict>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>Abp-Helper</string>
+        <string>AbpHelper</string>
       </array>
       <key>CFBundleURLName</key>
       <string>Abp Helper Protocol</string>

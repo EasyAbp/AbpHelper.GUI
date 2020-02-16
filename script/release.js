@@ -39,14 +39,14 @@ function prepareAssets () {
   const outPath = path.join(__dirname, '..', 'out')
 
   const zipAssets = [{
-    name: 'Abp-Helper-mac.zip',
-    path: path.join(outPath, 'Abp-Helper-darwin-x64', 'Abp-Helper.app')
+    name: 'AbpHelper-mac.zip',
+    path: path.join(outPath, 'AbpHelper-darwin-x64', 'AbpHelper.app')
   }, {
-    name: 'Abp-Helper-windows.zip',
-    path: path.join(outPath, 'Abp-Helper-win32-ia32')
+    name: 'AbpHelper-windows.zip',
+    path: path.join(outPath, 'AbpHelper-win32-ia32')
   }, {
-    name: 'Abp-Helper-linux.zip',
-    path: path.join(outPath, 'Abp-Helper-linux-x64')
+    name: 'AbpHelper-linux.zip',
+    path: path.join(outPath, 'AbpHelper-linux-x64')
   }]
 
   return Promise.all(zipAssets.map(zipAsset)).then((zipAssets) => {
@@ -57,8 +57,8 @@ function prepareAssets () {
       name: 'ElectronAPIDemosSetup.exe',
       path: path.join(outPath, 'windows-installer', 'ElectronAPIDemosSetup.exe')
     }, {
-      name: `Abp-Helper-${version}-full.nupkg`,
-      path: path.join(outPath, 'windows-installer', `Abp-Helper-${version}-full.nupkg`)
+      name: `AbpHelper-${version}-full.nupkg`,
+      path: path.join(outPath, 'windows-installer', `AbpHelper-${version}-full.nupkg`)
     }])
   })
 }
@@ -89,7 +89,7 @@ function zipAsset (asset) {
 async function getOrCreateRelease () {
   const { data: releases } = await github.repos.listReleases({
     owner: 'electron',
-    repo: 'Abp-Helper',
+    repo: 'AbpHelper',
     per_page: 100,
     page: 1
   })
@@ -102,7 +102,7 @@ async function getOrCreateRelease () {
   console.log('Creating new draft release')
   const { data: release } = await github.repos.createRelease({
     owner: 'electron',
-    repo: 'Abp-Helper',
+    repo: 'AbpHelper',
     tag_name: `v${version}`,
     target_commitish: 'master',
     name: version,
@@ -158,7 +158,7 @@ function publishRelease (release) {
   console.log('Publishing release')
   return github.repos.updateRelease({
     owner: 'electron',
-    repo: 'Abp-Helper',
+    repo: 'AbpHelper',
     release_id: release.id,
     draft: false
   })
