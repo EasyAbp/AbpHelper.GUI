@@ -20,6 +20,11 @@
           <h5 style="margin-top: 0;">Command</h5>
           <pre><code>dotnet tool install -g EasyAbp.AbpHelper.Cli</code></pre>
 
+          <div id="abphelper-cli-install-info">
+            <h5>Version</h5>
+            <input id="abphelper-cli-install-version" class="demo-input" type="text" value="latest" />
+          </div>
+
           <h5>
             <button class="demo-button" id="abphelper-cli-install-execute">Execute</button>
           </h5>
@@ -41,11 +46,37 @@
           <h5 style="margin-top: 0;">Command</h5>
           <pre><code>dotnet tool update -g EasyAbp.AbpHelper.Cli</code></pre>
 
+          <div id="abphelper-cli-update-info">
+            <h5>Version</h5>
+            <input id="abphelper-cli-update-version" class="demo-input" type="text" value="latest" />
+          </div>
+
           <h5>
             <button class="demo-button" id="abphelper-cli-update-execute">Execute</button>
           </h5>
 
           <div id="abphelper-cli-update-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Uninstall AbpHelper CLI
+          <div class="demo-meta u-avoid-clicks">Uninstall dotnet global tool: AbpHelper CLI</div>
+        </button>
+        <div id="box-modules-manager-abphelper-cli-uninstall" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>dotnet tool uninstall -g EasyAbp.AbpHelper.Cli</code></pre>
+
+          <h5>
+            <button class="demo-button" id="abphelper-cli-uninstall-execute">Execute</button>
+          </h5>
+
+          <div id="abphelper-cli-uninstall-process" class="hidden">
             <h5>Command Line Process</h5>
             <textarea></textarea>
           </div>
