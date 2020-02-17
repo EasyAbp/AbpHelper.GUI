@@ -6,7 +6,7 @@
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
           Entity Code Generator
         </h1>
-        <h3>Automatically generate related codes for sepecified entity: <code>Entity</code>, <code>Migration</code>, <code>Repository</code>, <code>AppService</code>, <code>Dtos</code>, <code>Mapping</code>, <code>Test</code> and more.</h3>
+        <h3>Automatically generate related codes for sepecified entity: <code>Entity</code>, <code>Migration</code>, <code>Repository</code>, <code>AppService</code>, <code>Dtos</code>, <code>Mapping</code>, <code>UI Pages</code>, <code>Test</code> and more.</h3>
         <p>See the <a href="https://github.com/EasyAbp/AbpHelper.CLI">AbpHelper CLI Github repository<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser for more informations.</p>
       </div>
     </header>
@@ -27,107 +27,49 @@
             <button id="entity-select-solution-file-btn" class="demo-button">Select</button>
           </div>
 
-          <div id="entity-options-basic">
-            <h5>Basic Options</h5>
-            <div>
-              <div>
-                <input id="entity-options-basic-dbcontext" type="checkbox" checked disabled />
-                <label>Step 1: Add to DbContext</label>
-              </div>
-              <p id="entity-options-basic-dbcontext-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-basic-configure" type="checkbox" checked disabled />
-                <label>Step 2: Configure Entity</label>
-              </div>
-              <p id="entity-options-basic-configure-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-basic-repository" type="checkbox" />
-                <label>Step 3: Create a Custom Repository</label>
-              </div>
-              <p id="entity-options-basic-repository-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-basic-dto" type="checkbox" checked disabled />
-                <label>Step 4: Create Dtos</label>
-              </div>
-              <p id="entity-options-basic-dto-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-basic-appservice" type="checkbox" checked disabled />
-                <label>Step 5: Create CRUD Application Service</label>
-              </div>
-              <p id="entity-options-basic-appservice-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-basic-mapping" type="checkbox" checked disabled />
-                <label>Step 6: Add Dtos to Automapper Profile</label>
-              </div>
-              <p id="entity-options-basic-mapping-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-basic-localization" type="checkbox" checked disabled />
-                <label>Step 7: Add to Localization Resource</label>
-              </div>
-              <p id="entity-options-basic-localization-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-basic-ui" type="checkbox" checked disabled />
-                <label>Step 8: Generate UI Pages</label>
-              </div>
-              <p id="entity-options-basic-ui-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-basic-test" type="checkbox" checked disabled />
-                <label>Step 9: Create Test Code</label>
-              </div>
-              <p id="entity-options-basic-test-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-basic-add-migration" type="checkbox" checked disabled />
-                <label>Step 10: Add Migration</label>
-              </div>
-              <p id="entity-options-basic-migration-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-basic-updateDatabase" type="checkbox" checked disabled />
-                <label>Step 11: Update Database</label>
-              </div>
-              <p id="entity-options-basic-updateDatabase-desc">Description placeholder.</p>
-            </div>
-          </div>
-
-          <div id="entity-options-extra">
+          <div id="entity-options">
             <h5>Extra Options</h5>
             <div>
               <div>
-                <input id="entity-options-extra-separateDto" type="checkbox" />
+                <input id="entity-options-separateDto" type="checkbox" />
                 <label>Separate Dtos</label>
               </div>
-              <p id="entity-options-extra-separateDto-desc">Generate separate Create and Update DTO file.</p>
+              <p id="entity-options-separateDto-desc">Generate separate Create and Update DTO file.</p>
+              <div>
+                <input id="entity-options-repository" type="checkbox" />
+                <label>Custom Repository</label>
+              </div>
+              <p id="entity-options-repository-desc">Generate custom repository interface and class for the entity.</p>
+              <div>
+                <input id="entity-options-skipDbMigrations" type="checkbox" />
+                <label>Skip DB Migrations</label>
+              </div>
+              <p id="entity-options-skipDbMigrations-desc">Skip performing db migration and update.</p>
             </div>
           </div>
+
+          <div class="demo-protip">
+            <h2>Generation Steps</h2>
+            <p>Step 1: Add to DbContext</p>
+            <p>Step 2: Configure Entity</p>
+            <p>Step 3: Create a Custom Repository</p>
+            <p>Step 4: Create Dtos</p>
+            <p>Step 5: Create CRUD Application Service</p>
+            <p>Step 6: Add Dtos to Automapper Profile</p>
+            <p>Step 7: Add to Localization Resource</p>
+            <p>Step 8: Generate UI Pages</p>
+            <p>Step 9: Create Test Code</p>
+            <p>Step 10: Add Migration</p>
+            <p>Step 11: Update Database</p>
+          </div>
           
-          <div id="entity-options-ui-mvc">
-            <h5>MVC UI Options</h5>
-            <div>
-              <div>
-                <input id="entity-options-uiMvcPage-index" type="checkbox" checked disabled />
-                <label>Generate Index Page</label>
-              </div>
-              <p id="entity-options-uiMvcPage-index-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-uiMvcPage-creation" type="checkbox" checked disabled />
-                <label>Generate Creation Page</label>
-              </div>
-              <p id="entity-options-uiMvcPage-creation-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-uiMvcPage-edit" type="checkbox" checked disabled />
-                <label>Generate Edit Page</label>
-              </div>
-              <p id="entity-options-uiMvcPage-edit-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-ui-mvc-menu" type="checkbox" checked disabled />
-                <label>Add to MenuContributor</label>
-              </div>
-              <p id="entity-options-uiMvcPage-menu-desc">Description placeholder.</p>
-              <div>
-                <input id="entity-options-ui-mvc-mapping" type="checkbox" checked disabled />
-                <label>Add Dtos to Automapper Profile</label>
-              </div>
-              <p id="entity-options-uiMvcPage-mapping-desc">Description placeholder.</p>
-            </div>
+          <div class="demo-protip">
+            <h2>MVC UI Pages Generation Steps</h2>
+            <p>Step 1: Generate Index Page</p>
+            <p>Step 2: Generate Creation Page</p>
+            <p>Step 3: Generate Edit Page</p>
+            <p>Step 4: Add to MenuContributor</p>
+            <p>Step 5: Add Dtos to Automapper Profile</p>
           </div>
 
           <h5>

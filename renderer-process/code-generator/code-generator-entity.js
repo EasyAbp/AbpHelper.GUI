@@ -3,60 +3,20 @@ const exec = require('child_process').exec
 
 let isRunning = false
 
-let basicOptions = {
-  dbcontext : true,
-  configure : true,
-  repository : false,
-  dto : true,
-  appservice : true,
-  mapping : true,
-  localization : true,
-  ui : true,
-  test : true,
-  addMigration : true,
-  updateDatabase : true
-}
-
 let extraOptions = {
-  separateDto : false
-}
-
-let uiOptions = {
-  mvc: {
-    pageIndex: true,
-    pageCreation: true,
-    pageEdit: true,
-    menu: true,
-    mapping: true
-  }
+  separateDto: false,
+  repository: false,
+  skipDbMigrations: false
 }
 
 let consoleNode = document.getElementById('box-code-generator-entity').getElementsByTagName('textarea')[0]
 
 const execBtn = document.getElementById('entity-execute')
 const selectSolutionFileBtn = document.getElementById('entity-select-solution-file-btn')
-const basicOptionsCheckBox = {
-  dbcontext: document.getElementById('entity-options-basic-dbcontext'),
-  configure: document.getElementById('entity-options-basic-configure'),
-  repository: document.getElementById('entity-options-basic-repository'),
-  dto: document.getElementById('entity-options-basic-dto'),
-  appservice: document.getElementById('entity-options-basic-appservice'),
-  mapping: document.getElementById('entity-options-basic-mapping'),
-  localization: document.getElementById('entity-options-basic-localization'),
-  ui: document.getElementById('entity-options-basic-ui'),
-  test: document.getElementById('entity-options-basic-test'),
-  addMigration: document.getElementById('entity-options-basic-addMigration'),
-  updateDatabase: document.getElementById('entity-options-basic-updateDatabase')
-}
 const extraOptionsCheckBox = {
-  separateDto: document.getElementById('entity-options-extra-separateDto'),
-}
-const mvcUiOptionsCheckBox = {
-  pageIndex: document.getElementById('entity-options-uiMvcPageIndex'),
-  pageCreation: document.getElementById('entity-options-uiMvcPageCreation'),
-  pageEdit: document.getElementById('entity-options-uiMvcPageEdit'),
-  menu: document.getElementById('entity-options-ui-mvc-menu'),
-  mapping: document.getElementById('entity-options-ui-mvc-mapping')
+  separateDto: document.getElementById('entity-options-separateDto'),
+  repository: document.getElementById('entity-options-repository'),
+  skipDbMigrations: document.getElementById('entity-options-skipDbMigrations'),
 }
 
 selectSolutionFileBtn.addEventListener('click', (event) => {
@@ -76,12 +36,14 @@ execBtn.addEventListener('click', (event) => {
   runExec()
 })
 
-basicOptionsCheckBox.repository.addEventListener('click', (event) => {
-  basicOptions.repository = basicOptionsCheckBox.repository.checked
-})
-
 extraOptionsCheckBox.separateDto.addEventListener('click', (event) => {
   extraOptions.separateDto = extraOptionsCheckBox.separateDto.checked
+})
+extraOptionsCheckBox.repository.addEventListener('click', (event) => {
+  extraOptions.repository = extraOptionsCheckBox.repository.checked
+})
+extraOptionsCheckBox.repository.addEventListener('click', (event) => {
+  extraOptions.skipDbMigrations = extraOptionsCheckBox.skipDbMigrations.checked
 })
 
 function runExec() {
@@ -92,9 +54,10 @@ function runExec() {
   execBtn.disabled = true
   document.getElementById('entity-process').style.display = 'block'
 
-  let cmdStr = 'abphelper generate -e' + entityName + ' -s ' + solutionFile
-  if (basicOptions.repository) cmdStr += ' --custom-repository'
+  let cmdStr = 'abphelper generate -e ' + entityName + ' -s ' + solutionFile
   if (extraOptions.separateDto) cmdStr += ' --separate-dto'
+  if (extraOptions.repository) cmdStr += ' --custom-repository'
+  if (extraOptions.skipDbMigrations) cmdStr += ' --skip-db-migrations'
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()
