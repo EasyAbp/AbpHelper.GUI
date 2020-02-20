@@ -46,7 +46,7 @@ function runExec(action) {
   execBtn.disabled = true
   document.getElementById('abphelper-cli-' + action + '-process').style.display = 'block'
 
-  let cmdStr = 'dotnet tool ' + action + ' -g EasyAbp.AbpHelper.Cli'
+  let cmdStr = 'dotnet tool ' + action + ' -g EasyAbp.AbpHelper'
   if (version.trim() !== 'latest') cmdStr += ' --version ' + version
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
