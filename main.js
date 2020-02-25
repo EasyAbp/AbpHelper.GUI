@@ -121,7 +121,7 @@ let template = [{
   click: () => loadShowPage('code-generator-entity')
 }, {
   label: 'Modules Manager...',
-  click: () => loadShowPage('module-manager-local')
+  click: () => loadShowPage('modules-manager-store')
 }, {
   label: 'Awesome tools...',
   click: () => loadShowPage('awesome-tools-ef-provider')
