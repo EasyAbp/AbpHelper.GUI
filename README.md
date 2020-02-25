@@ -17,6 +17,7 @@ AbpHelper is a tool to help you with developing Abp vNext applications. AbpHelpe
 
 - [ ] Support ABP CLI login command
 - [ ] AbpHelper CLI update check
+- [ ] Remember used solutions
 - [ ] Abp module store
 - [ ] EF Core provider change helper
 
