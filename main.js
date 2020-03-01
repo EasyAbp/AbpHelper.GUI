@@ -5,7 +5,7 @@
 const fetch = require('electron-main-fetch')
 const path = require('path')
 const glob = require('glob')
-const exec = require('child_process').exec
+const execFile = require('child_process').execFile
 const {app, Menu, Tray, BrowserWindow, shell} = require('electron')
 
 const debug = /--debug/.test(process.argv[2])
@@ -111,8 +111,8 @@ let checkUpdateMenuItem = {
 let cliCheckUpdateMenuItem = {
   id: 'cliCheckUpdate',
   label: 'CLI: Ready for update checking',
-  enabled: false,
-  click: async () => await cliCheckForUpdate()
+  enabled: true,
+  click: async () => refreshAbphelperCliVersion()
 }
 
 let downloadReleaseMenuItem = {
@@ -262,23 +262,17 @@ function getAbphelperCliVersion() {
 }
 
 function refreshAbphelperCliVersion() {
-  let cmdStr = 'abphelper --version'
-  workerProcess = exec(cmdStr)
-
-  workerProcess.stdout.on('data', function (data) {
-    let version = data.replace(/[\r\n]/g, "")
-    if (abphelperCliVersion == null) {
-      abphelperCliVersion = version
-      cliCheckForUpdate()
-    } else {
-      abphelperCliVersion = version
+  workerProcess = execFile('abphelper', ['--version'], (error, stdout, stderr) => {
+    if (error) {
+      abphelperCliVersion = null
+      console.log(error)
+      console.log(stderr)
+      return
     }
-  });
-
-  workerProcess.stderr.on('data', function (data) {
-    abphelperCliVersion = null
-    console.log(data)
-  });
+    let version = stdout.replace(/[\r\n]/g, "")
+    abphelperCliVersion = version
+    cliCheckForUpdate()
+  })
 }
 
 initialize()
