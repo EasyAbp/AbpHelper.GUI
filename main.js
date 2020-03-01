@@ -5,6 +5,7 @@
 const fetch = require('electron-main-fetch')
 const path = require('path')
 const glob = require('glob')
+const exec = require('child_process').exec
 const {app, Menu, Tray, BrowserWindow, shell} = require('electron')
 
 const debug = /--debug/.test(process.argv[2])
@@ -25,6 +26,7 @@ function initialize () {
     tray = new Tray(path.join(__dirname, '/assets/app-icon/png/32.png'))
     buildTrayMenuFromTemplate()
     checkForUpdate()
+    refreshAbphelperCliVersion()
 
     tray.on('double-click', function () {
       if (mainWindow) {
@@ -101,16 +103,30 @@ let tray = null
 
 let checkUpdateMenuItem = {
   id: 'checkUpdate',
-  label: 'Ready for update checking',
+  label: 'GUI: Ready for update checking',
   enabled: false,
   click: async () => await checkForUpdate()
 }
 
+let cliCheckUpdateMenuItem = {
+  id: 'cliCheckUpdate',
+  label: 'CLI: Ready for update checking',
+  enabled: false,
+  click: async () => await cliCheckForUpdate()
+}
+
 let downloadReleaseMenuItem = {
   id: 'downloadRelease',
-  label: 'Download latest release',
+  label: 'Download AbpHelper GUI latest release',
   visible: false,
   click: () => shell.openExternal('https://github.com/EasyAbp/AbpHelper.GUI/releases')
+}
+
+let cliUpdateMenuItem = {
+  id: 'cliUpdate',
+  label: 'Update AbpHelper CLI...',
+  visible: false,
+  click: () => loadShowPage('modules-manager-abphelper-cli')
 }
 
 let template = [{
@@ -141,8 +157,12 @@ let template = [{
       label: 'Abp Helper',
       click: () => shell.openExternal('https://github.com/EasyAbp/AbpHelper.GUI')
     }]
-  }, checkUpdateMenuItem,
-  downloadReleaseMenuItem, {
+  },
+  checkUpdateMenuItem,
+  cliCheckUpdateMenuItem,
+  downloadReleaseMenuItem,
+  cliUpdateMenuItem,
+  {
     label: 'About...',
     click: () => loadShowPage('about')
   }]
@@ -168,21 +188,43 @@ function buildTrayMenuFromTemplate() {
 async function checkForUpdate() {
   const currentVersion = app.getVersion()
   downloadReleaseMenuItem.visible = false
-  checkUpdateMenuItem.label = 'Checking for Update....'
+  checkUpdateMenuItem.label = 'GUI: Checking for Update....'
   checkUpdateMenuItem.enabled = false
   const data = JSON.parse(await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.GUI/releases/latest', {type: 'text'}))
   if (data.tag_name) {
-    checkUpdateMenuItem.label = 'Latest: v' + data.tag_name + ' (Current: v' + currentVersion + ')'
+    checkUpdateMenuItem.label = 'GUI: Latest: v' + data.tag_name + ' (Current: v' + currentVersion + ')'
     checkUpdateMenuItem.enabled = true
     if (currentVersion != data.tag_name) {
       downloadReleaseMenuItem.visible = true
     }
   } else if (data.message && data.message.indexOf('API rate limit exceeded') == 0) {
-    checkUpdateMenuItem.label = 'Update checking failed: API rate limit exceeded'
+    checkUpdateMenuItem.label = 'GUI: Update checking failed (API rate limit exceeded)'
     checkUpdateMenuItem.enabled = true
   } else {
-    checkUpdateMenuItem.label = 'Update checking failed'
+    checkUpdateMenuItem.label = 'GUI: Update checking failed'
     checkUpdateMenuItem.enabled = true
+  }
+  buildTrayMenuFromTemplate()
+}
+
+async function cliCheckForUpdate() {
+  const currentVersion = getAbphelperCliVersion()
+  downloadReleaseMenuItem.visible = false
+  cliCheckUpdateMenuItem.label = 'CLI: Checking for CLI Update....'
+  cliCheckUpdateMenuItem.enabled = false
+  const data = JSON.parse(await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.CLI/releases/latest', {type: 'text'}))
+  if (data.tag_name) {
+    cliCheckUpdateMenuItem.label = 'CLI: Latest: v' + data.tag_name + ' (Current: v' + currentVersion + ')'
+    cliCheckUpdateMenuItem.enabled = true
+    if (currentVersion != data.tag_name) {
+      cliUpdateMenuItem.visible = true
+    }
+  } else if (data.message && data.message.indexOf('API rate limit exceeded') == 0) {
+    cliCheckUpdateMenuItem.label = 'CLI: Update checking failed (API rate limit exceeded)'
+    cliCheckUpdateMenuItem.enabled = true
+  } else {
+    cliCheckUpdateMenuItem.label = 'CLI: Update checking failed'
+    cliCheckUpdateMenuItem.enabled = true
   }
   buildTrayMenuFromTemplate()
 }
@@ -211,6 +253,32 @@ function makeSingleInstance () {
 function loadDemos () {
   const files = glob.sync(path.join(__dirname, 'main-process/**/*.js'))
   files.forEach((file) => { require(file) })
+}
+
+let abphelperCliVersion = null
+
+function getAbphelperCliVersion() {
+  return abphelperCliVersion
+}
+
+function refreshAbphelperCliVersion() {
+  let cmdStr = 'abphelper --version'
+  workerProcess = exec(cmdStr)
+
+  workerProcess.stdout.on('data', function (data) {
+    let version = data.replace(/[\r\n]/g, "")
+    if (abphelperCliVersion == null) {
+      abphelperCliVersion = version
+      cliCheckForUpdate()
+    } else {
+      abphelperCliVersion = version
+    }
+  });
+
+  workerProcess.stderr.on('data', function (data) {
+    abphelperCliVersion = null
+    console.log(data)
+  });
 }
 
 initialize()
