@@ -5,7 +5,7 @@
 const fetch = require('electron-main-fetch')
 const path = require('path')
 const glob = require('glob')
-const execFile = require('child_process').execFile
+const exec = require('child_process').exec
 const {app, Menu, Tray, BrowserWindow, shell} = require('electron')
 
 const debug = /--debug/.test(process.argv[2])
@@ -262,7 +262,7 @@ function getAbphelperCliVersion() {
 }
 
 function refreshAbphelperCliVersion() {
-  workerProcess = execFile('abphelper', ['--version'], (error, stdout, stderr) => {
+  workerProcess = exec('abphelper --version', {cwd: '/'}, (error, stdout, stderr) => {
     if (error) {
       abphelperCliVersion = null
       console.log(error)

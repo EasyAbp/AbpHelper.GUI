@@ -46,6 +46,7 @@ function runExec() {
   scrollConsoleToBottom()
   console.log(cmdStr)
   workerProcess = exec('chcp 65001 & ' + cmdStr, {cwd: cmdPath})
+  
   workerProcess.stdout.on('data', function (data) {
     addConsoleContent(data)
     scrollConsoleToBottom()

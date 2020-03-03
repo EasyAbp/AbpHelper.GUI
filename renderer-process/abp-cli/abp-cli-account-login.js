@@ -24,7 +24,7 @@ function runExec() {
   scrollConsoleToBottom()
   console.log(cmdStr)
   // Todo: how to input password?
-  workerProcess = exec('chcp 65001 & ' + cmdStr, {})
+  workerProcess = exec('chcp 65001 & ' + cmdStr, {cwd: '/'})
   
   workerProcess.stdout.on('data', function (data) {
     addConsoleContent(data)
