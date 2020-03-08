@@ -3,8 +3,6 @@ const exec = require('child_process').exec
 
 let isRunning = false
 
-let uiFramework = 'mvc'
-
 let extraOptions = {
   separateDto: false,
   repository: false,
@@ -20,7 +18,6 @@ let consoleNode = document.getElementById('box-code-generator-entity').getElemen
 
 const execBtn = document.getElementById('entity-execute')
 const selectSolutionFileBtn = document.getElementById('entity-select-solution-file-btn')
-const uiRadios = document.getElementsByName('entity-uiFramework-data')
 const extraOptionsCheckBox = {
   separateDto: document.getElementById('entity-options-separateDto'),
   repository: document.getElementById('entity-options-repository'),
@@ -45,24 +42,6 @@ selectSolutionFileBtn.addEventListener('click', (event) => {
   })
 })
 
-uiRadios.forEach(function (uiRadio) {
-  uiRadio.addEventListener('click', (event) => {
-    switch (uiRadio.id) {
-      case 'entity-uiFramework-data-mvc':
-        uiFramework = 'mvc'
-        break;
-      case 'entity-uiFramework-data-angular':
-        uiFramework = 'angular'
-        break;
-      case 'entity-uiFramework-data-none':
-        uiFramework = 'none'
-        break;
-      default:
-        break;
-    }
-  })
-})
-
 function findLastStr(str, cha, num) {
   let times = num == 0 ? 1 : num;
   var x = str.lastIndexOf(cha);
@@ -74,7 +53,12 @@ function findLastStr(str, cha, num) {
 
 function getSolutionRootPath(slnFilePath) {
   let separator = slnFilePath.indexOf('/') != -1 ? '/' : '\\'
-  return uiFramework == 'angular' ? slnFilePath.substr(0, findLastStr(slnFilePath, separator, 2)) : slnFilePath.substr(0, findLastStr(slnFilePath, separator, 1))
+  let strs = slnFilePath.split(separator)
+  if (strs.length < 2 || strs[strs.length - 2] != 'aspnet-core') {
+    alert('The .sln file must be in the "aspnet-core" folder.')
+    return null
+  }
+  return slnFilePath.substr(0, findLastStr(slnFilePath, separator, 2))
 }
 
 execBtn.addEventListener('click', (event) => {
@@ -110,11 +94,15 @@ function runExec() {
   let entityName = document.getElementById('entity-entity-name').value
   let solutionFile = document.getElementById('entity-solution-file').value
   if (isRunning  || !entityName || !solutionFile) return
+  
+  let solutionRootPath = getSolutionRootPath(solutionFile)
+  if (!solutionRootPath) return
+
   isRunning = true
   execBtn.disabled = true
   document.getElementById('entity-process').style.display = 'block'
 
-  let cmdStr = 'abphelper generate crud ' + entityName + ' -d ' + getSolutionRootPath(solutionFile)
+  let cmdStr = 'abphelper generate crud ' + entityName + ' -d ' + solutionRootPath
   if (extraOptions.separateDto) cmdStr += ' --separate-dto'
   if (extraOptions.repository) cmdStr += ' --custom-repository'
   if (extraOptions.skipDbMigrations) cmdStr += ' --skip-db-migrations'
