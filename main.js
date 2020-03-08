@@ -151,19 +151,19 @@ let template = [{
     label: 'Resources',
     submenu: [{
       label: 'Abp Framework',
-      icon: 'assets/app-icon/menuitem/abp/icon.png',
+      icon: path.join(__dirname, '/assets/app-icon/menuitem/abp/icon.png'),
       click: () => shell.openExternal('https://abp.io')
     }, {
       label: 'Abp Commercial',
-      icon: 'assets/app-icon/menuitem/abp/icon.png',
+      icon: path.join(__dirname, '/assets/app-icon/menuitem/abp/icon.png'),
       click: () => shell.openExternal('https://commercial.abp.io')
     }, {
       label: 'AbpHelper GUI',
-      icon: 'assets/app-icon/menuitem/abphelper/icon.png',
+      icon: path.join(__dirname, '/assets/app-icon/menuitem/abphelper/icon.png'),
       click: () => shell.openExternal('https://github.com/EasyAbp/AbpHelper.GUI')
     }, {
       label: 'AbpHelper CLI',
-      icon: 'assets/app-icon/menuitem/abphelper/icon.png',
+      icon: path.join(__dirname, '/assets/app-icon/menuitem/abphelper/icon.png'),
       click: () => shell.openExternal('https://github.com/EasyAbp/AbpHelper.CLI')
     }]
   },
