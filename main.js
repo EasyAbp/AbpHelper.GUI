@@ -46,7 +46,7 @@ function initialize () {
       width: 1080,
       minWidth: 680,
       height: 840,
-      title: app.getName(),
+      title: app.getName() + ' v' + app.getVersion(),
       webPreferences: {
         nodeIntegration: true
       },
@@ -190,7 +190,7 @@ function loadShowPage(tag) {
 
 function buildTrayMenuFromTemplate() {
   contextMenu = Menu.buildFromTemplate(template)
-  tray.setToolTip('Abp Helper')
+  tray.setToolTip('AbpHelper v' + app.getVersion())
   tray.setContextMenu(contextMenu)
 }
 

@@ -64,7 +64,7 @@ describe('demo app', function () {
       .browserWindow.isFocused().should.eventually.be.true
       .browserWindow.getBounds().should.eventually.have.property('width').and.be.above(0)
       .browserWindow.getBounds().should.eventually.have.property('height').and.be.above(0)
-      .browserWindow.getTitle().should.eventually.equal('Abp Helper')
+      .browserWindow.getTitle().should.eventually.equal('AbpHelper')
       .waitForVisible('#about-modal').should.eventually.be.true
       .isVisible('.js-nav').should.eventually.be.false
       .click('button[id="get-started"]').pause(500)

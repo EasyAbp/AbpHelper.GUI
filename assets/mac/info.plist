@@ -10,7 +10,7 @@
         <string>AbpHelper</string>
       </array>
       <key>CFBundleURLName</key>
-      <string>Abp Helper Protocol</string>
+      <string>AbpHelper Protocol</string>
     </dict>
   </array>
   <key>ElectronTeamID</key>
