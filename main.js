@@ -99,14 +99,14 @@ let tray = null
 
 let checkUpdateMenuItem = {
   id: 'checkUpdate',
-  label: 'GUI: Ready for update checking',
+  label: 'GUI Version: Ready for update checking',
   enabled: false,
   click: async () => await checkForUpdate()
 }
 
 let cliCheckUpdateMenuItem = {
   id: 'cliCheckUpdate',
-  label: 'CLI: Ready for update checking',
+  label: 'CLI Version: Ready for update checking',
   enabled: false,
   click: async () => refreshAbphelperCliVersion()
 }
@@ -126,7 +126,7 @@ let cliUpdateMenuItem = {
 }
 
 let template = [{
-  label: 'Abp-CLI...',
+  label: 'Abp CLI...',
   click: () => loadShowPage('abp-cli-new')
 }, {
   label: 'Code Generator...',
@@ -135,7 +135,7 @@ let template = [{
   label: 'Modules Manager...',
   click: () => loadShowPage('modules-manager-store')
 }, {
-  label: 'Awesome tools...',
+  label: 'Awesome Tools...',
   click: () => loadShowPage('awesome-tools-ef-provider')
 }, {
   type: 'separator'
@@ -191,20 +191,20 @@ function buildTrayMenuFromTemplate() {
 async function checkForUpdate() {
   const currentVersion = app.getVersion()
   downloadReleaseMenuItem.visible = false
-  checkUpdateMenuItem.label = 'GUI: Checking for Update....'
+  checkUpdateMenuItem.label = 'GUI Version: Checking for Update....'
   checkUpdateMenuItem.enabled = false
   const data = JSON.parse(await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.GUI/releases/latest', {type: 'text'}))
   if (data.tag_name) {
-    checkUpdateMenuItem.label = 'GUI: Latest: v' + data.tag_name + ' (Current: v' + currentVersion + ')'
+    checkUpdateMenuItem.label = data.tag_name == currentVersion ? 'GUI Version: v' + currentVersion : 'GUI Version: v' + currentVersion + ' (Latest: v' + data.tag_name + ')'
     checkUpdateMenuItem.enabled = true
     if (currentVersion != data.tag_name) {
       downloadReleaseMenuItem.visible = true
     }
   } else if (data.message && data.message.indexOf('API rate limit exceeded') == 0) {
-    checkUpdateMenuItem.label = 'GUI: Update checking failed (API rate limit exceeded)'
+    checkUpdateMenuItem.label = 'GUI Version: Update checking failed (API rate limit exceeded)'
     checkUpdateMenuItem.enabled = true
   } else {
-    checkUpdateMenuItem.label = 'GUI: Update checking failed'
+    checkUpdateMenuItem.label = 'GUI Version: Update checking failed'
     checkUpdateMenuItem.enabled = true
   }
   buildTrayMenuFromTemplate()
@@ -213,20 +213,20 @@ async function checkForUpdate() {
 async function cliCheckForUpdate() {
   const currentVersion = getAbphelperCliVersion()
   cliUpdateMenuItem.visible = false
-  cliCheckUpdateMenuItem.label = 'CLI: Checking for CLI Update....'
+  cliCheckUpdateMenuItem.label = 'CLI Version: Checking for CLI Update....'
   cliCheckUpdateMenuItem.enabled = false
   const data = JSON.parse(await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.CLI/releases/latest', {type: 'text'}))
   if (data.tag_name) {
-    cliCheckUpdateMenuItem.label = 'CLI: Latest: v' + data.tag_name + ' (Current: v' + currentVersion + ')'
+    cliCheckUpdateMenuItem.label = data.tag_name == currentVersion ? 'CLI Version: v' + currentVersion : 'CLI Version: v' + currentVersion + ' (Latest: v' + data.tag_name + ')'
     cliCheckUpdateMenuItem.enabled = true
     if (currentVersion != data.tag_name) {
       cliUpdateMenuItem.visible = true
     }
   } else if (data.message && data.message.indexOf('API rate limit exceeded') == 0) {
-    cliCheckUpdateMenuItem.label = 'CLI: Update checking failed (API rate limit exceeded)'
+    cliCheckUpdateMenuItem.label = 'CLI Version: Update checking failed (API rate limit exceeded)'
     cliCheckUpdateMenuItem.enabled = true
   } else {
-    cliCheckUpdateMenuItem.label = 'CLI: Update checking failed'
+    cliCheckUpdateMenuItem.label = 'CLI Version: Update checking failed'
     cliCheckUpdateMenuItem.enabled = true
   }
   buildTrayMenuFromTemplate()
@@ -237,7 +237,7 @@ async function cliCheckForUpdate() {
 // The main window will be restored and focused instead of a second window
 // opened when a person attempts to launch a second instance.
 //
-// Returns true if the current version of the app should quit instead of
+// Returns true if the current Version of the app should quit instead of
 // launching.
 function makeSingleInstance () {
   if (process.mas) return
@@ -272,8 +272,8 @@ function refreshAbphelperCliVersion() {
       console.log(stderr)
       return
     }
-    let version = stdout.replace(/[\r\n]/g, "")
-    abphelperCliVersion = version
+    let Version = stdout.replace(/[\r\n]/g, "")
+    abphelperCliVersion = Version
     cliCheckForUpdate()
   })
 }
