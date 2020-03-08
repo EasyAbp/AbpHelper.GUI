@@ -20,10 +20,12 @@ selectFileBtn.addEventListener('click', (event) => {
       { name: 'Abp Solution', extensions: ['sln'] },
     ],
     properties: ['openFile']
-  }, (files) => {
-    if (files) {
-      document.getElementById('add-module-solution-file').value = files[0]
+  }).then(result => {
+    if (result.filePaths[0]) {
+      document.getElementById('add-module-solution-file').value = result.filePaths[0]
     }
+  }).catch(err => {
+    console.log(err)
   })
 })
 
@@ -33,10 +35,12 @@ selectSpFileBtn.addEventListener('click', (event) => {
       { name: 'Abp Project', extensions: ['csproj'] },
     ],
     properties: ['openFile']
-  }, (files) => {
-    if (files) {
-      document.getElementById('add-module-startup-project-file').value = files[0]
+  }).then(result => {
+    if (result.filePaths[0]) {
+      document.getElementById('add-module-startup-project-file').value = result.filePaths[0]
     }
+  }).catch(err => {
+    console.log(err)
   })
 })
 

@@ -20,10 +20,12 @@ const separateCheckbox = document.getElementById('app-options-separate')
 selectFolderBtn.addEventListener('click', (event) => {
   dialog.showOpenDialog({
     properties: ['openDirectory']
-  }, (files) => {
-    if (files) {
-      document.getElementById('app-project-folder').value = files[0]
+  }).then(result => {
+    if (result.filePaths[0]) {
+      document.getElementById('app-project-folder').value = result.filePaths[0]
     }
+  }).catch(err => {
+    console.log(err)
   })
 })
 

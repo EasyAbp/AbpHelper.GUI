@@ -14,10 +14,12 @@ const noUiCheckbox = document.getElementById('module-no-ui')
 selectFolderBtn.addEventListener('click', (event) => {
   dialog.showOpenDialog({
     properties: ['openDirectory']
-  }, (files) => {
-    if (files) {
-      document.getElementById('module-project-folder').value = files[0]
+  }).then(result => {
+    if (result.filePaths[0]) {
+      document.getElementById('module-project-folder').value = result.filePaths[0]
     }
+  }).catch(err => {
+    console.log(err)
   })
 })
 

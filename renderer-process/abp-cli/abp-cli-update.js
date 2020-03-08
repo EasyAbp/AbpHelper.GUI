@@ -18,10 +18,12 @@ const onlyNugetCheckbox = document.getElementById('update-only-nuget')
 selectFileBtn.addEventListener('click', (event) => {
   dialog.showOpenDialog({
     properties: ['openDirectory']
-  }, (files) => {
-    if (files) {
-      document.getElementById('update-folder').value = files[0]
+  }).then(result => {
+    if (result.filePaths[0]) {
+      document.getElementById('update-folder').value = result.filePaths[0]
     }
+  }).catch(err => {
+    console.log(err)
   })
 })
 

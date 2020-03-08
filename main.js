@@ -74,12 +74,6 @@ function initialize () {
     mainWindow.on('close', (event) => { 
       mainWindow.hide(); 
       if (!forceQuit) event.preventDefault();
-    });
-    mainWindow.on('show', () => {
-      tray.setHighlightMode('always')
-    })
-    mainWindow.on('hide', () => {
-      tray.setHighlightMode('never')
     })
   }
 

@@ -35,10 +35,12 @@ selectSolutionFileBtn.addEventListener('click', (event) => {
       { name: 'Abp Solution', extensions: ['sln'] },
     ],
     properties: ['openFile']
-  }, (files) => {
-    if (files) {
-      document.getElementById('entity-solution-file').value = files[0]
+  }).then(result => {
+    if (result.filePaths[0]) {
+      document.getElementById('entity-solution-file').value = result.filePaths[0]
     }
+  }).catch(err => {
+    console.log(err)
   })
 })
 
