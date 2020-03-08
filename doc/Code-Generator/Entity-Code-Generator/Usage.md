@@ -8,14 +8,14 @@
 
 ## Presentation
 
-![pic1](doc/Code-Generator/Entity-Code-Generator/images/1.jpg)
+![pic1](images/1.png)
 
-![pic2](doc/Code-Generator/Entity-Code-Generator/images/2.jpg)
+![pic2](images/2.png)
 
-![pic3](doc/Code-Generator/Entity-Code-Generator/images/3.jpg)
+![pic3](images/3.png)
 
-![pic4](doc/Code-Generator/Entity-Code-Generator/images/4.jpg)
+![pic4](images/4.png)
 
-![pic5](doc/Code-Generator/Entity-Code-Generator/images/5.jpg)
+![pic5](images/5.png)
 
-![pic6](doc/Code-Generator/Entity-Code-Generator/images/6.jpg)
+![pic6](images/6.png)
