@@ -25,8 +25,10 @@ function initialize () {
   function createTray() {
     tray = new Tray(path.join(__dirname, '/assets/app-icon/png/32.png'))
     buildTrayMenuFromTemplate()
-    checkForUpdate()
-    refreshAbphelperCliVersion()
+    if (!debug) {
+      checkForUpdate()
+      refreshAbphelperCliVersion()
+    }
 
     tray.on('double-click', function () {
       if (mainWindow) {
@@ -111,7 +113,7 @@ let checkUpdateMenuItem = {
 let cliCheckUpdateMenuItem = {
   id: 'cliCheckUpdate',
   label: 'CLI: Ready for update checking',
-  enabled: true,
+  enabled: false,
   click: async () => refreshAbphelperCliVersion()
 }
 
@@ -209,7 +211,7 @@ async function checkForUpdate() {
 
 async function cliCheckForUpdate() {
   const currentVersion = getAbphelperCliVersion()
-  downloadReleaseMenuItem.visible = false
+  cliUpdateMenuItem.visible = false
   cliCheckUpdateMenuItem.label = 'CLI: Checking for CLI Update....'
   cliCheckUpdateMenuItem.enabled = false
   const data = JSON.parse(await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.CLI/releases/latest', {type: 'text'}))
