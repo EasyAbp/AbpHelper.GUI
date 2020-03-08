@@ -6,7 +6,7 @@ AbpHelper is a tool to help you with developing Abp vNext applications. It can b
 
 > This GUI app is based on [AbpHelper.CLI](https://github.com/EasyAbp/AbpHelper.CLI), if you prefer command line, use it directly.
 
-# Getting Started
+## Getting Started
 
 1. Download the [last release](https://github.com/EasyAbp/AbpHelper.GUI/releases).
 
@@ -17,7 +17,11 @@ AbpHelper is a tool to help you with developing Abp vNext applications. It can b
 ![preview 1](doc/images/preview1.png)
 ![preview 2](doc/images/preview2.png)
 
-# Roadmap
+## Usage
+
+* [Entity Code Generator](https://github.com/EasyAbp/AbpHelper.GUI/doc/Code-Generator/Entity-Code-Generator/Usage.md)
+
+## Roadmap
 
 - [ ] Support ABP CLI login command
 - [x] AbpHelper CLI update check
