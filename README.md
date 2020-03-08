@@ -1,6 +1,10 @@
 # AbpHelper.GUI
 
-AbpHelper is a tool to help you with developing Abp vNext applications. AbpHelper GUI can be used to call ABP CLI, generate code, manage modules, etc.
+AbpHelper is a tool to help you with developing Abp vNext applications. It can be used to call ABP CLI, generate code, manage modules, etc.
+
+**Make sure backup your source files before using it!**
+
+> This GUI app is based on [AbpHelper.CLI](https://github.com/EasyAbp/AbpHelper.CLI), if you prefer command line, use it directly.
 
 # Getting Started
 
