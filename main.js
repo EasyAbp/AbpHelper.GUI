@@ -10,7 +10,7 @@ const {app, Menu, Tray, BrowserWindow, shell} = require('electron')
 
 const debug = /--debug/.test(process.argv[2])
 
-if (process.mas) app.setName('Abp Helper')
+if (process.mas) app.setName('AbpHelper')
 
 let mainWindow = null
 let contextMenu = null
@@ -151,13 +151,20 @@ let template = [{
     label: 'Resources',
     submenu: [{
       label: 'Abp Framework',
+      icon: 'assets/app-icon/menuitem/abp/icon.png',
       click: () => shell.openExternal('https://abp.io')
     }, {
       label: 'Abp Commercial',
+      icon: 'assets/app-icon/menuitem/abp/icon.png',
       click: () => shell.openExternal('https://commercial.abp.io')
     }, {
-      label: 'Abp Helper',
+      label: 'AbpHelper GUI',
+      icon: 'assets/app-icon/menuitem/abphelper/icon.png',
       click: () => shell.openExternal('https://github.com/EasyAbp/AbpHelper.GUI')
+    }, {
+      label: 'AbpHelper CLI',
+      icon: 'assets/app-icon/menuitem/abphelper/icon.png',
+      click: () => shell.openExternal('https://github.com/EasyAbp/AbpHelper.CLI')
     }]
   },
   checkUpdateMenuItem,
