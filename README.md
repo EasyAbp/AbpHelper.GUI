@@ -19,7 +19,7 @@ AbpHelper is a tool to help you with developing Abp vNext applications. It can b
 
 ## Usage
 
-* [Entity Code Generator](https://github.com/EasyAbp/AbpHelper.GUI/doc/Code-Generator/Entity-Code-Generator/Usage.md)
+* [Entity Code Generator](doc/Code-Generator/Entity-Code-Generator/Usage.md)
 
 ## Roadmap
 
