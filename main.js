@@ -237,7 +237,7 @@ async function cliCheckForUpdate() {
 // The main window will be restored and focused instead of a second window
 // opened when a person attempts to launch a second instance.
 //
-// Returns true if the current Version of the app should quit instead of
+// Returns true if the current version of the app should quit instead of
 // launching.
 function makeSingleInstance () {
   if (process.mas) return
@@ -272,8 +272,7 @@ function refreshAbphelperCliVersion() {
       console.log(stderr)
       return
     }
-    let Version = stdout.replace(/[\r\n]/g, "")
-    abphelperCliVersion = Version
+    abphelperCliVersion = stdout.replace(/[\r\n]/g, "")
     cliCheckForUpdate()
   })
 }
