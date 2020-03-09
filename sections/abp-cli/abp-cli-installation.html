@@ -53,6 +53,27 @@
       </div>
     </div>
 
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Uninstall Abp CLI
+          <div class="demo-meta u-avoid-clicks">Uninstall dotnet global tool: Abp CLI</div>
+        </button>
+        <div id="box-abp-cli-cli-uninstall" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>dotnet tool uninstall -g Volo.Abp.Cli</code></pre>
+
+          <h5>
+            <button class="demo-button" id="cli-uninstall-execute">Execute</button>
+          </h5>
+
+          <div id="cli-uninstall-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script type="text/javascript">
       require('./renderer-process/abp-cli/abp-cli-installation.js')
     </script>

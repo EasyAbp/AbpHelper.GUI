@@ -4,9 +4,11 @@ let isRunning = false
 
 let installConsoleNode = document.getElementById('box-abp-cli-cli-install').getElementsByTagName('textarea')[0]
 let updateConsoleNode = document.getElementById('box-abp-cli-cli-update').getElementsByTagName('textarea')[0]
+let uninstallConsoleNode = document.getElementById('box-abp-cli-cli-uninstall').getElementsByTagName('textarea')[0]
 
 const installExecBtn = document.getElementById('cli-install-execute')
 const updateExecBtn = document.getElementById('cli-update-execute')
+const uninstallExecBtn = document.getElementById('cli-uninstall-execute')
 
 installExecBtn.addEventListener('click', (event) => {
   runExec('install')
@@ -14,6 +16,10 @@ installExecBtn.addEventListener('click', (event) => {
 
 updateExecBtn.addEventListener('click', (event) => {
   runExec('update')
+})
+
+uninstallExecBtn.addEventListener('click', (event) => {
+  runExec('uninstall')
 })
 
 function runExec(action) {
@@ -27,6 +33,9 @@ function runExec(action) {
   } else if (action === 'update') {
     execBtn = updateExecBtn
     consoleNode = updateConsoleNode
+  } else if (action === 'uninstall') {
+    execBtn = uninstallExecBtn
+    consoleNode = uninstallConsoleNode
   } else {
     return
   }
