@@ -5,23 +5,29 @@
   "description": "AbpHelper is a tool to help you with developing Abp vNext applications.",
   "main": "main.js",
   "bin": "cli.js",
+  "build": {
+    "appId": "org.easyabp.abphelper",
+    "productName": "AbpHelper",
+    "copyright": "Copyright © 2020 EasyAbp",
+    "icon": "assets/app-icon/win/app.ico",
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis"
+        }
+      ]
+    },
+    "mac": {
+      "icon": "assets/app-icon/mac/app.icns",
+      "category": "public.app-category.developer-tools"
+    }
+  },
   "scripts": {
     "start": "electron .",
     "dev": "electron . --debug",
     "test": "mocha && standard",
-    "package": "npm-run-all --parallel package:win64 package:mac64 package:linux64",
-    "package:mac": "electron-packager . --overwrite --platform=darwin --arch=ia32 --out=out --icon=assets/app-icon/mac/app.icns --asar",
-    "package:mac64": "electron-packager . --overwrite --platform=darwin --arch=x64 --out=out --icon=assets/app-icon/mac/app.icns --asar",
-    "package:win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --out=out --icon=assets/app-icon/win/app.ico --asar",
-    "package:win64": "electron-packager . --overwrite --platform=win32 --arch=x64 --out=out --icon=assets/app-icon/win/app.ico --asar",
-    "package:linux": "electron-packager . --overwrite --platform=linux --arch=ia32 --out=out --icon=assets/app-icon/win/app.ico --asar",
-    "package:linux64": "electron-packager . --overwrite --platform=linux --arch=x64 --out=out --icon=assets/app-icon/win/app.ico --asar",
-    "package:sign-exe": "signcode './out/AbpHelper-win32-ia32/AbpHelper.exe' --cert ~/AbpHelper.p12 --prompt --name 'AbpHelper' --url 'http://electron.atom.io'",
-    "package:installer": "node ./script/installer.js",
-    "package:sign-installer": "signcode './out/windows-installer/ElectronAPIDemosSetup.exe' --cert ~/AbpHelper.p12 --prompt --name 'AbpHelper' --url 'http://electron.atom.io'",
-    "xpackage:mas": "./script/mas.sh",
-    "windows-store": "node ./script/windows-store.js",
-    "release": "node ./script/release.js",
+    "package": "electron-builder",
     "prepack": "check-for-leaks",
     "prepush": "check-for-leaks"
   },
@@ -40,8 +46,7 @@
     "check-for-leaks": "^1.2.1",
     "devtron": "^1.4.0",
     "electron": "^8.1.0",
-    "electron-packager": "^14.2.1",
-    "electron-winstaller": "^4.0.0",
+    "electron-builder": "^22.3.6",
     "husky": "^4.2.3",
     "mocha": "^7.1.0",
     "npm-run-all": "^4.1.5",
