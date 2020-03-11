@@ -25,7 +25,9 @@ function initialize () {
   loadDemos()
 
   function createTray() {
-    tray = new Tray(path.join(__dirname, '/assets/app-icon/png/32.png'))
+    let trayIcon = process.platform === 'darwin' ? '/assets/app-icon/tray/icon-darwin.png' : '/assets/app-icon/tray/icon.png'
+    console.log(trayIcon)
+    tray = new Tray(path.join(__dirname, trayIcon))
     buildTrayMenuFromTemplate()
     if (!debug) {
       checkForUpdate()
