@@ -12,6 +12,8 @@ const debug = /--debug/.test(process.argv[2])
 
 if (process.mas) app.setName('AbpHelper')
 
+if (process.platform === 'darwin') require('fix-path')()
+
 let mainWindow = null
 let contextMenu = null
 
