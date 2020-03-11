@@ -104,7 +104,8 @@ function runExec() {
   execBtn.disabled = true
   document.getElementById('entity-process').style.display = 'block'
 
-  let cmdStr = 'abphelper generate crud ' + entityName + ' -d ' + solutionRootPath
+  let cliCommand = process.platform === 'win32' ? '%USERPROFILE%\\.dotnet\\tools\\abphelper' : '$HOME/.dotnet/tools/abphelper'
+  let cmdStr = cliCommand + ' generate crud ' + entityName + ' -d ' + solutionRootPath
   if (extraOptions.separateDto) cmdStr += ' --separate-dto'
   if (extraOptions.repository) cmdStr += ' --custom-repository'
   if (extraOptions.skipDbMigrations) cmdStr += ' --skip-db-migrations'
