@@ -62,7 +62,7 @@ function getSolutionRootPath(slnFilePath) {
     return slnFilePath.substr(0, findLastStr(slnFilePath, separator, 2))
   }
   var moduleRootPath = slnFilePath.substr(0, findLastStr(slnFilePath, separator, 1))
-  if (fs.existsSync(moduleRootPath + '/host')) {
+  if (fs.existsSync(moduleRootPath + separator + 'host')) {
     // is module
     return moduleRootPath
   }
