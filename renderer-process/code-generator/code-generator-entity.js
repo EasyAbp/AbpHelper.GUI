@@ -1,5 +1,6 @@
 const { dialog } = require('electron').remote
 const exec = require('child_process').exec
+const fs = require('fs')
 
 let isRunning = false
 
@@ -56,11 +57,16 @@ function findLastStr(str, cha, num) {
 function getSolutionRootPath(slnFilePath) {
   let separator = slnFilePath.indexOf('/') != -1 ? '/' : '\\'
   let strs = slnFilePath.split(separator)
-  if (strs.length < 2 || strs[strs.length - 2] != 'aspnet-core') {
-    alert('The .sln file must be in the "aspnet-core" folder.')
-    return null
+  if (strs.length > 1 && strs[strs.length - 2] === 'aspnet-core') {
+    // is app
+    return slnFilePath.substr(0, findLastStr(slnFilePath, separator, 2))
   }
-  return slnFilePath.substr(0, findLastStr(slnFilePath, separator, 2))
+  var moduleRootPath = slnFilePath.substr(0, findLastStr(slnFilePath, separator, 1))
+  if (fs.existsSync(moduleRootPath + '/host')) {
+    // is module
+    return moduleRootPath
+  }
+  return alert('The .sln file must be in the "aspnet-core" folder for app solution.')
 }
 
 execBtn.addEventListener('click', (event) => {
