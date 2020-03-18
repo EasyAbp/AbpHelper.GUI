@@ -50,7 +50,7 @@ function initialize () {
       width: 1080,
       minWidth: 680,
       height: 840,
-      title: app.getName() + ' v' + app.getVersion(),
+      title: app.name + ' v' + app.getVersion(),
       webPreferences: {
         nodeIntegration: true
       },
@@ -182,7 +182,7 @@ let template = [{
 }]
 
 function loadShowPage(tag) {
-  mainWindow.loadURL(path.join('file://', __dirname, '/index.html#' + tag))
+  app.emit('tray-nav-selected', tag);
   mainWindow.show()
 }
 
