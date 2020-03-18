@@ -40,13 +40,13 @@
   "author": "EasyAbp",
   "license": "Apache 2.0",
   "devDependencies": {
-    "@octokit/rest": "^17.0.0",
+    "@octokit/rest": "^17.1.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "check-for-leaks": "^1.2.1",
     "devtron": "^1.4.0",
-    "electron": "^8.1.0",
-    "electron-builder": "^22.3.6",
+    "electron": "^8.1.1",
+    "electron-builder": "^22.4.1",
     "husky": "^4.2.3",
     "mocha": "^7.1.0",
     "npm-run-all": "^4.1.5",
@@ -54,10 +54,10 @@
     "rimraf": "^3.0.2",
     "signcode": "^1.0.0",
     "spectron": "^10.0.1",
-    "standard": "^14.3.1"
+    "standard": "^14.3.3"
   },
   "dependencies": {
-    "electron-log": "^4.0.7",
+    "electron-log": "^4.1.0",
     "electron-main-fetch": "^0.2.0",
     "electron-settings": "^3.2.0",
     "electron-shortcut-normalizer": "^1.0.0",
