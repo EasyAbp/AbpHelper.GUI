@@ -270,6 +270,7 @@ function getAbphelperCliVersion() {
 
 function refreshAbphelperCliVersion() {
   let cliCommand = process.platform === 'win32' ? '%USERPROFILE%\\.dotnet\\tools\\abphelper' : '$HOME/.dotnet/tools/abphelper'
+  if (process.platform === 'win32') cliCommand = '@chcp 65001 >nul & cmd /d/s/c ' + cliCommand
   workerProcess = exec(cliCommand + ' --version', {cwd: '/'}, (error, stdout, stderr) => {
     if (error) {
       abphelperCliVersion = null

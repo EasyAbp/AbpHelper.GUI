@@ -40,7 +40,7 @@ function runExec() {
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()
   console.log(cmdStr)
-  if (process.platform === 'win32') cmdStr = 'chcp 65001 & ' + cmdStr
+  if (process.platform === 'win32') cmdStr = '@chcp 65001 >nul & cmd /d/s/c ' + cmdStr
   workerProcess = exec(cmdStr, {cwd: '/'})
   
   workerProcess.stdout.on('data', function (data) {
