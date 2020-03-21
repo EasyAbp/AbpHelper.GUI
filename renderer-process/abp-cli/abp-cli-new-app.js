@@ -71,8 +71,8 @@ dbRadios.forEach(function (dbRadio) {
       case 'app-db-ef':
         dbProvider = 'ef'
         break;
-      case 'app-db-mangodb':
-        dbProvider = 'mangodb'
+      case 'app-db-mongodb':
+        dbProvider = 'mongodb'
         break;
       default:
         break;
