@@ -66,7 +66,7 @@ function getSolutionRootPath(slnFilePath) {
     // is module
     return moduleRootPath
   }
-  return alert('The .sln file must be in the "aspnet-core" folder for app solution.')
+  return alert('App solution\'s .sln file should be in the "aspnet-core" folder. Module solution should have "host" folder.')
 }
 
 execBtn.addEventListener('click', (event) => {
