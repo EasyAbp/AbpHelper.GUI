@@ -11,6 +11,7 @@ let extraOptions = {
   skipUi: false,
   skipLocalization: false,
   skipTest: false,
+  skipEntityCtor: false,
   noOverwirte: false,
   migrationProjectName: false
 }
@@ -26,6 +27,7 @@ const extraOptionsCheckBox = {
   skipUi: document.getElementById('entity-options-skipUi'),
   skipLocalization: document.getElementById('entity-options-skipLocalization'),
   skipTest: document.getElementById('entity-options-skipTest'),
+  skipEntityCtor: document.getElementById('entity-options-skipEntityCtor'),
   noOverwirte: document.getElementById('entity-options-noOverwirte'),
   migrationProjectName: document.getElementById('entity-options-migrationProjectName'),
 }
@@ -91,6 +93,9 @@ extraOptionsCheckBox.skipLocalization.addEventListener('click', (event) => {
 extraOptionsCheckBox.skipTest.addEventListener('click', (event) => {
   extraOptions.skipTest = extraOptionsCheckBox.skipTest.checked
 })
+extraOptionsCheckBox.skipEntityCtor.addEventListener('click', (event) => {
+  extraOptions.skipEntityCtor = extraOptionsCheckBox.skipEntityCtor.checked
+})
 extraOptionsCheckBox.noOverwirte.addEventListener('click', (event) => {
   extraOptions.noOverwirte = extraOptionsCheckBox.noOverwirte.checked
 })
@@ -118,6 +123,7 @@ function runExec() {
   if (extraOptions.skipUi) cmdStr += ' --skip-ui'
   if (extraOptions.skipLocalization) cmdStr += ' --skip-localization'
   if (extraOptions.skipTest) cmdStr += ' --skip-test'
+  if (extraOptions.skipEntityCtor) cmdStr += ' --skip-entity-constructors'
   if (extraOptions.noOverwirte) cmdStr += ' --no-overwrite'
   if (extraOptions.migrationProjectName) cmdStr += ' --migration-project-name ' + document.getElementById('entity-options-migrationProjectName.data').value
   clearConsoleContent()
