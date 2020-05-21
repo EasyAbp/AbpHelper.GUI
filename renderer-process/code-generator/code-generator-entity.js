@@ -6,14 +6,15 @@ let isRunning = false
 
 let extraOptions = {
   separateDto: false,
+  skipPermissions: false,
   repository: false,
   skipDbMigrations: false,
   skipUi: false,
+  skipViewModel: false,
   skipLocalization: false,
   skipTest: false,
   skipEntityCtor: false,
-  noOverwirte: false,
-  migrationProjectName: false
+  noOverwirte: false
 }
 
 let consoleNode = document.getElementById('box-code-generator-entity').getElementsByTagName('textarea')[0]
@@ -22,14 +23,15 @@ const execBtn = document.getElementById('entity-execute')
 const selectSolutionFileBtn = document.getElementById('entity-select-solution-file-btn')
 const extraOptionsCheckBox = {
   separateDto: document.getElementById('entity-options-separateDto'),
+  skipPermissions: document.getElementById('entity-options-skipPermissions'),
   repository: document.getElementById('entity-options-repository'),
   skipDbMigrations: document.getElementById('entity-options-skipDbMigrations'),
   skipUi: document.getElementById('entity-options-skipUi'),
+  skipViewModel: document.getElementById('entity-options-skipViewModel'),
   skipLocalization: document.getElementById('entity-options-skipLocalization'),
   skipTest: document.getElementById('entity-options-skipTest'),
   skipEntityCtor: document.getElementById('entity-options-skipEntityCtor'),
-  noOverwirte: document.getElementById('entity-options-noOverwirte'),
-  migrationProjectName: document.getElementById('entity-options-migrationProjectName'),
+  noOverwirte: document.getElementById('entity-options-noOverwirte')
 }
 
 selectSolutionFileBtn.addEventListener('click', (event) => {
@@ -78,6 +80,9 @@ execBtn.addEventListener('click', (event) => {
 extraOptionsCheckBox.separateDto.addEventListener('click', (event) => {
   extraOptions.separateDto = extraOptionsCheckBox.separateDto.checked
 })
+extraOptionsCheckBox.skipPermissions.addEventListener('click', (event) => {
+  extraOptions.skipPermissions = extraOptionsCheckBox.skipPermissions.checked
+})
 extraOptionsCheckBox.repository.addEventListener('click', (event) => {
   extraOptions.repository = extraOptionsCheckBox.repository.checked
 })
@@ -86,6 +91,9 @@ extraOptionsCheckBox.skipDbMigrations.addEventListener('click', (event) => {
 })
 extraOptionsCheckBox.skipUi.addEventListener('click', (event) => {
   extraOptions.skipUi = extraOptionsCheckBox.skipUi.checked
+})
+extraOptionsCheckBox.skipViewModel.addEventListener('click', (event) => {
+  extraOptions.skipViewModel = extraOptionsCheckBox.skipViewModel.checked
 })
 extraOptionsCheckBox.skipLocalization.addEventListener('click', (event) => {
   extraOptions.skipLocalization = extraOptionsCheckBox.skipLocalization.checked
@@ -99,14 +107,12 @@ extraOptionsCheckBox.skipEntityCtor.addEventListener('click', (event) => {
 extraOptionsCheckBox.noOverwirte.addEventListener('click', (event) => {
   extraOptions.noOverwirte = extraOptionsCheckBox.noOverwirte.checked
 })
-extraOptionsCheckBox.migrationProjectName.addEventListener('click', (event) => {
-  extraOptions.migrationProjectName = extraOptionsCheckBox.migrationProjectName.checked
-})
 
 function runExec() {
   let entityName = document.getElementById('entity-entity-name').value
   let solutionFile = document.getElementById('entity-solution-file').value
-  if (isRunning  || !entityName || !solutionFile) return
+  let migrationProjectName = document.getElementById('entity-options-migrationProjectName').value
+  if (isRunning || !entityName || !solutionFile) return
   
   let solutionRootPath = getSolutionRootPath(solutionFile)
   if (!solutionRootPath) return
@@ -118,14 +124,16 @@ function runExec() {
   let cliCommand = process.platform === 'win32' ? '%USERPROFILE%\\.dotnet\\tools\\abphelper' : '$HOME/.dotnet/tools/abphelper'
   let cmdStr = cliCommand + ' generate crud ' + entityName + ' -d ' + solutionRootPath
   if (extraOptions.separateDto) cmdStr += ' --separate-dto'
+  if (extraOptions.skipPermissions) cmdStr += ' --skip-permissions'
   if (extraOptions.repository) cmdStr += ' --custom-repository'
   if (extraOptions.skipDbMigrations) cmdStr += ' --skip-db-migrations'
   if (extraOptions.skipUi) cmdStr += ' --skip-ui'
+  if (extraOptions.skipViewModel) cmdStr += ' --skip-view-model'
   if (extraOptions.skipLocalization) cmdStr += ' --skip-localization'
   if (extraOptions.skipTest) cmdStr += ' --skip-test'
   if (extraOptions.skipEntityCtor) cmdStr += ' --skip-entity-constructors'
   if (extraOptions.noOverwirte) cmdStr += ' --no-overwrite'
-  if (extraOptions.migrationProjectName) cmdStr += ' --migration-project-name ' + document.getElementById('entity-options-migrationProjectName.data').value
+  if (migrationProjectName) cmdStr += ' --migration-project-name ' + migrationProjectName
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

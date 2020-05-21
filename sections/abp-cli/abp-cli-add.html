@@ -23,9 +23,11 @@
           <div id="add-package-info">
             <h5>Package Name</h5>
             <input id="add-package-name" class="demo-input" type="text" />
+            <p>Example: Volo.Abp.MongoDB</p>
             <h5>Project</h5>
             <input id="add-package-project-file" class="demo-input" type="text" />
             <button id="add-package-select-file-btn" class="demo-button">Select</button>
+            <p>Specifies the project (.csproj) file path. If not specified, CLI tries to find a .csproj file in the current directory.</p>
           </div>
 
           <h5>
@@ -52,9 +54,11 @@
           <div id="add-module-info">
             <h5>Module Name</h5>
             <input id="add-module-name" class="demo-input" type="text" />
+            <p>Example: Volo.Blogging</p>
             <h5>Solution</h5>
             <input id="add-module-solution-file" class="demo-input" type="text" />
             <button id="add-module-select-file-btn" class="demo-button">Select</button>
+            <p>Specifies the solution (.sln) file path. If not specified, CLI tries to find a .sln file in the current directory.</p>
           </div>
 
           <div id="add-module-options">
@@ -65,15 +69,13 @@
                 <label>Skip DB Migrations</label>
               </div>
               <p id="add-module-skip-db-migrations-desc">For EF Core database provider, it automatically adds a new code first migration (Add-Migration) and updates the database (Update-Database) if necessary. Specify this option to skip this operation.</p>
-              <div>
-                <input id="add-module-specified-startup-project" type="checkbox" />
-                <label>Specified Startup Project</label>
+
+              <label>Specified Startup Project</label>
+              <div style="margin-top: .6em;">
+                <input id="add-module-startup-project" class="demo-input" type="text" />
+                <button id="add-module-startup-project-selectBtn" class="demo-button">Select</button>
               </div>
-              <div id="add-module-startup-project" class="hidden">
-                <input id="add-module-startup-project-file" class="demo-input" type="text" />
-                <button id="add-module-select-startup-project-file-btn" class="demo-button">Select</button>
-              </div class="hidden">
-              <p id="add-module-specified-startup-project-desc">Relative path to the project folder of the startup project. Default value is the current folder.</p>
+              <p id="add-module-startup-project-desc">Relative path to the project folder of the startup project. Default value is the current folder.</p>
             </div>
           </div>
 

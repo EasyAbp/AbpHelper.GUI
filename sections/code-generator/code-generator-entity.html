@@ -36,6 +36,11 @@
               </div>
               <p id="entity-options-separateDto-desc">Generate separate Create and Update DTO file.</p>
               <div>
+                <input id="entity-options-skipPermissions" type="checkbox" />
+                <label>Skip Permissions</label>
+              </div>
+              <p id="entity-options-skipPermissions-desc">Skip generating crud permissions.</p>
+              <div>
                 <input id="entity-options-repository" type="checkbox" />
                 <label>Custom Repository</label>
               </div>
@@ -50,6 +55,11 @@
                 <label>Skip UI</label>
               </div>
               <p id="entity-options-skipUi-desc">Skip generating UI.</p>
+              <div>
+                <input id="entity-options-skipViewModel" type="checkbox" />
+                <label>Skip View Model</label>
+              </div>
+              <p id="entity-options-skipViewModel-desc">Skip generating 'CreateUpdateViewModel`, use 'CreateUpdateDto' directly.</p>
               <div>
                 <input id="entity-options-skipLocalization" type="checkbox" />
                 <label>Skip Localization</label>
@@ -71,38 +81,13 @@
               </div>
               <p id="entity-options-noOverwirte-desc">Specify not to overwrite existing files.</p>
               <div>
-                <input id="entity-options-migrationProjectName" type="checkbox" />
                 <label>Migration Project Name</label>
                 <div style="margin-top: 14px;">
-                  <input id="entity-options-migrationProjectName-data" class="demo-input" type="text" placeholder="Migration project name" />
+                  <input id="entity-options-migrationProjectName" class="demo-input" type="text" placeholder="Migration project name" />
                 </div>
               </div>
               <p id="entity-options-migrationProjectName-desc">Specify the name of the migration project. For ABP applications, the default value is '*.EntityFrameworkCore.DbMigrations.csproj'; For ABP modules, the default value is '*.Web.Unified.csproj'. For example: --migration-project-name *.HttpApi.Host.csproj, abphelper will search '*.HttpApi.Host.csproj' file and make it as the migration project. This argument takes effect only if '--skip-db-migrations' is NOT specified.</p>
             </div>
-          </div>
-
-          <div class="demo-protip">
-            <h2>Generation Steps</h2>
-            <p>Step 1: Add to DbContext</p>
-            <p>Step 2: Configure Entity</p>
-            <p>Step 3: Create a Custom Repository</p>
-            <p>Step 4: Create Dtos</p>
-            <p>Step 5: Create CRUD Application Service</p>
-            <p>Step 6: Add Dtos to Automapper Profile</p>
-            <p>Step 7: Add to Localization Resource</p>
-            <p>Step 8: Generate UI Pages</p>
-            <p>Step 9: Create Test Code</p>
-            <p>Step 10: Add Migration</p>
-            <p>Step 11: Update Database</p>
-          </div>
-          
-          <div class="demo-protip">
-            <h2>MVC UI Pages Generation Steps</h2>
-            <p>Step 1: Generate Index Page</p>
-            <p>Step 2: Generate Creation Page</p>
-            <p>Step 3: Generate Edit Page</p>
-            <p>Step 4: Add to MenuContributor</p>
-            <p>Step 5: Add Dtos to Automapper Profile</p>
           </div>
 
           <h5>

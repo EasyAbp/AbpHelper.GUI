@@ -29,21 +29,30 @@
           <div id="update-options">
             <h5>Extra Options</h5>
             <div>
-              <div>
-                <input id="update-include-previews" type="checkbox" />
-                <label>Includes Previews</label>
-              </div>
+              <input id="update-include-previews" type="checkbox" />
+              <label>Includes Previews</label>
               <p id="update-include-previews-desc">Includes preview, beta and rc packages while checking the latest versions.</p>
-              <div>
-                <input id="update-only-npm" type="checkbox" />
-                <label>NPM Packages Only</label>
-              </div>
+
+              <input id="update-only-npm" type="checkbox" />
+              <label>NPM Packages Only</label>
               <p id="update-only-npm-desc">Only updates NPM packages.</p>
-              <div>
-                <input id="update-only-nuget" type="checkbox" />
-                <label>NuGet Packages Only</label>
-              </div>
+
+              <input id="update-only-nuget" type="checkbox" />
+              <label>NuGet Packages Only</label>
               <p id="update-only-nuget-desc">Only updates NuGet packages.</p>
+
+              <label>Solution Path</label>
+              <div style="margin-top: .6em;">
+                <input id="update-solution-path" class="demo-input" type="text" />
+                <button id="update-solution-path-selectBtn" class="demo-button">Select</button>
+                <p id="update-solution-path-desc">Specify the solution path. Use the current directory by default.</p>
+              </div>
+
+              <label>Solution Name</label>
+              <div style="margin-top: .6em;">
+                <input id="update-solution-name" class="demo-input" type="text" />
+                <p id="update-solution-name-desc">Specify the solution name. Search *.sln files in the directory by default.</p>
+              </div>
             </div>
           </div>
 

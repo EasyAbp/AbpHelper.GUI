@@ -1,24 +1,38 @@
+const { dialog } = require('electron').remote
 const exec = require('child_process').exec
 
 let isRunning = false
 
-let consoleNode = document.getElementById('box-abp-cli-account-login').getElementsByTagName('textarea')[0]
+let consoleNode = document.getElementById('box-abp-cli-switch-to-stable').getElementsByTagName('textarea')[0]
 
-const execBtn = document.getElementById('account-login-execute')
+const execBtn = document.getElementById('switch-to-stable-execute')
+const solutionDirectorySelectBtn = document.getElementById('switch-to-stable-solution-directory-selectBtn')
+
+solutionDirectorySelectBtn.addEventListener('click', (event) => {
+  dialog.showOpenDialog({
+    properties: ['openDirectory']
+  }).then(result => {
+    if (result.filePaths[0]) {
+      document.getElementById('switch-to-stable-solution-directory').value = result.filePaths[0]
+    }
+  }).catch(err => {
+    console.log(err)
+  })
+})
 
 execBtn.addEventListener('click', (event) => {
   runExec()
 })
 
 function runExec() {
-  let username = document.getElementById('account-login-username').value
-  let password = document.getElementById('account-login-password').value
-  if (isRunning || !username || !password) return
+  let solutionDirectory = document.getElementById('switch-to-stable-solution-directory').value
+  if (isRunning || !solutionDirectory) return
   isRunning = true
   execBtn.disabled = true
-  document.getElementById('account-login-process').style.display = 'block'
+  document.getElementById('switch-to-stable-process').style.display = 'block'
 
-  let cmdStr = 'abp login ' + username + ' -p ' + password
+  let cmdStr = 'abp switch-to-stable'
+  if (solutionDirectory) cmdStr += ' -sd ' + solutionDirectory
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

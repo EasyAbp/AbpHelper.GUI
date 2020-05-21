@@ -7,8 +7,7 @@ let consoleNode = document.getElementById('box-abp-cli-add-module').getElementsB
 
 const execBtn = document.getElementById('add-module-execute')
 const selectFileBtn = document.getElementById('add-module-select-file-btn')
-const selectSpFileBtn = document.getElementById('add-module-select-startup-project-file-btn')
-const spCheckbox = document.getElementById('add-module-specified-startup-project')
+const selectSpFileBtn = document.getElementById('add-module-startup-project-selectBtn')
 
 execBtn.addEventListener('click', (event) => {
   runExec()
@@ -37,24 +36,17 @@ selectSpFileBtn.addEventListener('click', (event) => {
     properties: ['openFile']
   }).then(result => {
     if (result.filePaths[0]) {
-      document.getElementById('add-module-startup-project-file').value = result.filePaths[0]
+      document.getElementById('add-module-startup-project').value = result.filePaths[0]
     }
   }).catch(err => {
     console.log(err)
   })
 })
 
-spCheckbox.addEventListener('click', (event) => {
-  if (spCheckbox.checked) {
-    document.getElementById('add-module-startup-project').style.display = 'block'
-  } else {
-    document.getElementById('add-module-startup-project').style.display = 'none'
-  }
-})
-
 function runExec() {
   let moduleName = document.getElementById('add-module-name').value
   let file = document.getElementById('add-module-solution-file').value
+  let startupProject = document.getElementById('add-module-startup-project').value
   if (isRunning || !moduleName || !file) return
   isRunning = true
   execBtn.disabled = true
@@ -62,7 +54,8 @@ function runExec() {
 
   let cmdStr = 'abp add-module ' + moduleName + ' -s ' + file
   if (document.getElementById('add-module-skip-db-migrations').checked) cmdStr += ' --skip-db-migrations'
-  if (spCheckbox.checked) cmdStr += ' -sp ' + document.getElementById('add-module-startup-project-file').value
+  console.log(startupProject)
+  if (startupProject) cmdStr += ' -sp ' + startupProject
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

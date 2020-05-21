@@ -2,23 +2,28 @@ const exec = require('child_process').exec
 
 let isRunning = false
 
-let consoleNode = document.getElementById('box-abp-cli-account-login').getElementsByTagName('textarea')[0]
+let consoleNode = document.getElementById('box-abp-cli-generate-proxy').getElementsByTagName('textarea')[0]
 
-const execBtn = document.getElementById('account-login-execute')
+const execBtn = document.getElementById('generate-proxy-execute')
+
 
 execBtn.addEventListener('click', (event) => {
   runExec()
 })
 
 function runExec() {
-  let username = document.getElementById('account-login-username').value
-  let password = document.getElementById('account-login-password').value
-  if (isRunning || !username || !password) return
+  let apiUrl = document.getElementById('generate-proxy-api-url').value
+  let ui = document.getElementById('generate-proxy-ui').value
+  let module = document.getElementById('generate-proxy-module').value
+  if (isRunning || !apiUrl) return
   isRunning = true
   execBtn.disabled = true
-  document.getElementById('account-login-process').style.display = 'block'
+  document.getElementById('generate-proxy-process').style.display = 'block'
 
-  let cmdStr = 'abp login ' + username + ' -p ' + password
+  let cmdStr = 'abp generate-proxy'
+  if (apiUrl) cmdStr += ' -a ' + apiUrl
+  if (ui) cmdStr += ' -u ' + ui
+  if (module) cmdStr += ' -m ' + module
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

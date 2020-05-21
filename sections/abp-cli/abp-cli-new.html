@@ -22,11 +22,12 @@
           <div id="app-project-info">
             <h5>Project Name</h5>
             <input id="app-project-name" class="demo-input" type="text" />
+            <p id="app-project-name-desc">Common convention is to name a solution is like YourCompany.YourProject. However, you can use different naming like YourProject (single level namespacing) or YourCompany.YourProduct.YourModule (three levels namespacing).</p>
+
             <h5>Output Folder</h5>
             <input id="app-project-folder" class="demo-input" type="text" />
-            <button id="app-select-folder-btn" class="demo-button">Select</button>
-            <h5>Abp Version</h5>
-            <input id="app-project-version" class="demo-input" type="text" value="latest" />
+            <button id="app-project-folder-selectBtn" class="demo-button">Select</button>
+            <p id="app-project-folder-desc">Specifies the output folder. Default value is the current directory.</p>
           </div>
 
           <div id="app-options-ui">
@@ -61,27 +62,50 @@
             </div>
           </div>
 
-          <div id="app-options-tiered">
+          <div id="app-options-extra">
             <h5>Extra Options</h5>
-            <div>
-              <div>
-                <input id="app-tiered" type="checkbox" />
-                <label>Tiered</label>
-              </div>
+            <div id="app-options-tiered">
+              <input id="app-tiered" type="checkbox" />
+              <label>Tiered</label>
+              <p id="app-tiered-desc">Creates a tiered solution where Web and Http API layers are physically separated. If not specified, it creates a layered solution which is less complex and suitable for most scenarios.</p>
             </div>
-            <p id="app-tiered-desc">Creates a tiered solution where Web and Http API layers are physically separated. If not checked, creates a layered solution which is less complex and suitable for most scenarios.</p>
+            <div id="app-options-separate" class="hidden">
+              <input id="app-separate-identity-server" type="checkbox" />
+              <label>Separate identity server</label>
+              <p id="app-separate-identity-server-desc">Separates the identity server application from the API host application. If not specified, you will have a single endpoint in the server side.</p>
+            </div>
+
+            <label>Abp Version</label>
+            <div style="margin-top: .6em;">
+              <input id="app-abp-version" class="demo-input" type="text" />
+            </div>
+            <p id="app-abp-version-desc">Specifies the ABP & template version. It can be a <a href="https://github.com/abpframework/abp/releases">release tag<span class="u-visible-to-screen-reader">(opens in new window)</span></a> or a <a href="https://github.com/abpframework/abp/branches">branch name<span class="u-visible-to-screen-reader">(opens in new window)</span></a>. Uses the latest release if not specified. Most of the times, you will want to use the latest version.</p>
+
+            <label>Template Source</label>
+            <div style="margin-top: .6em;">
+              <input id="app-template-source" class="demo-input" type="text" />
+              <button id="app-template-source-selectBtn" class="demo-button">Select</button>
+            </div>
+            <p id="app-template-source-desc">Specifies a custom template source to use to build the project. Local and network sources can be used(Like D:\localTemplate or https://&lt;your url&gt;.zip).</p>
+
+            <input id="app-create-solution-folder" type="checkbox" />
+            <label>Create Solution Folder</label>
+            <p id="app-create-solution-folder-desc">Specifies if the project will be in a new folder in the output folder or directly the output folder.</p>
+
+            <label>Connection String</label>
+            <div style="margin-top: .6em;">
+              <input id="app-connection-string" class="demo-input" type="text" />
+            </div>
+            <p id="app-connection-string-desc">Overwrites the default connection strings in all appsettings.json files. The default connection string is Server=localhost;Database=MyProjectName;Trusted_Connection=True;MultipleActiveResultSets=true. You can set your own connection string if you don't want to use the default. Be aware that the default database provider is SQL Server, therefore you can only enter connection string for SQL Server!</p>
+
+            <label>Local Framework Reference</label>
+            <div style="margin-top: .6em;">
+              <input id="app-abp-path" class="demo-input" type="text" />
+              <button id="app-abp-path-selectBtn" class="demo-button">Select</button>
+            </div>
+            <p id="app-local-framework-ref-desc">keeps local references to projects instead of replacing with NuGet package references.</p>
           </div>
 
-          <div id="app-options-separate" class="hidden">
-            <h5>Extra Options</h5>
-            <div>
-              <div>
-                <input id="app-separate-identity-server" type="checkbox" />
-                <label>Separate identity server</label>
-              </div>
-            </div>
-            <p id="app-separate-identity-server-desc">Separates server side into two applications: First one is for the identity server and the second one is for your server side HTTP API.</p>
-          </div>
           <h5>
             <button class="demo-button" id="app-execute">Execute</button>
           </h5>
@@ -105,22 +129,54 @@
           <div id="module-project-info">
             <h5>Project Name</h5>
             <input id="module-project-name" class="demo-input" type="text" />
+            <p id="module-project-name-desc">Common convention is to name a solution is like YourCompany.YourProject. However, you can use different naming like YourProject (single level namespacing) or YourCompany.YourProduct.YourModule (three levels namespacing).</p>
+            
             <h5>Output Folder</h5>
             <input id="module-project-folder" class="demo-input" type="text" />
-            <button id="module-select-folder-btn" class="demo-button">Select</button>
+            <button id="module-project-folder-selectBtn" class="demo-button">Select</button>
+            <p id="module-project-folder-desc">Specifies the output folder. Default value is the current directory.</p>
+        
             <h5>Abp Version</h5>
             <input id="module-project-version" class="demo-input" type="text" value="latest" />
           </div>
 
-          <div id="module-options-no-ui">
+          <div id="module-options-extra">
             <h5>Extra Options</h5>
-            <div>
-              <div>
-                <input id="module-no-ui" type="checkbox" />
-                <label>No-UI</label>
-              </div>
+            <div id="module-options-no-ui">
+              <input id="module-no-ui" type="checkbox" />
+              <label>No-UI</label>
+              <p id="module-no-ui-desc">Specifies to not include the UI. This makes possible to create service-only modules (a.k.a. microservices - without UI).</p>
             </div>
-            <p id="module-no-ui-desc">Specifies to not include the UI. This makes possible to create service-only modules (a.k.a. microservices - without UI).</p>
+        
+            <label>Abp Version</label>
+            <div style="margin-top: .6em;">
+              <input id="module-abp-version" class="demo-input" type="text" />
+            </div>
+            <p id="module-abp-version-desc">Specifies the ABP & template version. It can be a <a href="https://github.com/abpframework/abp/releases">release tag<span class="u-visible-to-screen-reader">(opens in new window)</span></a> or a <a href="https://github.com/abpframework/abp/branches">branch name<span class="u-visible-to-screen-reader">(opens in new window)</span></a>. Uses the latest release if not specified. Most of the times, you will want to use the latest version.</p>
+        
+            <label>Template Source</label>
+            <div style="margin-top: .6em;">
+              <input id="module-template-source" class="demo-input" type="text" />
+              <button id="module-template-source-selectBtn" class="demo-button">Select</button>
+            </div>
+            <p id="module-template-source-desc">Specifies a custom template source to use to build the project. Local and network sources can be used(Like D:\localTemplate or https://&lt;your url&gt;.zip).</p>
+        
+            <input id="module-create-solution-folder" type="checkbox" />
+            <label>Create Solution Folder</label>
+            <p id="module-create-solution-folder-desc">Specifies if the project will be in a new folder in the output folder or directly the output folder.</p>
+        
+            <label>Connection String</label>
+            <div style="margin-top: .6em;">
+              <input id="module-connection-string" class="demo-input" type="text" />
+            </div>
+            <p id="module-connection-string-desc">Overwrites the default connection strings in all appsettings.json files. The default connection string is Server=localhost;Database=MyProjectName;Trusted_Connection=True;MultipleActiveResultSets=true. You can set your own connection string if you don't want to use the default. Be aware that the default database provider is SQL Server, therefore you can only enter connection string for SQL Server!</p>
+        
+            <label>Local Framework Reference</label>
+            <div style="margin-top: .6em;">
+              <input id="module-abp-path" class="demo-input" type="text" />
+              <button id="module-abp-path-selectBtn" class="demo-button">Select</button>
+            </div>
+            <p id="module-local-framework-ref-desc">keeps local references to projects instead of replacing with NuGet package references.</p>
           </div>
 
           <h5>
