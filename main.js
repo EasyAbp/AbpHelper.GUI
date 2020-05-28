@@ -246,7 +246,9 @@ async function cliCheckForUpdate() {
 function makeSingleInstance () {
   if (process.mas) return
 
-  app.requestSingleInstanceLock()
+  if (!app.requestSingleInstanceLock()) {
+    app.quit()
+  }
 
   app.on('second-instance', () => {
     if (mainWindow) {
