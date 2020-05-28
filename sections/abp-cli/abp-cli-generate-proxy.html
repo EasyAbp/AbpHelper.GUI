@@ -21,14 +21,20 @@
           <pre><code>abp generate-proxy [options]</code></pre>
 
           <div id="generate-proxy-info">
-            <h5>API URL</h5>
-            <input id="generate-proxy-api-url" class="demo-input" type="text" />
-            <p>Specifies the root URL of the HTTP API. The default value is being retrieved from the environment.ts file for the Angular application. Make sure your host is up and running before running abp generate-proxy.</p>
+            <h5>UI Project</h5>
+            <input id="generate-proxy-project" class="demo-input" type="text" />
+            <button id="generate-proxy-project-selectBtn" class="demo-button">Select</button>
           </div>
 
           <div id="module-options-extra">
             <h5>Extra Options</h5>
             
+            <label>API URL</label>
+            <div id="margin-top: .6em;">
+              <input id="generate-proxy-api-url" class="demo-input" type="text" />
+            </div>
+            <p>Specifies the root URL of the HTTP API. The default value is being retrieved from the environment.ts file for the Angular application. Make sure your host is up and running before running abp generate-proxy.</p>
+
             <label>UI Framework</label>
             <div style="margin-top: .6em;">
               <input id="generate-proxy-ui" class="demo-input" type="text" />

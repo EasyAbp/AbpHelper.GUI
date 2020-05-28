@@ -1,7 +1,7 @@
 {
   "name": "abphelper-gui",
   "productName": "AbpHelper",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "AbpHelper is a tool that help you with developing Abp vNext applications.",
   "main": "main.js",
   "bin": "cli.js",
