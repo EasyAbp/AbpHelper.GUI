@@ -17,21 +17,21 @@ let extraOptions = {
   noOverwirte: false
 }
 
-let consoleNode = document.getElementById('box-code-generator-entity').getElementsByTagName('textarea')[0]
+let consoleNode = document.getElementById('box-abphelper-cli-generate-crud').getElementsByTagName('textarea')[0]
 
-const execBtn = document.getElementById('entity-execute')
-const selectSolutionFileBtn = document.getElementById('entity-select-solution-file-btn')
+const execBtn = document.getElementById('crud-execute')
+const selectSolutionFileBtn = document.getElementById('crud-select-solution-file-btn')
 const extraOptionsCheckBox = {
-  separateDto: document.getElementById('entity-options-separateDto'),
-  skipPermissions: document.getElementById('entity-options-skipPermissions'),
-  repository: document.getElementById('entity-options-repository'),
-  skipDbMigrations: document.getElementById('entity-options-skipDbMigrations'),
-  skipUi: document.getElementById('entity-options-skipUi'),
-  skipViewModel: document.getElementById('entity-options-skipViewModel'),
-  skipLocalization: document.getElementById('entity-options-skipLocalization'),
-  skipTest: document.getElementById('entity-options-skipTest'),
-  skipEntityCtor: document.getElementById('entity-options-skipEntityCtor'),
-  noOverwirte: document.getElementById('entity-options-noOverwirte')
+  separateDto: document.getElementById('crud-options-separateDto'),
+  skipPermissions: document.getElementById('crud-options-skipPermissions'),
+  repository: document.getElementById('crud-options-repository'),
+  skipDbMigrations: document.getElementById('crud-options-skipDbMigrations'),
+  skipUi: document.getElementById('crud-options-skipUi'),
+  skipViewModel: document.getElementById('crud-options-skipViewModel'),
+  skipLocalization: document.getElementById('crud-options-skipLocalization'),
+  skipTest: document.getElementById('crud-options-skipTest'),
+  skipEntityCtor: document.getElementById('crud-options-skipEntityCtor'),
+  noOverwirte: document.getElementById('crud-options-noOverwirte')
 }
 
 selectSolutionFileBtn.addEventListener('click', (event) => {
@@ -42,7 +42,7 @@ selectSolutionFileBtn.addEventListener('click', (event) => {
     properties: ['openFile']
   }).then(result => {
     if (result.filePaths[0]) {
-      document.getElementById('entity-solution-file').value = result.filePaths[0]
+      document.getElementById('crud-solution-file').value = result.filePaths[0]
     }
   }).catch(err => {
     console.log(err)
@@ -109,9 +109,9 @@ extraOptionsCheckBox.noOverwirte.addEventListener('click', (event) => {
 })
 
 function runExec() {
-  let entityName = document.getElementById('entity-entity-name').value
-  let solutionFile = document.getElementById('entity-solution-file').value
-  let migrationProjectName = document.getElementById('entity-options-migrationProjectName').value
+  let entityName = document.getElementById('crud-entity-name').value
+  let solutionFile = document.getElementById('crud-solution-file').value
+  let migrationProjectName = document.getElementById('crud-options-migrationProjectName').value
   if (isRunning || !entityName || !solutionFile) return
   
   let solutionRootPath = getSolutionRootPath(solutionFile)
@@ -119,7 +119,7 @@ function runExec() {
 
   isRunning = true
   execBtn.disabled = true
-  document.getElementById('entity-process').style.display = 'block'
+  document.getElementById('crud-process').style.display = 'block'
 
   let cliCommand = process.platform === 'win32' ? '%USERPROFILE%\\.dotnet\\tools\\abphelper' : '$HOME/.dotnet/tools/abphelper'
   let cmdStr = cliCommand + ' generate crud ' + entityName + ' -d ' + solutionRootPath

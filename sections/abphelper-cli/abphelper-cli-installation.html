@@ -1,5 +1,5 @@
 <template class="task-template">
-  <section id="modules-manager-abphelper-cli-section" class="section js-section u-category-modules-manager">
+  <section id="abphelper-cli-installation-section" class="section js-section u-category-abphelper-cli">
     <header class="section-header">
       <div class="section-wrapper">
         <h1>
@@ -16,20 +16,20 @@
         <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Install AbpHelper CLI
           <div class="demo-meta u-avoid-clicks">Install dotnet global tool: AbpHelper CLI</div>
         </button>
-        <div id="box-modules-manager-abphelper-cli-install" class="demo-box">
+        <div id="box-abphelper-cli-installation-install" class="demo-box">
           <h5 style="margin-top: 0;">Command</h5>
           <pre><code>dotnet tool install -g EasyAbp.AbpHelper</code></pre>
 
-          <div id="abphelper-cli-install-info">
+          <div id="abphelper-cli-installation-install-info">
             <h5>Version</h5>
-            <input id="abphelper-cli-install-version" class="demo-input" type="text" value="latest" />
+            <input id="abphelper-cli-installation-install-version" class="demo-input" type="text" value="latest" />
           </div>
 
           <h5>
-            <button class="demo-button" id="abphelper-cli-install-execute">Execute</button>
+            <button class="demo-button" id="abphelper-cli-installation-install-execute">Execute</button>
           </h5>
 
-          <div id="abphelper-cli-install-process" class="hidden">
+          <div id="abphelper-cli-installation-install-process" class="hidden">
             <h5>Command Line Process</h5>
             <textarea></textarea>
           </div>
@@ -42,20 +42,20 @@
         <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Update AbpHelper CLI
           <div class="demo-meta u-avoid-clicks">Update dotnet global tool: AbpHelper CLI</div>
         </button>
-        <div id="box-modules-manager-abphelper-cli-update" class="demo-box">
+        <div id="box-abphelper-cli-installation-update" class="demo-box">
           <h5 style="margin-top: 0;">Command</h5>
           <pre><code>dotnet tool update -g EasyAbp.AbpHelper</code></pre>
 
-          <div id="abphelper-cli-update-info">
+          <div id="abphelper-cli-installation-update-info">
             <h5>Version</h5>
-            <input id="abphelper-cli-update-version" class="demo-input" type="text" value="latest" />
+            <input id="abphelper-cli-installation-update-version" class="demo-input" type="text" value="latest" />
           </div>
 
           <h5>
-            <button class="demo-button" id="abphelper-cli-update-execute">Execute</button>
+            <button class="demo-button" id="abphelper-cli-installation-update-execute">Execute</button>
           </h5>
 
-          <div id="abphelper-cli-update-process" class="hidden">
+          <div id="abphelper-cli-installation-update-process" class="hidden">
             <h5>Command Line Process</h5>
             <textarea></textarea>
           </div>
@@ -68,15 +68,15 @@
         <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Uninstall AbpHelper CLI
           <div class="demo-meta u-avoid-clicks">Uninstall dotnet global tool: AbpHelper CLI</div>
         </button>
-        <div id="box-modules-manager-abphelper-cli-uninstall" class="demo-box">
+        <div id="box-abphelper-cli-installation-uninstall" class="demo-box">
           <h5 style="margin-top: 0;">Command</h5>
           <pre><code>dotnet tool uninstall -g EasyAbp.AbpHelper</code></pre>
 
           <h5>
-            <button class="demo-button" id="abphelper-cli-uninstall-execute">Execute</button>
+            <button class="demo-button" id="abphelper-cli-installation-uninstall-execute">Execute</button>
           </h5>
 
-          <div id="abphelper-cli-uninstall-process" class="hidden">
+          <div id="abphelper-cli-installation-uninstall-process" class="hidden">
             <h5>Command Line Process</h5>
             <textarea></textarea>
           </div>
@@ -85,7 +85,7 @@
     </div>
 
     <script type="text/javascript">
-      require('./renderer-process/modules-manager/modules-manager-abphelper-cli.js')
+      require('./renderer-process/abphelper-cli/abphelper-cli-installation.js')
     </script>
 
   </section>

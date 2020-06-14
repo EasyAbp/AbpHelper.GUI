@@ -20,10 +20,10 @@
   <link rel="import" href="sections/abp-cli/abp-cli-switch.html">
   <link rel="import" href="sections/abp-cli/abp-cli-account.html">
   <link rel="import" href="sections/abp-cli/abp-cli-generate-proxy.html">
-  <link rel="import" href="sections/code-generator/code-generator-entity.html">
-  <link rel="import" href="sections/modules-manager/modules-manager-abphelper-cli.html">
-  <link rel="import" href="sections/modules-manager/modules-manager-store.html">
-  <link rel="import" href="sections/awesome-tools/awesome-tools-ef-provider.html">
+  <link rel="import" href="sections/abphelper-cli/abphelper-cli-generate-crud.html">
+  <link rel="import" href="sections/abphelper-cli/abphelper-cli-installation.html">
+  <link rel="import" href="sections/modules-manager/modules-manager-market.html">
+  <!-- <link rel="import" href="sections/awesome-tools/awesome-tools-ef-provider.html"> -->
 </head>
 <body>
 
@@ -47,12 +47,13 @@
       <button type="button" id="button-abp-cli-generate-proxy" data-section="abp-cli-generate-proxy" class="nav-button">Generates <em>client proxies</em></button>
     </div>
 
-    <div class="nav-item u-category-code-generator">
+    <div class="nav-item u-category-abphelper-cli">
       <h5 class="nav-category">
         <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
         Code Generator
       </h5>
-      <button type="button" id="button-code-generator-entity" data-section="code-generator-entity" class="nav-button">Generate codes for <em>Entity</em></button>
+      <button type="button" id="button-abphelper-cli-installation" data-section="abphelper-cli-installation" class="nav-button">Install or update <em>AbpHelper CLI</em></button>
+      <button type="button" id="button-abphelper-cli-generate-crud" data-section="abphelper-cli-generate-crud" class="nav-button">Generate <em>CRUD</em> Code</button>
     </div>
 
     <div class="nav-item u-category-modules-manager">
@@ -60,17 +61,16 @@
         <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
         Modules Manager
       </h5>
-      <button type="button" id="button-modules-manager-abphelper-cli" data-section="modules-manager-abphelper-cli" class="nav-button">Install or update <em>AbpHelper CLI</em> module</button>
-      <button type="button" id="button-modules-manager-store" data-section="modules-manager-store" class="nav-button">Explore the <em>Abp module store</em></button>
+      <button type="button" id="button-modules-manager-market" data-section="modules-manager-market" class="nav-button">Explore the Abp <em>module market</em></button>
     </div>
 
-    <div class="nav-item u-category-awesome-tools">
+    <!-- <div class="nav-item u-category-awesome-tools">
       <h5 class="nav-category">
         <svg class="nav-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
         Awesome Tools
       </h5>
       <button type="button" id="button-awesome-tools-ef-provider" data-section="awesome-tools-ef-provider" class="nav-button">Change <em>EF Core</em> provider</button>
-    </div>
+    </div> -->
 
     <footer class="nav-footer">
       <button type="button" id="button-about" data-modal="about" class="nav-footer-button">About</button>

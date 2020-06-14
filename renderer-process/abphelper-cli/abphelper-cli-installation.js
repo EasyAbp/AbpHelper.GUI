@@ -2,13 +2,13 @@ const exec = require('child_process').exec
 
 let isRunning = false
 
-let installConsoleNode = document.getElementById('box-modules-manager-abphelper-cli-install').getElementsByTagName('textarea')[0]
-let updateConsoleNode = document.getElementById('box-modules-manager-abphelper-cli-update').getElementsByTagName('textarea')[0]
-let uninstallConsoleNode = document.getElementById('box-modules-manager-abphelper-cli-uninstall').getElementsByTagName('textarea')[0]
+let installConsoleNode = document.getElementById('box-abphelper-cli-installation-install').getElementsByTagName('textarea')[0]
+let updateConsoleNode = document.getElementById('box-abphelper-cli-installation-update').getElementsByTagName('textarea')[0]
+let uninstallConsoleNode = document.getElementById('box-abphelper-cli-installation-uninstall').getElementsByTagName('textarea')[0]
 
-const installExecBtn = document.getElementById('abphelper-cli-install-execute')
-const updateExecBtn = document.getElementById('abphelper-cli-update-execute')
-const uninstallExecBtn = document.getElementById('abphelper-cli-uninstall-execute')
+const installExecBtn = document.getElementById('abphelper-cli-installation-install-execute')
+const updateExecBtn = document.getElementById('abphelper-cli-installation-update-execute')
+const uninstallExecBtn = document.getElementById('abphelper-cli-installation-uninstall-execute')
 
 installExecBtn.addEventListener('click', (event) => {
   runExec('install')
@@ -30,11 +30,11 @@ function runExec(action) {
   if (action === 'install') {
     execBtn = installExecBtn
     consoleNode = installConsoleNode
-    version = document.getElementById('abphelper-cli-install-version').value
+    version = document.getElementById('abphelper-cli-installation-install-version').value
   } else if (action === 'update') {
     execBtn = updateExecBtn
     consoleNode = updateConsoleNode
-    version = document.getElementById('abphelper-cli-install-version').value
+    version = document.getElementById('abphelper-cli-installation-install-version').value
   } else if (action === 'uninstall') {
     execBtn = uninstallExecBtn
     consoleNode = uninstallConsoleNode
@@ -44,7 +44,7 @@ function runExec(action) {
   }
 
   execBtn.disabled = true
-  document.getElementById('abphelper-cli-' + action + '-process').style.display = 'block'
+  document.getElementById('abphelper-cli-installation-' + action + '-process').style.display = 'block'
 
   let cmdStr = 'dotnet tool ' + action + ' -g EasyAbp.AbpHelper'
   if (version.trim() !== 'latest') cmdStr += ' --version ' + version

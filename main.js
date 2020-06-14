@@ -126,7 +126,7 @@ let cliUpdateMenuItem = {
   id: 'cliUpdate',
   label: 'Update AbpHelper CLI...',
   visible: false,
-  click: () => loadShowPage('modules-manager-abphelper-cli')
+  click: () => loadShowPage('abphelper-cli-installation')
 }
 
 let template = [{
@@ -134,15 +134,15 @@ let template = [{
   click: () => loadShowPage('abp-cli-new')
 }, {
   label: 'Code Generator...',
-  click: () => loadShowPage('code-generator-entity')
+  click: () => loadShowPage('abphelper-cli-generate-crud')
 }, {
   label: 'Modules Manager...',
-  click: () => loadShowPage('modules-manager-store')
-}, {
-  label: 'Awesome Tools...',
-  click: () => loadShowPage('awesome-tools-ef-provider')
-}, {
-  type: 'separator'
+  click: () => loadShowPage('modules-manager-market')
+// }, {
+//   label: 'Awesome Tools...',
+//   click: () => loadShowPage('awesome-tools-ef-provider')
+// }, {
+//   type: 'separator'
 }, {
   label: 'Help',
   submenu: [{

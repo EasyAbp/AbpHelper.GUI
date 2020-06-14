@@ -21,14 +21,14 @@ AbpHelper is a tool that help you with developing Abp vNext applications. It can
 
 ## Usage
 
-* [Entity Code Generator](doc/Code-Generator/Entity-Code-Generator/Usage.md)
+* [Generate CRUD Code](doc/Abphelper-CLI/Generate-CRUD-Code/Usage.md)
 
 ## Roadmap
 
 - [ ] Support ABP CLI login command
 - [x] AbpHelper CLI update check
 - [ ] Solution management
-- [ ] Abp module store
+- [ ] GUI of market.abp.io
 - [ ] EF Core provider change helper
 
 We are always looking forward to your code contribution.

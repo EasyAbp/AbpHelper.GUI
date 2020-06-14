@@ -1,0 +1,110 @@
+<template class="task-template">
+  <section id="abphelper-cli-generate-crud-section" class="section js-section u-category-abphelper-cli">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+          Entity Code Generator
+        </h1>
+        <h3>Automatically generate CRUD code for sepecified entity: <code>Migration</code>, <code>Repository</code>, <code>Permissions</code>, <code>AppService</code>, <code>Dtos</code>, <code>Mapping</code>, <code>UI Pages</code>, <code>Test</code> and more.</h3>
+        <p>See the <a href="https://github.com/EasyAbp/AbpHelper.CLI">AbpHelper CLI Github repository<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser for more informations.</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Generate CRUD code
+          <div class="demo-meta u-avoid-clicks">Generate CRUD code for spercified entity</div>
+        </button>
+        <div id="box-abphelper-cli-generate-crud" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abphelper generate crud [options]</code></pre>
+          <div id="crud-info">
+            <h5>Existing Entity Class Name</h5>
+            <input id="crud-entity-name" class="demo-input" type="text" placeholder="e.g. Product" />
+            <h5>Solution</h5>
+            <input id="crud-solution-file" class="demo-input" type="text" placeholder="Select a .sln file" />
+            <button id="crud-select-solution-file-btn" class="demo-button">Select</button>
+          </div>
+
+          <div id="crud-options">
+            <h5>Extra Options</h5>
+            <div>
+              <div>
+                <input id="crud-options-separateDto" type="checkbox" />
+                <label>Separate Dtos</label>
+              </div>
+              <p id="crud-options-separateDto-desc">Generate separate Create and Update DTO file.</p>
+              <div>
+                <input id="crud-options-skipPermissions" type="checkbox" />
+                <label>Skip Permissions</label>
+              </div>
+              <p id="crud-options-skipPermissions-desc">Skip generating crud permissions.</p>
+              <div>
+                <input id="crud-options-repository" type="checkbox" />
+                <label>Custom Repository</label>
+              </div>
+              <p id="crud-options-repository-desc">Generate custom repository interface and class for the entity.</p>
+              <div>
+                <input id="crud-options-skipDbMigrations" type="checkbox" />
+                <label>Skip DB Migrations</label>
+              </div>
+              <p id="crud-options-skipDbMigrations-desc">Skip performing db migration and update.</p>
+              <div>
+                <input id="crud-options-skipUi" type="checkbox" />
+                <label>Skip UI</label>
+              </div>
+              <p id="crud-options-skipUi-desc">Skip generating UI.</p>
+              <div>
+                <input id="crud-options-skipViewModel" type="checkbox" />
+                <label>Skip View Model</label>
+              </div>
+              <p id="crud-options-skipViewModel-desc">Skip generating 'CreateUpdateViewModel`, use 'CreateUpdateDto' directly.</p>
+              <div>
+                <input id="crud-options-skipLocalization" type="checkbox" />
+                <label>Skip Localization</label>
+              </div>
+              <p id="crud-options-skipLocalization-desc">Skip generating localization.</p>
+              <div>
+                <input id="crud-options-skipTest" type="checkbox" />
+                <label>Skip Test</label>
+              </div>
+              <p id="crud-options-skipTest-desc">Skip generating test.</p>
+              <div>
+                <input id="crud-options-skipEntityCtor" type="checkbox" />
+                <label>Skip Entity Constructors</label>
+              </div>
+              <p id="crud-options-skipEntityCtor-desc"> Skip generating constructors for the entity.</p>
+              <div>
+                <input id="crud-options-noOverwirte" type="checkbox" />
+                <label>No overwirte</label>
+              </div>
+              <p id="crud-options-noOverwirte-desc">Specify not to overwrite existing files.</p>
+              <div>
+                <label>Migration Project Name</label>
+                <div style="margin-top: 14px;">
+                  <input id="crud-options-migrationProjectName" class="demo-input" type="text" placeholder="Migration project name" />
+                </div>
+              </div>
+              <p id="crud-options-migrationProjectName-desc">Specify the name of the migration project. For ABP applications, the default value is '*.EntityFrameworkCore.DbMigrations.csproj'; For ABP modules, the default value is '*.Web.Unified.csproj'. For example: --migration-project-name *.HttpApi.Host.csproj, abphelper will search '*.HttpApi.Host.csproj' file and make it as the migration project. This argument takes effect only if '--skip-db-migrations' is NOT specified.</p>
+            </div>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="crud-execute">Execute</button>
+          </h5>
+
+          <div id="crud-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/abphelper-cli/abphelper-cli-generate-crud.js')
+    </script>
+
+  </section>
+</template>

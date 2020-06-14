@@ -24,6 +24,6 @@
 .u-category-media           { --color-accent: hsl( 36, 77%, 34%); }
 
 .u-category-abp-cli         { --color-accent: hsl(330, 65%, 48%); }
-.u-category-code-generator  { --color-accent: hsl(222, 53%, 50%); }
+.u-category-abphelper-cli   { --color-accent: hsl(222, 53%, 50%); }
 .u-category-modules-manager { --color-accent: hsl(116, 30%, 36%); }
 .u-category-awesome-tools   { --color-accent: hsl( 36, 77%, 34%); }
