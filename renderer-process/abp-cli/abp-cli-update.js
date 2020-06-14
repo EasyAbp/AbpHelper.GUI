@@ -11,7 +11,6 @@ let consoleNode = document.getElementById('box-abp-cli-update').getElementsByTag
 
 const execBtn = document.getElementById('update-execute')
 const selectFileBtn = document.getElementById('update-select-folder-btn')
-const solutionPathSelectBtn = document.getElementById('update-solution-path-selectBtn')
 const includePreviewsCheckbox = document.getElementById('update-include-previews')
 const onlyNpmCheckbox = document.getElementById('update-only-npm')
 const onlyNugetCheckbox = document.getElementById('update-only-nuget')
@@ -22,18 +21,6 @@ selectFileBtn.addEventListener('click', (event) => {
   }).then(result => {
     if (result.filePaths[0]) {
       document.getElementById('update-folder').value = result.filePaths[0]
-    }
-  }).catch(err => {
-    console.log(err)
-  })
-})
-
-solutionPathSelectBtn.addEventListener('click', (event) => {
-  dialog.showOpenDialog({
-    properties: ['openDirectory']
-  }).then(result => {
-    if (result.filePaths[0]) {
-      document.getElementById('update-solution-path').value = result.filePaths[0]
     }
   }).catch(err => {
     console.log(err)
@@ -58,7 +45,6 @@ onlyNugetCheckbox.addEventListener('click', (event) => {
 
 function runExec() {
   let cmdPath = document.getElementById('update-folder').value
-  let solutionPath = document.getElementById('update-solution-path').value
   let solutionName = document.getElementById('update-solution-name').value
   if (isRunning || !cmdPath) return
   isRunning = true
@@ -69,7 +55,6 @@ function runExec() {
   if (isIncludePreviews) cmdStr += ' -p'
   if (isOnlyNpm) cmdStr += ' --npm'
   if (isOnlyNuget) cmdStr += ' --nuget'
-  if (solutionPath) cmdStr += ' -sp ' + solutionPath
   if (solutionName) cmdStr += ' -sn ' + solutionName
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
