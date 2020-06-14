@@ -1,0 +1,75 @@
+const { dialog } = require('electron').remote
+const exec = require('child_process').exec
+
+let isRunning = false
+
+let consoleNode = document.getElementById('box-abp-cli-translate-create').getElementsByTagName('textarea')[0]
+
+const execBtn = document.getElementById('translate-create-execute')
+const directorySelectBtn = document.getElementById('translate-create-directory-selectBtn')
+
+execBtn.addEventListener('click', (event) => {
+  runExec()
+})
+
+directorySelectBtn.addEventListener('click', (event) => {
+  dialog.showOpenDialog({
+    properties: ['openDirectory']
+  }).then(result => {
+    if (result.filePaths[0]) {
+      document.getElementById('translate-create-directory').value = result.filePaths[0]
+    }
+  }).catch(err => {
+    console.log(err)
+  })
+})
+
+function runExec() {
+  let culture = document.getElementById('translate-create-culture').value
+  let directory = document.getElementById('translate-create-directory').value
+  let referenceCulture = document.getElementById('translate-create-reference-culture').value
+  let output = document.getElementById('translate-create-output').value
+  let allValues = document.getElementById('translate-create-all-values').value
+  if (isRunning || !culture || !directory) return
+  isRunning = true
+  execBtn.disabled = true
+  document.getElementById('translate-create-process').style.display = 'block'
+
+  let cmdStr = 'abp translate -c ' + culture
+  if (referenceCulture) cmdStr += ' -r ' + referenceCulture
+  if (output) cmdStr += ' -o ' + output
+  if (allValues) cmdStr += ' -all'
+  clearConsoleContent()
+  addConsoleContent(cmdStr + '\n\nRunning...\n')
+  scrollConsoleToBottom()
+  console.log(cmdStr)
+  if (process.platform === 'win32') cmdStr = '@chcp 65001 >nul & cmd /d/s/c ' + cmdStr
+  workerProcess = exec(cmdStr, {cwd: directory})
+  
+  workerProcess.stdout.on('data', function (data) {
+    addConsoleContent(data)
+    scrollConsoleToBottom()
+  });
+ 
+  workerProcess.stderr.on('data', function (data) {
+    addConsoleContent(data)
+    scrollConsoleToBottom()
+  });
+ 
+  workerProcess.on('close', function (code) {
+    isRunning = false
+    execBtn.disabled = false
+  })
+
+  function scrollConsoleToBottom() {
+    consoleNode.scrollTo(0, consoleNode.scrollHeight)
+  }
+
+  function addConsoleContent(text) {
+    consoleNode.appendChild(document.createTextNode(text))
+  }
+
+  function clearConsoleContent() {
+    consoleNode.innerHTML = ''
+  }
+}

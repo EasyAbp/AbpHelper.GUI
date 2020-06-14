@@ -1,0 +1,112 @@
+<template class="task-template">
+  <section id="abp-cli-translate-section" class="section js-section u-category-abp-cli">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+          Abp CLI: <code>translate</code>
+        </h1>
+        <h3>Simplifies to translate localization files when you have multiple JSON localization files in a source control repository.</h3>
+        <p>See the <a href="https://docs.abp.io/en/abp/latest/CLI#translate">ABP framework documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser for more informations.</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Create
+          <div class="demo-meta u-avoid-clicks">Creating the translation file</div>
+        </button>
+        <div id="box-abp-cli-translate-create" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abp translate -c &lt;culture&gt; [options]</code></pre>
+
+          <div id="translate-create-info">
+            <h5>Culture</h5>
+            <input id="translate-create-culture" class="demo-input" type="text" />
+            <p>Example: <code>de-DE</code></p>
+            <h5>Specified Directory</h5>
+            <input id="translate-create-directory" class="demo-input" type="text" />
+            <button id="translate-create-directory-selectBtn" class="demo-button">Select</button>
+            <p>It searches all the localization JSON files in the specified directory and all subdirectories (recursively).</p>
+          </div>
+
+          <div id="translate-create-options">
+            <h5>Extra Options</h5>
+            <div>
+              <label>Reference Culture</label>
+              <div style="margin-top: .6em;">
+                <input id="translate-create-reference-culture" class="demo-input" type="text" />
+              </div>
+              <p id="translate-create-reference-culture-desc">Default <code>en</code>. Specifies the reference culture.</p>
+
+              <label>Output</label>
+              <div style="margin-top: .6em;">
+                <input id="translate-create-output" class="demo-input" type="text" />
+              </div>
+              <p id="translate-create-output-desc">Output file name. Default <code>abp-translation.json</code>.</p>
+
+              <div>
+                <input id="translate-create-all-values" type="checkbox" />
+                <label>Include All Values</label>
+              </div>
+              <p id="translate-create-all-values-desc">Include all keys to translate. By default, the unified translation file only includes the missing texts for the target culture. Specify this parameter if you may need to revise the values already translated before.</p>
+            </div>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="translate-create-execute">Execute</button>
+          </h5>
+
+          <div id="translate-create-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Apply
+          <div class="demo-meta u-avoid-clicks">Applying changes</div>
+        </button>
+        <div id="box-abp-cli-translate-apply" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abp translate -a [options]</code></pre>
+
+          <div id="translate-apply-info">
+            <h5>Specified Directory</h5>
+            <input id="translate-apply-directory" class="demo-input" type="text" />
+            <button id="translate-apply-directory-selectBtn" class="demo-button">Select</button>
+          </div>
+
+          <div id="translate-apply-options">
+            <h5>Extra Options</h5>
+            <div>
+              <label>File Name</label>
+              <div style="margin-top: .6em;">
+                <input id="translate-apply-file-name" class="demo-input" type="text" />
+              </div>
+              <p id="translate-apply-file-name-desc">Default: <code>abp-translation.json</code>. The translation file (use only if you've used the --output option before).</p>
+            </div>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="translate-apply-execute">Execute</button>
+          </h5>
+
+          <div id="translate-apply-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/abp-cli/abp-cli-translate-create.js')
+      require('./renderer-process/abp-cli/abp-cli-translate-apply.js')
+    </script>
+
+  </section>
+</template>
