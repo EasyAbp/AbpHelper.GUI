@@ -69,7 +69,7 @@ function initialize () {
     if (debug) {
       mainWindow.webContents.openDevTools()
       mainWindow.maximize()
-      require('devtron').install()
+      // require('devtron').install()
     }
 
     mainWindow.on('closed', () => {
@@ -197,7 +197,7 @@ async function checkForUpdate() {
   downloadReleaseMenuItem.visible = false
   checkUpdateMenuItem.label = 'GUI Version: Checking for Update....'
   checkUpdateMenuItem.enabled = false
-  const data = JSON.parse(await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.GUI/releases/latest', {type: 'text'}))
+  const data = await (await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.GUI/releases/latest', {type: 'text'})).json()
   if (data.tag_name) {
     checkUpdateMenuItem.label = data.tag_name == currentVersion ? 'GUI Version: v' + currentVersion : 'GUI Version: v' + currentVersion + ' (Latest: v' + data.tag_name + ')'
     checkUpdateMenuItem.enabled = true
@@ -219,7 +219,7 @@ async function cliCheckForUpdate() {
   cliUpdateMenuItem.visible = false
   cliCheckUpdateMenuItem.label = 'CLI Version: Checking for CLI Update....'
   cliCheckUpdateMenuItem.enabled = false
-  const data = JSON.parse(await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.CLI/releases/latest', {type: 'text'}))
+  const data = await (await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.CLI/releases/latest', {type: 'text'})).json()
   if (data.tag_name) {
     cliCheckUpdateMenuItem.label = data.tag_name == currentVersion ? 'CLI Version: v' + currentVersion : 'CLI Version: v' + currentVersion + ' (Latest: v' + data.tag_name + ')'
     cliCheckUpdateMenuItem.enabled = true
