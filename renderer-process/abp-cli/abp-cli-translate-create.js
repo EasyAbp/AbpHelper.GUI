@@ -3,13 +3,20 @@ const exec = require('child_process').exec
 
 let isRunning = false
 
+let isAllValues = false
+
 let consoleNode = document.getElementById('box-abp-cli-translate-create').getElementsByTagName('textarea')[0]
 
 const execBtn = document.getElementById('translate-create-execute')
 const directorySelectBtn = document.getElementById('translate-create-directory-selectBtn')
+const allValuesCheckbox = document.getElementById('translate-create-all-values')
 
 execBtn.addEventListener('click', (event) => {
   runExec()
+})
+
+allValuesCheckbox.addEventListener('click', (event) => {
+  isAllValues = allValuesCheckbox.checked
 })
 
 directorySelectBtn.addEventListener('click', (event) => {
@@ -29,7 +36,6 @@ function runExec() {
   let directory = document.getElementById('translate-create-directory').value
   let referenceCulture = document.getElementById('translate-create-reference-culture').value
   let output = document.getElementById('translate-create-output').value
-  let allValues = document.getElementById('translate-create-all-values').value
   if (isRunning || !culture || !directory) return
   isRunning = true
   execBtn.disabled = true
@@ -38,7 +44,7 @@ function runExec() {
   let cmdStr = 'abp translate -c ' + culture
   if (referenceCulture) cmdStr += ' -r ' + referenceCulture
   if (output) cmdStr += ' -o ' + output
-  if (allValues) cmdStr += ' -all'
+  if (isAllValues) cmdStr += ' -all'
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()
