@@ -133,7 +133,7 @@ let template = [{
   label: 'Abp CLI...',
   click: () => loadShowPage('abp-cli-new')
 }, {
-  label: 'Code Generator...',
+  label: 'AbpHelper CLI...',
   click: () => loadShowPage('abphelper-cli-generate-crud')
 }, {
   label: 'Modules Manager...',
