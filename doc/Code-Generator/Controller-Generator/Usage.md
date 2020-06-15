@@ -1,3 +1,0 @@
-# Controller Generator Usage
-
-Coming soon...

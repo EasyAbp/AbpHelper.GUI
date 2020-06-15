@@ -1,10 +1,10 @@
-# Entity Code Generator Usage
+# CRUD Code Generator Usage
 
 ## Steps
 
-1. Create an entity manually.
+1. Create an entity class manually.
 
-1. Run AbpHelper entity code generator.
+1. Run AbpHelper CRUD code generator.
 
 ## Presentation
 
