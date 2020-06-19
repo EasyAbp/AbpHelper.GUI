@@ -97,6 +97,10 @@ function initialize () {
       createWindow()
     }
   })
+
+  app.on('before-quit', () => {
+    forceQuit = true;
+  });
 }
 
 let tray = null
