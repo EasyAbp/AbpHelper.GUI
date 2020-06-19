@@ -93,7 +93,11 @@ function initialize () {
   })
 
   app.on('activate', () => {
-    if (process.platform === 'darwin' || mainWindow === null) {
+    if (mainWindow === null) {
+      createWindow()
+    }
+
+    if (process.platform === 'darwin' && !mainWindow.isVisible()) {
       createWindow()
     }
   })
