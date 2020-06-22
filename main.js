@@ -99,8 +99,10 @@ function initialize () {
   })
 
   app.on('before-quit', () => {
-    forceQuit = true;
-  });
+    if (process.platform === 'darwin') {
+         forceQuit = true;
+    }
+ });
 }
 
 let tray = null
