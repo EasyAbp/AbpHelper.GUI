@@ -99,6 +99,12 @@ function initialize () {
       createWindow()
     }
   })
+
+  app.on('before-quit', () => {
+    if (process.platform === 'darwin') {
+         forceQuit = true;
+    }
+ });
 }
 
 let tray = null
