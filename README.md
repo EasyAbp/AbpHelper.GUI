@@ -4,7 +4,7 @@ AbpHelper is a tool that helps you with developing [Abp vNext](https://abp.io/) 
 
 **Make sure backup your source files before using it!**
 
-> This GUI app is based on [AbpHelper.CLI](https://github.com/EasyAbp/AbpHelper.CLI), if you prefer command line, use it directly.
+> This GUI app is based on [AbpHelper.CLI](https://github.com/EasyAbp/AbpHelper.CLI), you can use the CLI directly if you prefer command line.
 
 ## Getting Started
 
