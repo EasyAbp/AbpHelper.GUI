@@ -6,18 +6,58 @@
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
           Controller Code Generator
         </h1>
-        <h3>Automatically generate controller code.</h3>
-        <p>Don't repeat yourself.</p>
+        <h3>Automatically generate controller code. Manually creating controllers for each AppService is a good practice for module development.</h3>
+        <p>See the <a href="https://github.com/EasyAbp/AbpHelper.CLI">AbpHelper CLI Github repository<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser for more informations.</p>
       </div>
     </header>
 
     <div class="demo">
       <div class="demo-wrapper">
-        <p>Comming soon...</p>
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Generate Controller Class
+          <div class="demo-meta u-avoid-clicks">Generate controller class and methods according to the specified service</div>
+        </button>
+        <div id="box-abphelper-cli-generate-controller" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abphelper generate controller [options] &lt;name&gt;</code></pre>
+          <div id="ctrl-info">
+            <h5>AppService Name</h5>
+            <input id="ctrl-service-name" class="demo-input" type="text" placeholder="e.g. Product" />
+            <p id="ctrl-service-name-desc">The service name (without 'AppService' postfix)</p>
+            <h5>Solution</h5>
+            <input id="ctrl-solution-file" class="demo-input" type="text" placeholder="Select a .sln file" />
+            <button id="ctrl-select-solution-file-btn" class="demo-button">Select</button>
+          </div>
+
+          <div id="ctrl-options">
+            <h5>Extra Options</h5>
+            <div>
+              <div>
+                <input id="ctrl-options-skipBuild" type="checkbox" />
+                <label>Skip Build</label>
+              </div>
+              <p id="ctrl-options-skipBuild-desc">Skip building the solution.</p>
+              <div>
+                <input id="ctrl-options-regenerate" type="checkbox" />
+                <label>Regenerate</label>
+              </div>
+              <p id="ctrl-options-regenerate-desc">Completely regenerate the controller class, instead of the default: only generate the missing controller methods.</p>
+            </div>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="ctrl-execute">Execute</button>
+          </h5>
+
+          <div id="ctrl-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
       </div>
     </div>
 
     <script type="text/javascript">
+      require('./renderer-process/abphelper-cli/abphelper-cli-generate-controller.js')
     </script>
 
   </section>
