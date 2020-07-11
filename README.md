@@ -21,7 +21,7 @@ AbpHelper is a tool that helps you with developing [Abp vNext](https://abp.io/) 
 
 ## Usage
 
-* [Generate CRUD Code](doc/Abphelper-CLI/Generate-CRUD-Code/Usage.md)
+* [Generate CRUD Code](doc/AbpHelper-CLI/Generate-CRUD-Code/Usage.md)
 
 ## Roadmap
 
