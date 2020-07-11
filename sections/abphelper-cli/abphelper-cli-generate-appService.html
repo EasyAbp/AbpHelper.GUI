@@ -6,18 +6,114 @@
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
           AppService Code Generator
         </h1>
-        <h3>Automatically generate AppService code.</h3>
-        <p>Don't repeat yourself.</p>
+        <h3>Automatically generate AppService code. It can help you quickly create an application service class or method.</h3>
+        <p>See the <a href="https://github.com/EasyAbp/AbpHelper.CLI">AbpHelper CLI Github repository<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser for more informations.</p>
       </div>
     </header>
 
     <div class="demo">
       <div class="demo-wrapper">
-        <p>Comming soon...</p>
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Generate AppService Class
+          <div class="demo-meta u-avoid-clicks">Generate service interface and class files according to the specified name</div>
+        </button>
+        <div id="box-abphelper-cli-generate-appService-class" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abphelper generate service [options] &lt;name&gt;</code></pre>
+          <div id="appService-class-info">
+            <h5>AppService Name</h5>
+            <input id="appService-class-service-name" class="demo-input" type="text" placeholder="e.g. Product" />
+            <p id="appService-class-service-name-desc">The service name (without 'AppService' postfix)</p>
+            <h5>Solution</h5>
+            <input id="appService-class-solution-file" class="demo-input" type="text" placeholder="Select a .sln file" />
+            <button id="appService-class-select-solution-file-btn" class="demo-button">Select</button>
+          </div>
+
+          <div id="appService-class-options">
+            <h5>Extra Options</h5>
+            <div>
+              <div>
+                <input id="appService-class-options-noOverwrite" type="checkbox" />
+                <label>No overwirte</label>
+              </div>
+              <p id="appService-class-options-noOverwrite-desc">Specify not to overwrite existing files.</p>
+              <div>
+                <label>Folder</label>
+                <div style="margin-top: 14px;">
+                  <input id="appService-class-options-folder" class="demo-input" type="text" />
+                </div>
+              </div>
+              <p id="appService-class-options-folder-desc">Specify the folder where the service files are generated. Multi-level(e.g., foo/bar) directory is supported.</p>
+            </div>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="appService-class-execute">Execute</button>
+          </h5>
+
+          <div id="appService-class-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Generate AppService Method(s)
+          <div class="demo-meta u-avoid-clicks">Generate service method(s) according to the specified name(s)</div>
+        </button>
+        <div id="box-abphelper-cli-generate-appService-methods" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abphelper generate methods [options] [&lt;method-names&gt;]</code></pre>
+          <div id="appService-methods-info">
+            <h5>Method Names</h5>
+            <input id="appService-methods-method-names" class="demo-input" type="text" placeholder="e.g. Create Update Delete" />
+            <p id="appService-methods-method-names-desc">The names of the methods to be generated (separated by spaces)</p>
+            <h5>AppService Name</h5>
+            <input id="appService-methods-service-name" class="demo-input" type="text" placeholder="e.g. Product" />
+            <p id="appService-methods-service-name-desc">The service name (without 'AppService' postfix)</p>
+            <h5>Solution</h5>
+            <input id="appService-methods-solution-file" class="demo-input" type="text" placeholder="Select a .sln file" />
+            <button id="appService-methods-select-solution-file-btn" class="demo-button">Select</button>
+          </div>
+
+          <div id="appService-methods-options">
+            <h5>Extra Options</h5>
+            <div>
+              <div>
+                <input id="appService-methods-options-noOverwrite" type="checkbox" />
+                <label>No overwirte</label>
+              </div>
+              <p id="appService-methods-options-noOverwrite-desc">Specify not to overwrite existing files.</p>
+              <div>
+                <input id="appService-methods-options-noInput" type="checkbox" />
+                <label>No Input</label>
+              </div>
+              <p id="appService-methods-options-noInput-desc">Not to generate input DTO file and parameter.</p>
+              <div>
+                <input id="appService-methods-options-noOutput" type="checkbox" />
+                <label>No Output</label>
+              </div>
+              <p id="appService-methods-options-noOutput-desc">Not to generate output DTO file and parameter.</p>
+            </div>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="appService-methods-execute">Execute</button>
+          </h5>
+
+          <div id="appService-methods-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
       </div>
     </div>
 
     <script type="text/javascript">
+      require('./renderer-process/abphelper-cli/abphelper-cli-generate-appService-class.js')
+      require('./renderer-process/abphelper-cli/abphelper-cli-generate-appService-methods.js')
     </script>
 
   </section>
