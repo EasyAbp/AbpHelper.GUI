@@ -48,9 +48,9 @@ function addDoubleQuote(str) {
 }
 
 function runExec() {
-  let moduleName = '"' + document.getElementById('add-module-name').value + '"'
-  let file = '"' + document.getElementById('add-module-solution-file').value + '"'
-  let startupProject = '"' + document.getElementById('add-module-startup-project').value + '"'
+  let moduleName = document.getElementById('add-module-name').value
+  let file = document.getElementById('add-module-solution-file').value
+  let startupProject = document.getElementById('add-module-startup-project').value
   if (isRunning || !moduleName || !file) return
   isRunning = true
   execBtn.disabled = true
