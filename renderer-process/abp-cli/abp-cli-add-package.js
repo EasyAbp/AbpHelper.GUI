@@ -27,6 +27,10 @@ execBtn.addEventListener('click', (event) => {
   runExec()
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let packageName = document.getElementById('add-package-name').value
   let file = document.getElementById('add-package-project-file').value
@@ -35,7 +39,7 @@ function runExec() {
   execBtn.disabled = true
   document.getElementById('add-package-process').style.display = 'block'
 
-  let cmdStr = 'abp add-package ' + packageName + ' -p ' + file
+  let cmdStr = 'abp add-package ' + addDoubleQuote(packageName) + ' -p ' + addDoubleQuote(file)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

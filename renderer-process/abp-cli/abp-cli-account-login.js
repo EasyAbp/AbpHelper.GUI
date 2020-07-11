@@ -10,6 +10,10 @@ execBtn.addEventListener('click', (event) => {
   runExec()
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let username = document.getElementById('account-login-username').value
   let password = document.getElementById('account-login-password').value
@@ -18,7 +22,7 @@ function runExec() {
   execBtn.disabled = true
   document.getElementById('account-login-process').style.display = 'block'
 
-  let cmdStr = 'abp login ' + username + ' -p ' + password
+  let cmdStr = 'abp login ' + addDoubleQuote(username) + ' -p ' + addDoubleQuote(password)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

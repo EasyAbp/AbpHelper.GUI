@@ -43,6 +43,10 @@ onlyNugetCheckbox.addEventListener('click', (event) => {
   isOnlyNuget = onlyNugetCheckbox.checked
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let cmdPath = document.getElementById('update-folder').value
   let solutionName = document.getElementById('update-solution-name').value
@@ -55,7 +59,7 @@ function runExec() {
   if (isIncludePreviews) cmdStr += ' -p'
   if (isOnlyNpm) cmdStr += ' --npm'
   if (isOnlyNuget) cmdStr += ' --nuget'
-  if (solutionName) cmdStr += ' -sn ' + solutionName
+  if (solutionName) cmdStr += ' -sn ' + addDoubleQuote(solutionName)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

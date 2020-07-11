@@ -112,6 +112,10 @@ dbRadios.forEach(function (dbRadio) {
   })
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let projName = document.getElementById('app-project-name').value
   let cmdPath = document.getElementById('app-project-folder').value
@@ -124,15 +128,15 @@ function runExec() {
   execBtn.disabled = true
   document.getElementById('app-process').style.display = 'block'
 
-  let cmdStr = 'abp new ' + projName + ' -t app -u ' + ui
+  let cmdStr = 'abp new ' + addDoubleQuote(projName) + ' -t app -u ' + ui
   if (ui === 'mvc' && isTiered) cmdStr += ' --tiered'
   else if (ui === 'angular' || ui === 'none' && isSeparate) cmdStr += ' --separate-identity-server'
   cmdStr += ' -d ' + dbProvider
-  if (abpVersion) cmdStr += ' -v ' + abpVersion
-  if (templateSource) cmdStr += ' -ts ' + templateSource
+  if (abpVersion) cmdStr += ' -v ' + addDoubleQuote(abpVersion)
+  if (templateSource) cmdStr += ' -ts ' + addDoubleQuote(templateSource)
   if (isCreateSolutionFolder) cmdStr += ' -csf true'
-  if (connectionString) cmdStr += ' -cs ' + connectionString
-  if (abpPath) cmdStr += ' --local-framework-ref --abp-path ' + abpPath
+  if (connectionString) cmdStr += ' -cs ' + addDoubleQuote(connectionString)
+  if (abpPath) cmdStr += ' --local-framework-ref --abp-path ' + addDoubleQuote(abpPath)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

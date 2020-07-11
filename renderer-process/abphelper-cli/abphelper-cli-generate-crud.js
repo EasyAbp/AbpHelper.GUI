@@ -108,6 +108,10 @@ extraOptionsCheckBox.noOverwirte.addEventListener('click', (event) => {
   extraOptions.noOverwirte = extraOptionsCheckBox.noOverwirte.checked
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let entityName = document.getElementById('crud-entity-name').value
   let solutionFile = document.getElementById('crud-solution-file').value
@@ -122,7 +126,7 @@ function runExec() {
   document.getElementById('crud-process').style.display = 'block'
 
   let cliCommand = process.platform === 'win32' ? '%USERPROFILE%\\.dotnet\\tools\\abphelper' : '$HOME/.dotnet/tools/abphelper'
-  let cmdStr = cliCommand + ' generate crud ' + entityName + ' -d ' + solutionRootPath
+  let cmdStr = cliCommand + ' generate crud ' + addDoubleQuote(entityName) + ' -d ' + addDoubleQuote(solutionRootPath)
   if (extraOptions.separateDto) cmdStr += ' --separate-dto'
   if (extraOptions.skipPermissions) cmdStr += ' --skip-permissions'
   if (extraOptions.repository) cmdStr += ' --custom-repository'
@@ -133,7 +137,7 @@ function runExec() {
   if (extraOptions.skipTest) cmdStr += ' --skip-test'
   if (extraOptions.skipEntityCtor) cmdStr += ' --skip-entity-constructors'
   if (extraOptions.noOverwirte) cmdStr += ' --no-overwrite'
-  if (migrationProjectName) cmdStr += ' --migration-project-name ' + migrationProjectName
+  if (migrationProjectName) cmdStr += ' --migration-project-name ' + addDoubleQuote(migrationProjectName)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

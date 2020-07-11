@@ -57,6 +57,10 @@ execBtn.addEventListener('click', (event) => {
   runExec()
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let names = document.getElementById('localization-item-names').value
   let solutionFile = document.getElementById('localization-item-solution-file').value
@@ -70,7 +74,7 @@ function runExec() {
   document.getElementById('localization-item-process').style.display = 'block'
 
   let cliCommand = process.platform === 'win32' ? '%USERPROFILE%\\.dotnet\\tools\\abphelper' : '$HOME/.dotnet/tools/abphelper'
-  let cmdStr = cliCommand + ' generate localization ' + names + ' -d ' + solutionRootPath
+  let cmdStr = cliCommand + ' generate localization ' + names + ' -d ' + addDoubleQuote(solutionRootPath)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

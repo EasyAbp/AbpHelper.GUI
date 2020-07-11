@@ -22,6 +22,10 @@ uninstallExecBtn.addEventListener('click', (event) => {
   runExec('uninstall')
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec(action) {
   if (isRunning) return
   isRunning = true
@@ -34,7 +38,7 @@ function runExec(action) {
   } else if (action === 'update') {
     execBtn = updateExecBtn
     consoleNode = updateConsoleNode
-    version = document.getElementById('abphelper-cli-installation-install-version').value
+    version = document.getElementById('abphelper-cli-installation-update-version').value
   } else if (action === 'uninstall') {
     execBtn = uninstallExecBtn
     consoleNode = uninstallConsoleNode
@@ -47,7 +51,7 @@ function runExec(action) {
   document.getElementById('abphelper-cli-installation-' + action + '-process').style.display = 'block'
 
   let cmdStr = 'dotnet tool ' + action + ' -g EasyAbp.AbpHelper'
-  if (version.trim() !== 'latest') cmdStr += ' --version ' + version
+  if (version.trim() !== 'latest') cmdStr += ' --version ' + addDoubleQuote(version)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

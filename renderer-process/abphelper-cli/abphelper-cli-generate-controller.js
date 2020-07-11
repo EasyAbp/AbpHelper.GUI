@@ -68,6 +68,10 @@ extraOptionsCheckBox.regenerate.addEventListener('click', (event) => {
   extraOptions.regenerate = extraOptionsCheckBox.regenerate.checked
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let serviceName = document.getElementById('ctrl-service-name').value
   let solutionFile = document.getElementById('ctrl-solution-file').value
@@ -81,7 +85,7 @@ function runExec() {
   document.getElementById('ctrl-process').style.display = 'block'
 
   let cliCommand = process.platform === 'win32' ? '%USERPROFILE%\\.dotnet\\tools\\abphelper' : '$HOME/.dotnet/tools/abphelper'
-  let cmdStr = cliCommand + ' generate controller ' + serviceName + ' -d ' + solutionRootPath
+  let cmdStr = cliCommand + ' generate controller ' + addDoubleQuote(serviceName) + ' -d ' + addDoubleQuote(solutionRootPath)
   if (extraOptions.skipBuild) cmdStr += ' --skip-build'
   if (extraOptions.regenerate) cmdStr += ' --regenerate'
   clearConsoleContent()

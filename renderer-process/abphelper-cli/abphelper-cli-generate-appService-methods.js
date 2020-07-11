@@ -73,6 +73,10 @@ extraOptionsCheckBox.noOutput.addEventListener('click', (event) => {
   extraOptions.noOutput = extraOptionsCheckBox.noOutput.checked
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let methodNames = document.getElementById('appService-methods-method-names').value
   let serviceName = document.getElementById('appService-methods-service-name').value
@@ -87,7 +91,7 @@ function runExec() {
   document.getElementById('appService-methods-process').style.display = 'block'
 
   let cliCommand = process.platform === 'win32' ? '%USERPROFILE%\\.dotnet\\tools\\abphelper' : '$HOME/.dotnet/tools/abphelper'
-  let cmdStr = cliCommand + ' generate methods ' + methodNames + ' -s ' + serviceName + ' -d ' + solutionRootPath
+  let cmdStr = cliCommand + ' generate methods ' + methodNames + ' -s ' + addDoubleQuote(serviceName) + ' -d ' + addDoubleQuote(solutionRootPath)
   if (extraOptions.noOverwrite) cmdStr += ' --no-overwrite'
   if (extraOptions.noInput) cmdStr += ' --no-input'
   if (extraOptions.noOutput) cmdStr += ' --no-output'

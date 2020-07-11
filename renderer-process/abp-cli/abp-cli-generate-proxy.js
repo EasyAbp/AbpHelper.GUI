@@ -24,6 +24,10 @@ projectSelectBtn.addEventListener('click', (event) => {
   })
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let cmdPath = document.getElementById('generate-proxy-project').value
   let apiUrl = document.getElementById('generate-proxy-api-url').value
@@ -35,9 +39,9 @@ function runExec() {
   document.getElementById('generate-proxy-process').style.display = 'block'
 
   let cmdStr = 'abp generate-proxy'
-  if (apiUrl) cmdStr += ' -a ' + apiUrl
-  if (ui) cmdStr += ' -u ' + ui
-  if (module) cmdStr += ' -m ' + module
+  if (apiUrl) cmdStr += ' -a ' + addDoubleQuote(apiUrl)
+  if (ui) cmdStr += ' -u ' + addDoubleQuote(ui)
+  if (module) cmdStr += ' -m ' + addDoubleQuote(module)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

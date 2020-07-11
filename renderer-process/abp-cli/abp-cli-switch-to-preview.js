@@ -24,6 +24,10 @@ execBtn.addEventListener('click', (event) => {
   runExec()
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let solutionDirectory = document.getElementById('switch-to-preview-solution-directory').value
   if (isRunning || !solutionDirectory) return
@@ -32,7 +36,7 @@ function runExec() {
   document.getElementById('switch-to-preview-process').style.display = 'block'
 
   let cmdStr = 'abp switch-to-preview'
-  if (solutionDirectory) cmdStr += ' -sd ' + solutionDirectory
+  if (solutionDirectory) cmdStr += ' -sd ' + addDoubleQuote(solutionDirectory)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

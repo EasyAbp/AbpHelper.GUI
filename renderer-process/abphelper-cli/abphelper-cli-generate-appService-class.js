@@ -63,6 +63,10 @@ extraOptionsCheckBox.noOverwrite.addEventListener('click', (event) => {
   extraOptions.noOverwrite = extraOptionsCheckBox.noOverwrite.checked
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let serviceName = document.getElementById('appService-class-service-name').value
   let solutionFile = document.getElementById('appService-class-solution-file').value
@@ -77,9 +81,9 @@ function runExec() {
   document.getElementById('appService-class-process').style.display = 'block'
 
   let cliCommand = process.platform === 'win32' ? '%USERPROFILE%\\.dotnet\\tools\\abphelper' : '$HOME/.dotnet/tools/abphelper'
-  let cmdStr = cliCommand + ' generate service ' + serviceName + ' -d ' + solutionRootPath
+  let cmdStr = cliCommand + ' generate service ' + addDoubleQuote(serviceName) + ' -d ' + addDoubleQuote(solutionRootPath)
   if (extraOptions.noOverwrite) cmdStr += ' --no-overwrite'
-  if (folder) cmdStr += ' --folder ' + folder
+  if (folder) cmdStr += ' --folder ' + addDoubleQuote(folder)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

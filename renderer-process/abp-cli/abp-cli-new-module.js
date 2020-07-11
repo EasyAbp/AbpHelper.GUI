@@ -63,6 +63,10 @@ createSolutionFolderCheckbox.addEventListener('click', (event) => {
   isCreateSolutionFolder = createSolutionFolderCheckbox.checked
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let projName = document.getElementById('module-project-name').value
   let cmdPath = document.getElementById('module-project-folder').value
@@ -75,13 +79,13 @@ function runExec() {
   execBtn.disabled = true
   document.getElementById('module-process').style.display = 'block'
 
-  let cmdStr = 'abp new ' + projName + ' -t module'
+  let cmdStr = 'abp new ' + addDoubleQuote(projName) + ' -t module'
   if (isNoUi) cmdStr += ' --no-ui'
-  if (abpVersion) cmdStr += ' -v ' + abpVersion
-  if (templateSource) cmdStr += ' -ts ' + templateSource
+  if (abpVersion) cmdStr += ' -v ' + addDoubleQuote(abpVersion)
+  if (templateSource) cmdStr += ' -ts ' + addDoubleQuote(templateSource)
   if (isCreateSolutionFolder) cmdStr += ' -csf true'
-  if (connectionString) cmdStr += ' -cs ' + connectionString
-  if (abpPath) cmdStr += ' --local-framework-ref --abp-path ' + abpPath
+  if (connectionString) cmdStr += ' -cs ' + addDoubleQuote(connectionString)
+  if (abpPath) cmdStr += ' --local-framework-ref --abp-path ' + addDoubleQuote(abpPath)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

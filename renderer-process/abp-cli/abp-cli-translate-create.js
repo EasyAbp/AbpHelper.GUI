@@ -31,6 +31,10 @@ directorySelectBtn.addEventListener('click', (event) => {
   })
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let culture = document.getElementById('translate-create-culture').value
   let directory = document.getElementById('translate-create-directory').value
@@ -41,9 +45,9 @@ function runExec() {
   execBtn.disabled = true
   document.getElementById('translate-create-process').style.display = 'block'
 
-  let cmdStr = 'abp translate -c ' + culture
-  if (referenceCulture) cmdStr += ' -r ' + referenceCulture
-  if (output) cmdStr += ' -o ' + output
+  let cmdStr = 'abp translate -c ' + addDoubleQuote(culture)
+  if (referenceCulture) cmdStr += ' -r ' + addDoubleQuote(referenceCulture)
+  if (output) cmdStr += ' -o ' + addDoubleQuote(output)
   if (isAllValues) cmdStr += ' -all'
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')

@@ -24,6 +24,10 @@ directorySelectBtn.addEventListener('click', (event) => {
   })
 })
 
+function addDoubleQuote(str) {
+  return '"' + str + '"'
+}
+
 function runExec() {
   let directory = document.getElementById('translate-apply-directory').value
   let fileName = document.getElementById('translate-apply-file-name').value
@@ -33,7 +37,7 @@ function runExec() {
   document.getElementById('translate-apply-process').style.display = 'block'
 
   let cmdStr = 'abp translate -a'
-  if (fileName) cmdStr += ' -f ' + fileName
+  if (fileName) cmdStr += ' -f ' + addDoubleQuote(fileName)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()
