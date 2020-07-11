@@ -25,7 +25,7 @@ AbpHelper is a tool that helps you with developing [Abp vNext](https://abp.io/) 
 
 ## Roadmap
 
-- [ ] Support ABP CLI login command
+- [x] Support ABP CLI login command
 - [x] AbpHelper CLI update check
 - [ ] Solution management
 - [ ] GUI of market.abp.io
