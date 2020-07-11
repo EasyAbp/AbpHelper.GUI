@@ -6,6 +6,7 @@ let isRunning = false
 let isIncludePreviews = false
 let isOnlyNpm = false
 let isOnlyNuget = false
+let isCheckAll = false
 
 let consoleNode = document.getElementById('box-abp-cli-update').getElementsByTagName('textarea')[0]
 
@@ -14,6 +15,7 @@ const selectFileBtn = document.getElementById('update-select-folder-btn')
 const includePreviewsCheckbox = document.getElementById('update-include-previews')
 const onlyNpmCheckbox = document.getElementById('update-only-npm')
 const onlyNugetCheckbox = document.getElementById('update-only-nuget')
+const checkAllCheckbox = document.getElementById('update-check-all')
 
 selectFileBtn.addEventListener('click', (event) => {
   dialog.showOpenDialog({
@@ -43,6 +45,10 @@ onlyNugetCheckbox.addEventListener('click', (event) => {
   isOnlyNuget = onlyNugetCheckbox.checked
 })
 
+checkAllCheckbox.addEventListener('click', (event) => {
+  isCheckAll = checkAllCheckbox.checked
+})
+
 function addDoubleQuote(str) {
   return '"' + str + '"'
 }
@@ -60,6 +66,7 @@ function runExec() {
   if (isOnlyNpm) cmdStr += ' --npm'
   if (isOnlyNuget) cmdStr += ' --nuget'
   if (solutionName) cmdStr += ' -sn ' + addDoubleQuote(solutionName)
+  if (isCheckAll) cmdStr += ' --check-all'
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

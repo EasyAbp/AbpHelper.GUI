@@ -3,24 +3,22 @@ const exec = require('child_process').exec
 
 let isRunning = false
 
-let isNoUi = false
 let isCreateSolutionFolder = false
 
-let consoleNode = document.getElementById('box-abp-cli-new-module').getElementsByTagName('textarea')[0]
+let consoleNode = document.getElementById('box-abp-cli-new-console').getElementsByTagName('textarea')[0]
 
-const execBtn = document.getElementById('module-execute')
-const projectFolderSelectBtn = document.getElementById('module-project-folder-selectBtn')
-const templateSourceSelectBtn = document.getElementById('module-template-source-selectBtn')
-const abpPathSelectBtn = document.getElementById('module-abp-path-selectBtn')
-const noUiCheckbox = document.getElementById('module-no-ui')
-const createSolutionFolderCheckbox = document.getElementById('module-create-solution-folder')
+const execBtn = document.getElementById('console-execute')
+const projectFolderSelectBtn = document.getElementById('console-project-folder-selectBtn')
+const templateSourceSelectBtn = document.getElementById('console-template-source-selectBtn')
+const abpPathSelectBtn = document.getElementById('console-abp-path-selectBtn')
+const createSolutionFolderCheckbox = document.getElementById('console-create-solution-folder')
 
 projectFolderSelectBtn.addEventListener('click', (event) => {
   dialog.showOpenDialog({
     properties: ['openDirectory']
   }).then(result => {
     if (result.filePaths[0]) {
-      document.getElementById('module-project-folder').value = result.filePaths[0]
+      document.getElementById('console-project-folder').value = result.filePaths[0]
     }
   }).catch(err => {
     console.log(err)
@@ -32,7 +30,7 @@ templateSourceSelectBtn.addEventListener('click', (event) => {
     properties: ['openDirectory']
   }).then(result => {
     if (result.filePaths[0]) {
-      document.getElementById('module-template-source').value = result.filePaths[0]
+      document.getElementById('console-template-source').value = result.filePaths[0]
     }
   }).catch(err => {
     console.log(err)
@@ -44,7 +42,7 @@ abpPathSelectBtn.addEventListener('click', (event) => {
     properties: ['openDirectory']
   }).then(result => {
     if (result.filePaths[0]) {
-      document.getElementById('module-abp-path').value = result.filePaths[0]
+      document.getElementById('console-abp-path').value = result.filePaths[0]
     }
   }).catch(err => {
     console.log(err)
@@ -53,10 +51,6 @@ abpPathSelectBtn.addEventListener('click', (event) => {
 
 execBtn.addEventListener('click', (event) => {
   runExec()
-})
-
-noUiCheckbox.addEventListener('click', (event) => {
-  isNoUi = noUiCheckbox.checked
 })
 
 createSolutionFolderCheckbox.addEventListener('click', (event) => {
@@ -68,19 +62,18 @@ function addDoubleQuote(str) {
 }
 
 function runExec() {
-  let solutionName = document.getElementById('module-solution-name').value
-  let cmdPath = document.getElementById('module-project-folder').value
-  let abpVersion = document.getElementById('module-abp-version').value
-  let templateSource = document.getElementById('module-template-source').value
-  let connectionString = document.getElementById('module-connection-string').value
-  let abpPath = document.getElementById('module-abp-path').value
+  let solutionName = document.getElementById('console-solution-name').value
+  let cmdPath = document.getElementById('console-project-folder').value
+  let abpVersion = document.getElementById('console-abp-version').value
+  let templateSource = document.getElementById('console-template-source').value
+  let connectionString = document.getElementById('console-connection-string').value
+  let abpPath = document.getElementById('console-abp-path').value
   if (isRunning || !solutionName || !cmdPath) return
   isRunning = true
   execBtn.disabled = true
-  document.getElementById('module-process').style.display = 'block'
+  document.getElementById('console-process').style.display = 'block'
 
-  let cmdStr = 'abp new ' + addDoubleQuote(solutionName) + ' -t module'
-  if (isNoUi) cmdStr += ' --no-ui'
+  let cmdStr = 'abp new ' + addDoubleQuote(solutionName) + ' -t console'
   if (abpVersion) cmdStr += ' -v ' + addDoubleQuote(abpVersion)
   if (templateSource) cmdStr += ' -ts ' + addDoubleQuote(templateSource)
   if (isCreateSolutionFolder) cmdStr += ' -csf true'

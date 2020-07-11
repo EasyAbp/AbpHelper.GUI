@@ -117,18 +117,18 @@ function addDoubleQuote(str) {
 }
 
 function runExec() {
-  let projName = document.getElementById('app-project-name').value
+  let solutionName = document.getElementById('app-solution-name').value
   let cmdPath = document.getElementById('app-project-folder').value
   let abpVersion = document.getElementById('app-abp-version').value
   let templateSource = document.getElementById('app-template-source').value
   let connectionString = document.getElementById('app-connection-string').value
   let abpPath = document.getElementById('app-abp-path').value
-  if (isRunning || !projName || !cmdPath || !ui || !dbProvider) return
+  if (isRunning || !solutionName || !cmdPath || !ui || !dbProvider) return
   isRunning = true
   execBtn.disabled = true
   document.getElementById('app-process').style.display = 'block'
 
-  let cmdStr = 'abp new ' + addDoubleQuote(projName) + ' -t app -u ' + ui
+  let cmdStr = 'abp new ' + addDoubleQuote(solutionName) + ' -t app -u ' + ui
   if (ui === 'mvc' && isTiered) cmdStr += ' --tiered'
   else if (ui === 'angular' || ui === 'none' && isSeparate) cmdStr += ' --separate-identity-server'
   cmdStr += ' -d ' + dbProvider

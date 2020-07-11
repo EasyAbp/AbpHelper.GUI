@@ -3,11 +3,16 @@ const exec = require('child_process').exec
 
 let isRunning = false
 
+let skipDbMigrations = false
+let withSourceCode = false
+
 let consoleNode = document.getElementById('box-abp-cli-add-module').getElementsByTagName('textarea')[0]
 
 const execBtn = document.getElementById('add-module-execute')
 const selectFileBtn = document.getElementById('add-module-select-file-btn')
 const selectSpFileBtn = document.getElementById('add-module-startup-project-selectBtn')
+const skipDbMigrationsCheckBox = document.getElementById('add-module-skip-db-migrations')
+const withSourceCodeCheckbox = document.getElementById('add-module-with-source-code')
 
 execBtn.addEventListener('click', (event) => {
   runExec()
@@ -43,6 +48,13 @@ selectSpFileBtn.addEventListener('click', (event) => {
   })
 })
 
+skipDbMigrationsCheckBox.addEventListener('click', (event) => {
+  skipDbMigrations = skipDbMigrationsCheckBox.checked
+})
+withSourceCodeCheckbox.addEventListener('click', (event) => {
+  withSourceCode = withSourceCodeCheckbox.checked
+})
+
 function addDoubleQuote(str) {
   return '"' + str + '"'
 }
@@ -57,9 +69,10 @@ function runExec() {
   document.getElementById('add-module-process').style.display = 'block'
 
   let cmdStr = 'abp add-module ' + addDoubleQuote(moduleName) + ' -s ' + addDoubleQuote(file)
-  if (document.getElementById('add-module-skip-db-migrations').checked) cmdStr += ' --skip-db-migrations'
+  if (skipDbMigrations) cmdStr += ' --skip-db-migrations'
   console.log(startupProject)
   if (startupProject) cmdStr += ' -sp ' + addDoubleQuote(startupProject)
+  if (withSourceCode) cmdStr += ' --with-source-code'
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

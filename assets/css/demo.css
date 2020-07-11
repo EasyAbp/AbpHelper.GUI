@@ -138,6 +138,7 @@
 }
 
 .demo-box p {
+  word-break: break-all;
   margin-top: 0.3em;
 }
 

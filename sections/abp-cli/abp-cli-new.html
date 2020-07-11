@@ -13,16 +13,16 @@
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Create a new app
-          <div class="demo-meta u-avoid-clicks">UI: mvc, angular, no-ui <span class="demo-meta-divider">|</span> DB provider: ef, mongodb</div>
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Create an app solution
+          <div class="demo-meta u-avoid-clicks">Generate a new app solution through the startup template</div>
         </button>
         <div id="box-abp-cli-new-app" class="demo-box">
           <h5 style="margin-top: 0;">Command</h5>
           <pre><code>abp new &lt;solution-name&gt; [options]</code></pre>
           <div id="app-project-info">
-            <h5>Project Name</h5>
-            <input id="app-project-name" class="demo-input" type="text" />
-            <p id="app-project-name-desc">Common convention is to name a solution is like YourCompany.YourProject. However, you can use different naming like YourProject (single level namespacing) or YourCompany.YourProduct.YourModule (three levels namespacing).</p>
+            <h5>Solution Name</h5>
+            <input id="app-solution-name" class="demo-input" type="text" />
+            <p id="app-solution-name-desc">Common convention is to name a solution is like YourCompany.YourProject. However, you can use different naming like YourProject (single level namespacing) or YourCompany.YourProduct.YourModule (three levels namespacing).</p>
 
             <h5>Output Folder</h5>
             <input id="app-project-folder" class="demo-input" type="text" />
@@ -86,7 +86,7 @@
               <input id="app-template-source" class="demo-input" type="text" />
               <button id="app-template-source-selectBtn" class="demo-button">Select</button>
             </div>
-            <p id="app-template-source-desc">Specifies a custom template source to use to build the project. Local and network sources can be used(Like D:\localTemplate or https://&lt;your url&gt;.zip).</p>
+            <p id="app-template-source-desc">Specifies a custom template source to use to build the project. Local and network sources can be used(Like D:\local-template or https://.../my-template-file.zip).</p>
 
             <input id="app-create-solution-folder" type="checkbox" />
             <label>Create Solution Folder</label>
@@ -96,14 +96,14 @@
             <div style="margin-top: .6em;">
               <input id="app-connection-string" class="demo-input" type="text" />
             </div>
-            <p id="app-connection-string-desc">Overwrites the default connection strings in all appsettings.json files. The default connection string is Server=localhost;Database=MyProjectName;Trusted_Connection=True;MultipleActiveResultSets=true. You can set your own connection string if you don't want to use the default. Be aware that the default database provider is SQL Server, therefore you can only enter connection string for SQL Server!</p>
+            <p id="app-connection-string-desc">Overwrites the default connection strings in all <b>appsettings.json</b> files. The default connection string is <b>Server=localhost;Database=MyProjectName;Trusted_Connection=True;MultipleActiveResultSets=true</b> for EF Core and it is configured to use the SQL Server. If you want to use the EF Core, but need to change the DBMS, you can change it as <a href="https://github.com/abpframework/abp/blob/dev/docs/en/Entity-Framework-Core-Other-DBMS.md">described here<span class="u-visible-to-screen-reader">(opens in new window)</span></a> (after creating the solution).</p>
 
             <label>Local Framework Reference</label>
             <div style="margin-top: .6em;">
               <input id="app-abp-path" class="demo-input" type="text" />
               <button id="app-abp-path-selectBtn" class="demo-button">Select</button>
             </div>
-            <p id="app-local-framework-ref-desc">keeps local references to projects instead of replacing with NuGet package references.</p>
+            <p id="app-local-framework-ref-desc">Uses local projects references to the ABP framework instead of using the NuGet packages. This can be useful if you download the ABP Framework source code and have a local reference to the framework from your application.</p>
           </div>
 
           <h5>
@@ -120,16 +120,16 @@
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Create a new module
-          <div class="demo-meta u-avoid-clicks">UI: full-ui, no-ui</div>
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Create a module solution
+          <div class="demo-meta u-avoid-clicks">Generate a new module solution through the startup template</div>
         </button>
         <div id="box-abp-cli-new-module" class="demo-box">
           <h5 style="margin-top: 0;">Command</h5>
           <pre><code>abp new &lt;solution-name&gt; [options]</code></pre>
           <div id="module-project-info">
-            <h5>Project Name</h5>
-            <input id="module-project-name" class="demo-input" type="text" />
-            <p id="module-project-name-desc">Common convention is to name a solution is like YourCompany.YourProject. However, you can use different naming like YourProject (single level namespacing) or YourCompany.YourProduct.YourModule (three levels namespacing).</p>
+            <h5>Solution Name</h5>
+            <input id="module-solution-name" class="demo-input" type="text" />
+            <p id="module-solution-name-desc">Common convention is to name a solution is like YourCompany.YourProject. However, you can use different naming like YourProject (single level namespacing) or YourCompany.YourProduct.YourModule (three levels namespacing).</p>
             
             <h5>Output Folder</h5>
             <input id="module-project-folder" class="demo-input" type="text" />
@@ -156,7 +156,7 @@
               <input id="module-template-source" class="demo-input" type="text" />
               <button id="module-template-source-selectBtn" class="demo-button">Select</button>
             </div>
-            <p id="module-template-source-desc">Specifies a custom template source to use to build the project. Local and network sources can be used(Like D:\localTemplate or https://&lt;your url&gt;.zip).</p>
+            <p id="module-template-source-desc">Specifies a custom template source to use to build the project. Local and network sources can be used(Like D:\local-template or https://.../my-template-file.zip).</p>
         
             <input id="module-create-solution-folder" type="checkbox" />
             <label>Create Solution Folder</label>
@@ -166,14 +166,14 @@
             <div style="margin-top: .6em;">
               <input id="module-connection-string" class="demo-input" type="text" />
             </div>
-            <p id="module-connection-string-desc">Overwrites the default connection strings in all appsettings.json files. The default connection string is Server=localhost;Database=MyProjectName;Trusted_Connection=True;MultipleActiveResultSets=true. You can set your own connection string if you don't want to use the default. Be aware that the default database provider is SQL Server, therefore you can only enter connection string for SQL Server!</p>
+            <p id="module-connection-string-desc">Overwrites the default connection strings in all <b>appsettings.json</b> files. The default connection string is <b>Server=localhost;Database=MyProjectName;Trusted_Connection=True;MultipleActiveResultSets=true</b> for EF Core and it is configured to use the SQL Server. If you want to use the EF Core, but need to change the DBMS, you can change it as <a href="https://github.com/abpframework/abp/blob/dev/docs/en/Entity-Framework-Core-Other-DBMS.md">described here<span class="u-visible-to-screen-reader">(opens in new window)</span></a> (after creating the solution).</p>
         
             <label>Local Framework Reference</label>
             <div style="margin-top: .6em;">
               <input id="module-abp-path" class="demo-input" type="text" />
               <button id="module-abp-path-selectBtn" class="demo-button">Select</button>
             </div>
-            <p id="module-local-framework-ref-desc">keeps local references to projects instead of replacing with NuGet package references.</p>
+            <p id="module-local-framework-ref-desc">Uses local projects references to the ABP framework instead of using the NuGet packages. This can be useful if you download the ABP Framework source code and have a local reference to the framework from your application.</p>
           </div>
 
           <h5>
@@ -181,6 +181,71 @@
           </h5>
 
           <div id="module-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Create a console solution
+          <div class="demo-meta u-avoid-clicks">Generate a new console solution through the startup template</div>
+        </button>
+        <div id="box-abp-cli-new-console" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abp new &lt;solution-name&gt; [options]</code></pre>
+          <div id="console-project-info">
+            <h5>Solution Name</h5>
+            <input id="console-solution-name" class="demo-input" type="text" />
+            <p id="console-solution-name-desc">Common convention is to name a solution is like YourCompany.YourProject. However, you can use different naming like YourProject (single level namespacing) or YourCompany.YourProduct.YourModule (three levels namespacing).</p>
+            
+            <h5>Output Folder</h5>
+            <input id="console-project-folder" class="demo-input" type="text" />
+            <button id="console-project-folder-selectBtn" class="demo-button">Select</button>
+            <p id="console-project-folder-desc">Specifies the output folder. Default value is the current directory.</p>
+          </div>
+
+          <div id="console-options-extra">
+            <h5>Extra Options</h5>
+        
+            <label>Abp Version</label>
+            <div style="margin-top: .6em;">
+              <input id="console-abp-version" class="demo-input" type="text" />
+            </div>
+            <p id="console-abp-version-desc">Specifies the ABP & template version. It can be a <a href="https://github.com/abpframework/abp/releases">release tag<span class="u-visible-to-screen-reader">(opens in new window)</span></a> or a <a href="https://github.com/abpframework/abp/branches">branch name<span class="u-visible-to-screen-reader">(opens in new window)</span></a>. Uses the latest release if not specified. Most of the times, you will want to use the latest version.</p>
+        
+            <label>Template Source</label>
+            <div style="margin-top: .6em;">
+              <input id="console-template-source" class="demo-input" type="text" />
+              <button id="console-template-source-selectBtn" class="demo-button">Select</button>
+            </div>
+            <p id="console-template-source-desc">Specifies a custom template source to use to build the project. Local and network sources can be used(Like D:\local-template or https://.../my-template-file.zip).</p>
+        
+            <input id="console-create-solution-folder" type="checkbox" />
+            <label>Create Solution Folder</label>
+            <p id="console-create-solution-folder-desc">Specifies if the project will be in a new folder in the output folder or directly the output folder.</p>
+        
+            <label>Connection String</label>
+            <div style="margin-top: .6em;">
+              <input id="console-connection-string" class="demo-input" type="text" />
+            </div>
+            <p id="console-connection-string-desc">Overwrites the default connection strings in all <b>appsettings.json</b> files. The default connection string is <b>Server=localhost;Database=MyProjectName;Trusted_Connection=True;MultipleActiveResultSets=true</b> for EF Core and it is configured to use the SQL Server. If you want to use the EF Core, but need to change the DBMS, you can change it as <a href="https://github.com/abpframework/abp/blob/dev/docs/en/Entity-Framework-Core-Other-DBMS.md">described here<span class="u-visible-to-screen-reader">(opens in new window)</span></a> (after creating the solution).</p>
+        
+            <label>Local Framework Reference</label>
+            <div style="margin-top: .6em;">
+              <input id="console-abp-path" class="demo-input" type="text" />
+              <button id="console-abp-path-selectBtn" class="demo-button">Select</button>
+            </div>
+            <p id="console-local-framework-ref-desc">Uses local projects references to the ABP framework instead of using the NuGet packages. This can be useful if you download the ABP Framework source code and have a local reference to the framework from your application.</p>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="console-execute">Execute</button>
+          </h5>
+
+          <div id="console-process" class="hidden">
             <h5>Command Line Process</h5>
             <textarea></textarea>
           </div>
