@@ -8,13 +8,9 @@ AbpHelper is a tool that helps you with developing [Abp vNext](https://abp.io/) 
 
 ## Getting Started
 
-1. Download the package from [EasyAbp/AbpHelper.GUI/releases](https://github.com/EasyAbp/AbpHelper.GUI/releases) and unpack the files.
+1. Download the package from [EasyAbp/AbpHelper.GUI/releases](https://github.com/EasyAbp/AbpHelper.GUI/releases) and unpack the files. Or you can also download the source code and use `npm run package` command to package the app yourself.
 
-> You can also download the source code and use `npm run package` command to package the app yourself.
-
-1. Run the executable file.
-
-1. Explore this wonderful application.
+2. Run the executable file.
 
 ![preview 1](doc/images/preview1.png)
 ![preview 2](doc/images/preview2.png)
