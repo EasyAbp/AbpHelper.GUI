@@ -17,12 +17,14 @@ function addDoubleQuote(str) {
 function runExec() {
   let username = document.getElementById('account-login-username').value
   let password = document.getElementById('account-login-password').value
+  let organization = document.getElementById('account-login-organization').value
   if (isRunning || !username || !password) return
   isRunning = true
   execBtn.disabled = true
   document.getElementById('account-login-process').style.display = 'block'
 
   let cmdStr = 'abp login ' + addDoubleQuote(username) + ' -p ' + addDoubleQuote(password)
+  if (organization) cmdStr += ' -o ' + organization
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()
