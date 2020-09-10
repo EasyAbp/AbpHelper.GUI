@@ -14,7 +14,7 @@
     <div class="demo">
       <div class="demo-wrapper">
         <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Switch to preview
-          <div class="demo-meta u-avoid-clicks">You can use this command to switch your project to latest preview version of the ABP framework packages</div>
+          <div class="demo-meta u-avoid-clicks">You can use this command to switch your project to latest preview version of the ABP framework.</div>
         </button>
         <div id="box-abp-cli-switch-to-preview" class="demo-box">
           <h5 style="margin-top: 0;">Command</h5>
@@ -26,7 +26,7 @@
               <input id="switch-to-preview-solution-directory" class="demo-input" type="text" />
               <button id="switch-to-preview-solution-directory-selectBtn" class="demo-button">Select</button>
             </div>
-            <p id="switch-to-preview-solution-directory-desc">Specifies the directory. The solution should be in that directory or in any of its sub directories. If not specified, default is the current directory.</p>
+            <p id="switch-to-preview-solution-directory-desc">Specifies the directory. The solution should be in that directory or in any of its sub directories.</p>
           </div>
 
           <h5>
@@ -43,8 +43,38 @@
 
     <div class="demo">
       <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Switch to nightly
+          <div class="demo-meta u-avoid-clicks">You can use this command to switch your project to latest nightly preview version of the ABP framework packages.</div>
+        </button>
+        <div id="box-abp-cli-switch-to-nightly" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abp switch-to-nightly [options]</code></pre>
+
+          <div id="switch-to-nightly-options">
+            <h5>Startup Project</h5>
+            <div style="margin-top: .6em;">
+              <input id="switch-to-nightly-solution-directory" class="demo-input" type="text" />
+              <button id="switch-to-nightly-solution-directory-selectBtn" class="demo-button">Select</button>
+            </div>
+            <p id="switch-to-nightly-solution-directory-desc">Specifies the directory. The solution should be in that directory or in any of its sub directories.</p>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="switch-to-nightly-execute">Execute</button>
+          </h5>
+
+          <div id="switch-to-nightly-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
         <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Switch to stable
-          <div class="demo-meta u-avoid-clicks">If you're using the ABP Framework preview packages, you can switch back to stable version using this command</div>
+          <div class="demo-meta u-avoid-clicks">If you're using the ABP Framework preview packages (including nightly previews), you can switch back to latest stable version using this command.</div>
         </button>
         <div id="box-abp-cli-switch-to-stable" class="demo-box">
           <h5 style="margin-top: 0;">Command</h5>
@@ -56,7 +86,7 @@
               <input id="switch-to-stable-solution-directory" class="demo-input" type="text" />
               <button id="switch-to-stable-solution-directory-selectBtn" class="demo-button">Select</button>
             </div>
-            <p id="switch-to-stable-solution-directory-desc">Specifies the directory. The solution should be in that directory or in any of its sub directories. If not specified, default is the current directory.</p>
+            <p id="switch-to-stable-solution-directory-desc">Specifies the directory. The solution should be in that directory or in any of its sub directories.</p>
           </div>
 
           <h5>
@@ -73,6 +103,7 @@
 
     <script type="text/javascript">
       require('./renderer-process/abp-cli/abp-cli-switch-to-preview.js')
+      require('./renderer-process/abp-cli/abp-cli-switch-to-nightly.js')
       require('./renderer-process/abp-cli/abp-cli-switch-to-stable.js')
     </script>
 
