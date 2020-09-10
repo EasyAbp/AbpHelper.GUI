@@ -1,0 +1,139 @@
+<template class="task-template">
+  <section id="abphelper-cli-ef-migrations-section" class="section js-section u-category-abphelper-cli">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+          Add EF Migrations
+        </h1>
+        <h3>Run `dotnet ef migrations` command and providing the default value for the `--project` and `--startup-project` options.</h3>
+        <p>See the <a href="https://github.com/EasyAbp/AbpHelper.CLI">AbpHelper CLI Github repository<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser for more informations.</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Add an EF Migration
+          <div class="demo-meta u-avoid-clicks">Add a new EF migration</div>
+        </button>
+        <div id="box-abphelper-cli-ef-migrations-add" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abphelper ef migrations add &lt;name&gt; [options] [&lt;ef-options&gt;...]</code></pre>
+          <div id="ef-migrations-add-info">
+            <h5>Name</h5>
+            <input id="ef-migrations-add-name" class="demo-input" type="text" placeholder="e.g. Added_Todo_Entity" />
+            <p id="ef-migrations-add-name-desc">The name of the migration.</p>
+            <h5>Solution</h5>
+            <input id="ef-migrations-add-solution-file" class="demo-input" type="text" placeholder="Select a .sln file" />
+            <button id="ef-migrations-add-select-solution-file-btn" class="demo-button">Select</button>
+          </div>
+
+          <div id="ef-migrations-add-options">
+            <h5>Extra Options</h5>
+            <div>
+              <div>
+                <input id="ef-migrations-add-options-noOverwrite" type="checkbox" />
+                <label>No overwrite</label>
+              </div>
+              <p id="ef-migrations-add-options-noOverwrite-desc">Specify not to overwrite existing files or content.</p>
+              <div>
+                <label>EF Options</label>
+                <div style="margin-top: 14px;">
+                  <input id="ef-migrations-add-options-efOptions" class="demo-input" type="text" placeholder="EF Options" />
+                </div>
+              </div>
+              <p id="ef-migrations-add-options-efOptions-desc">Other options to `dotnet ef migrations add`</p>
+              <div>
+                <label>Migration Project Name</label>
+                <div style="margin-top: 14px;">
+                  <input id="ef-migrations-add-options-migrationProjectName" class="demo-input" type="text" placeholder="Migration Project Name" />
+                </div>
+              </div>
+              <p id="ef-migrations-add-options-migrationProjectName-desc">Specify the name of the migration project. For ABP applications, the default value is '*.EntityFrameworkCore.DbMigrations.csproj'; For ABP modules, the default value is '*.HttpApi.Host.csproj'. For example: --migration-project-name *.Web.Unified.csproj, abphelper will search '*.Web.Unified.csproj' file and make it as the migration project.</p>
+              <div>
+                <label>Excluded Directories</label>
+                <div style="margin-top: 14px;">
+                  <input id="ef-migrations-add-options-exclude" class="demo-input" type="text" placeholder="Excluded Directories" />
+                </div>
+              </div>
+              <p id="ef-migrations-add-options-exclude-desc">Exclude directories when searching files, arguments can contain a combination of valid literal path and wildcard (* and ?) characters. Use a double asterisk(**) to search all directories. Example: --exclude *Folder1,Folder2/Folder*,**/*Folder?,**/*Folder*.</p>
+            </div>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="ef-migrations-add-execute">Execute</button>
+          </h5>
+
+          <div id="ef-migrations-add-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Remove the Latest EF Migration
+          <div class="demo-meta u-avoid-clicks">Remove the last EF migration</div>
+        </button>
+        <div id="box-abphelper-cli-ef-migrations-remove" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abphelper ef migrations remove [options] [&lt;ef-options&gt;...]</code></pre>
+          <div id="ef-migrations-remove-info">
+            <h5>Solution</h5>
+            <input id="ef-migrations-remove-solution-file" class="demo-input" type="text" placeholder="Select a .sln file" />
+            <button id="ef-migrations-remove-select-solution-file-btn" class="demo-button">Select</button>
+          </div>
+
+          <div id="ef-migrations-remove-options">
+            <h5>Extra Options</h5>
+            <div>
+              <div>
+                <input id="ef-migrations-remove-options-noOverwrite" type="checkbox" />
+                <label>No overwrite</label>
+              </div>
+              <p id="ef-migrations-remove-options-noOverwrite-desc">Specify not to overwrite existing files or content.</p>
+              <div>
+                <label>EF Options</label>
+                <div style="margin-top: 14px;">
+                  <input id="ef-migrations-remove-options-efOptions" class="demo-input" type="text" placeholder="EF Options" />
+                </div>
+              </div>
+              <p id="ef-migrations-remove-options-efOptions-desc">Other options to `dotnet ef migrations add`</p>
+              <div>
+                <label>Migration Project Name</label>
+                <div style="margin-top: 14px;">
+                  <input id="ef-migrations-remove-options-migrationProjectName" class="demo-input" type="text" placeholder="Migration Project Name" />
+                </div>
+              </div>
+              <p id="ef-migrations-remove-options-migrationProjectName-desc">Specify the name of the migration project. For ABP applications, the default value is '*.EntityFrameworkCore.DbMigrations.csproj'; For ABP modules, the default value is '*.HttpApi.Host.csproj'. For example: --migration-project-name *.Web.Unified.csproj, abphelper will search '*.Web.Unified.csproj' file and make it as the migration project.</p>
+              <div>
+                <label>Excluded Directories</label>
+                <div style="margin-top: 14px;">
+                  <input id="ef-migrations-remove-options-exclude" class="demo-input" type="text" placeholder="Excluded Directories" />
+                </div>
+              </div>
+              <p id="ef-migrations-remove-options-exclude-desc">Exclude directories when searching files, arguments can contain a combination of valid literal path and wildcard (* and ?) characters. Use a double asterisk(**) to search all directories. Example: --exclude *Folder1,Folder2/Folder*,**/*Folder?,**/*Folder*.</p>
+            </div>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="ef-migrations-remove-execute">Execute</button>
+          </h5>
+
+          <div id="ef-migrations-remove-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/abphelper-cli/abphelper-cli-ef-migrations-add.js')
+      require('./renderer-process/abphelper-cli/abphelper-cli-ef-migrations-remove.js')
+    </script>
+
+  </section>
+</template>

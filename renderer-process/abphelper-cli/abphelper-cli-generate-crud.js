@@ -13,7 +13,7 @@ let extraOptions = {
   skipLocalization: false,
   skipTest: false,
   skipEntityCtor: false,
-  noOverwirte: false
+  noOverwrite: false
 }
 
 let consoleNode = document.getElementById('box-abphelper-cli-generate-crud').getElementsByTagName('textarea')[0]
@@ -30,7 +30,7 @@ const extraOptionsCheckBox = {
   skipLocalization: document.getElementById('crud-options-skipLocalization'),
   skipTest: document.getElementById('crud-options-skipTest'),
   skipEntityCtor: document.getElementById('crud-options-skipEntityCtor'),
-  noOverwirte: document.getElementById('crud-options-noOverwirte')
+  noOverwrite: document.getElementById('crud-options-noOverwrite')
 }
 
 selectSolutionFileBtn.addEventListener('click', (event) => {
@@ -93,8 +93,8 @@ extraOptionsCheckBox.skipTest.addEventListener('click', (event) => {
 extraOptionsCheckBox.skipEntityCtor.addEventListener('click', (event) => {
   extraOptions.skipEntityCtor = extraOptionsCheckBox.skipEntityCtor.checked
 })
-extraOptionsCheckBox.noOverwirte.addEventListener('click', (event) => {
-  extraOptions.noOverwirte = extraOptionsCheckBox.noOverwirte.checked
+extraOptionsCheckBox.noOverwrite.addEventListener('click', (event) => {
+  extraOptions.noOverwrite = extraOptionsCheckBox.noOverwrite.checked
 })
 
 function addDoubleQuote(str) {
@@ -126,7 +126,7 @@ function runExec() {
   if (extraOptions.skipLocalization) cmdStr += ' --skip-localization'
   if (extraOptions.skipTest) cmdStr += ' --skip-test'
   if (extraOptions.skipEntityCtor) cmdStr += ' --skip-entity-constructors'
-  if (extraOptions.noOverwirte) cmdStr += ' --no-overwrite'
+  if (extraOptions.noOverwrite) cmdStr += ' --no-overwrite'
   if (migrationProjectName) cmdStr += ' --migration-project-name ' + addDoubleQuote(migrationProjectName)
   if (exclude) cmdStr += ' --exclude ' + addDoubleQuote(exclude)
   clearConsoleContent()
