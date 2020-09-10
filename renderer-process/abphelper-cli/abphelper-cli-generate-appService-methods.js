@@ -46,17 +46,7 @@ function findLastStr(str, cha, num) {
 
 function getSolutionRootPath(slnFilePath) {
   let separator = slnFilePath.indexOf('/') != -1 ? '/' : '\\'
-  let strs = slnFilePath.split(separator)
-  if (strs.length > 1 && strs[strs.length - 2] === 'aspnet-core') {
-    // is app
-    return slnFilePath.substr(0, findLastStr(slnFilePath, separator, 2))
-  }
-  var moduleRootPath = slnFilePath.substr(0, findLastStr(slnFilePath, separator, 1))
-  if (fs.existsSync(moduleRootPath + separator + 'host')) {
-    // is module
-    return moduleRootPath
-  }
-  return alert('App solution\'s .sln file should be in the "aspnet-core" folder. Module solution should have "host" folder.')
+  return slnFilePath.substr(0, findLastStr(slnFilePath, separator, 1))
 }
 
 execBtn.addEventListener('click', (event) => {
@@ -81,6 +71,7 @@ function runExec() {
   let methodNames = document.getElementById('appService-methods-method-names').value
   let serviceName = document.getElementById('appService-methods-service-name').value
   let solutionFile = document.getElementById('appService-methods-solution-file').value
+  let exclude = document.getElementById('appService-methods-options-exclude').value
   if (isRunning || !methodNames || !serviceName || !solutionFile) return
   
   let solutionRootPath = getSolutionRootPath(solutionFile)
@@ -95,6 +86,7 @@ function runExec() {
   if (extraOptions.noOverwrite) cmdStr += ' --no-overwrite'
   if (extraOptions.noInput) cmdStr += ' --no-input'
   if (extraOptions.noOutput) cmdStr += ' --no-output'
+  if (exclude) cmdStr += ' --exclude ' + addDoubleQuote(exclude)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

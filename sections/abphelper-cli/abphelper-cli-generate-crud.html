@@ -41,10 +41,10 @@
               </div>
               <p id="crud-options-skipPermissions-desc">Skip generating crud permissions.</p>
               <div>
-                <input id="crud-options-repository" type="checkbox" />
-                <label>Custom Repository</label>
+                <input id="crud-options-skipCustomRepository" type="checkbox" />
+                <label>Skip Custom Repository</label>
               </div>
-              <p id="crud-options-repository-desc">Generate custom repository interface and class for the entity.</p>
+              <p id="crud-options-skipCustomRepository-desc">Skip generating custom repository interface and class for the entity.</p>
               <div>
                 <input id="crud-options-skipDbMigrations" type="checkbox" />
                 <label>Skip DB Migrations</label>
@@ -87,6 +87,13 @@
                 </div>
               </div>
               <p id="crud-options-migrationProjectName-desc">Specify the name of the migration project. For ABP applications, the default value is '*.EntityFrameworkCore.DbMigrations.csproj'; For ABP modules, the default value is '*.Web.Unified.csproj'. For example: --migration-project-name *.HttpApi.Host.csproj, abphelper will search '*.HttpApi.Host.csproj' file and make it as the migration project. This argument takes effect only if '--skip-db-migrations' is NOT specified.</p>
+              <div>
+                <label>Excluded directories</label>
+                <div style="margin-top: 14px;">
+                  <input id="crud-options-exclude" class="demo-input" type="text" placeholder="Excluded directories" />
+                </div>
+              </div>
+              <p id="crud-options-exclude-desc">Exclude directories when searching files, arguments can contain a combination of valid literal path and wildcard (* and ?) characters. Use a double asterisk(**) to search all directories. Example: --exclude *Folder1,Folder2/Folder*,**/*Folder?,**/*Folder*.</p>
             </div>
           </div>
 

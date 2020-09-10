@@ -41,6 +41,13 @@
                 <label>Regenerate</label>
               </div>
               <p id="ctrl-options-regenerate-desc">Completely regenerate the controller class, instead of the default: only generate the missing controller methods.</p>
+              <div>
+                <label>Excluded directories</label>
+                <div style="margin-top: 14px;">
+                  <input id="ctrl-options-exclude" class="demo-input" type="text" placeholder="Excluded directories" />
+                </div>
+              </div>
+              <p id="ctrl-options-exclude-desc">Exclude directories when searching files, arguments can contain a combination of valid literal path and wildcard (* and ?) characters. Use a double asterisk(**) to search all directories. Example: --exclude *Folder1,Folder2/Folder*,**/*Folder?,**/*Folder*.</p>
             </div>
           </div>
 

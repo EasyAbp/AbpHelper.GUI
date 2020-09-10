@@ -44,17 +44,7 @@ function findLastStr(str, cha, num) {
 
 function getSolutionRootPath(slnFilePath) {
   let separator = slnFilePath.indexOf('/') != -1 ? '/' : '\\'
-  let strs = slnFilePath.split(separator)
-  if (strs.length > 1 && strs[strs.length - 2] === 'aspnet-core') {
-    // is app
-    return slnFilePath.substr(0, findLastStr(slnFilePath, separator, 2))
-  }
-  var moduleRootPath = slnFilePath.substr(0, findLastStr(slnFilePath, separator, 1))
-  if (fs.existsSync(moduleRootPath + separator + 'host')) {
-    // is module
-    return moduleRootPath
-  }
-  return alert('App solution\'s .sln file should be in the "aspnet-core" folder. Module solution should have "host" folder.')
+  return slnFilePath.substr(0, findLastStr(slnFilePath, separator, 1))
 }
 
 execBtn.addEventListener('click', (event) => {
@@ -75,6 +65,7 @@ function addDoubleQuote(str) {
 function runExec() {
   let serviceName = document.getElementById('ctrl-service-name').value
   let solutionFile = document.getElementById('ctrl-solution-file').value
+  let exclude = document.getElementById('ctrl-options-exclude').value
   if (isRunning || !serviceName || !solutionFile) return
   
   let solutionRootPath = getSolutionRootPath(solutionFile)
@@ -88,6 +79,7 @@ function runExec() {
   let cmdStr = cliCommand + ' generate controller ' + addDoubleQuote(serviceName) + ' -d ' + addDoubleQuote(solutionRootPath)
   if (extraOptions.skipBuild) cmdStr += ' --skip-build'
   if (extraOptions.regenerate) cmdStr += ' --regenerate'
+  if (exclude) cmdStr += ' --exclude ' + addDoubleQuote(exclude)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

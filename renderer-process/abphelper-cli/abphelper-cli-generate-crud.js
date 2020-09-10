@@ -7,7 +7,7 @@ let isRunning = false
 let extraOptions = {
   separateDto: false,
   skipPermissions: false,
-  repository: false,
+  skipCustomRepository: false,
   skipDbMigrations: false,
   skipUi: false,
   skipViewModel: false,
@@ -24,7 +24,7 @@ const selectSolutionFileBtn = document.getElementById('crud-select-solution-file
 const extraOptionsCheckBox = {
   separateDto: document.getElementById('crud-options-separateDto'),
   skipPermissions: document.getElementById('crud-options-skipPermissions'),
-  repository: document.getElementById('crud-options-repository'),
+  skipCustomRepository: document.getElementById('crud-options-skipCustomRepository'),
   skipDbMigrations: document.getElementById('crud-options-skipDbMigrations'),
   skipUi: document.getElementById('crud-options-skipUi'),
   skipViewModel: document.getElementById('crud-options-skipViewModel'),
@@ -60,17 +60,7 @@ function findLastStr(str, cha, num) {
 
 function getSolutionRootPath(slnFilePath) {
   let separator = slnFilePath.indexOf('/') != -1 ? '/' : '\\'
-  let strs = slnFilePath.split(separator)
-  if (strs.length > 1 && strs[strs.length - 2] === 'aspnet-core') {
-    // is app
-    return slnFilePath.substr(0, findLastStr(slnFilePath, separator, 2))
-  }
-  var moduleRootPath = slnFilePath.substr(0, findLastStr(slnFilePath, separator, 1))
-  if (fs.existsSync(moduleRootPath + separator + 'host')) {
-    // is module
-    return moduleRootPath
-  }
-  return alert('App solution\'s .sln file should be in the "aspnet-core" folder. Module solution should have "host" folder.')
+  return slnFilePath.substr(0, findLastStr(slnFilePath, separator, 1))
 }
 
 execBtn.addEventListener('click', (event) => {
@@ -83,8 +73,8 @@ extraOptionsCheckBox.separateDto.addEventListener('click', (event) => {
 extraOptionsCheckBox.skipPermissions.addEventListener('click', (event) => {
   extraOptions.skipPermissions = extraOptionsCheckBox.skipPermissions.checked
 })
-extraOptionsCheckBox.repository.addEventListener('click', (event) => {
-  extraOptions.repository = extraOptionsCheckBox.repository.checked
+extraOptionsCheckBox.skipCustomRepository.addEventListener('click', (event) => {
+  extraOptions.skipCustomRepository = extraOptionsCheckBox.skipCustomRepository.checked
 })
 extraOptionsCheckBox.skipDbMigrations.addEventListener('click', (event) => {
   extraOptions.skipDbMigrations = extraOptionsCheckBox.skipDbMigrations.checked
@@ -116,6 +106,7 @@ function runExec() {
   let entityName = document.getElementById('crud-entity-name').value
   let solutionFile = document.getElementById('crud-solution-file').value
   let migrationProjectName = document.getElementById('crud-options-migrationProjectName').value
+  let exclude = document.getElementById('crud-options-exclude').value
   if (isRunning || !entityName || !solutionFile) return
   
   let solutionRootPath = getSolutionRootPath(solutionFile)
@@ -129,7 +120,7 @@ function runExec() {
   let cmdStr = cliCommand + ' generate crud ' + addDoubleQuote(entityName) + ' -d ' + addDoubleQuote(solutionRootPath)
   if (extraOptions.separateDto) cmdStr += ' --separate-dto'
   if (extraOptions.skipPermissions) cmdStr += ' --skip-permissions'
-  if (extraOptions.repository) cmdStr += ' --custom-repository'
+  if (extraOptions.skipCustomRepository) cmdStr += ' --skip-custom-repository'
   if (extraOptions.skipDbMigrations) cmdStr += ' --skip-db-migrations'
   if (extraOptions.skipUi) cmdStr += ' --skip-ui'
   if (extraOptions.skipViewModel) cmdStr += ' --skip-view-model'
@@ -138,6 +129,7 @@ function runExec() {
   if (extraOptions.skipEntityCtor) cmdStr += ' --skip-entity-constructors'
   if (extraOptions.noOverwirte) cmdStr += ' --no-overwrite'
   if (migrationProjectName) cmdStr += ' --migration-project-name ' + addDoubleQuote(migrationProjectName)
+  if (exclude) cmdStr += ' --exclude ' + addDoubleQuote(exclude)
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

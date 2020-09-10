@@ -43,6 +43,13 @@
                 </div>
               </div>
               <p id="appService-class-options-folder-desc">Specify the folder where the service files are generated. Multi-level(e.g., foo/bar) directory is supported.</p>
+              <div>
+                <label>Excluded directories</label>
+                <div style="margin-top: 14px;">
+                  <input id="appService-class-options-exclude" class="demo-input" type="text" placeholder="Excluded directories" />
+                </div>
+              </div>
+              <p id="appService-class-options-exclude-desc">Exclude directories when searching files, arguments can contain a combination of valid literal path and wildcard (* and ?) characters. Use a double asterisk(**) to search all directories. Example: --exclude *Folder1,Folder2/Folder*,**/*Folder?,**/*Folder*.</p>
             </div>
           </div>
 
@@ -96,6 +103,13 @@
                 <label>No Output</label>
               </div>
               <p id="appService-methods-options-noOutput-desc">Not to generate output DTO file and parameter.</p>
+              <div>
+                <label>Excluded directories</label>
+                <div style="margin-top: 14px;">
+                  <input id="appService-methods-options-exclude" class="demo-input" type="text" placeholder="Excluded directories" />
+                </div>
+              </div>
+              <p id="appService-methods-options-exclude-desc">Exclude directories when searching files, arguments can contain a combination of valid literal path and wildcard (* and ?) characters. Use a double asterisk(**) to search all directories. Example: --exclude *Folder1,Folder2/Folder*,**/*Folder?,**/*Folder*.</p>
             </div>
           </div>
 
