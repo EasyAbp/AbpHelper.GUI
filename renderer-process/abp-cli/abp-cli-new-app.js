@@ -7,7 +7,7 @@ let ui = 'mvc'
 let mobile = 'none'
 let dbProvider = 'ef'
 let isTiered = false
-let isSeparate = false
+let isSeparateIdentityServerCheckbox = false
 let isCreateSolutionFolder = false
 
 let consoleNode = document.getElementById('box-abp-cli-new-app').getElementsByTagName('textarea')[0]
@@ -20,7 +20,7 @@ const projectFolderSelectBtn = document.getElementById('app-project-folder-selec
 const templateSourceSelectBtn = document.getElementById('app-template-source-selectBtn')
 const abpPathSelectBtn = document.getElementById('app-abp-path-selectBtn')
 const tieredCheckbox = document.getElementById('app-tiered')
-const separateCheckbox = document.getElementById('app-options-separate')
+const separateIdentityServerCheckbox = document.getElementById('app-separate-identity-server')
 const createSolutionFolderCheckbox = document.getElementById('app-create-solution-folder')
 
 projectFolderSelectBtn.addEventListener('click', (event) => {
@@ -67,8 +67,8 @@ tieredCheckbox.addEventListener('click', (event) => {
   isTiered = tieredCheckbox.checked
 })
 
-separateCheckbox.addEventListener('click', (event) => {
-  isSeparate = separateCheckbox.checked
+separateIdentityServerCheckbox.addEventListener('click', (event) => {
+  isSeparateIdentityServerCheckbox = separateIdentityServerCheckbox.checked
 })
 
 createSolutionFolderCheckbox.addEventListener('click', (event) => {
@@ -81,17 +81,17 @@ uiRadios.forEach(function (uiRadio) {
       case 'app-ui-mvc':
         ui = 'mvc'
         document.getElementById('app-options-tiered').style.display = 'block'
-        document.getElementById('app-options-separate').style.display = 'none'
+        document.getElementById('app-options-separate-identity-server').style.display = 'none'
         break;
       case 'app-ui-angular':
         ui = 'angular'
         document.getElementById('app-options-tiered').style.display = 'none'
-        document.getElementById('app-options-separate').style.display = 'block'
+        document.getElementById('app-options-separate-identity-server').style.display = 'block'
         break;
       case 'app-ui-none':
         ui = 'none'
         document.getElementById('app-options-tiered').style.display = 'none'
-        document.getElementById('app-options-separate').style.display = 'block'
+        document.getElementById('app-options-separate-identity-server').style.display = 'block'
         break;
       default:
         break;
@@ -147,7 +147,7 @@ function runExec() {
 
   let cmdStr = 'abp new ' + addDoubleQuote(solutionName) + ' -t app -u ' + ui
   if (ui === 'mvc' && isTiered) cmdStr += ' --tiered'
-  else if (ui === 'angular' || ui === 'none' && isSeparate) cmdStr += ' --separate-identity-server'
+  else if ((ui === 'angular' || ui === 'none') && isSeparateIdentityServerCheckbox) cmdStr += ' --separate-identity-server'
   cmdStr += ' -m ' + mobile
   cmdStr += ' -d ' + dbProvider
   if (abpVersion) cmdStr += ' -v ' + addDoubleQuote(abpVersion)
