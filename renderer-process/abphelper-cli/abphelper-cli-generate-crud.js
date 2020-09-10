@@ -1,6 +1,5 @@
 const { dialog } = require('electron').remote
 const exec = require('child_process').exec
-const fs = require('fs')
 
 let isRunning = false
 
