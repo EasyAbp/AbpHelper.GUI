@@ -3,10 +3,10 @@ const exec = require('child_process').exec
 
 let isRunning = false
 
-let consoleNode = document.getElementById('box-abp-cli-generate-proxy').getElementsByTagName('textarea')[0]
+let consoleNode = document.getElementById('box-abp-cli-remove-proxy').getElementsByTagName('textarea')[0]
 
-const execBtn = document.getElementById('generate-proxy-execute')
-const projectSelectBtn = document.getElementById('generate-proxy-project-selectBtn')
+const execBtn = document.getElementById('remove-proxy-execute')
+const projectSelectBtn = document.getElementById('remove-proxy-project-selectBtn')
 
 execBtn.addEventListener('click', (event) => {
   runExec()
@@ -17,7 +17,7 @@ projectSelectBtn.addEventListener('click', (event) => {
     properties: ['openDirectory']
   }).then(result => {
     if (result.filePaths[0]) {
-      document.getElementById('generate-proxy-project').value = result.filePaths[0]
+      document.getElementById('remove-proxy-project').value = result.filePaths[0]
     }
   }).catch(err => {
     console.log(err)
@@ -29,18 +29,18 @@ function addDoubleQuote(str) {
 }
 
 function runExec() {
-  let cmdPath = document.getElementById('generate-proxy-project').value
-  let module = document.getElementById('generate-proxy-module').value
-  let apiName = document.getElementById('generate-proxy-api-name').value
-  let source = document.getElementById('generate-proxy-source').value
-  let target = document.getElementById('generate-proxy-target').value
-  let prompt = document.getElementById('generate-proxy-prompt').value
+  let cmdPath = document.getElementById('remove-proxy-project').value
+  let module = document.getElementById('remove-proxy-module').value
+  let apiName = document.getElementById('remove-proxy-api-name').value
+  let source = document.getElementById('remove-proxy-source').value
+  let target = document.getElementById('remove-proxy-target').value
+  let prompt = document.getElementById('remove-proxy-prompt').value
   if (isRunning || !cmdPath) return
   isRunning = true
   execBtn.disabled = true
-  document.getElementById('generate-proxy-process').style.display = 'block'
+  document.getElementById('remove-proxy-process').style.display = 'block'
 
-  let cmdStr = 'abp generate-proxy'
+  let cmdStr = 'abp remove-proxy'
   if (module) cmdStr += ' -m ' + addDoubleQuote(module)
   if (apiName) cmdStr += ' -a ' + addDoubleQuote(apiName)
   if (source) cmdStr += ' -s ' + addDoubleQuote(source)

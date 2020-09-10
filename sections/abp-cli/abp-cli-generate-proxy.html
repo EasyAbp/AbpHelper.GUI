@@ -4,24 +4,24 @@
       <div class="section-wrapper">
         <h1>
           <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
-          Abp CLI: <code>generate-proxy</code>
+          Abp CLI: <code>generate-proxy</code> & <code>remove-proxy</code>
         </h1>
-        <h3>Generates client proxies for your HTTP APIs to make easy to consume your services from the client side. Before running generate-proxy command, your host must be up and running.</h3>
+        <h3>Generates Angular service proxies for your HTTP APIs to make easy to consume your services from the client side.</h3>
         <p>See the <a href="https://docs.abp.io/en/abp/latest/CLI#generate-proxy">ABP framework documentation<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser for more informations.</p>
       </div>
     </header>
 
     <div class="demo">
       <div class="demo-wrapper">
-        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Generate Client Proxies
-          <div class="demo-meta u-avoid-clicks">Generates client proxies for your HTTP APIs to make easy to consume your services from the client side. Before running generate-proxy command, your host must be up and running</div>
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Generate Angular Client Proxies
+          <div class="demo-meta u-avoid-clicks">Generates Angular service proxies for your HTTP APIs to make easy to consume your services from the client side. Your host (server) application must be up and running before running this command.</div>
         </button>
         <div id="box-abp-cli-generate-proxy" class="demo-box">
           <h5 style="margin-top: 0;">Command</h5>
           <pre><code>abp generate-proxy [options]</code></pre>
 
           <div id="generate-proxy-info">
-            <h5>UI Project</h5>
+            <h5>Angular Project</h5>
             <input id="generate-proxy-project" class="demo-input" type="text" />
             <button id="generate-proxy-project-selectBtn" class="demo-button">Select</button>
           </div>
@@ -29,24 +29,35 @@
           <div id="module-options-extra">
             <h5>Extra Options</h5>
             
-            <label>API URL</label>
+            <label>Module</label>
             <div id="margin-top: .6em;">
-              <input id="generate-proxy-api-url" class="demo-input" type="text" />
-            </div>
-            <p>Specifies the root URL of the HTTP API. The default value is being retrieved from the environment.ts file for the Angular application. Make sure your host is up and running before running abp generate-proxy.</p>
-
-            <label>UI Framework</label>
-            <div style="margin-top: .6em;">
-              <input id="generate-proxy-ui" class="demo-input" type="text" />
-            </div>
-            <p>Specifies the UI framework. Default value is angular and it is the only UI framework supported for now. Creates TypeScript code.</p>
-
-            <label>Module Name</label>
-            <div style="margin-top: .6em;">
               <input id="generate-proxy-module" class="demo-input" type="text" />
             </div>
-            <p>Specifies the module name. Default module name is app, which indicates your own application (you typically want this since every module is responsible to maintain its own client proxies). Set all for to generate proxies for all the modules.</p>
-          </div>
+            <p>Specifies the name of the backend module you wish to generate proxies for.<br />Default value: <code>app</code></p>
+
+            <label>API Name</label>
+            <div id="margin-top: .6em;">
+              <input id="generate-proxy-api-name" class="demo-input" type="text" />
+            </div>
+            <p>The name of the API endpoint defined in the <code>/src/environments/environment.ts</code>.<br />Default value: <code>default</code></p>
+
+            <label>Source</label>
+            <div id="margin-top: .6em;">
+              <input id="generate-proxy-source" class="demo-input" type="text" />
+            </div>
+            <p>Specifies the Angular project name to resolve the root namespace & API definition URL from.<br />Default value: <code>defaultProject</code></p>
+
+            <label>Target</label>
+            <div id="margin-top: .6em;">
+              <input id="generate-proxy-target" class="demo-input" type="text" />
+            </div>
+            <p>Specifies the Angular project name to place generated code in.<br />Default value: <code>defaultProject</code></p>
+
+            <label>Prompt</label>
+            <div id="margin-top: .6em;">
+              <input id="generate-proxy-prompt" class="demo-input" type="text" />
+            </div>
+            <p>Asks the options from the command line prompt (for the unspecified options).</p>
 
           <h5>
             <button class="demo-button" id="generate-proxy-execute">Execute</button>
@@ -60,8 +71,69 @@
       </div>
     </div>
 
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Remove Angular Client Proxies
+          <div class="demo-meta u-avoid-clicks">Removes previously generated proxy code from the Angular application. Your host (server) application must be up and running before running this command.</div>
+        </button>
+        <div id="box-abp-cli-remove-proxy" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abp remove-proxy [options]</code></pre>
+
+          <div id="remove-proxy-info">
+            <h5>Angular Project</h5>
+            <input id="remove-proxy-project" class="demo-input" type="text" />
+            <button id="remove-proxy-project-selectBtn" class="demo-button">Select</button>
+          </div>
+
+          <div id="module-options-extra">
+            <h5>Extra Options</h5>
+            
+            <label>Module</label>
+            <div id="margin-top: .6em;">
+              <input id="remove-proxy-module" class="demo-input" type="text" />
+            </div>
+            <p>Specifies the name of the backend module you wish to remove proxies for.<br />Default value: <code>app</code></p>
+
+            <label>API Name</label>
+            <div id="margin-top: .6em;">
+              <input id="remove-proxy-api-name" class="demo-input" type="text" />
+            </div>
+            <p>The name of the API endpoint defined in the <code>/src/environments/environment.ts</code>.<br />Default value: <code>default</code></p>
+
+            <label>Source</label>
+            <div id="margin-top: .6em;">
+              <input id="remove-proxy-source" class="demo-input" type="text" />
+            </div>
+            <p>Specifies the Angular project name to resolve the root namespace & API definition URL from.<br />Default value: <code>defaultProject</code></p>
+
+            <label>Target</label>
+            <div id="margin-top: .6em;">
+              <input id="remove-proxy-target" class="demo-input" type="text" />
+            </div>
+            <p>Specifies the Angular project name to place generated code in.<br />Default value: <code>defaultProject</code></p>
+
+            <label>Prompt</label>
+            <div id="margin-top: .6em;">
+              <input id="remove-proxy-prompt" class="demo-input" type="text" />
+            </div>
+            <p>Asks the options from the command line prompt (for the unspecified options).</p>
+
+          <h5>
+            <button class="demo-button" id="remove-proxy-execute">Execute</button>
+          </h5>
+
+          <div id="remove-proxy-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script type="text/javascript">
       require('./renderer-process/abp-cli/abp-cli-generate-proxy.js')
+      require('./renderer-process/abp-cli/abp-cli-remove-proxy.js')
     </script>
 
   </section>
