@@ -4,6 +4,7 @@ const exec = require('child_process').exec
 let isRunning = false
 
 let ui = 'mvc'
+let mobile = 'none'
 let dbProvider = 'ef'
 let isTiered = false
 let isSeparate = false
@@ -13,6 +14,7 @@ let consoleNode = document.getElementById('box-abp-cli-new-app').getElementsByTa
 
 const execBtn = document.getElementById('app-execute')
 const uiRadios = document.getElementsByName('app-ui')
+const mobileRadios = document.getElementsByName('app-mobile')
 const dbRadios = document.getElementsByName('app-db')
 const projectFolderSelectBtn = document.getElementById('app-project-folder-selectBtn')
 const templateSourceSelectBtn = document.getElementById('app-template-source-selectBtn')
@@ -97,6 +99,21 @@ uiRadios.forEach(function (uiRadio) {
   })
 })
 
+mobileRadios.forEach(function (mobileRadio) {
+  mobileRadio.addEventListener('click', (event) => {
+    switch (mobileRadio.id) {
+      case 'app-mobile-none':
+        mobile = 'none'
+        break;
+      case 'app-mobile-react-native':
+        mobile = 'react-native'
+        break;
+      default:
+        break;
+    }
+  })
+})
+
 dbRadios.forEach(function (dbRadio) {
   dbRadio.addEventListener('click', (event) => {
     switch (dbRadio.id) {
@@ -123,7 +140,7 @@ function runExec() {
   let templateSource = document.getElementById('app-template-source').value
   let connectionString = document.getElementById('app-connection-string').value
   let abpPath = document.getElementById('app-abp-path').value
-  if (isRunning || !solutionName || !cmdPath || !ui || !dbProvider) return
+  if (isRunning || !solutionName || !cmdPath || !ui || !mobile || !dbProvider) return
   isRunning = true
   execBtn.disabled = true
   document.getElementById('app-process').style.display = 'block'
@@ -131,6 +148,7 @@ function runExec() {
   let cmdStr = 'abp new ' + addDoubleQuote(solutionName) + ' -t app -u ' + ui
   if (ui === 'mvc' && isTiered) cmdStr += ' --tiered'
   else if (ui === 'angular' || ui === 'none' && isSeparate) cmdStr += ' --separate-identity-server'
+  cmdStr += ' -m ' + mobile
   cmdStr += ' -d ' + dbProvider
   if (abpVersion) cmdStr += ' -v ' + addDoubleQuote(abpVersion)
   if (templateSource) cmdStr += ' -ts ' + addDoubleQuote(templateSource)
