@@ -2,7 +2,7 @@ name: draft a release
 on:
   push:
     branches:
-      - master # Default release branch
+      - deploy # Default release branch
     tags:
       - v*
 jobs:
