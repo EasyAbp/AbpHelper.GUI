@@ -20,7 +20,12 @@
     },
     "mac": {
       "icon": "assets/app-icon/mac/app.icns",
-      "category": "public.app-category.developer-tools"
+      "category": "public.app-category.developer-tools",
+      "target": [
+        {
+          "target": "dmg"
+        }
+      ]
     },
     "linux": {
       "target": [
