@@ -22,21 +22,9 @@ jobs:
         with:
           node-version: 12
           
-      - name: Publish
+      - name: npm install
         run: |
-          yarn run dist  
-
-      - name: Cleanup artifacts
-        if: matrix.os != 'windows-latest'
-        run: |
-          mkdir artifacts
-          mv "dist/(*.exe,*.deb,*.AppImage,*.dmg)" artifacts || true
-
-      - name: Cleanup artifacts Win
-        if: matrix.os == 'windows-latest'
-        run: |
-          mkdir artifacts
-          mv dist/*.exe artifacts
+          npm install
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
