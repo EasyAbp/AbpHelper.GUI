@@ -21,6 +21,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+          
+      - name: Publish
+        run: |
+          yarn run dist  
 
       - name: Cleanup artifacts
         if: matrix.os != 'windows-latest'
