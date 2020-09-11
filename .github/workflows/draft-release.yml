@@ -2,9 +2,7 @@ name: draft a release
 on:
   push:
     branches:
-      - deploy # Default release branch
-    tags:
-      - v*
+      - master # Default release branch
 jobs:
   release:
     runs-on: ${{ matrix.os }}
