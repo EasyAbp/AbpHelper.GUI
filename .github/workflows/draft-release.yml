@@ -22,6 +22,18 @@ jobs:
         with:
           node-version: 12
 
+      - name: Cleanup artifacts
+        if: matrix.os != 'windows-latest'
+        run: |
+          mkdir artifacts
+          mv "dist/(*.exe,*.deb,*.AppImage,*.dmg)" artifacts || true
+
+      - name: Cleanup artifacts Win
+        if: matrix.os == 'windows-latest'
+        run: |
+          mkdir artifacts
+          mv dist/*.exe artifacts
+
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:
