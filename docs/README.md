@@ -4,7 +4,7 @@ Providing code generation and more features to help you develop applications and
 
 **Make sure backup your source files before using it!**
 
-> This GUI app is based on [AbpHelper.CLI](https://github.com/EasyAbp/AbpHelper.CLI), you can use the CLI directly if you prefer command line.
+> This GUI app depends on [AbpHelper.CLI](https://github.com/EasyAbp/AbpHelper.CLI), you can use the CLI directly if you prefer command line.
 
 ## Getting Started
 
