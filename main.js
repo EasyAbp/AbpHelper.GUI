@@ -206,10 +206,11 @@ async function checkForUpdate() {
   checkUpdateMenuItem.label = 'GUI Version: Checking for Update....'
   checkUpdateMenuItem.enabled = false
   const data = await (await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.GUI/releases/latest', {type: 'text'})).json()
-  if (data.tag_name) {
-    checkUpdateMenuItem.label = data.tag_name == currentVersion ? 'GUI Version: v' + currentVersion : 'GUI Version: v' + currentVersion + ' (Latest: v' + data.tag_name + ')'
+  var tagName = data.tag_name.replace('v', '')
+  if (tagName) {
+    checkUpdateMenuItem.label = tagName == currentVersion ? 'GUI Version: v' + currentVersion : 'GUI Version: v' + currentVersion + ' (Latest: v' + tagName + ')'
     checkUpdateMenuItem.enabled = true
-    if (currentVersion != data.tag_name) {
+    if (currentVersion != tagName) {
       downloadReleaseMenuItem.visible = true
     }
   } else if (data.message && data.message.indexOf('API rate limit exceeded') == 0) {
