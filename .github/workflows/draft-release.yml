@@ -20,9 +20,6 @@ jobs:
         with:
           node-version: 12
 
-      - name: Install Snapcraft
-        uses: samuelmeuli/action-snapcraft@v1
-
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         with:
