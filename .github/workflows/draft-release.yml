@@ -40,7 +40,6 @@ jobs:
           node-version: 12
 
       - name: Build/release Electron app
-        if: ${{ steps.checkTag.outputs.exists == 'false' }}
         uses: samuelmeuli/action-electron-builder@v1
         with:
           # GitHub token, automatically provided to the action
