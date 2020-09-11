@@ -19,21 +19,6 @@ jobs:
         id: getVersion
         uses: pchynoweth/action-get-npm-version@master
 
-      - name: determine if the tag exists
-        uses: mukunku/tag-exists-action@v1.0.0
-        id: checkTag
-        with:
-          tag: ${{ steps.getVersion.outputs.version }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: add git tag
-        if: ${{ steps.checkTag.outputs.exists == 'false' }}
-        uses: tvdias/github-tagger@v0.0.1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ steps.getVersion.outputs.version }}
-
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
         with:
