@@ -65,7 +65,7 @@ function runExec() {
 
   let cliCommand = process.platform === 'win32' ? '%USERPROFILE%\\.dotnet\\tools\\abphelper' : '$HOME/.dotnet/tools/abphelper'
   let cmdStr = cliCommand + ' generate localization ' + names + ' -d ' + addDoubleQuote(solutionRootPath)
-  if (exclude) cmdStr += ' --exclude ' + addDoubleQuote(exclude)
+  if (exclude) cmdStr += ' --exclude ' + exclude
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

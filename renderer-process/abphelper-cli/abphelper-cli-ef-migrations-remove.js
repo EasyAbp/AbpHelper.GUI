@@ -74,7 +74,7 @@ function runExec() {
   let cmdStr = cliCommand + ' ef migrations remove -d ' + addDoubleQuote(solutionRootPath)
   if (extraOptions.noOverwrite) cmdStr += ' --no-overwrite'
   if (migrationProjectName) cmdStr += ' --migration-project-name ' + addDoubleQuote(migrationProjectName)
-  if (exclude) cmdStr += ' --exclude ' + addDoubleQuote(exclude)
+  if (exclude) cmdStr += ' --exclude ' + exclude
   if (efOptions) cmdStr += ' ' + efOptions
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')

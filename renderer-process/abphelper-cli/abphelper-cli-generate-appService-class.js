@@ -74,7 +74,7 @@ function runExec() {
   let cmdStr = cliCommand + ' generate service ' + addDoubleQuote(serviceName) + ' -d ' + addDoubleQuote(solutionRootPath)
   if (extraOptions.noOverwrite) cmdStr += ' --no-overwrite'
   if (folder) cmdStr += ' --folder ' + addDoubleQuote(folder)
-  if (exclude) cmdStr += ' --exclude ' + addDoubleQuote(exclude)
+  if (exclude) cmdStr += ' --exclude ' + exclude
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

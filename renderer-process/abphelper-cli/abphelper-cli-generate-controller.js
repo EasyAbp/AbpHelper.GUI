@@ -78,7 +78,7 @@ function runExec() {
   let cmdStr = cliCommand + ' generate controller ' + addDoubleQuote(serviceName) + ' -d ' + addDoubleQuote(solutionRootPath)
   if (extraOptions.skipBuild) cmdStr += ' --skip-build'
   if (extraOptions.regenerate) cmdStr += ' --regenerate'
-  if (exclude) cmdStr += ' --exclude ' + addDoubleQuote(exclude)
+  if (exclude) cmdStr += ' --exclude ' + exclude
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

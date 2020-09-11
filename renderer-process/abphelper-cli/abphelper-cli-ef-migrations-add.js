@@ -60,8 +60,8 @@ function runExec() {
   let name = document.getElementById('ef-migrations-add-name').value
   let solutionFile = document.getElementById('ef-migrations-add-solution-file').value
   let migrationProjectName = document.getElementById('ef-migrations-add-options-migrationProjectName').value
-  let exclude = document.getElementById('ef-migrations-add-options-exclude').value
   let efOptions = document.getElementById('ef-migrations-add-options-efOptions').value
+  let exclude = document.getElementById('ef-migrations-add-options-exclude').value
   if (isRunning || !name || !solutionFile) return
   
   let solutionRootPath = getSolutionRootPath(solutionFile)
@@ -75,8 +75,8 @@ function runExec() {
   let cmdStr = cliCommand + ' ef migrations add ' + name + ' -d ' + addDoubleQuote(solutionRootPath)
   if (extraOptions.noOverwrite) cmdStr += ' --no-overwrite'
   if (migrationProjectName) cmdStr += ' --migration-project-name ' + addDoubleQuote(migrationProjectName)
-  if (exclude) cmdStr += ' --exclude ' + addDoubleQuote(exclude)
   if (efOptions) cmdStr += ' ' + efOptions
+  if (exclude) cmdStr += ' --exclude ' + exclude
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()

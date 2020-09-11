@@ -85,7 +85,7 @@ function runExec() {
   if (extraOptions.noOverwrite) cmdStr += ' --no-overwrite'
   if (extraOptions.noInput) cmdStr += ' --no-input'
   if (extraOptions.noOutput) cmdStr += ' --no-output'
-  if (exclude) cmdStr += ' --exclude ' + addDoubleQuote(exclude)
+  if (exclude) cmdStr += ' --exclude ' + exclude
   clearConsoleContent()
   addConsoleContent(cmdStr + '\n\nRunning...\n')
   scrollConsoleToBottom()
