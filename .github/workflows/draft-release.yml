@@ -17,7 +17,7 @@ jobs:
       
       - name: Get version
         id: getVersion
-        uses: action-get-npm-version@master
+        uses: pchynoweth/action-get-npm-version@master
 
       - name: determine if the tag exists
         uses: mukunku/tag-exists-action@v1.0.0
