@@ -1,0 +1,30 @@
+name: draft a release
+on:
+  push:
+    branches:
+      - master # Default release branch
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Get version
+        id: getVersion
+        uses: pchynoweth/action-get-npm-version@master
+
+      - name: determine if the tag exists
+        uses: mukunku/tag-exists-action@v1.0.0
+        id: checkTag
+        with:
+          tag: ${{ steps.getVersion.outputs.version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: add git tag
+        if: ${{ steps.checkTag.outputs.exists == 'false' }}
+        uses: tvdias/github-tagger@v0.0.1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          tag: v${{ steps.getVersion.outputs.version }}
