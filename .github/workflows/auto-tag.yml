@@ -1,4 +1,4 @@
-name: draft a release
+name: auto tag commit
 on:
   push:
     branches:
