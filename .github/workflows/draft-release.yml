@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master # Default release branch
+    tags:
+      - v*
 jobs:
   release:
     runs-on: ${{ matrix.os }}
