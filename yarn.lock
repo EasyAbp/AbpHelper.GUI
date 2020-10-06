@@ -1322,10 +1322,10 @@ electron-shortcut-normalizer@^1.0.0:
   resolved "https://registry.npm.taobao.org/electron-shortcut-normalizer/download/electron-shortcut-normalizer-1.0.0.tgz#8ee284b38edfea37744298f93d017d85924d2200"
   integrity sha1-juKEs47f6jd0Qpj5PQF9hZJNIgA=
 
-electron@^9.0.4:
-  version "9.0.4"
-  resolved "https://registry.npm.taobao.org/electron/download/electron-9.0.4.tgz#5aa72c1576c82c19f6e087311ffe1d7b74358d25"
-  integrity sha1-WqcsFXbILBn24IcxH/4de3Q1jSU=
+electron@^9.3.1:
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-9.3.1.tgz#e301932c5c0537d8c9a8850d216d3ba454dbf55c"
+  integrity sha512-DScrhqBT4a54KfdF0EoipALpHmdQTn3m7SSCtbpTcEcG+UDUiXad2cOfW6DHeVH7N+CVDKDG12q2PhVJjXkFAA==
   dependencies:
     "@electron/get" "^1.0.1"
     "@types/node" "^12.0.12"
