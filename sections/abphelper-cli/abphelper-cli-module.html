@@ -1,0 +1,220 @@
+<template class="task-template">
+  <section id="abphelper-cli-module-section" class="section js-section u-category-abphelper-cli">
+    <header class="section-header">
+      <div class="section-wrapper">
+        <h1>
+          <svg class="section-icon"><use xlink:href="assets/img/icons.svg#icon-windows"></use></svg>
+          Abp Community Module Installer
+        </h1>
+        <h3>Help you easily install ABP community modules into your applications.</h3>
+        <p>See the <a href="https://github.com/EasyAbp/AbpHelper.CLI">AbpHelper CLI Github repository<span class="u-visible-to-screen-reader">(opens in new window)</span></a> in your browser for more informations.</p>
+      </div>
+    </header>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Add or update modules
+          <div class="demo-meta u-avoid-clicks">Add ABP module according to the specified packages</div>
+        </button>
+        <div id="box-abphelper-cli-module-add" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abphelper module add [options] &lt;module-name&gt;</code></pre>
+          <div id="module-add-info">
+            <h5>Module Name</h5>
+            <input id="module-add-moduleName" class="demo-input" type="text" placeholder="e.g. EasyAbp.PrivateMessaging" />
+            <p id="module-add-moduleName-desc">The name of the module.</p>
+            <h5>Solution</h5>
+            <input id="module-add-solution-file" class="demo-input" type="text" placeholder="Select a .sln file" />
+            <button id="module-add-select-solution-file-btn" class="demo-button">Select</button>
+          </div>
+
+          <div id="module-add-options">
+            <h5>Extra Options</h5>
+            <div>
+              <div>
+                <input id="module-add-options-shared" type="checkbox" checked />
+                <label>Domain.Shared</label>
+              </div>
+              <p id="module-add-options-shared-desc">Install the {module-name}.Domain.Shared nuget package.</p>
+
+              <div>
+                <input id="module-add-options-domain" type="checkbox" checked />
+                <label>Domain</label>
+              </div>
+              <p id="module-add-options-domain-desc">Install the {module-name}.Domain nuget package.</p>
+
+              <div>
+                <input id="module-add-options-efcore" type="checkbox" checked />
+                <label>EntityFrameworkCore</label>
+              </div>
+              <p id="module-add-options-efcore-desc">Install the {module-name}.EntityFrameworkCore nuget package.</p>
+
+              <div>
+                <input id="module-add-options-mongodb" type="checkbox" />
+                <label>MongoDB</label>
+              </div>
+              <p id="module-add-options-mongodb-desc">Install the {module-name}.MongoDB nuget package.</p>
+
+              <div>
+                <input id="module-add-options-contracts" type="checkbox" checked />
+                <label>Application.Contracts</label>
+              </div>
+              <p id="module-add-options-contracts-desc">Install the {module-name}.Application.Contracts nuget package.</p>
+
+              <div>
+                <input id="module-add-options-application" type="checkbox" checked />
+                <label>Application</label>
+              </div>
+              <p id="module-add-options-efapplicationcore-desc">Install the {module-name}.Application nuget package.</p>
+
+              <div>
+                <input id="module-add-options-httpapi" type="checkbox" checked />
+                <label>HttpApi</label>
+              </div>
+              <p id="module-add-options-httpapi-desc">Install the {module-name}.HttpApi nuget package.</p>
+
+              <div>
+                <input id="module-add-options-client" type="checkbox" checked />
+                <label>HttpApi.Client</label>
+              </div>
+              <p id="module-add-options-client-desc">Install the {module-name}.HttpApi.Client nuget package.</p>
+
+              <div>
+                <input id="module-add-options-web" type="checkbox" checked />
+                <label>Web</label>
+              </div>
+              <p id="module-add-options-web-desc">Install the {module-name}.Web nuget package.</p>
+
+              <div>
+                <label>Version</label>
+                <div style="margin-top: 14px;">
+                  <input id="module-add-options-version" class="demo-input" type="text" placeholder="Version" />
+                </div>
+              </div>
+              <p id="module-add-options-version-desc">Specify the version of the package(s) to add.</p>
+
+              <div>
+                <label>Excluded Directories</label>
+                <div style="margin-top: 14px;">
+                  <input id="module-add-options-exclude" class="demo-input" type="text" placeholder="Excluded Directories" />
+                </div>
+              </div>
+              <p id="module-add-options-exclude-desc">Exclude directories when searching files, arguments can contain a combination of valid literal path and wildcard (* and ?) characters. Use double asterisk(**) to search all directories. Example: --exclude *Folder1 Folder2/Folder* **/*Folder? **/*Folder*.</p>
+            </div>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="module-add-execute">Execute</button>
+          </h5>
+
+          <div id="module-add-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="demo-wrapper">
+        <button id="new-window-demo-toggle" class="js-container-target demo-toggle-button">Remove modules
+          <div class="demo-meta u-avoid-clicks">Remove ABP module according to the specified packages</div>
+        </button>
+        <div id="box-abphelper-cli-module-remove" class="demo-box">
+          <h5 style="margin-top: 0;">Command</h5>
+          <pre><code>abphelper module remove [options] &lt;module-name&gt;</code></pre>
+          <div id="module-remove-info">
+            <h5>Module Name</h5>
+            <input id="module-remove-moduleName" class="demo-input" type="text" placeholder="e.g. EasyAbp.PrivateMessaging" />
+            <p id="module-remove-moduleName-desc">The name of the module.</p>
+            <h5>Solution</h5>
+            <input id="module-remove-solution-file" class="demo-input" type="text" placeholder="Select a .sln file" />
+            <button id="module-remove-select-solution-file-btn" class="demo-button">Select</button>
+          </div>
+
+          <div id="module-remove-options">
+            <h5>Extra Options</h5>
+            <div>
+              <div>
+                <input id="module-remove-options-shared" type="checkbox" checked />
+                <label>Domain.Shared</label>
+              </div>
+              <p id="module-remove-options-shared-desc">Remove the {module-name}.Domain.Shared nuget package.</p>
+
+              <div>
+                <input id="module-remove-options-domain" type="checkbox" checked />
+                <label>Domain</label>
+              </div>
+              <p id="module-remove-options-domain-desc">Remove the {module-name}.Domain nuget package.</p>
+
+              <div>
+                <input id="module-remove-options-efcore" type="checkbox" checked />
+                <label>EntityFrameworkCore</label>
+              </div>
+              <p id="module-remove-options-efcore-desc">Remove the {module-name}.EntityFrameworkCore nuget package.</p>
+
+              <div>
+                <input id="module-remove-options-mongodb" type="checkbox" />
+                <label>MongoDB</label>
+              </div>
+              <p id="module-remove-options-mongodb-desc">Remove the {module-name}.MongoDB nuget package.</p>
+
+              <div>
+                <input id="module-remove-options-contracts" type="checkbox" checked />
+                <label>Application.Contracts</label>
+              </div>
+              <p id="module-remove-options-contracts-desc">Remove the {module-name}.Application.Contracts nuget package.</p>
+
+              <div>
+                <input id="module-remove-options-application" type="checkbox" checked />
+                <label>Application</label>
+              </div>
+              <p id="module-remove-options-efapplicationcore-desc">Remove the {module-name}.Application nuget package.</p>
+
+              <div>
+                <input id="module-remove-options-httpapi" type="checkbox" checked />
+                <label>HttpApi</label>
+              </div>
+              <p id="module-remove-options-httpapi-desc">Remove the {module-name}.HttpApi nuget package.</p>
+
+              <div>
+                <input id="module-remove-options-client" type="checkbox" checked />
+                <label>HttpApi.Client</label>
+              </div>
+              <p id="module-remove-options-client-desc">Remove the {module-name}.HttpApi.Client nuget package.</p>
+
+              <div>
+                <input id="module-remove-options-web" type="checkbox" checked />
+                <label>Web</label>
+              </div>
+              <p id="module-remove-options-web-desc">Remove the {module-name}.Web nuget package.</p>
+
+              <div>
+                <label>Excluded Directories</label>
+                <div style="margin-top: 14px;">
+                  <input id="module-remove-options-exclude" class="demo-input" type="text" placeholder="Excluded Directories" />
+                </div>
+              </div>
+              <p id="module-remove-options-exclude-desc">Exclude directories when searching files, arguments can contain a combination of valid literal path and wildcard (* and ?) characters. Use double asterisk(**) to search all directories. Example: --exclude *Folder1 Folder2/Folder* **/*Folder? **/*Folder*.</p>
+            </div>
+          </div>
+
+          <h5>
+            <button class="demo-button" id="module-remove-execute">Execute</button>
+          </h5>
+
+          <div id="module-remove-process" class="hidden">
+            <h5>Command Line Process</h5>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      require('./renderer-process/abphelper-cli/abphelper-cli-module-add.js')
+      require('./renderer-process/abphelper-cli/abphelper-cli-module-remove.js')
+    </script>
+
+  </section>
+</template>
