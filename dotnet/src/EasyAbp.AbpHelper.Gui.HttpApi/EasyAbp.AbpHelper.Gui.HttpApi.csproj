@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>EasyAbp.AbpHelper.Gui</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EasyAbp.AbpHelper.Gui.HttpApi.Contracts\EasyAbp.AbpHelper.Gui.HttpApi.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Account.HttpApi" Version="4.1.2" />
+    <PackageReference Include="Volo.Abp.Identity.HttpApi" Version="4.1.2" />
+  </ItemGroup>
+
+</Project>
