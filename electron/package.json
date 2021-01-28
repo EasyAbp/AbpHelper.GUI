@@ -40,10 +40,10 @@
     }
   },
   "scripts": {
-    "start": "cd ../dotnet && dotnet publish -o ../electron/dotnet && cd ../electron && electron .",
-    "dev": "cd ../dotnet && dotnet publish -o ../electron/dotnet && cd ../electron && electron . --debug",
+    "start": "cd ../dotnet/src/EasyAbp.AbpHelper.Gui.Blazor.Host && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.Blazor.Host && cd ../EasyAbp.AbpHelper.Gui.HttpApi.Host && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.HttpApi.Host && cd ../../../electron && electron .",
+    "dev": "cd ../dotnet/src/EasyAbp.AbpHelper.Gui.Blazor.Host && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.Blazor.Host && cd ../EasyAbp.AbpHelper.Gui.HttpApi.Host && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.HttpApi.Host && cd ../../../electron && electron . --debug",
     "test": "mocha && standard",
-    "package": "cd ../dotnet && dotnet publish -o ../electron/dotnet && cd ../electron && electron-builder",
+    "package": "cd ../dotnet/src/EasyAbp.AbpHelper.Gui.Blazor.Host && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.Blazor.Host && cd ../EasyAbp.AbpHelper.Gui.HttpApi.Host && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.HttpApi.Host && cd ../../../electron && electron-builder",
     "prepack": "check-for-leaks",
     "prepush": "check-for-leaks"
   },

@@ -16,6 +16,8 @@ if (process.platform === 'darwin') require('fix-path')()
 
 let mainWindow = null
 let contextMenu = null
+let blazorHost = null
+let httpApiHost = null
 
 let forceQuit = false
 
@@ -24,14 +26,50 @@ function initialize () {
 
   loadDemos()
 
-  function runDotNetHost() {
-    let host = exec('dotnet ./electron/dotnet/EasyAbp.AbpHelper.Gui.HttpApi.Host.dll --urls https://localhost:44373', {}, (error, stdout, stderr) => {
+  function runHttpApiHost() {
+    httpApiHost = exec('cd dotnet/EasyAbp.AbpHelper.Gui.HttpApi.Host & dotnet EasyAbp.AbpHelper.Gui.HttpApi.Host.dll --urls https://localhost:44373', {}, (error, stdout, stderr) => {
       if (error) {
         console.log(error)
         console.log(stderr)
-        return
+        app.on('window-all-closed', app.quit)
+        app.on('before-quit', () => {
+            mainWindow.removeAllListeners('close')
+            mainWindow.close()
+        })
       }
     })
+
+    httpApiHost.on('close', function (code) {
+      app.quit()
+    })
+
+    process.on('exit', function () {
+      // Todo: not work!
+      if (httpApiHost != null) httpApiHost.kill('SIGINT')
+    });
+  }
+
+  function runBlazorHost() {
+    blazorHost = exec('cd dotnet/EasyAbp.AbpHelper.Gui.Blazor.Host & dotnet EasyAbp.AbpHelper.Gui.Blazor.Host.dll --urls https://localhost:8005', {}, (error, stdout, stderr) => {
+      if (error) {
+        console.log(error)
+        console.log(stderr)
+        app.on('window-all-closed', app.quit)
+        app.on('before-quit', () => {
+            mainWindow.removeAllListeners('close')
+            mainWindow.close()
+        })
+      }
+    })
+
+    blazorHost.on('close', function (code) {
+      app.quit()
+    })
+
+    process.on('exit', function () {
+      // Todo: not work!
+      if (blazorHost != null) blazorHost.kill('SIGINT')
+    });
   }
 
   function createTray() {
@@ -73,7 +111,7 @@ function initialize () {
 
     mainWindow = new BrowserWindow(windowOptions)
     mainWindow.setMenuBarVisibility(false)
-    mainWindow.loadURL(path.join('file://', __dirname, '/dotnet/wwwroot/index.html'))
+    mainWindow.loadURL(path.join('https://localhost:8005'))
 
     // Launch fullscreen with DevTools open, usage: npm run debug
     if (debug) {
@@ -92,7 +130,8 @@ function initialize () {
   }
 
   app.on('ready', () => {
-    runDotNetHost()
+    runHttpApiHost()
+    runBlazorHost()
     createTray()
     createWindow()
   })
