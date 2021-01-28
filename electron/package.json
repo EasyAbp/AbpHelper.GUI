@@ -40,10 +40,10 @@
     }
   },
   "scripts": {
-    "start": "electron .",
-    "dev": "electron . --debug",
+    "start": "cd ../dotnet && dotnet publish -o ../electron/dotnet && cd ../electron && electron .",
+    "dev": "cd ../dotnet && dotnet publish -o ../electron/dotnet && cd ../electron && electron . --debug",
     "test": "mocha && standard",
-    "package": "electron-builder",
+    "package": "cd ../dotnet && dotnet publish -o ../electron/dotnet && cd ../electron && electron-builder",
     "prepack": "check-for-leaks",
     "prepush": "check-for-leaks"
   },
