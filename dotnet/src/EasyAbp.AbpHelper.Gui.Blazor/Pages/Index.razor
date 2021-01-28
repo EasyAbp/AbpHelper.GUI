@@ -1,5 +1,6 @@
 ﻿@page "/"
 @using Volo.Abp.MultiTenancy
+@using EasyAbp.AbpHelper.Gui.Blazor.Components.DemoBox
 @inherits GuiComponentBase
 @inject ICurrentTenant CurrentTenant
 @inject AuthenticationStateProvider AuthenticationStateProvider
@@ -12,6 +13,8 @@
         <h1>Welcome to the Application</h1>
 
         <p class="lead px-lg-5 mx-lg-5">@L["LongWelcomeMessage"]</p>
+        
+        <DemoBox></DemoBox>
     </div>
 
     <div class="my-3 text-center">
