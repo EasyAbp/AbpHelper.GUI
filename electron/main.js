@@ -24,6 +24,16 @@ function initialize () {
 
   loadDemos()
 
+  function runDotNetHost() {
+    let host = exec('dotnet ./electron/dotnet/EasyAbp.AbpHelper.Gui.HttpApi.Host.dll --urls https://localhost:44373', {}, (error, stdout, stderr) => {
+      if (error) {
+        console.log(error)
+        console.log(stderr)
+        return
+      }
+    })
+  }
+
   function createTray() {
     let trayIcon = process.platform === 'darwin' ? '/assets/app-icon/tray/icon-darwin.png' : '/assets/app-icon/tray/icon.png'
     console.log(trayIcon)
@@ -63,7 +73,7 @@ function initialize () {
 
     mainWindow = new BrowserWindow(windowOptions)
     mainWindow.setMenuBarVisibility(false)
-    mainWindow.loadURL(path.join('file://', __dirname, '/index.html'))
+    mainWindow.loadURL(path.join('file://', __dirname, '/dotnet/wwwroot/index.html'))
 
     // Launch fullscreen with DevTools open, usage: npm run debug
     if (debug) {
@@ -82,6 +92,7 @@ function initialize () {
   }
 
   app.on('ready', () => {
+    runDotNetHost()
     createTray()
     createWindow()
   })
