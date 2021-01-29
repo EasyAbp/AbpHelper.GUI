@@ -4,7 +4,6 @@
 
 const fetch = require('electron-main-fetch')
 const path = require('path')
-const glob = require('glob')
 const {spawn, exec} = require('child_process')
 const {app, Menu, Tray, BrowserWindow, shell} = require('electron')
 
@@ -24,22 +23,8 @@ let forceQuit = false
 function initialize () {
   makeSingleInstance()
 
-  loadDemos()
-
   function runHttpApiHost() {
     httpApiHost = spawn('dotnet', ['EasyAbp.AbpHelper.Gui.HttpApi.Host.dll', '--urls', 'https://localhost:44373'], {cwd: "./dotnet/EasyAbp.AbpHelper.Gui.HttpApi.Host"})
-
-    // httpApiHost = exec('cd dotnet/EasyAbp.AbpHelper.Gui.HttpApi.Host & dotnet EasyAbp.AbpHelper.Gui.HttpApi.Host.dll --urls https://localhost:44373', {}, (error, stdout, stderr) => {
-    //   if (error) {
-    //     console.log(error)
-    //     console.log(stderr)
-    //     app.on('window-all-closed', app.quit)
-    //     app.on('before-quit', () => {
-    //         mainWindow.removeAllListeners('close')
-    //         mainWindow.close()
-    //     })
-    //   }
-    // })
 
     httpApiHost.on('close', function (code) {
       if (code !== 0) {
@@ -52,18 +37,6 @@ function initialize () {
 
   function runBlazorHost() {
     blazorHost = spawn('dotnet', ['EasyAbp.AbpHelper.Gui.Blazor.Host.dll', '--urls', 'https://localhost:8005'], {cwd: "./dotnet/EasyAbp.AbpHelper.Gui.Blazor.Host"})
-
-    // blazorHost = exec('cd dotnet/EasyAbp.AbpHelper.Gui.Blazor.Host & dotnet EasyAbp.AbpHelper.Gui.Blazor.Host.dll --urls https://localhost:8005', {}, (error, stdout, stderr) => {
-    //   if (error) {
-    //     console.log(error)
-    //     console.log(stderr)
-    //     app.on('window-all-closed', app.quit)
-    //     app.on('before-quit', () => {
-    //         mainWindow.removeAllListeners('close')
-    //         mainWindow.close()
-    //     })
-    //   }
-    // })
 
     blazorHost.on('close', function (code) {
       if (code !== 0) {
@@ -322,12 +295,6 @@ function makeSingleInstance () {
       mainWindow.focus()
     }
   })
-}
-
-// Require each JS file in the main-process dir
-function loadDemos () {
-  const files = glob.sync(path.join(__dirname, 'main-process/**/*.js'))
-  files.forEach((file) => { require(file) })
 }
 
 let abphelperCliVersion = null
