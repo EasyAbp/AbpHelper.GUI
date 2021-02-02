@@ -15,6 +15,7 @@ using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
+using Volo.Abp.Json;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
@@ -34,6 +35,14 @@ namespace EasyAbp.AbpHelper.Gui
     {
         private const string DefaultCorsPolicyName = "Default";
 
+        public override void PreConfigureServices(ServiceConfigurationContext context)
+        {
+            PreConfigure<AbpJsonOptions>(options =>
+            {
+                options.UseHybridSerializer = false;
+            });
+        }
+        
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             var configuration = context.Services.GetConfiguration();

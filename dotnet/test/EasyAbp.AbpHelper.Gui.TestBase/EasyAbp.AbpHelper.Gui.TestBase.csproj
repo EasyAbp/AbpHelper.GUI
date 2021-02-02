@@ -22,4 +22,8 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\EasyAbp.AbpHelper.Gui.Service\EasyAbp.AbpHelper.Gui.Service.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.IO;
+using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp;
 using Volo.Abp.Authorization;
 using Volo.Abp.Autofac;
@@ -11,35 +12,25 @@ namespace EasyAbp.AbpHelper.Gui
     [DependsOn(
         typeof(AbpAutofacModule),
         typeof(AbpTestBaseModule),
-        typeof(AbpAuthorizationModule)
+        typeof(AbpAuthorizationModule),
+        typeof(GuiServiceModule)
     )]
     public class GuiTestBaseModule : AbpModule
     {
-        public override void PreConfigureServices(ServiceConfigurationContext context)
-        {
-        }
-
-        public override void ConfigureServices(ServiceConfigurationContext context)
-        {
-            context.Services.AddAlwaysAllowAuthorization();
-        }
-
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
         {
-            SeedTestData(context);
+            if (!Directory.Exists(GuiTestConsts.Folder))
+            {
+                Directory.CreateDirectory(GuiTestConsts.Folder);
+            }
         }
 
-        private static void SeedTestData(ApplicationInitializationContext context)
+        public override void OnApplicationShutdown(ApplicationShutdownContext context)
         {
-            AsyncHelper.RunSync(async () =>
+            if (Directory.Exists(GuiTestConsts.Folder))
             {
-                using (var scope = context.ServiceProvider.CreateScope())
-                {
-                    await scope.ServiceProvider
-                        .GetRequiredService<IDataSeeder>()
-                        .SeedAsync();
-                }
-            });
+                Directory.Delete(GuiTestConsts.Folder, true);
+            }
         }
     }
 }

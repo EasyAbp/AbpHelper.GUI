@@ -43,6 +43,13 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Menus
                     icon: "fas fa-home"
                 )
             );
+            
+            context.Menu.Items.Add(new ApplicationMenuItem(
+                GuiMenus.AbpCli,
+                l["Menu:AbpCli"],
+                "/AbpCli"
+                )
+            );
 
             return Task.CompletedTask;
         }
