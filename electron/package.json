@@ -11,6 +11,8 @@
     "copyright": "Copyright © 2020 EasyAbp",
     "icon": "assets/app-icon/win/app.ico",
     "asar": true,
+    "asarUnpack": ["dotnet${/*}", "dist${/*}", "Logs${/*}"],
+    "extraFiles": ["dotnet${/*}", "!**/Logs/*"],
     "win": {
       "target": [
         {
