@@ -15,7 +15,7 @@ namespace EasyAbp.AbpHelper.Gui
         typeof(AbpIdentityApplicationContractsModule),
         typeof(AbpObjectExtendingModule)
     )]
-    public class GuiHttpApiContractsModule : AbpModule
+    public class GuiServiceContractsModule : AbpModule
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)
         {
@@ -31,7 +31,7 @@ namespace EasyAbp.AbpHelper.Gui
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.AddEmbedded<GuiHttpApiContractsModule>();
+                options.FileSets.AddEmbedded<GuiServiceContractsModule>();
             });
 
             Configure<AbpLocalizationOptions>(options =>

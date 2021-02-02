@@ -1,5 +1,5 @@
-﻿using Localization.Resources.AbpUi;
-using EasyAbp.AbpHelper.Gui.Localization;
+﻿using EasyAbp.AbpHelper.Gui.Localization;
+using Localization.Resources.AbpUi;
 using Volo.Abp.Account;
 using Volo.Abp.Identity;
 using Volo.Abp.Localization;
@@ -8,7 +8,7 @@ using Volo.Abp.Modularity;
 namespace EasyAbp.AbpHelper.Gui
 {
     [DependsOn(
-        typeof(GuiHttpApiContractsModule),
+        typeof(GuiServiceModule),
         typeof(AbpAccountHttpApiModule),
         typeof(AbpIdentityHttpApiModule)
     )]

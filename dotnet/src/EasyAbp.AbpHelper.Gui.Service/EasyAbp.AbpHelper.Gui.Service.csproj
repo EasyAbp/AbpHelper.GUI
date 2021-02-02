@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Account.HttpApi.Client" Version="4.1.2" />
-    <PackageReference Include="Volo.Abp.Identity.HttpApi.Client" Version="4.1.2" />
+    <PackageReference Include="Volo.Abp.Cli.Core" Version="4.1.2" />
   </ItemGroup>
 
   <ItemGroup>
