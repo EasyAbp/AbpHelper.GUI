@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 
-namespace EasyAbp.AbpHelper.Gui.Services.AbpCli.New.Dtos
+namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
 {
     public class AbpNewAppInput : AbpNewInput
     {

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Gui.Services.AbpCli.New;
-using EasyAbp.AbpHelper.Gui.Services.AbpCli.New.Dtos;
+using EasyAbp.AbpHelper.Gui.AbpCli.New;
+using EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos;
 
 namespace EasyAbp.AbpHelper.Gui.Blazor.Pages
 {

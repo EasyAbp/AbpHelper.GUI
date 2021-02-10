@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EasyAbp.AbpHelper.Gui.Service.Contracts\EasyAbp.AbpHelper.Gui.Service.Contracts.csproj" />
+    <ProjectReference Include="..\EasyAbp.AbpHelper.Gui.Application.Contracts\EasyAbp.AbpHelper.Gui.Application.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

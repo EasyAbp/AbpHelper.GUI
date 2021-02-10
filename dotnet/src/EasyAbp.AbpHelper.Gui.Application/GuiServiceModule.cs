@@ -9,7 +9,7 @@ namespace EasyAbp.AbpHelper.Gui
 {
     [DependsOn(
         typeof(AbpCliCoreModule),
-        typeof(GuiServiceContractsModule)
+        typeof(GuiApplicationContractsModule)
     )]
     public class GuiServiceModule : AbpModule
     {

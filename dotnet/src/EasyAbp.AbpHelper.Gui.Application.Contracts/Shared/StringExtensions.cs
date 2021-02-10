@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace EasyAbp.AbpHelper.Gui.Services.Shared
+namespace EasyAbp.AbpHelper.Gui.Shared
 {
     public static class StringExtensions
     {

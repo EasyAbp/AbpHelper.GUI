@@ -6,7 +6,7 @@ using Volo.Abp.Modularity;
 namespace EasyAbp.AbpHelper.Gui
 {
     [DependsOn(
-        typeof(GuiServiceContractsModule),
+        typeof(GuiApplicationContractsModule),
         typeof(AbpAccountHttpApiClientModule),
         typeof(AbpIdentityHttpApiClientModule)
     )]
@@ -17,7 +17,7 @@ namespace EasyAbp.AbpHelper.Gui
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
             context.Services.AddHttpClientProxies(
-                typeof(GuiServiceContractsModule).Assembly,
+                typeof(GuiApplicationContractsModule).Assembly,
                 RemoteServiceName
             );
         }

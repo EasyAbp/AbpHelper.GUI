@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Gui.Services.AbpCli.New;
-using EasyAbp.AbpHelper.Gui.Services.AbpCli.New.Dtos;
+using EasyAbp.AbpHelper.Gui.AbpCli.New;
+using EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos;
 using Microsoft.Extensions.DependencyInjection;
 using Shouldly;
 using Xunit;

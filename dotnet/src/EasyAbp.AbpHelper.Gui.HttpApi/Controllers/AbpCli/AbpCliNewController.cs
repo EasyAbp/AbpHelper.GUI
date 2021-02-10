@@ -1,8 +1,8 @@
 ﻿
 using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Gui.Services.AbpCli.New;
-using EasyAbp.AbpHelper.Gui.Services.AbpCli.New.Dtos;
-using EasyAbp.AbpHelper.Gui.Services.Shared.Dtos;
+using EasyAbp.AbpHelper.Gui.AbpCli.New;
+using EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos;
+using EasyAbp.AbpHelper.Gui.Shared.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp;
 

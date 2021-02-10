@@ -1,4 +1,4 @@
-﻿namespace EasyAbp.AbpHelper.Gui.Services.Shared.Dtos
+﻿namespace EasyAbp.AbpHelper.Gui.Shared.Dtos
 {
     public class ServiceExecutionResult
     {

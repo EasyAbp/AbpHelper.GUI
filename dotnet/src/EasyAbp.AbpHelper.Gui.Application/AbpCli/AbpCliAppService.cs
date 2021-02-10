@@ -1,10 +1,11 @@
 ﻿using System;
-using EasyAbp.AbpHelper.Gui.Services.Shared;
+using EasyAbp.AbpHelper.Gui.Shared;
+using Volo.Abp.Application.Services;
 using Volo.Abp.Cli.Args;
 
-namespace EasyAbp.AbpHelper.Gui.Shared
+namespace EasyAbp.AbpHelper.Gui.AbpCli
 {
-    public abstract class AbpCliServiceBase
+    public abstract class AbpCliAppService : ApplicationService
     {
         public static CommandLineArgs CreateCommandLineArgs(object input, string command = null, string target = null)
         {

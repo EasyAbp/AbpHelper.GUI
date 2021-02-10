@@ -1,19 +1,16 @@
 ﻿using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Gui.Services.AbpCli.New;
-using EasyAbp.AbpHelper.Gui.Services.AbpCli.New.Dtos;
-using EasyAbp.AbpHelper.Gui.Services.Shared.Dtos;
-using EasyAbp.AbpHelper.Gui.Shared;
-using Volo.Abp.Cli.Args;
+using EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos;
+using EasyAbp.AbpHelper.Gui.Shared.Dtos;
 using Volo.Abp.Cli.Commands;
 using Volo.Abp.DependencyInjection;
 
-namespace EasyAbp.AbpHelper.Gui.AbpCli
+namespace EasyAbp.AbpHelper.Gui.AbpCli.New
 {
-    public class AbpCliNewService : AbpCliServiceBase, IAbpCliNewService, ITransientDependency
+    public class AbpCliNewAppService : AbpCliAppService, IAbpCliNewService, ITransientDependency
     {
         private readonly NewCommand _newCommand;
 
-        public AbpCliNewService(NewCommand newCommand)
+        public AbpCliNewAppService(NewCommand newCommand)
         {
             _newCommand = newCommand;
         }

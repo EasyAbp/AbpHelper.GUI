@@ -19,11 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.AbpHelper.Gui.Blazo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.AbpHelper.Gui.HttpApi", "src\EasyAbp.AbpHelper.Gui.HttpApi\EasyAbp.AbpHelper.Gui.HttpApi.csproj", "{EA728778-AF6E-41A9-8A4C-A878A8E51DD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.AbpHelper.Gui.Service.Contracts", "src\EasyAbp.AbpHelper.Gui.Service.Contracts\EasyAbp.AbpHelper.Gui.Service.Contracts.csproj", "{63B6D95A-C16E-475F-A871-1F97EA5A629C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.AbpHelper.Gui.Application.Contracts", "src\EasyAbp.AbpHelper.Gui.Application.Contracts\EasyAbp.AbpHelper.Gui.Application.Contracts.csproj", "{63B6D95A-C16E-475F-A871-1F97EA5A629C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.AbpHelper.Gui.Blazor.Host", "src\EasyAbp.AbpHelper.Gui.Blazor.Host\EasyAbp.AbpHelper.Gui.Blazor.Host.csproj", "{BEAA566E-5519-4A02-B272-9A4C4D9C5008}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.AbpHelper.Gui.Service", "src\EasyAbp.AbpHelper.Gui.Service\EasyAbp.AbpHelper.Gui.Service.csproj", "{DF9F3996-3664-40E8-B6C0-1792AFD1BAE3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.AbpHelper.Gui.Application", "src\EasyAbp.AbpHelper.Gui.Application\EasyAbp.AbpHelper.Gui.Application.csproj", "{DF9F3996-3664-40E8-B6C0-1792AFD1BAE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
