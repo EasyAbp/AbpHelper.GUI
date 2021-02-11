@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using JetBrains.Annotations;
 
 namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
 {
+    [Serializable]
     public abstract class AbpNewInput
     {
         [NotNull]

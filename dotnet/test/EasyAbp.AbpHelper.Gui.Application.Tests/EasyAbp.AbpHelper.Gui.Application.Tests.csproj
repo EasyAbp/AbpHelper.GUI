@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>EasyAbp.AbpHelper.Gui</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\EasyAbp.AbpHelper.Gui.Application\EasyAbp.AbpHelper.Gui.Application.csproj" />
+    <ProjectReference Include="..\EasyAbp.AbpHelper.Gui.TestBase\EasyAbp.AbpHelper.Gui.TestBase.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
+  </ItemGroup>
+
+</Project>

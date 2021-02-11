@@ -13,7 +13,7 @@ namespace EasyAbp.AbpHelper.Gui
         typeof(AbpAutofacModule),
         typeof(AbpTestBaseModule),
         typeof(AbpAuthorizationModule),
-        typeof(GuiServiceModule)
+        typeof(GuiApplicationModule)
     )]
     public class GuiTestBaseModule : AbpModule
     {

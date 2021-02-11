@@ -1,7 +1,9 @@
-﻿using JetBrains.Annotations;
+﻿using System;
+using JetBrains.Annotations;
 
 namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
 {
+    [Serializable]
     public class AbpNewAppInput : AbpNewInput
     {
         public override string Template { get; } = "app";

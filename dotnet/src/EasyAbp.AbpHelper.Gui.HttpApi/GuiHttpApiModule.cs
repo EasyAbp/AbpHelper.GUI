@@ -8,7 +8,7 @@ using Volo.Abp.Modularity;
 namespace EasyAbp.AbpHelper.Gui
 {
     [DependsOn(
-        typeof(GuiServiceModule),
+        typeof(GuiApplicationModule),
         typeof(AbpAccountHttpApiModule),
         typeof(AbpIdentityHttpApiModule)
     )]
