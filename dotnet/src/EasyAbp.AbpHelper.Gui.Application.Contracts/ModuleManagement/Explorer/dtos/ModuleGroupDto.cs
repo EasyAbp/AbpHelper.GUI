@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace EasyAbp.AbpHelper.Gui.ModuleManagement.Installer.Dtos
+namespace EasyAbp.AbpHelper.Gui.ModuleManagement.Explorer.dtos
 {
     [Serializable]
     public class ModuleGroupDto
