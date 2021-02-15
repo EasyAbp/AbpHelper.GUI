@@ -10,19 +10,6 @@ namespace EasyAbp.AbpHelper.Gui.ModuleManagement.Installer
 {
     public class ModuleManagementInstallerAppService : ModuleManagementAppService, IModuleManagementInstallerAppService
     {
-        private readonly IDictionary<string, string> _projectShortNameToProjectNameMapping = new Dictionary<string, string>
-        {
-            {"s", "Domain.Shared"},
-            {"o", "Domain"},
-            {"e", "EntityFrameworkCore"},
-            {"m", "MongoDB"},
-            {"c", "Application.Contracts"},
-            {"a", "Application"},
-            {"h", "HttpApi"},
-            {"l", "HttpApi.Client"},
-            {"w", "Web"},
-        };
-        
         private readonly AddCommand _addCommand;
         private readonly RemoveCommand _removeCommand;
 
@@ -40,8 +27,8 @@ namespace EasyAbp.AbpHelper.Gui.ModuleManagement.Installer
             {
                 var custom = grouping
                     .Select(x => x.Targets.Select(tar => x.Submodule.IsNullOrWhiteSpace()
-                        ? $"{x.ModuleId}:{GetProjectName(tar)}"
-                        : $"{x.ModuleId}:{GetProjectName(tar)}:{x.Submodule}").JoinAsString(","))
+                        ? $"{x.ModuleId}:{tar}"
+                        : $"{x.ModuleId}:{tar}:{x.Submodule}").JoinAsString(","))
                     .JoinAsString(",");
 
                 await _addCommand.RunCommand(new AddCommandOption
@@ -60,8 +47,8 @@ namespace EasyAbp.AbpHelper.Gui.ModuleManagement.Installer
             {
                 var custom = grouping
                     .Select(x => x.Targets.Select(tar => x.Submodule.IsNullOrWhiteSpace()
-                        ? $"{x.ModuleId}:{GetProjectName(tar)}"
-                        : $"{x.ModuleId}:{GetProjectName(tar)}:{x.Submodule}").JoinAsString(","))
+                        ? $"{x.ModuleId}:{tar}"
+                        : $"{x.ModuleId}:{tar}:{x.Submodule}").JoinAsString(","))
                     .JoinAsString(",");
 
                 await _removeCommand.RunCommand(new RemoveCommandOption
@@ -71,13 +58,6 @@ namespace EasyAbp.AbpHelper.Gui.ModuleManagement.Installer
                     Custom = custom
                 });
             }
-        }
-
-        protected virtual string GetProjectName(string projectShortName)
-        {
-            return _projectShortNameToProjectNameMapping.ContainsKey(projectShortName)
-                ? _projectShortNameToProjectNameMapping[projectShortName]
-                : projectShortName;
         }
     }
 }

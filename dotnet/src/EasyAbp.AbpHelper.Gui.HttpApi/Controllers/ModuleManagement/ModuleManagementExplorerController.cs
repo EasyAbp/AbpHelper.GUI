@@ -1,10 +1,6 @@
 ﻿using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Gui.AbpCli.New;
-using EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos;
 using EasyAbp.AbpHelper.Gui.ModuleManagement.Explorer;
-using EasyAbp.AbpHelper.Gui.ModuleManagement.Explorer.dtos;
-using EasyAbp.AbpHelper.Gui.ModuleManagement.Installer.Dtos;
-using EasyAbp.AbpHelper.Gui.Shared.Dtos;
+using EasyAbp.AbpHelper.Gui.ModuleManagement.Explorer.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;

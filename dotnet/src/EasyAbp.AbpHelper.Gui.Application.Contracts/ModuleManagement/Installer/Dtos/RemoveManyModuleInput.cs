@@ -17,6 +17,6 @@ namespace EasyAbp.AbpHelper.Gui.ModuleManagement.Installer.Dtos
         
         public string Submodule { get; set; }
 
-        public IEnumerable<string> Targets { get; set; }
+        public List<string> Targets { get; set; }
     }
 }
