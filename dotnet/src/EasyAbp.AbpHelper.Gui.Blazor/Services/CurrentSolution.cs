@@ -1,25 +1,20 @@
-﻿using EasyAbp.AbpHelper.Gui.Blazor.Models;
+﻿using EasyAbp.AbpHelper.Gui.Solutions.Dtos;
 using Volo.Abp.DependencyInjection;
 
 namespace EasyAbp.AbpHelper.Gui.Blazor.Services
 {
     public class CurrentSolution : ICurrentSolution, ISingletonDependency
     {
-        private Solution _solution = new()
+        private SolutionDto Solution { get; set; }
+
+        public virtual SolutionDto Get()
         {
-            DisplayName = "TestApp",
-            SolutionType = SolutionType.Application,
-            DirectoryPath = "C:\\Temp\\TestApp"
-        };
-        
-        public virtual Solution Get()
-        {
-            return _solution;
+            return Solution;
         }
 
-        public virtual void Set(Solution solution)
+        public virtual void Set(SolutionDto solutionDto)
         {
-            _solution = solution;
+            Solution = solutionDto;
         }
     }
 }

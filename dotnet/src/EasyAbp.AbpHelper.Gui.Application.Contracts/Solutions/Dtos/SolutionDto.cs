@@ -1,6 +1,6 @@
-﻿namespace EasyAbp.AbpHelper.Gui.Blazor.Models
+﻿namespace EasyAbp.AbpHelper.Gui.Solutions.Dtos
 {
-    public class Solution
+    public class SolutionDto
     {
         public string DisplayName { get; set; }
         

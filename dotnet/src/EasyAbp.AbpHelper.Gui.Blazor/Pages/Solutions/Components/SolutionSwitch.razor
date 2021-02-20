@@ -1,0 +1,68 @@
+﻿@using EasyAbp.AbpHelper.Gui.Solutions
+@using EasyAbp.AbpHelper.Gui.Solutions.Dtos
+@using Microsoft.Extensions.Localization
+@using EasyAbp.AbpHelper.Gui.Localization
+@inject AbpBlazorMessageLocalizerHelper<GuiResource> LH
+@inject ISolutionAppService SolutionAppService
+@inject IStringLocalizer<GuiResource> L
+<BarDropdown>
+    <BarDropdownToggle>
+        @(CurrentSolution.Get()?.DisplayName ?? L["NoSolution"])
+    </BarDropdownToggle>
+    <BarDropdownMenu RightAligned="true">
+        @foreach (var solution in _recentlySolutions)
+        {
+            <BarDropdownItem Clicked="() => ChangeSolutionAsync(solution)">@solution.DisplayName</BarDropdownItem>
+        }
+        <BarDropdownItem Clicked="OpenOpenSolutionModalAsync">
+            @L["OpenSolution"] <Icon Name="IconName.FolderOpen"/>
+        </BarDropdownItem>
+    </BarDropdownMenu>
+</BarDropdown>
+
+<Modal @ref="_modal">
+    <ModalBackdrop />
+    <ModalContent Size="ModalSize.Default" IsCentered="true">
+        <ModalHeader>
+            <ModalTitle>@L["OpenSolution"]</ModalTitle>
+            <CloseButton Clicked="CloseOpenSolutionModal" />
+        </ModalHeader>
+        <ModalBody MaxHeight="50">
+            <Validation MessageLocalizer="@LH.Localize">
+                <Field>
+                    <FieldLabel>@L["SolutionDisplayName"]</FieldLabel>
+                    <TextEdit @bind-Text="@Solution.DisplayName">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Field>
+                <FieldLabel>@L["SolutionSolutionType"]</FieldLabel>
+                <Select TValue="SolutionType" @bind-SelectedValue="@Solution.SolutionType">
+                    @foreach (var solutionType in Enum.GetValues<SolutionType>())
+                    {
+                        <SelectItem Value="solutionType">
+                            @L[$"SolutionType:{Enum.GetName(solutionType)}"]
+                        </SelectItem>
+                    }
+                </Select>
+            </Field>
+            <Validation MessageLocalizer="@LH.Localize">
+                <Field>
+                    <FieldLabel>@L["DirectoryPath"]</FieldLabel>
+                    <TextEdit @bind-Text="@Solution.DirectoryPath">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+        </ModalBody>
+        <ModalFooter>
+            <Button Color="Color.Secondary" Clicked="CloseOpenSolutionModal">@L["Cancel"]</Button>
+            <Button Color="Color.Primary" Clicked="OpenSolutionExecuteAsync">@L["Open"]</Button>
+        </ModalFooter>
+    </ModalContent>
+</Modal>

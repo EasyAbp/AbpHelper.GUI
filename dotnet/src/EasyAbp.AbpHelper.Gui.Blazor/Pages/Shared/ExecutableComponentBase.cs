@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
 using Volo.Abp.AspNetCore.Components.Messages;
 
 namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
@@ -8,13 +9,9 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
         protected string OperationSuccessfulTitle { get; set; } = "Congratulations";
         protected string OperationSuccessfulMessage { get; set; } = "OperationSuccessfulMessage";
         
-        protected readonly IUiMessageService UiMessageService;
+        [Inject]
+        protected IUiMessageService UiMessageService { get; set; }
 
-        public ExecutableComponentBase(IUiMessageService uiMessageService)
-        {
-            UiMessageService = uiMessageService;
-        }
-        
         public virtual async Task ExecuteAsync()
         {
             await ExecuteInternalAsync();

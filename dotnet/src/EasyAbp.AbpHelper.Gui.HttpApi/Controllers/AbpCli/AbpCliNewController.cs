@@ -10,11 +10,11 @@ namespace EasyAbp.AbpHelper.Gui.Controllers.AbpCli
 {
     [RemoteService]
     [Route("/api/abp-helper/abp-cli/new")]
-    public class AbpCliNewController : GuiController, IAbpCliNewService
+    public class AbpCliNewController : GuiController, IAbpCliNewAppService
     {
-        private readonly IAbpCliNewService _service;
+        private readonly IAbpCliNewAppService _service;
 
-        public AbpCliNewController(IAbpCliNewService service)
+        public AbpCliNewController(IAbpCliNewAppService service)
         {
             _service = service;
         }

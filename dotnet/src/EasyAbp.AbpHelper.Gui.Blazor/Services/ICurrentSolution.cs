@@ -1,11 +1,11 @@
-﻿using EasyAbp.AbpHelper.Gui.Blazor.Models;
+﻿using EasyAbp.AbpHelper.Gui.Solutions.Dtos;
 
 namespace EasyAbp.AbpHelper.Gui.Blazor.Services
 {
     public interface ICurrentSolution
     {
-        Solution Get();
+        SolutionDto Get();
 
-        void Set(Solution solution);
+        void Set(SolutionDto solutionDto);
     }
 }

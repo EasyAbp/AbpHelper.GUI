@@ -6,7 +6,7 @@ using Volo.Abp.DependencyInjection;
 
 namespace EasyAbp.AbpHelper.Gui.AbpCli.New
 {
-    public class AbpCliNewAppService : AbpCliAppService, IAbpCliNewService, ITransientDependency
+    public class AbpCliNewAppService : AbpCliAppService, IAbpCliNewAppService
     {
         private readonly NewCommand _newCommand;
 

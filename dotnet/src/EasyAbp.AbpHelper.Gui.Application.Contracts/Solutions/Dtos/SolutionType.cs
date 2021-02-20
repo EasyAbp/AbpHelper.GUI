@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Models
+namespace EasyAbp.AbpHelper.Gui.Solutions.Dtos
 {
     [Flags]
     public enum SolutionType

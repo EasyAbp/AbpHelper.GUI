@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Gui.Blazor.Models;
+using EasyAbp.AbpHelper.Gui.Solutions.Dtos;
 using Volo.Abp.DependencyInjection;
 
 namespace EasyAbp.AbpHelper.Gui.Blazor.Services
 {
     public class InstalledModulesLookupService : IInstalledModulesLookupService, ITransientDependency
     {
-        public async Task<Dictionary<string, List<string>>> GetAsync(Solution solution)
+        public async Task<Dictionary<string, List<string>>> GetAsync(SolutionDto solutionDto)
         {
             return new()
             {

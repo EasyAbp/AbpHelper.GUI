@@ -6,6 +6,6 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
     [Dependency(ReplaceServices = true)]
     public class GuiBrandingProvider : DefaultBrandingProvider
     {
-        public override string AppName => "Gui";
+        public override string AppName => "AbpHelper";
     }
 }

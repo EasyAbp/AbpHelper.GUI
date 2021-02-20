@@ -15,7 +15,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli
         [Fact]
         public async Task Should_Create_App()
         {
-            var service = ServiceProvider.GetRequiredService<IAbpCliNewService>();
+            var service = ServiceProvider.GetRequiredService<IAbpCliNewAppService>();
 
             await service.CreateAppAsync(new AbpNewAppInput(
                 SolutionName, 

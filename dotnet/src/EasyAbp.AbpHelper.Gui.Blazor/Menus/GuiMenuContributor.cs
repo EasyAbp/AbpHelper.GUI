@@ -34,16 +34,6 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Menus
         {
             var l = context.GetLocalizer<GuiResource>();
 
-            context.Menu.Items.Insert(
-                0,
-                new ApplicationMenuItem(
-                    GuiMenus.Home,
-                    l["Menu:Home"],
-                    "/",
-                    icon: "fas fa-home"
-                )
-            );
-            
             context.Menu.Items.Add(new ApplicationMenuItem(
                 GuiMenus.AbpCli,
                 l["Menu:AbpCli"],

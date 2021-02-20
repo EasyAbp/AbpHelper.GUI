@@ -5,7 +5,7 @@ using Volo.Abp.Application.Services;
 
 namespace EasyAbp.AbpHelper.Gui.AbpCli.New
 {
-    public interface IAbpCliNewService : IApplicationService
+    public interface IAbpCliNewAppService : IApplicationService
     {
         Task<ServiceExecutionResult> CreateAppAsync(AbpNewAppInput input);
     }
