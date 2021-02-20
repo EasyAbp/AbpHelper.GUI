@@ -46,3 +46,7 @@
         -webkit-transform: scale(1.0);
     }
 }
+
+.navbar-brand>img {
+    width: 38px;
+}

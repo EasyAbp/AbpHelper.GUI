@@ -3,6 +3,6 @@
   "texts": {
     "Menu:Home": "Home",
     "Welcome": "Welcome",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io."
+    "LongWelcomeMessage": "AbpHelper is a tool that helps you with developing Abp vNext applications. It can be used to call ABP CLI, generate code, manage modules, etc."
   }
 }
