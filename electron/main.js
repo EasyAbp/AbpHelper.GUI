@@ -80,7 +80,8 @@ function initialize () {
       height: 840,
       title: app.name + ' v' + app.getVersion(),
       webPreferences: {
-        nodeIntegration: true
+        nodeIntegration: true,
+        webSecurity: false
       },
       icon: path.join(__dirname, '/assets/app-icon/png/32.png')
     }
