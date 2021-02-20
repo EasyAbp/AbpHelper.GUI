@@ -16,7 +16,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
         {
             await ExecuteInternalAsync();
 
-            await UiMessageService.Success(OperationSuccessfulMessage, OperationSuccessfulTitle);
+            await UiMessageService.Success(L[OperationSuccessfulMessage].Value, L[OperationSuccessfulTitle].Value);
         }
 
         protected abstract Task ExecuteInternalAsync();
