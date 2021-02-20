@@ -35,9 +35,16 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Menus
             var l = context.GetLocalizer<GuiResource>();
 
             context.Menu.Items.Add(new ApplicationMenuItem(
-                GuiMenus.AbpCli,
-                l["Menu:AbpCli"],
-                "/AbpCli"
+                    GuiMenus.AbpCli,
+                    l["Menu:AbpCli"],
+                    "/AbpCli"
+                )
+            );
+            
+            context.Menu.Items.Add(new ApplicationMenuItem(
+                    GuiMenus.CodeGeneration,
+                    l["Menu:CodeGeneration"],
+                    "/CodeGeneration"
                 )
             );
             

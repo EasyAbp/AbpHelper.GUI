@@ -1,5 +1,31 @@
 ﻿@page "/AbpCli"
-@using Volo.Abp.MultiTenancy
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.New
+@inherits GuiComponentBase
 
-<CreateApp></CreateApp>
+<Tabs Pills="true" SelectedTab="AbpNew" TabPosition="TabPosition.Left">
+    <Items>
+        <Tab Name="AbpNew">abp new</Tab>
+    </Items>
+    <Content>
+        <TabPanel Name="AbpNew">
+            <Tabs SelectedTab="CreateModule" TabPosition="TabPosition.Top">
+                <Items>
+                    <Tab Name="CreateApp">@L["CreateApp"]</Tab>
+                    <Tab Name="CreateModule">@L["CreateModule"]</Tab>
+                    <Tab Name="CreateConsole">@L["CreateConsole"]</Tab>
+                </Items>
+                <Content>
+                    <TabPanel Name="CreateApp">
+                        <CreateApp></CreateApp>
+                    </TabPanel>
+                    <TabPanel Name="CreateModule">
+                        <CreateModule></CreateModule>
+                    </TabPanel>
+                    <TabPanel Name="CreateConsole">
+                        <CreateConsole></CreateConsole>
+                    </TabPanel>
+                </Content>
+            </Tabs>
+        </TabPanel>
+    </Content>
+</Tabs>

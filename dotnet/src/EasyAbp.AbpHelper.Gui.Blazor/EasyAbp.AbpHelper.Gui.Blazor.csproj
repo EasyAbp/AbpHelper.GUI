@@ -24,4 +24,8 @@
     <ProjectReference Include="..\..\src\EasyAbp.AbpHelper.Gui.HttpApi.Client\EasyAbp.AbpHelper.Gui.HttpApi.Client.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Components\DemoBox\DemoBox.razor" />
+  </ItemGroup>
+
 </Project>

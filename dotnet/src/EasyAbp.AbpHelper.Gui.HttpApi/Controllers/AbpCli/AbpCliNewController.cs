@@ -25,5 +25,19 @@ namespace EasyAbp.AbpHelper.Gui.Controllers.AbpCli
         {
             return _service.CreateAppAsync(input);
         }
+        
+        [HttpPost]
+        [Route("module")]
+        public virtual Task<ServiceExecutionResult> CreateModuleAsync(AbpNewModuleInput input)
+        {
+            return _service.CreateModuleAsync(input);
+        }
+
+        [HttpPost]
+        [Route("console")]
+        public virtual Task<ServiceExecutionResult> CreateConsoleAsync(AbpNewConsoleInput input)
+        {
+            return _service.CreateConsoleAsync(input);
+        }
     }
 }

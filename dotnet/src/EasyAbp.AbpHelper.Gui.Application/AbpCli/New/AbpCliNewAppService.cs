@@ -23,5 +23,23 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New
 
             return new ServiceExecutionResult(true);
         }
+        
+        public virtual async Task<ServiceExecutionResult> CreateModuleAsync(AbpNewModuleInput input)
+        {
+            var args = CreateCommandLineArgs(input, "abp new", input.SolutionName);
+
+            await _newCommand.ExecuteAsync(args);
+
+            return new ServiceExecutionResult(true);
+        }
+
+        public virtual async Task<ServiceExecutionResult> CreateConsoleAsync(AbpNewConsoleInput input)
+        {
+            var args = CreateCommandLineArgs(input, "abp new", input.SolutionName);
+
+            await _newCommand.ExecuteAsync(args);
+
+            return new ServiceExecutionResult(true);
+        }
     }
 }

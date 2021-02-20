@@ -9,7 +9,7 @@
         @* ************************* PAGE HEADER ************************* *@
         <Row Class="justify-content-between">
             <Column ColumnSize="ColumnSize.IsAuto">
-                <h3>@L["AbpCli_New_CreateApp"]</h3>
+                <h3>@L["AbpCli_New_CreateModule"]</h3>
             </Column>
             <Column ColumnSize="ColumnSize.IsAuto">
             </Column>
@@ -37,28 +37,6 @@
                     </TextEdit>
                 </Field>
             </Validation>
-            <Field>
-                <FieldLabel>@L["AppUiFramework"]</FieldLabel>
-                <Select TValue="AppUiFramework" @bind-SelectedValue="Input.Ui">
-                    @foreach (var appUiFramework in Enum.GetValues<AppUiFramework>())
-                    {
-                        <SelectItem Value="appUiFramework">
-                            @L[$"AppUiFramework:{Enum.GetName(appUiFramework)}"]
-                        </SelectItem>
-                    }
-                </Select>
-            </Field>
-            <Field>
-                <FieldLabel>@L["AppMobileApplicationFramework"]</FieldLabel>
-                <Select TValue="AppMobileApplicationFramework" @bind-SelectedValue="Input.Mobile">
-                    @foreach (var mobileApplicationFramework in Enum.GetValues<AppMobileApplicationFramework>())
-                    {
-                        <SelectItem Value="mobileApplicationFramework">
-                            @L[$"AppMobileApplicationFramework:{Enum.GetName(mobileApplicationFramework)}"]
-                        </SelectItem>
-                    }
-                </Select>
-            </Field>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
                     <FieldLabel>@L["Version"]</FieldLabel>
@@ -79,17 +57,6 @@
                     </TextEdit>
                 </Field>
             </Validation>
-            <Field>
-                <FieldLabel>@L["AppDatabaseProvider"]</FieldLabel>
-                <Select TValue="AppDatabaseProvider" @bind-SelectedValue="Input.DatabaseProvider">
-                    @foreach (var databaseProvider in Enum.GetValues<AppDatabaseProvider>())
-                    {
-                        <SelectItem Value="databaseProvider">
-                            @L[$"AppDatabaseProvider:{Enum.GetName(databaseProvider)}"]
-                        </SelectItem>
-                    }
-                </Select>
-            </Field>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
                     <FieldLabel>@L["ConnectionString"]</FieldLabel>
@@ -121,12 +88,6 @@
                     </TextEdit>
                 </Field>
             </Validation>
-            <Field>
-                <Check TValue="bool" @bind-Checked="@Input.SeparateIdentityServer">@L["SeparateIdentityServer"]</Check>
-            </Field>
-            <Field>
-                <Check TValue="bool" @bind-Checked="@Input.Tiered">@L["Tiered"]</Check>
-            </Field>
             <Field>
                 <Check TValue="bool" @bind-Checked="@Input.Preview">@L["Preview"]</Check>
             </Field>
