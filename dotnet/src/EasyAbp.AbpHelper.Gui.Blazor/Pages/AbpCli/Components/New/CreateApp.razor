@@ -5,16 +5,6 @@
 @inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
 
 <Card Class="mb-4">
-    <CardHeader>
-        @* ************************* PAGE HEADER ************************* *@
-        <Row Class="justify-content-between">
-            <Column ColumnSize="ColumnSize.IsAuto">
-                <h3>@L["AbpCli_New_CreateApp"]</h3>
-            </Column>
-            <Column ColumnSize="ColumnSize.IsAuto">
-            </Column>
-        </Row>
-    </CardHeader>
     <CardBody>
         <Form>
             <Validation MessageLocalizer="@Lh.Localize">
