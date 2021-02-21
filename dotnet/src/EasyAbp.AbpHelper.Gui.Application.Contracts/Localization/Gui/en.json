@@ -51,6 +51,24 @@
     "AbpCli_New:NoUi": "No-UI",
     "AbpCli_New:Preview": "Preview",
     "AbpCli_New:CreateSolutionFolder": "Create solution folder",
-    "AbpCli_New:NoRandomPort": "No random port"
+    "AbpCli_New:NoRandomPort": "No random port",
+    "AbpCli_Update": "Update ABP version",
+    "AbpCli_Update:SolutionPath": "Solution path",
+    "AbpCli_Update:SolutionName": "Solution name",
+    "AbpCli_Update:Version": "ABP version",
+    "AbpCli_Update:CheckAll": "Check all",
+    "AbpCli_Update:Npm": "Only update NPM packages",
+    "AbpCli_Update:Nuget": "Only update NuGet packages",
+    "AbpCli_Add:AddPackage": "Add package",
+    "AbpCli_Add:AddModule": "Add module",
+    "AbpCli_Add:PackageName": "Package name",
+    "AbpCli_Add:Project": "Project path",
+    "AbpCli_Add:ModuleName": "Module name",
+    "AbpCli_Add:Solution": "Solution path",
+    "AbpCli_Add:StartupProject": "Startup project path",
+    "AbpCli_Add:SkipDbMigrations": "Skip DB migrations",
+    "AbpCli_Add:New": "Create a new module in the solution",
+    "AbpCli_Add:WithSourceCode": "Download the module source code",
+    "AbpCli_Add:AddToSolutionFile": "Add the local module to the solution"
   }
 }

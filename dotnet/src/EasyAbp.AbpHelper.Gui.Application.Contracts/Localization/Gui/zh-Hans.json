@@ -20,6 +20,7 @@
     "InstallationActuator:From": "从",
     "Congratulations": "恭喜",
     "OperationSuccessfulMessage": "操作已执行成功。",
+    "RunningPath": "命令运行路径",
     "AbpCli_New:CreateApp": "创建应用",
     "AbpCli_New:CreateModule": "创建模块",
     "AbpCli_New:CreateConsole": "创建控制台应用",
@@ -53,12 +54,22 @@
     "AbpCli_New:CreateSolutionFolder": "创建解决方案目录 - CreateSolutionFolder",
     "AbpCli_New:NoRandomPort": "不生成随机端口号 - NoRandomPort",
     "AbpCli_Update": "更新 ABP 版本",
-    "AbpCli_Update:RunningPath": "命令运行路径",
     "AbpCli_Update:SolutionPath": "解决方案路径 - SolutionPath",
     "AbpCli_Update:SolutionName": "解决方案名称 - SolutionName",
     "AbpCli_Update:Version": "ABP 版本号 - Version",
     "AbpCli_Update:CheckAll": "独立检查所有包的版本 - CheckAll",
     "AbpCli_Update:Npm": "只更新 NPM 包 - Npm",
-    "AbpCli_Update:Nuget": "只更新 NuGet 包 - Nuget"
+    "AbpCli_Update:Nuget": "只更新 NuGet 包 - Nuget",
+    "AbpCli_Add:AddPackage": "添加 Nuget 包",
+    "AbpCli_Add:AddModule": "添加 ABP 模块",
+    "AbpCli_Add:PackageName": "NuGet 包名称 - PackageName",
+    "AbpCli_Add:Project": "项目路径 - Project",
+    "AbpCli_Add:ModuleName": "ABP 模块名称 - ModuleName",
+    "AbpCli_Add:Solution": "解决方案路径 - Solution",
+    "AbpCli_Add:StartupProject": "启动项目路径 - StartupProject",
+    "AbpCli_Add:SkipDbMigrations": "跳过数据库迁移 - SkipDbMigrations",
+    "AbpCli_Add:New": "在解决方案中新建模块 - New",
+    "AbpCli_Add:WithSourceCode": "下载模块源代码到本地 - WithSourceCode",
+    "AbpCli_Add:AddToSolutionFile": "将本地模块添加到解决方案 - AddToSolutionFile"
   }
 }

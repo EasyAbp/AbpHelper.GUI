@@ -21,8 +21,10 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli
                 }
                 else if (propertyInfo.PropertyType == typeof(bool))
                 {
-                    var value = (bool?) propertyInfo.GetValue(input);
-                    args.Options.Add(optionKey, value.ToString());
+                    if ((bool) propertyInfo.GetValue(input))
+                    {
+                        args.Options.Add(optionKey, null);
+                    }
                 }
                 else if (typeof(Enum).IsAssignableFrom(propertyInfo.PropertyType))
                 {

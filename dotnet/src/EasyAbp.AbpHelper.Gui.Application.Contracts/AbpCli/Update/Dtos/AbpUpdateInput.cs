@@ -1,16 +1,13 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using EasyAbp.AbpHelper.Gui.Shared.Dtos;
 using JetBrains.Annotations;
 
 namespace EasyAbp.AbpHelper.Gui.AbpCli.Update.Dtos
 {
     [Serializable]
-    public class AbpUpdateInput
+    public class AbpUpdateInput : InputDtoWithRunningPath
     {
-        [Required]
-        [NotNull]
-        public virtual string RunningPath { get; set; }
-        
         [CanBeNull]
         public virtual string SolutionPath { get; set; }
         
@@ -31,9 +28,9 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Update.Dtos
         }
 
         public AbpUpdateInput([NotNull] string runningPath, [CanBeNull] string solutionPath,
-            [CanBeNull] string solutionName, [CanBeNull] string version, bool checkAll, bool npm, bool nuget)
+            [CanBeNull] string solutionName, [CanBeNull] string version, bool checkAll, bool npm, bool nuget) : base(
+            runningPath)
         {
-            RunningPath = runningPath;
             SolutionPath = solutionPath;
             SolutionName = solutionName;
             Version = version;

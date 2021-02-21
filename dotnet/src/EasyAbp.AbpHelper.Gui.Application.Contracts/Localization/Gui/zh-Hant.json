@@ -51,6 +51,24 @@
     "AbpCli_New:NoUi": "無 UI 項目 - NoUi",
     "AbpCli_New:Preview": "使用預覽版 - Preview",
     "AbpCli_New:CreateSolutionFolder": "創建解決方案目錄 - CreateSolutionFolder",
-    "AbpCli_New:NoRandomPort": "不生成隨機端口號 - NoRandomPort"
+    "AbpCli_New:NoRandomPort": "不生成隨機端口號 - NoRandomPort",
+    "AbpCli_Update": "更新 ABP 版本",
+    "AbpCli_Update:SolutionPath": "解決方案路徑 - SolutionPath",
+    "AbpCli_Update:SolutionName": "解決方案名稱 - SolutionName",
+    "AbpCli_Update:Version": "ABP 版本號 - Version",
+    "AbpCli_Update:CheckAll": "獨立檢查所有包的版本 - CheckAll",
+    "AbpCli_Update:Npm": "只更新 NPM 包 - Npm",
+    "AbpCli_Update:Nuget": "只更新 NuGet 包 - Nuget",
+    "AbpCli_Add:AddPackage": "添加 Nuget 包",
+    "AbpCli_Add:AddModule": "添加 ABP 模塊",
+    "AbpCli_Add:PackageName": "NuGet 包名稱 - PackageName",
+    "AbpCli_Add:Project": "項目路徑 - Project",
+    "AbpCli_Add:ModuleName": "ABP 模塊名稱 - ModuleName",
+    "AbpCli_Add:Solution": "解決方案路徑 - Solution",
+    "AbpCli_Add:StartupProject": "啟動項目路徑 - StartupProject",
+    "AbpCli_Add:SkipDbMigrations": "跳過數據庫遷移 - SkipDbMigrations",
+    "AbpCli_Add:New": "在解決方案中新建模塊 - New",
+    "AbpCli_Add:WithSourceCode": "下載模塊源代碼到解決方案 - WithSourceCode",
+    "AbpCli_Add:AddToSolutionFile": "將本地模塊添加到解決方案 - AddToSolutionFile"
   }
 }

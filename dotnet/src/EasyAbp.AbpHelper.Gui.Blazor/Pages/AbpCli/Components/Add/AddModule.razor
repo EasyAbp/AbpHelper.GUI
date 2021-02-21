@@ -1,7 +1,7 @@
 ﻿@using EasyAbp.AbpHelper.Gui.Localization
-@using EasyAbp.AbpHelper.Gui.AbpCli.Update.Dtos;
+@using EasyAbp.AbpHelper.Gui.AbpCli.Add.Dtos;
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
-@inherits ExecutableComponentBaseWithRunningPath<AbpUpdateInput>
+@inherits ExecutableComponentBaseWithRunningPath<AbpAddModuleInput>
 @inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
 
 <Card Class="mb-4">
@@ -19,8 +19,8 @@
             </Validation>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["AbpCli_Update:SolutionPath"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.SolutionPath">
+                    <FieldLabel>@L["AbpCli_Add:ModuleName"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.ModuleName">
                         <Feedback>
                             <ValidationError />
                         </Feedback>
@@ -29,8 +29,8 @@
             </Validation>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["AbpCli_Update:SolutionName"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.SolutionName" Autofocus="true">
+                    <FieldLabel>@L["AbpCli_Add:Solution"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.Solution" Autofocus="true">
                         <Feedback>
                             <ValidationError />
                         </Feedback>
@@ -39,8 +39,8 @@
             </Validation>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["AbpCli_Update:Version"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.Version">
+                    <FieldLabel>@L["AbpCli_Add:StartupProject"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.StartupProject" Autofocus="true">
                         <Feedback>
                             <ValidationError />
                         </Feedback>
@@ -48,13 +48,16 @@
                 </Field>
             </Validation>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.CheckAll">@L["AbpCli_Update:CheckAll"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.SkipDbMigrations">@L["AbpCli_Add:SkipDbMigrations"]</Check>
             </Field>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.Npm">@L["AbpCli_Update:Npm"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.New">@L["AbpCli_Add:New"]</Check>
             </Field>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.Nuget">@L["AbpCli_Update:Nuget"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.WithSourceCode">@L["AbpCli_Add:WithSourceCode"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.AddToSolutionFile">@L["AbpCli_Add:AddToSolutionFile"]</Check>
             </Field>
             
             <SubmitButton Block="true" Clicked="@ExecuteAsync" />

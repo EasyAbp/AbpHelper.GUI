@@ -1,12 +1,14 @@
 ﻿@page "/AbpCli"
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.New
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Update
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Add
 @inherits GuiComponentBase
 
 <Tabs Pills="true" SelectedTab="AbpNew" TabPosition="TabPosition.Left">
     <Items>
         <Tab Name="AbpNew">abp new</Tab>
         <Tab Name="AbpUpdate">abp update</Tab>
+        <Tab Name="AbpAdd">abp add</Tab>
     </Items>
     <Content>
         <TabPanel Name="AbpNew">
@@ -37,6 +39,22 @@
                 <Content>
                     <TabPanel Name="Update">
                         <Update></Update>
+                    </TabPanel>
+                </Content>
+            </Tabs>
+        </TabPanel>
+        <TabPanel Name="AbpAdd">
+            <Tabs SelectedTab="AddPackage" TabPosition="TabPosition.Top">
+                <Items>
+                    <Tab Name="AddPackage">@L["AbpCli_Add:AddPackage"]</Tab>
+                    <Tab Name="AddModule">@L["AbpCli_Add:AddModule"]</Tab>
+                </Items>
+                <Content>
+                    <TabPanel Name="AddPackage">
+                        <AddPackage></AddPackage>
+                    </TabPanel>
+                    <TabPanel Name="AddModule">
+                        <AddModule></AddModule>
                     </TabPanel>
                 </Content>
             </Tabs>
