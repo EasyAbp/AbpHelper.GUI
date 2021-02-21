@@ -1,18 +1,20 @@
 ﻿@page "/AbpCli"
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.New
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Update
 @inherits GuiComponentBase
 
 <Tabs Pills="true" SelectedTab="AbpNew" TabPosition="TabPosition.Left">
     <Items>
         <Tab Name="AbpNew">abp new</Tab>
+        <Tab Name="AbpUpdate">abp update</Tab>
     </Items>
     <Content>
         <TabPanel Name="AbpNew">
             <Tabs SelectedTab="CreateApp" TabPosition="TabPosition.Top">
                 <Items>
-                    <Tab Name="CreateApp">@L["CreateApp"]</Tab>
-                    <Tab Name="CreateModule">@L["CreateModule"]</Tab>
-                    <Tab Name="CreateConsole">@L["CreateConsole"]</Tab>
+                    <Tab Name="CreateApp">@L["AbpCli_New:CreateApp"]</Tab>
+                    <Tab Name="CreateModule">@L["AbpCli_New:CreateModule"]</Tab>
+                    <Tab Name="CreateConsole">@L["AbpCli_New:CreateConsole"]</Tab>
                 </Items>
                 <Content>
                     <TabPanel Name="CreateApp">
@@ -23,6 +25,18 @@
                     </TabPanel>
                     <TabPanel Name="CreateConsole">
                         <CreateConsole></CreateConsole>
+                    </TabPanel>
+                </Content>
+            </Tabs>
+        </TabPanel>
+        <TabPanel Name="AbpUpdate">
+            <Tabs SelectedTab="Update" TabPosition="TabPosition.Top">
+                <Items>
+                    <Tab Name="Update">@L["AbpCli_Update"]</Tab>
+                </Items>
+                <Content>
+                    <TabPanel Name="Update">
+                        <Update></Update>
                     </TabPanel>
                 </Content>
             </Tabs>

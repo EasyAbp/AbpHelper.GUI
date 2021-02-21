@@ -34,7 +34,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
             _modal.Hide();
         }
         
-        protected override async Task ExecuteInternalAsync()
+        protected override async Task InternalExecuteAsync()
         {
             Executing = true;
             

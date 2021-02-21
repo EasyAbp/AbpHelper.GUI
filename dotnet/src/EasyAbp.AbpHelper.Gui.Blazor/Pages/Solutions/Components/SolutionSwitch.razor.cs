@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Blazorise;
 using EasyAbp.AbpHelper.Gui.Blazor.Services;
@@ -21,7 +20,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Components
         
         private Modal _modal;
 
-        private SolutionDto Solution { get; set; } = new()
+        private SolutionDto CreateSolution { get; set; } = new()
         {
             SolutionType = SolutionType.Application
         };
@@ -61,7 +60,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Components
         
         private async Task OpenSolutionExecuteAsync()
         {
-            await Service.UseAsync(Solution);
+            await Service.UseAsync(CreateSolution);
             
             _modal.Hide();
 
@@ -71,6 +70,16 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Components
         private async Task DeleteSolutionAsync(SolutionDto solution)
         {
             await Service.DeleteAsync(solution);
+        }
+        
+        protected override void OnInitialized()
+        {
+            CurrentSolution.OnChange += StateHasChanged;
+        }
+
+        public void Dispose()
+        {
+            CurrentSolution.OnChange -= StateHasChanged;
         }
     }
 }

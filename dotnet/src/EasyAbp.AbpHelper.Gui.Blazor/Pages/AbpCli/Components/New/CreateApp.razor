@@ -9,7 +9,7 @@
         <Form>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["SolutionName"]</FieldLabel>
+                    <FieldLabel>@L["AbpCli_New:SolutionName"]</FieldLabel>
                     <TextEdit @bind-Text="Input.SolutionName" Autofocus="true">
                         <Feedback>
                             <ValidationError />
@@ -19,7 +19,7 @@
             </Validation>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["OutputFolder"]</FieldLabel>
+                    <FieldLabel>@L["AbpCli_New:OutputFolder"]</FieldLabel>
                     <TextEdit @bind-Text="Input.OutputFolder">
                         <Feedback>
                             <ValidationError />
@@ -28,30 +28,30 @@
                 </Field>
             </Validation>
             <Field>
-                <FieldLabel>@L["AppUiFramework"]</FieldLabel>
+                <FieldLabel>@L["AbpCli_New:AppUiFramework"]</FieldLabel>
                 <Select TValue="AppUiFramework" @bind-SelectedValue="Input.Ui">
                     @foreach (var appUiFramework in Enum.GetValues<AppUiFramework>())
                     {
                         <SelectItem Value="appUiFramework">
-                            @L[$"AppUiFramework:{Enum.GetName(appUiFramework)}"]
+                            @L[$"AbpCli_New:AppUiFramework:{Enum.GetName(appUiFramework)}"]
                         </SelectItem>
                     }
                 </Select>
             </Field>
             <Field>
-                <FieldLabel>@L["AppMobileApplicationFramework"]</FieldLabel>
+                <FieldLabel>@L["AbpCli_New:AppMobileApplicationFramework"]</FieldLabel>
                 <Select TValue="AppMobileApplicationFramework" @bind-SelectedValue="Input.Mobile">
                     @foreach (var mobileApplicationFramework in Enum.GetValues<AppMobileApplicationFramework>())
                     {
                         <SelectItem Value="mobileApplicationFramework">
-                            @L[$"AppMobileApplicationFramework:{Enum.GetName(mobileApplicationFramework)}"]
+                            @L[$"AbpCli_New:AppMobileApplicationFramework:{Enum.GetName(mobileApplicationFramework)}"]
                         </SelectItem>
                     }
                 </Select>
             </Field>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["Version"]</FieldLabel>
+                    <FieldLabel>@L["AbpCli_New:Version"]</FieldLabel>
                     <TextEdit @bind-Text="Input.Version">
                         <Feedback>
                             <ValidationError />
@@ -61,7 +61,7 @@
             </Validation>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["TemplateSource"]</FieldLabel>
+                    <FieldLabel>@L["AbpCli_New:TemplateSource"]</FieldLabel>
                     <TextEdit @bind-Text="Input.TemplateSource">
                         <Feedback>
                             <ValidationError />
@@ -70,19 +70,19 @@
                 </Field>
             </Validation>
             <Field>
-                <FieldLabel>@L["AppDatabaseProvider"]</FieldLabel>
+                <FieldLabel>@L["AbpCli_New:AppDatabaseProvider"]</FieldLabel>
                 <Select TValue="AppDatabaseProvider" @bind-SelectedValue="Input.DatabaseProvider">
                     @foreach (var databaseProvider in Enum.GetValues<AppDatabaseProvider>())
                     {
                         <SelectItem Value="databaseProvider">
-                            @L[$"AppDatabaseProvider:{Enum.GetName(databaseProvider)}"]
+                            @L[$"AbpCli_New:AppDatabaseProvider:{Enum.GetName(databaseProvider)}"]
                         </SelectItem>
                     }
                 </Select>
             </Field>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["ConnectionString"]</FieldLabel>
+                    <FieldLabel>@L["AbpCli_New:ConnectionString"]</FieldLabel>
                     <TextEdit @bind-Text="Input.ConnectionString">
                         <Feedback>
                             <ValidationError />
@@ -91,19 +91,19 @@
                 </Field>
             </Validation>
             <Field>
-                <FieldLabel>@L["DatabaseManagementSystem"]</FieldLabel>
+                <FieldLabel>@L["AbpCli_New:DatabaseManagementSystem"]</FieldLabel>
                 <Select TValue="Database" @bind-SelectedValue="Input.DatabaseManagementSystem">
                     @foreach (var database in Enum.GetValues<Database>())
                     {
                         <SelectItem Value="database">
-                            @L[$"Database:{Enum.GetName(database)}"]
+                            @L[$"AbpCli_New:Database:{Enum.GetName(database)}"]
                         </SelectItem>
                     }
                 </Select>
             </Field>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["LocalFrameworkRef"]</FieldLabel>
+                    <FieldLabel>@L["AbpCli_New:LocalFrameworkRef"]</FieldLabel>
                     <TextEdit @bind-Text="Input.LocalFrameworkRef">
                         <Feedback>
                             <ValidationError />
@@ -112,19 +112,19 @@
                 </Field>
             </Validation>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.SeparateIdentityServer">@L["SeparateIdentityServer"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.SeparateIdentityServer">@L["AbpCli_New:SeparateIdentityServer"]</Check>
             </Field>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.Tiered">@L["Tiered"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.Tiered">@L["AbpCli_New:Tiered"]</Check>
             </Field>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.Preview">@L["Preview"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.Preview">@L["AbpCli_New:Preview"]</Check>
             </Field>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.CreateSolutionFolder">@L["CreateSolutionFolder"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.CreateSolutionFolder">@L["AbpCli_New:CreateSolutionFolder"]</Check>
             </Field>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.NoRandomPort">@L["NoRandomPort"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.NoRandomPort">@L["AbpCli_New:NoRandomPort"]</Check>
             </Field>
             
             <SubmitButton Block="true" Clicked="@ExecuteAsync" />

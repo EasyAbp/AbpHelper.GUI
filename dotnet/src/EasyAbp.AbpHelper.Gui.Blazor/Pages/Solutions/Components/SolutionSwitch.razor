@@ -5,9 +5,10 @@
 @inject AbpBlazorMessageLocalizerHelper<GuiResource> LH
 @inject ISolutionAppService SolutionAppService
 @inject IStringLocalizer<GuiResource> L
+@implements IDisposable
 <BarDropdown>
     <BarDropdownToggle>
-        @(CurrentSolution.Get()?.DisplayName ?? L["NoSolution"])
+        @(CurrentSolution.Value?.DisplayName ?? L["NoSolution"])
     </BarDropdownToggle>
     <BarDropdownMenu RightAligned="true">
         @foreach (var solution in _recentlySolutions)
@@ -31,7 +32,7 @@
             <Validation MessageLocalizer="@LH.Localize">
                 <Field>
                     <FieldLabel>@L["SolutionDisplayName"]</FieldLabel>
-                    <TextEdit @bind-Text="@Solution.DisplayName">
+                    <TextEdit @bind-Text="@CreateSolution.DisplayName">
                         <Feedback>
                             <ValidationError />
                         </Feedback>
@@ -40,7 +41,7 @@
             </Validation>
             <Field>
                 <FieldLabel>@L["SolutionSolutionType"]</FieldLabel>
-                <Select TValue="SolutionType" @bind-SelectedValue="@Solution.SolutionType">
+                <Select TValue="SolutionType" @bind-SelectedValue="@CreateSolution.SolutionType">
                     @foreach (var solutionType in Enum.GetValues<SolutionType>())
                     {
                         <SelectItem Value="solutionType">
@@ -52,7 +53,7 @@
             <Validation MessageLocalizer="@LH.Localize">
                 <Field>
                     <FieldLabel>@L["DirectoryPath"]</FieldLabel>
-                    <TextEdit @bind-Text="@Solution.DirectoryPath">
+                    <TextEdit @bind-Text="@CreateSolution.DirectoryPath">
                         <Feedback>
                             <ValidationError />
                         </Feedback>

@@ -56,7 +56,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
 
         private async Task BuildAppProjectsInstalledModuleNamesAsync()
         {
-            AppProjectsInstalledModuleNames = await _installedModulesLookupService.GetAsync(_currentSolution.Get());
+            AppProjectsInstalledModuleNames = await _installedModulesLookupService.GetAsync(_currentSolution.Value);
         }
 
         private void ChangeModuleCheckBoxesAccordingToInstalledModules()
@@ -157,7 +157,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
                 
                 list.Add(new AddManyModuleInput
                 {
-                    DirectoryPath = _currentSolution.Get().DirectoryPath,
+                    DirectoryPath = _currentSolution.Value.DirectoryPath,
                     InstallationInfos = installationInfos
                 });
             }
@@ -191,7 +191,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
                     {
                         moduleGroupRemoveManyModuleInputDictionary[moduleGroup] = new RemoveManyModuleInput
                         {
-                            DirectoryPath = _currentSolution.Get().DirectoryPath,
+                            DirectoryPath = _currentSolution.Value.DirectoryPath,
                             InstallationInfos = new List<RemoveManyModuleInputInstallationInfo>()
                         };
                     }

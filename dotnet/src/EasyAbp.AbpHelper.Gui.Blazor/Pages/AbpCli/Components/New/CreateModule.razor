@@ -9,7 +9,7 @@
         <Form>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["SolutionName"]</FieldLabel>
+                    <FieldLabel>@L["AbpCli_New:SolutionName"]</FieldLabel>
                     <TextEdit @bind-Text="Input.SolutionName" Autofocus="true">
                         <Feedback>
                             <ValidationError />
@@ -19,7 +19,7 @@
             </Validation>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["OutputFolder"]</FieldLabel>
+                    <FieldLabel>@L["AbpCli_New:OutputFolder"]</FieldLabel>
                     <TextEdit @bind-Text="Input.OutputFolder">
                         <Feedback>
                             <ValidationError />
@@ -29,7 +29,7 @@
             </Validation>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["Version"]</FieldLabel>
+                    <FieldLabel>@L["AbpCli_New:Version"]</FieldLabel>
                     <TextEdit @bind-Text="Input.Version">
                         <Feedback>
                             <ValidationError />
@@ -39,7 +39,7 @@
             </Validation>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["TemplateSource"]</FieldLabel>
+                    <FieldLabel>@L["AbpCli_New:TemplateSource"]</FieldLabel>
                     <TextEdit @bind-Text="Input.TemplateSource">
                         <Feedback>
                             <ValidationError />
@@ -49,7 +49,7 @@
             </Validation>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["ConnectionString"]</FieldLabel>
+                    <FieldLabel>@L["AbpCli_New:ConnectionString"]</FieldLabel>
                     <TextEdit @bind-Text="Input.ConnectionString">
                         <Feedback>
                             <ValidationError />
@@ -58,19 +58,19 @@
                 </Field>
             </Validation>
             <Field>
-                <FieldLabel>@L["DatabaseManagementSystem"]</FieldLabel>
+                <FieldLabel>@L["AbpCli_New:DatabaseManagementSystem"]</FieldLabel>
                 <Select TValue="Database" @bind-SelectedValue="Input.DatabaseManagementSystem">
                     @foreach (var database in Enum.GetValues<Database>())
                     {
                         <SelectItem Value="database">
-                            @L[$"Database:{Enum.GetName(database)}"]
+                            @L[$"AbpCli_New:Database:{Enum.GetName(database)}"]
                         </SelectItem>
                     }
                 </Select>
             </Field>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["LocalFrameworkRef"]</FieldLabel>
+                    <FieldLabel>@L["AbpCli_New:LocalFrameworkRef"]</FieldLabel>
                     <TextEdit @bind-Text="Input.LocalFrameworkRef">
                         <Feedback>
                             <ValidationError />
@@ -79,16 +79,16 @@
                 </Field>
             </Validation>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.NoUi">@L["NoUi"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.NoUi">@L["AbpCli_New:NoUi"]</Check>
             </Field>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.Preview">@L["Preview"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.Preview">@L["AbpCli_New:Preview"]</Check>
             </Field>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.CreateSolutionFolder">@L["CreateSolutionFolder"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.CreateSolutionFolder">@L["AbpCli_New:CreateSolutionFolder"]</Check>
             </Field>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.NoRandomPort">@L["NoRandomPort"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.NoRandomPort">@L["AbpCli_New:NoRandomPort"]</Check>
             </Field>
             
             <SubmitButton Block="true" Clicked="@ExecuteAsync" />

@@ -1,0 +1,62 @@
+﻿@using EasyAbp.AbpHelper.Gui.Localization
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
+@inherits ExecutableComponentBaseWithCurrentSolution
+@inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
+
+<Card Class="mb-4">
+    <CardBody>
+        <Form>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["AbpCli_Update:RunningPath"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.RunningPath">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["AbpCli_Update:SolutionPath"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.SolutionPath">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["AbpCli_Update:SolutionName"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.SolutionName" Autofocus="true">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["AbpCli_Update:Version"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.Version">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.CheckAll">@L["AbpCli_Update:CheckAll"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.Npm">@L["AbpCli_Update:Npm"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.Nuget">@L["AbpCli_Update:Nuget"]</Check>
+            </Field>
+            
+            <SubmitButton Block="true" Clicked="@ExecuteAsync" />
+        </Form>
+    </CardBody>
+</Card>

@@ -16,7 +16,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.New
             DatabaseManagementSystem = Database.SqlServer
         };
 
-        protected override async Task ExecuteInternalAsync()
+        protected override async Task InternalExecuteAsync()
         {
             await Service.CreateModuleAsync(Input);
         }
