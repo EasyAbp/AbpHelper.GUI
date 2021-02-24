@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using EasyAbp.AbpHelper.Gui.Solutions.Dtos;
 using Volo.Abp.DependencyInjection;
 
@@ -8,15 +9,18 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Services
     {
         public SolutionDto Value { get; private set; }
 
-        public virtual void Set(SolutionDto solutionDto)
+        public virtual async Task SetAsync(SolutionDto solutionDto)
         {
             Value = solutionDto;
 
-            NotifyStateChanged();
+            if (OnChangeAsync != null)
+            {
+                await NotifyStateChanged();
+            }
         }
 
-        public event Action OnChange;
+        public event Func<Task> OnChangeAsync;
 
-        private void NotifyStateChanged() => OnChange?.Invoke();
+        private Task NotifyStateChanged() => OnChangeAsync?.Invoke();
     }
 }

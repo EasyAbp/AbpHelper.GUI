@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using EasyAbp.AbpHelper.Gui.Solutions.Dtos;
 
 namespace EasyAbp.AbpHelper.Gui.Blazor.Services
@@ -7,8 +8,8 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Services
     {
         SolutionDto Value { get; }
 
-        void Set(SolutionDto solutionDto);
+        Task SetAsync(SolutionDto solutionDto);
         
-        event Action OnChange;
+        event Func<Task> OnChangeAsync;
     }
 }

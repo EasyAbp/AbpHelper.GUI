@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using EasyAbp.AbpHelper.Gui.Solutions;
 using EasyAbp.AbpHelper.Gui.Solutions.Dtos;
 using Volo.Abp.DependencyInjection;
 
@@ -7,19 +9,25 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Services
 {
     public class InstalledModulesLookupService : IInstalledModulesLookupService, ITransientDependency
     {
-        public async Task<Dictionary<string, List<string>>> GetAsync(SolutionDto solutionDto)
+        private readonly ISolutionAppService _solutionAppService;
+
+        public InstalledModulesLookupService(ISolutionAppService solutionAppService)
         {
-            return new()
+            _solutionAppService = solutionAppService;
+        }
+        
+        public virtual async Task<Dictionary<string, List<string>>> GetAsync(SolutionDto solutionDto)
+        {
+            var output = await _solutionAppService.GetPackageDictionaryAsync(new GetPackageDictionaryInput
             {
-                {"Application", new List<string>()},
-                {"Application.Contracts", new List<string>()},
-                {"Domain", new List<string>()},
-                {"Domain.Shared", new List<string>()},
-                {"EntityFrameworkCore", new List<string>()},
-                {"HttpApi", new List<string>()},
-                {"HttpApi.Client", new List<string>()},
-                {"Web", new List<string>()}
-            };
+                DirectoryPath = solutionDto.DirectoryPath
+            });
+            
+            var str = $"{output.SolutionName}.";
+
+            return new Dictionary<string, List<string>>(output.Items.Where(x => x.Key.StartsWith(str)).Select(x =>
+                new KeyValuePair<string, List<string>>(x.Key.Substring(str.Length),
+                    x.Value.Select(y => y.Name).ToList())));
         }
     }
 }

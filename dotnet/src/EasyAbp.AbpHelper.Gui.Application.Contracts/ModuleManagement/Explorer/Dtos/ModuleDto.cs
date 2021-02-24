@@ -17,8 +17,8 @@ namespace EasyAbp.AbpHelper.Gui.ModuleManagement.Explorer.Dtos
         #region Extra properties
         
         public bool Checked { get; set; }
-        
-        public List<string> Targets { get; set; }
+
+        public List<string> Targets { get; set; } = new();
 
         #endregion
     }

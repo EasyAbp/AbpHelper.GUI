@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using EasyAbp.AbpHelper.Gui.Solutions;
 using EasyAbp.AbpHelper.Gui.Solutions.Dtos;
 using Microsoft.AspNetCore.Mvc;
@@ -35,6 +36,13 @@ namespace EasyAbp.AbpHelper.Gui.Controllers.Solutions
         public virtual Task DeleteAsync(SolutionDto input)
         {
             return _service.DeleteAsync(input);
+        }
+
+        [HttpGet]
+        [Route("packages")]
+        public virtual Task<GetPackageDictionaryOutput> GetPackageDictionaryAsync(GetPackageDictionaryInput input)
+        {
+            return _service.GetPackageDictionaryAsync(input);
         }
     }
 }

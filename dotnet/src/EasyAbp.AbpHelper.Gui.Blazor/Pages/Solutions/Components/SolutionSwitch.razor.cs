@@ -36,7 +36,13 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Components
 
             _recentlySolutions = solutions.Items;
 
-            CurrentSolution.Set(_recentlySolutions.Count > 0 ? _recentlySolutions[0] : null);
+            var targetSolution = _recentlySolutions.Count > 0 ? _recentlySolutions[0] : null;
+
+            if (targetSolution == null && CurrentSolution.Value != null || 
+                targetSolution != null && !targetSolution.Equals(CurrentSolution.Value))
+            {
+                await CurrentSolution.SetAsync(targetSolution);
+            }
         }
 
         private async Task ChangeSolutionAsync(SolutionDto solutionDto)
@@ -74,12 +80,19 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Components
         
         protected override void OnInitialized()
         {
-            CurrentSolution.OnChange += StateHasChanged;
+            CurrentSolution.OnChangeAsync += StateHasChangedAsync;
         }
 
         public void Dispose()
         {
-            CurrentSolution.OnChange -= StateHasChanged;
+            CurrentSolution.OnChangeAsync -= StateHasChangedAsync;
+        }
+
+        protected virtual Task StateHasChangedAsync()
+        {
+            StateHasChanged();
+            
+            return Task.CompletedTask;
         }
     }
 }

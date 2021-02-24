@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EasyAbp.AbpHelper.Core.Services;
 using EasyAbp.AbpHelper.Gui.Solutions.Dtos;
+using JetBrains.Annotations;
 using Volo.Abp;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
@@ -11,11 +13,15 @@ namespace EasyAbp.AbpHelper.Gui.Solutions
     public class SolutionAppService : ApplicationService, ISolutionAppService
     {
         private const byte RecentlySolutionsMaxCount = 10;
-        
+
+        private readonly IListPackageService _listPackageService;
         private readonly IRecentlySolutionsManager _manager;
 
-        public SolutionAppService(IRecentlySolutionsManager manager)
+        public SolutionAppService(
+            IListPackageService listPackageService,
+            IRecentlySolutionsManager manager)
         {
+            _listPackageService = listPackageService;
             _manager = manager;
         }
         
@@ -67,6 +73,19 @@ namespace EasyAbp.AbpHelper.Gui.Solutions
             FindSolution(list, input);
 
             await _manager.UpdateListAsync(list);
+        }
+
+        public virtual async Task<GetPackageDictionaryOutput> GetPackageDictionaryAsync(GetPackageDictionaryInput input)
+        {
+            var result = await _listPackageService.GetInstalledPackagesAsync(input.DirectoryPath);
+
+            return new GetPackageDictionaryOutput
+            {
+                SolutionName = result.SolutionName,
+                Items = new Dictionary<string, List<PackageInfo>>(result.Items.Select(x =>
+                    new KeyValuePair<string, List<PackageInfo>>(x.Key,
+                        x.Value.Select(y => new PackageInfo(y.Name, y.Version)).ToList())))
+            };
         }
     }
 }

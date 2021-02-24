@@ -19,9 +19,11 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
             return base.OnInitializedAsync();
         }
 
-        protected override void OnCurrentSolutionChanged()
+        protected override Task OnCurrentSolutionChangedAsync()
         {
             SetRunningPathToCurrentSolutionPath();
+            
+            return Task.CompletedTask;
         }
         
         private void SetRunningPathToCurrentSolutionPath()

@@ -22,7 +22,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
 
             await application.InitializeAsync(host.Services);
 
-            await SetCurrentSolutionAsync(host.Services);
+            // await SetCurrentSolutionAsync(host.Services);
 
             await host.RunAsync();
         }
@@ -34,7 +34,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
 
             var solutions = await solutionAppService.GetListAsync();
 
-            currentSolution.Set(solutions.Items.Count > 0 ? solutions.Items[0] : null);
+            await currentSolution.SetAsync(solutions.Items.Count > 0 ? solutions.Items[0] : null);
         }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
 {
-    public abstract class ExecutableComponentBaseWithCurrentSolution : ExecutableComponentBase, IDisposable
+    public abstract class ComponentBaseWithCurrentSolution : GuiComponentBase, IDisposable
     {
         [Inject]
         private ICurrentSolution CurrentSolution { get; set; }

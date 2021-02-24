@@ -39,14 +39,19 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
 
         protected override async Task OnInitializedAsync()
         {
+            await RebuildModulesDataAsync();
+
+            SelectedTab = ModuleGroups.FirstOrDefault()?.Id;
+        }
+
+        private async Task RebuildModulesDataAsync()
+        {
             await BuildModuleGroupsAsync();
             await BuildAppProjectsInstalledModuleNamesAsync();
             
             BuildModuleNamesModuleMapping();
             BuildModuleModuleGroupMapping();
             ChangeModuleCheckBoxesAccordingToInstalledModules();
-            
-            SelectedTab = ModuleGroups.FirstOrDefault()?.Id;
         }
 
         private async Task BuildModuleGroupsAsync()
@@ -56,7 +61,9 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
 
         private async Task BuildAppProjectsInstalledModuleNamesAsync()
         {
-            AppProjectsInstalledModuleNames = await _installedModulesLookupService.GetAsync(_currentSolution.Value);
+            AppProjectsInstalledModuleNames = _currentSolution.Value != null
+                ? await _installedModulesLookupService.GetAsync(_currentSolution.Value)
+                : new Dictionary<string, List<string>>();
         }
 
         private void ChangeModuleCheckBoxesAccordingToInstalledModules()
@@ -149,11 +156,14 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
                             ModuleGroupId = moduleGroup.Id,
                             ModuleId = module.Id,
                             Submodule = module.Submodule,
-                            Targets = module.Targets
-                                .Where(tar => !AppProjectsInstalledModuleNames[tar].Contains(module.Id)).ToList()
+                            Targets = module.Targets.Where(tar =>
+                                    !AppProjectsInstalledModuleNames[tar].Contains($"{moduleGroup.Id}.{module.Id}"))
+                                .ToList()
                         }
                     )
                 );
+
+                installationInfos.RemoveAll(x => !x.Targets.Any());
                 
                 list.Add(new AddManyModuleInput
                 {
@@ -219,6 +229,11 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
             }
 
             return moduleGroupRemoveManyModuleInputDictionary.Values.ToList();
+        }
+
+        protected override async Task OnCurrentSolutionChangedAsync()
+        {
+            await RebuildModulesDataAsync();
         }
     }
 }
