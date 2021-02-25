@@ -70,6 +70,11 @@
     "AbpCli_Add:SkipDbMigrations": "跳过数据库迁移 - SkipDbMigrations",
     "AbpCli_Add:New": "在解决方案中新建模块 - New",
     "AbpCli_Add:WithSourceCode": "下载模块源代码到本地 - WithSourceCode",
-    "AbpCli_Add:AddToSolutionFile": "将本地模块添加到解决方案 - AddToSolutionFile"
+    "AbpCli_Add:AddToSolutionFile": "将本地模块添加到解决方案 - AddToSolutionFile",
+    "AbpCli_GetSource": "下载模块源代码",
+    "AbpCli_GetSource:ModuleName": "ABP 模块名称 - ModuleName",
+    "AbpCli_GetSource:Version": "ABP 版本号 - Version",
+    "AbpCli_GetSource:LocalFrameworkRef": "本地 ABP 框架路径 - LocalFrameworkRef",
+    "AbpCli_GetSource:Preview": "使用预览版 - Preview",
   }
 }

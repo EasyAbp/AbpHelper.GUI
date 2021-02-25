@@ -2,6 +2,7 @@
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.New
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Update
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Add
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.GetSource
 @inherits GuiComponentBase
 
 <Tabs Pills="true" SelectedTab="AbpNew" TabPosition="TabPosition.Left">
@@ -9,6 +10,7 @@
         <Tab Name="AbpNew">abp new</Tab>
         <Tab Name="AbpUpdate">abp update</Tab>
         <Tab Name="AbpAdd">abp add</Tab>
+        <Tab Name="AbpGetSource">abp get-source</Tab>
     </Items>
     <Content>
         <TabPanel Name="AbpNew">
@@ -55,6 +57,18 @@
                     </TabPanel>
                     <TabPanel Name="AddModule">
                         <AddModule></AddModule>
+                    </TabPanel>
+                </Content>
+            </Tabs>
+        </TabPanel>
+        <TabPanel Name="AbpGetSource">
+            <Tabs SelectedTab="GetSource" TabPosition="TabPosition.Top">
+                <Items>
+                    <Tab Name="GetSource">@L["AbpCli_GetSource"]</Tab>
+                </Items>
+                <Content>
+                    <TabPanel Name="GetSource">
+                        <GetSource></GetSource>
                     </TabPanel>
                 </Content>
             </Tabs>

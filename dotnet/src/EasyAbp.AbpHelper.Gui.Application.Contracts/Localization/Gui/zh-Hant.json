@@ -20,6 +20,7 @@
     "InstallationActuator:From": "從",
     "Congratulations": "恭喜",
     "OperationSuccessfulMessage": "操作已執行成功。",
+    "RunningPath": "命令運行路徑",
     "AbpCli_New:CreateApp": "創建應用",
     "AbpCli_New:CreateModule": "創建模塊",
     "AbpCli_New:CreateConsole": "創建控制台應用",
@@ -69,6 +70,11 @@
     "AbpCli_Add:SkipDbMigrations": "跳過數據庫遷移 - SkipDbMigrations",
     "AbpCli_Add:New": "在解決方案中新建模塊 - New",
     "AbpCli_Add:WithSourceCode": "下載模塊源代碼到解決方案 - WithSourceCode",
-    "AbpCli_Add:AddToSolutionFile": "將本地模塊添加到解決方案 - AddToSolutionFile"
+    "AbpCli_Add:AddToSolutionFile": "將本地模塊添加到解決方案 - AddToSolutionFile",
+    "AbpCli_GetSource": "下載模塊源代碼",
+    "AbpCli_GetSource:ModuleName": "ABP 模塊名稱 - ModuleName",
+    "AbpCli_GetSource:Version": "ABP 版本號 - Version",
+    "AbpCli_GetSource:LocalFrameworkRef": "本地 ABP 框架路徑 - LocalFrameworkRef",
+    "AbpCli_GetSource:Preview": "使用預覽版 - Preview",
   }
 }

@@ -20,6 +20,7 @@
     "InstallationActuator:From": "from",
     "Congratulations": "Congratulations",
     "OperationSuccessfulMessage": "Your operation was executed successfully.",
+    "RunningPath": "Running path",
     "AbpCli_New:CreateApp": "Create app",
     "AbpCli_New:CreateModule": "Create module",
     "AbpCli_New:CreateConsole": "Create console app",
@@ -69,6 +70,11 @@
     "AbpCli_Add:SkipDbMigrations": "Skip DB migrations",
     "AbpCli_Add:New": "Create a new module in the solution",
     "AbpCli_Add:WithSourceCode": "Download the module source code",
-    "AbpCli_Add:AddToSolutionFile": "Add the local module to the solution"
+    "AbpCli_Add:AddToSolutionFile": "Add the local module to the solution",
+    "AbpCli_GetSource": "Download modules",
+    "AbpCli_GetSource:ModuleName": "Module name",
+    "AbpCli_GetSource:Version": "ABP version",
+    "AbpCli_GetSource:LocalFrameworkRef": "Local framework ref",
+    "AbpCli_GetSource:Preview": "Preview",
   }
 }
