@@ -84,6 +84,13 @@
     "AbpCli_Proxy:Target": "目标项目名 - Target",
     "AbpCli_Switch:SwitchToPreview": "切换为 Preview 版",
     "AbpCli_Switch:SwitchToNightly": "切换为 Nightly 版",
-    "AbpCli_Switch:SwitchToStable": "切换为 Stable 版"
+    "AbpCli_Switch:SwitchToStable": "切换为 Stable 版",
+    "AbpCli_Translate:CreateTranslationFile": "创建翻译文件",
+    "AbpCli_Translate:ApplyChanges": "应用变更项",
+    "AbpCli_Translate:Culture": "区域代号 - Culture",
+    "AbpCli_Translate:ReferenceCulture": "参考区域代号 - ReferenceCulture",
+    "AbpCli_Translate:Output": "输出文件名 - Output",
+    "AbpCli_Translate:AllValues": "包括所有值 - AllValues",
+    "AbpCli_Translate:File": "指定文件 - File"
   }
 }

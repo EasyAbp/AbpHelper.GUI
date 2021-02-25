@@ -1,0 +1,34 @@
+﻿@using EasyAbp.AbpHelper.Gui.Localization
+@using EasyAbp.AbpHelper.Gui.AbpCli.Translate.Dtos;
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
+@inherits ExecutableComponentBaseWithRunningPath<AbpApplyChangesInput>
+@inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
+
+<Card Class="mb-4">
+    <CardBody>
+        <Form>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["RunningPath"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.RunningPath" Autofocus="true">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["AbpCli_Translate:File"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.File">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+
+            <SubmitButton Block="true" Clicked="@ExecuteAsync"/>
+        </Form>
+    </CardBody>
+</Card>

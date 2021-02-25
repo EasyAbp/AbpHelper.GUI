@@ -5,6 +5,7 @@
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.GetSource
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Proxy
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Switch
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Translate
 @inherits GuiComponentBase
 
 <Tabs Pills="true" SelectedTab="AbpNew" TabPosition="TabPosition.Left">
@@ -15,6 +16,7 @@
         <Tab Name="AbpGetSource">abp get-source</Tab>
         <Tab Name="AbpProxy">abp proxy</Tab>
         <Tab Name="AbpSwitch">abp switch</Tab>
+        <Tab Name="AbpTranslate">abp translate</Tab>
     </Items>
     <Content>
         <TabPanel Name="AbpNew">
@@ -109,6 +111,22 @@
                     </TabPanel>
                     <TabPanel Name="SwitchToStable">
                         <SwitchToStable></SwitchToStable>
+                    </TabPanel>
+                </Content>
+            </Tabs>
+        </TabPanel>
+        <TabPanel Name="AbpTranslate">
+            <Tabs SelectedTab="CreateTranslationFile" TabPosition="TabPosition.Top">
+                <Items>
+                    <Tab Name="CreateTranslationFile">@L["AbpCli_Translate:CreateTranslationFile"]</Tab>
+                    <Tab Name="ApplyChanges">@L["AbpCli_Translate:ApplyChanges"]</Tab>
+                </Items>
+                <Content>
+                    <TabPanel Name="CreateTranslationFile">
+                        <CreateTranslationFile></CreateTranslationFile>
+                    </TabPanel>
+                    <TabPanel Name="ApplyChanges">
+                        <ApplyChanges></ApplyChanges>
                     </TabPanel>
                 </Content>
             </Tabs>
