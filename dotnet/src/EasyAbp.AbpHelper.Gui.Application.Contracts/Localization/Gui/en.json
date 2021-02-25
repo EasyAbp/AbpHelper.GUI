@@ -76,5 +76,11 @@
     "AbpCli_GetSource:Version": "ABP version",
     "AbpCli_GetSource:LocalFrameworkRef": "Local framework ref",
     "AbpCli_GetSource:Preview": "Preview",
+    "AbpCli_Proxy:GenerateProxy": "Generate proxy",
+    "AbpCli_Proxy:RemoveProxy": "Remove proxy",
+    "AbpCli_Proxy:Module": "Module",
+    "AbpCli_Proxy:ApiName": "API name",
+    "AbpCli_Proxy:Source": "Source",
+    "AbpCli_Proxy:Target": "Target"
   }
 }

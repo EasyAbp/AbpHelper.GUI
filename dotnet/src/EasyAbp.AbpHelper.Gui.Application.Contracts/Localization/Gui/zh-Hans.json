@@ -76,5 +76,11 @@
     "AbpCli_GetSource:Version": "ABP 版本号 - Version",
     "AbpCli_GetSource:LocalFrameworkRef": "本地 ABP 框架路径 - LocalFrameworkRef",
     "AbpCli_GetSource:Preview": "使用预览版 - Preview",
+    "AbpCli_Proxy:GenerateProxy": "生成代理",
+    "AbpCli_Proxy:RemoveProxy": "移除代理",
+    "AbpCli_Proxy:Module": "模块 - Module",
+    "AbpCli_Proxy:ApiName": "API 端点名 - ApiName",
+    "AbpCli_Proxy:Source": "源项目名 - Source",
+    "AbpCli_Proxy:Target": "目标项目名 - Target"
   }
 }

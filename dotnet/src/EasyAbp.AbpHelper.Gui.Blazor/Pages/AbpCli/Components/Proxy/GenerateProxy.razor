@@ -1,0 +1,64 @@
+﻿@using EasyAbp.AbpHelper.Gui.Localization
+@using EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos;
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
+@inherits ExecutableComponentBaseWithRunningPath<AbpGenerateProxyInput>
+@inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
+
+<Card Class="mb-4">
+    <CardBody>
+        <Form>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["RunningPath"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.RunningPath" Autofocus="true">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["AbpCli_Proxy:Module"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.Module">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["AbpCli_Proxy:ApiName"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.ApiName">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["AbpCli_Proxy:Source"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.Source">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["AbpCli_Proxy:Target"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.Target">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+
+            <SubmitButton Block="true" Clicked="@ExecuteAsync"/>
+        </Form>
+    </CardBody>
+</Card>

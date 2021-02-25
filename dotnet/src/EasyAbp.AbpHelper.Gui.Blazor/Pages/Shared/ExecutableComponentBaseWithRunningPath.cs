@@ -26,7 +26,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
             return Task.CompletedTask;
         }
         
-        private void SetRunningPathToCurrentSolutionPath()
+        protected virtual void SetRunningPathToCurrentSolutionPath()
         {
             Input.RunningPath = CurrentSolution.Value?.DirectoryPath ?? string.Empty;
         }
