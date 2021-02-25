@@ -89,6 +89,10 @@
     "AbpCli_Login:Logout": "Logout",
     "AbpCli_Login:Username": "Username",
     "AbpCli_Login:Password": "Password",
-    "AbpCli_Login:Organization": "Organization"
+    "AbpCli_Login:Organization": "Organization",
+    "AbpCli_Build": "Build",
+    "AbpCli_Build:BuildName": "Build name",
+    "AbpCli_Build:DotnetBuildArguments": "Dotnet build arguments",
+    "AbpCli_Build:Force": "Force"
   }
 }
