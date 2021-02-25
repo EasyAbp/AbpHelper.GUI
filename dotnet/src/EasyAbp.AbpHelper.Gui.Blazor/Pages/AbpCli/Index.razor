@@ -4,6 +4,7 @@
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Add
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.GetSource
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Proxy
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Switch
 @inherits GuiComponentBase
 
 <Tabs Pills="true" SelectedTab="AbpNew" TabPosition="TabPosition.Left">
@@ -13,6 +14,7 @@
         <Tab Name="AbpAdd">abp add</Tab>
         <Tab Name="AbpGetSource">abp get-source</Tab>
         <Tab Name="AbpProxy">abp proxy</Tab>
+        <Tab Name="AbpSwitch">abp switch</Tab>
     </Items>
     <Content>
         <TabPanel Name="AbpNew">
@@ -87,6 +89,26 @@
                     </TabPanel>
                     <TabPanel Name="RemoveProxy">
                         <RemoveProxy></RemoveProxy>
+                    </TabPanel>
+                </Content>
+            </Tabs>
+        </TabPanel>
+        <TabPanel Name="AbpSwitch">
+            <Tabs SelectedTab="SwitchToPreview" TabPosition="TabPosition.Top">
+                <Items>
+                    <Tab Name="SwitchToPreview">@L["AbpCli_Switch:SwitchToPreview"]</Tab>
+                    <Tab Name="SwitchToNightly">@L["AbpCli_Switch:SwitchToNightly"]</Tab>
+                    <Tab Name="SwitchToStable">@L["AbpCli_Switch:SwitchToStable"]</Tab>
+                </Items>
+                <Content>
+                    <TabPanel Name="SwitchToPreview">
+                        <SwitchToPreview></SwitchToPreview>
+                    </TabPanel>
+                    <TabPanel Name="SwitchToNightly">
+                        <SwitchToNightly></SwitchToNightly>
+                    </TabPanel>
+                    <TabPanel Name="SwitchToStable">
+                        <SwitchToStable></SwitchToStable>
                     </TabPanel>
                 </Content>
             </Tabs>

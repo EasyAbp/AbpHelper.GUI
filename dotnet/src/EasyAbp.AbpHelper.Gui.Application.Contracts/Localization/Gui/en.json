@@ -81,6 +81,9 @@
     "AbpCli_Proxy:Module": "Module",
     "AbpCli_Proxy:ApiName": "API name",
     "AbpCli_Proxy:Source": "Source",
-    "AbpCli_Proxy:Target": "Target"
+    "AbpCli_Proxy:Target": "Target",
+    "AbpCli_Switch:SwitchToPreview": "To preview",
+    "AbpCli_Switch:SwitchToNightly": "To nightly",
+    "AbpCli_Switch:SwitchToStable": "To stable"
   }
 }

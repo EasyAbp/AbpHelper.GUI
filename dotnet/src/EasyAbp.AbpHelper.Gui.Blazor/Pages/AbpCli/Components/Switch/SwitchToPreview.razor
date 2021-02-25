@@ -1,0 +1,24 @@
+﻿@using EasyAbp.AbpHelper.Gui.Localization
+@using EasyAbp.AbpHelper.Gui.AbpCli.Switch.Dtos;
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
+@inherits ExecutableComponentBaseWithRunningPath<AbpSwitchToPreviewInput>
+@inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
+
+<Card Class="mb-4">
+    <CardBody>
+        <Form>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["RunningPath"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.RunningPath" Autofocus="true">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+
+            <SubmitButton Block="true" Clicked="@ExecuteAsync"/>
+        </Form>
+    </CardBody>
+</Card>

@@ -81,6 +81,9 @@
     "AbpCli_Proxy:Module": "模塊 - Module",
     "AbpCli_Proxy:ApiName": "API 端點名 - ApiName",
     "AbpCli_Proxy:Source": "源項目名 - Source",
-    "AbpCli_Proxy:Target": "目標項目名 - Target"
+    "AbpCli_Proxy:Target": "目標項目名 - Target",
+    "AbpCli_Switch:SwitchToPreview": "切換為 Preview 版",
+    "AbpCli_Switch:SwitchToNightly": "切換為 Nightly 版",
+    "AbpCli_Switch:SwitchToStable": "切換為 Stable 版"
   }
 }
