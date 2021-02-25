@@ -11,6 +11,11 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli
         {
             var args = new CommandLineArgs(command, target);
 
+            if (input == null)
+            {
+                return args;
+            }
+
             foreach (var propertyInfo in input.GetType().GetProperties())
             {
                 var optionKey = propertyInfo.Name.PascalToKebabCase();

@@ -91,6 +91,11 @@
     "AbpCli_Translate:ReferenceCulture": "参考区域代号 - ReferenceCulture",
     "AbpCli_Translate:Output": "输出文件名 - Output",
     "AbpCli_Translate:AllValues": "包括所有值 - AllValues",
-    "AbpCli_Translate:File": "指定文件 - File"
+    "AbpCli_Translate:File": "指定文件 - File",
+    "AbpCli_Login:Login": "登录",
+    "AbpCli_Login:Logout": "登出",
+    "AbpCli_Login:Username": "用户名 - Username",
+    "AbpCli_Login:Password": "密码 - Password",
+    "AbpCli_Login:Organization": "组织 - Organization"
   }
 }

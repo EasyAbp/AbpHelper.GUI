@@ -84,6 +84,11 @@
     "AbpCli_Proxy:Target": "Target",
     "AbpCli_Switch:SwitchToPreview": "To preview",
     "AbpCli_Switch:SwitchToNightly": "To nightly",
-    "AbpCli_Switch:SwitchToStable": "To stable"
+    "AbpCli_Switch:SwitchToStable": "To stable",
+    "AbpCli_Login:Login": "Login",
+    "AbpCli_Login:Logout": "Logout",
+    "AbpCli_Login:Username": "Username",
+    "AbpCli_Login:Password": "Password",
+    "AbpCli_Login:Organization": "Organization"
   }
 }

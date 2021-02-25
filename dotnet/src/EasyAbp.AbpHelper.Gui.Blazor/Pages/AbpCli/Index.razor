@@ -6,6 +6,7 @@
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Proxy
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Switch
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Translate
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Login
 @inherits GuiComponentBase
 
 <Tabs Pills="true" SelectedTab="AbpNew" TabPosition="TabPosition.Left">
@@ -17,6 +18,7 @@
         <Tab Name="AbpProxy">abp proxy</Tab>
         <Tab Name="AbpSwitch">abp switch</Tab>
         <Tab Name="AbpTranslate">abp translate</Tab>
+        <Tab Name="AbpLogin">abp login</Tab>
     </Items>
     <Content>
         <TabPanel Name="AbpNew">
@@ -127,6 +129,22 @@
                     </TabPanel>
                     <TabPanel Name="ApplyChanges">
                         <ApplyChanges></ApplyChanges>
+                    </TabPanel>
+                </Content>
+            </Tabs>
+        </TabPanel>
+        <TabPanel Name="AbpLogin">
+            <Tabs SelectedTab="Login" TabPosition="TabPosition.Top">
+                <Items>
+                    <Tab Name="Login">@L["AbpCli_Login:Login"]</Tab>
+                    <Tab Name="Logout">@L["AbpCli_Login:Logout"]</Tab>
+                </Items>
+                <Content>
+                    <TabPanel Name="Login">
+                        <Login></Login>
+                    </TabPanel>
+                    <TabPanel Name="Logout">
+                        <Logout></Logout>
                     </TabPanel>
                 </Content>
             </Tabs>

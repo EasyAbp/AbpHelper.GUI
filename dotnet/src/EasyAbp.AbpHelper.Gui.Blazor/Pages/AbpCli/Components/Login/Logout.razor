@@ -1,0 +1,13 @@
+﻿@using EasyAbp.AbpHelper.Gui.Localization
+@using EasyAbp.AbpHelper.Gui.AbpCli.Login.Dtos;
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
+@inherits ExecutableComponentBase
+@inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
+
+<Card Class="mb-4">
+    <CardBody>
+        <Form>
+            <SubmitButton Block="true" Clicked="@ExecuteAsync"/>
+        </Form>
+    </CardBody>
+</Card>

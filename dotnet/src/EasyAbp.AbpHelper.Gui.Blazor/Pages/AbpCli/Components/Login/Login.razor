@@ -1,0 +1,44 @@
+﻿@using EasyAbp.AbpHelper.Gui.Localization
+@using EasyAbp.AbpHelper.Gui.AbpCli.Login.Dtos;
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
+@inherits ExecutableComponentBase
+@inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
+
+<Card Class="mb-4">
+    <CardBody>
+        <Form>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["AbpCli_Login:Username"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.Username">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["AbpCli_Login:Password"]</FieldLabel>
+                    <TextEdit type="password" @bind-Text="Input.Password">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["AbpCli_Login:Organization"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.Organization">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+
+            <SubmitButton Block="true" Clicked="@ExecuteAsync"/>
+        </Form>
+    </CardBody>
+</Card>

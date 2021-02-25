@@ -84,6 +84,11 @@
     "AbpCli_Proxy:Target": "目標項目名 - Target",
     "AbpCli_Switch:SwitchToPreview": "切換為 Preview 版",
     "AbpCli_Switch:SwitchToNightly": "切換為 Nightly 版",
-    "AbpCli_Switch:SwitchToStable": "切換為 Stable 版"
+    "AbpCli_Switch:SwitchToStable": "切換為 Stable 版",
+    "AbpCli_Login:Login": "登錄",
+    "AbpCli_Login:Logout": "登出",
+    "AbpCli_Login:Username": "用戶名 - Username",
+    "AbpCli_Login:Password": "密碼 - Password",
+    "AbpCli_Login:Organization": "組織 - Organization"
   }
 }
