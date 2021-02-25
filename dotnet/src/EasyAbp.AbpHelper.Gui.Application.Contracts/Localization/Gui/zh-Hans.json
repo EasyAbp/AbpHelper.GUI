@@ -100,6 +100,8 @@
     "AbpCli_Build": "构建",
     "AbpCli_Build:BuildName": "构建方案名称 - BuildName",
     "AbpCli_Build:DotnetBuildArguments": "额外构建参数 - DotnetBuildArguments",
-    "AbpCli_Build:Force": "强制构建 - Force"
+    "AbpCli_Build:Force": "强制构建 - Force",
+    "AbpCli_Bundle": "打包 Blazor",
+    "AbpCli_Bundle:Force": "强制打包 - Force"
   }
 }

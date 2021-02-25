@@ -93,6 +93,8 @@
     "AbpCli_Build": "Build",
     "AbpCli_Build:BuildName": "Build name",
     "AbpCli_Build:DotnetBuildArguments": "Dotnet build arguments",
-    "AbpCli_Build:Force": "Force"
+    "AbpCli_Build:Force": "Force",
+    "AbpCli_Bundle": "Bundle Blazor",
+    "AbpCli_Bundle:Force": "Force"
   }
 }
