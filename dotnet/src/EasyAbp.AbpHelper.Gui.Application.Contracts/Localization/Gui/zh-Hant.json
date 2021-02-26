@@ -128,6 +128,12 @@
     "CodeGeneration_Controller:SkipBuild": "跳過構建步驟 - SkipBuild",
     "CodeGeneration_Localization": "本地化",
     "CodeGeneration_Localization:GenerateLocalizationItems": "生成項",
-    "CodeGeneration_Localization:Names": "名稱(支持填寫多個) - Name"
+    "CodeGeneration_Localization:Names": "名稱(支持填寫多個) - Name",
+    "CodeGeneration_Migration": "遷移",
+    "CodeGeneration_Migration:AddEfMigration": "創建 EF migration",
+    "CodeGeneration_Migration:RemoveEfMigration": "移除 EF migration",
+    "CodeGeneration_Migration:Name": "名稱 - Name",
+    "CodeGeneration_Migration:EfOptions": "額外的 EF 選項 - EfOptions",
+    "CodeGeneration_Migration:MigrationProjectName": "遷移項目名稱 - MigrationProjectName"
   }
 }

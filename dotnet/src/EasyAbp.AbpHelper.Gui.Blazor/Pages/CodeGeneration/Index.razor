@@ -3,6 +3,7 @@
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.AppService
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.Controller
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.Localization
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.Migration
 @inherits GuiComponentBase
 
 <Tabs Pills="true" SelectedTab="Crud" TabPosition="TabPosition.Left">
@@ -11,6 +12,7 @@
         <Tab Name="AppService">@L["CodeGeneration_AppService"]</Tab>
         <Tab Name="Controller">@L["CodeGeneration_Controller"]</Tab>
         <Tab Name="Localization">@L["CodeGeneration_Localization"]</Tab>
+        <Tab Name="Migration">@L["CodeGeneration_Migration"]</Tab>
     </Items>
     <Content>
         <TabPanel Name="Crud">
@@ -61,6 +63,22 @@
                 <Content>
                     <TabPanel Name="GenerateLocalizationItems">
                         <GenerateLocalizationItems></GenerateLocalizationItems>
+                    </TabPanel>
+                </Content>
+            </Tabs>
+        </TabPanel>
+        <TabPanel Name="Migration">
+            <Tabs SelectedTab="AddEfMigration" TabPosition="TabPosition.Top">
+                <Items>
+                    <Tab Name="AddEfMigration">@L["CodeGeneration_Migration:AddEfMigration"]</Tab>
+                    <Tab Name="RemoveEfMigration">@L["CodeGeneration_Migration:RemoveEfMigration"]</Tab>
+                </Items>
+                <Content>
+                    <TabPanel Name="AddEfMigration">
+                        <AddEfMigration></AddEfMigration>
+                    </TabPanel>
+                    <TabPanel Name="RemoveEfMigration">
+                        <RemoveEfMigration></RemoveEfMigration>
                     </TabPanel>
                 </Content>
             </Tabs>

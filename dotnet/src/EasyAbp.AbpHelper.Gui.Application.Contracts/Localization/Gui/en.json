@@ -128,6 +128,12 @@
     "CodeGeneration_Controller:SkipBuild": "Skip build",
     "CodeGeneration_Localization": "Localization",
     "CodeGeneration_Localization:GenerateLocalizationItems": "Generate items",
-    "CodeGeneration_Localization:Names": "Names"
+    "CodeGeneration_Localization:Names": "Names",
+    "CodeGeneration_Migration": "Migration",
+    "CodeGeneration_Migration:AddEfMigration": "Add EF migration",
+    "CodeGeneration_Migration:RemoveEfMigration": "Remove EF migration",
+    "CodeGeneration_Migration:Name": "Name",
+    "CodeGeneration_Migration:EfOptions": "Extra EF options",
+    "CodeGeneration_Migration:MigrationProjectName": "Migration project name"
   }
 }
