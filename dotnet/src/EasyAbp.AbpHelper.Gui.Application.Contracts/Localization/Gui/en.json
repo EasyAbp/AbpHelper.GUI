@@ -96,6 +96,7 @@
     "AbpCli_Build:Force": "Force",
     "AbpCli_Bundle": "Bundle Blazor",
     "AbpCli_Bundle:Force": "Force",
+    "CodeGeneration_Crud": "CRUD",
     "CodeGeneration_Crud:GenerateCrudCode": "Generate CRUD code",
     "CodeGeneration_Crud:Entity": "Entity name",
     "CodeGeneration_Crud:SeparateDto": "Separate DTO",
@@ -111,6 +112,17 @@
     "CodeGeneration_Crud:NoOverwrite": "No overwrite",
     "CodeGeneration_Crud:DtoSuffix": "DTO suffix",
     "CodeGeneration_Crud:MigrationProjectName": "Migration project name",
-    "CodeGeneration_Crud:Exclude": "Exclude directories"
+    "CodeGeneration_Crud:Exclude": "Exclude directories",
+    "CodeGeneration_AppService": "AppService",
+    "CodeGeneration_AppService:GenerateClass": "Generate class",
+    "CodeGeneration_AppService:GenerateMethods": "Generate methods",
+    "CodeGeneration_AppService:Name": "Name",
+    "CodeGeneration_AppService:Folder": "Generate to folder",
+    "CodeGeneration_AppService:MethodNames": "Method names",
+    "CodeGeneration_AppService:ServiceName": "Service name",
+    "CodeGeneration_AppService:NoInput": "No input DTO",
+    "CodeGeneration_AppService:NoOutput": "No output DTO",
+    "CodeGeneration_AppService:NoOverwrite": "No overwrite",
+    "CodeGeneration_AppService:Exclude": "Exclude directories"
   }
 }

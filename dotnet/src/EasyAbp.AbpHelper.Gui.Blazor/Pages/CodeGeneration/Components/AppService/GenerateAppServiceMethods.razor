@@ -1,0 +1,63 @@
+﻿@using EasyAbp.AbpHelper.Gui.Localization
+@using EasyAbp.AbpHelper.Gui.CodeGeneration.AppService.Dtos;
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
+@inherits ExecutableComponentBaseWithDirectory<AbpHelperGenerateAppServiceMethodsInput>
+@inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
+
+<Card Class="mb-4">
+    <CardBody>
+        <Form>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["Directory"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.Directory" Autofocus="true">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["CodeGeneration_AppService:MethodNames"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.MethodNames" Placeholder="e.g. Create Update Delete">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["CodeGeneration_AppService:ServiceName"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.ServiceName" Placeholder="e.g. Product">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.NoInput">@L["CodeGeneration_AppService:NoInput"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.NoOutput">@L["CodeGeneration_AppService:NoOutput"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.NoOverwrite">@L["CodeGeneration_AppService:NoOverwrite"]</Check>
+            </Field>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["CodeGeneration_AppService:Exclude"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.Exclude">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+
+            <SubmitButton Block="true" Clicked="@ExecuteAsync"/>
+        </Form>
+    </CardBody>
+</Card>

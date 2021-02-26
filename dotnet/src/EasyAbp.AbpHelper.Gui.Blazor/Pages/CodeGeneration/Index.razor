@@ -1,10 +1,12 @@
 ﻿@page "/CodeGeneration"
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.Crud
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.AppService
 @inherits GuiComponentBase
 
 <Tabs Pills="true" SelectedTab="Crud" TabPosition="TabPosition.Left">
     <Items>
-        <Tab Name="Crud">CRUD</Tab>
+        <Tab Name="Crud">@L["CodeGeneration_Crud"]</Tab>
+        <Tab Name="AppService">@L["CodeGeneration_AppService"]</Tab>
     </Items>
     <Content>
         <TabPanel Name="Crud">
@@ -15,6 +17,22 @@
                 <Content>
                     <TabPanel Name="GenerateCrudCode">
                         <GenerateCrudCode></GenerateCrudCode>
+                    </TabPanel>
+                </Content>
+            </Tabs>
+        </TabPanel>
+        <TabPanel Name="AppService">
+            <Tabs SelectedTab="GenerateClass" TabPosition="TabPosition.Top">
+                <Items>
+                    <Tab Name="GenerateClass">@L["CodeGeneration_AppService:GenerateClass"]</Tab>
+                    <Tab Name="GenerateMethods">@L["CodeGeneration_AppService:GenerateMethods"]</Tab>
+                </Items>
+                <Content>
+                    <TabPanel Name="GenerateClass">
+                        <GenerateAppServiceClass></GenerateAppServiceClass>
+                    </TabPanel>
+                    <TabPanel Name="GenerateMethods">
+                        <GenerateAppServiceMethods></GenerateAppServiceMethods>
                     </TabPanel>
                 </Content>
             </Tabs>

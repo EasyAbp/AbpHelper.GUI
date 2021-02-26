@@ -103,6 +103,7 @@
     "AbpCli_Build:Force": "强制构建 - Force",
     "AbpCli_Bundle": "打包 Blazor",
     "AbpCli_Bundle:Force": "强制打包 - Force",
+    "CodeGeneration_Crud": "CRUD",
     "CodeGeneration_Crud:GenerateCrudCode": "生成 CRUD 代码",
     "CodeGeneration_Crud:Entity": "实体名称 - Entity",
     "CodeGeneration_Crud:SeparateDto": "分离 DTO 类 - SeparateDto",
@@ -118,6 +119,17 @@
     "CodeGeneration_Crud:NoOverwrite": "不覆盖已存在的内容 - NoOverwrite",
     "CodeGeneration_Crud:DtoSuffix": "指定 DTO 前缀 - DtoSuffix",
     "CodeGeneration_Crud:MigrationProjectName": "指定 DB migration 使用的项目 - MigrationProjectName",
-    "CodeGeneration_Crud:Exclude": "搜索文件时排除的文件夹 - Exclude"
+    "CodeGeneration_Crud:Exclude": "搜索文件时排除的文件夹 - Exclude",
+    "CodeGeneration_AppService": "应用服务",
+    "CodeGeneration_AppService:GenerateClass": "生成类",
+    "CodeGeneration_AppService:GenerateMethods": "生成方法",
+    "CodeGeneration_AppService:Name": "服务名 - Name",
+    "CodeGeneration_AppService:Folder": "生成到目录 - Folder",
+    "CodeGeneration_AppService:MethodNames": "方法名(支持填写多个) - MethodNames",
+    "CodeGeneration_AppService:ServiceName": "服务名 - ServiceName",
+    "CodeGeneration_AppService:NoInput": "不生成入参 DTO - NoInput",
+    "CodeGeneration_AppService:NoOutput": "不生成返回 DTO - NoOutput",
+    "CodeGeneration_AppService:NoOverwrite": "不覆盖已存在的内容 - NoOverwrite",
+    "CodeGeneration_AppService:Exclude": "搜索文件时排除的文件夹 - Exclude"
   }
 }
