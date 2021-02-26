@@ -1,7 +1,7 @@
 ﻿@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
 @inherits ExecutableComponentBase
 
-<Modal @ref="_modal">
+<Modal @ref="_actuatorModal">
     <ModalBackdrop />
     <ModalContent Size="ModalSize.Large" IsCentered="true">
         <ModalHeader>
@@ -22,6 +22,7 @@
                                 <span>&nbsp;@($"(v{addManyModuleInput.SpecifiedVersion})")</span>
                             }
                             <span>&nbsp;@L["InstallationActuator:To"]&nbsp;<b>@installationInfo.Targets.JoinAsString(", ")</b></span>
+                            <Blazorise.Link Clicked="() => OpenEditTargetModalAsync(installationInfo)"><Icon Name="IconName.Edit"></Icon></Blazorise.Link>
                         </Field>
                     }
                 }
@@ -34,6 +35,7 @@
                             <span style="color: #ff0000"><b>[@(L["InstallationActuator:Remove"])]&nbsp;</b></span>
                             <span><b>@($"{installationInfo.ModuleGroupId}.{installationInfo.ModuleId}")</b></span>
                             <span>&nbsp;@L["InstallationActuator:From"]&nbsp;<b>@installationInfo.Targets.JoinAsString(", ")</b></span>
+                            <Blazorise.Link Clicked="() => OpenEditTargetModalAsync(installationInfo)"><Icon Name="IconName.Edit"></Icon></Blazorise.Link>
                         </Field>
                     }
                 }
@@ -42,6 +44,27 @@
         <ModalFooter>
             <Button Color="Color.Secondary" Clicked="CloseModal">@L["Cancel"]</Button>
             <Button Color="Color.Primary" Clicked="ExecuteAsync" Disabled="@Executing" Loading="@Executing">@L["Execute"]</Button>
+        </ModalFooter>
+    </ModalContent>
+</Modal>
+
+<Modal @ref="_editTargetModal">
+    <ModalBackdrop />
+    <ModalContent Size="ModalSize.Small" IsCentered="true">
+        <ModalHeader>
+            <ModalTitle>@L["InstallationTarget"]</ModalTitle>
+            <CloseButton Clicked="CloseEditTargetModal" />
+        </ModalHeader>
+        <ModalBody MaxHeight="30">
+            <Field>
+                <FieldLabel>@L["InstallationTarget"]</FieldLabel>
+                <TextEdit @bind-Text="EditingTargetString" Placeholder="e.g. Application,HttpApi.Client,Web"></TextEdit>
+            </Field>
+            @_editTargetModal.Attributes
+        </ModalBody>
+        <ModalFooter>
+            <Button Color="Color.Secondary" Clicked="CloseEditTargetModal">@L["Cancel"]</Button>
+            <Button Color="Color.Primary" Clicked="SaveTargetAsync">@L["Save"]</Button>
         </ModalFooter>
     </ModalContent>
 </Modal>

@@ -11,8 +11,8 @@
                 <h4>@L["ModuleManagement_Explorer"]</h4>
             </Column>
             <Column ColumnSize="ColumnSize.IsAuto">
-                @* Todo: Invoke BuildAppProjectsInstalledModuleNamesAsync() after the installation is completed. *@
-                <Button Color="Color.Primary" Size="Size.Large" Clicked="() => InstallationActuatorModal.OpenAsync(GetAddManyModuleInputList(), GetRemoveManyModuleInputList())">@L["Install"]</Button>
+                <Button Color="Color.Secondary" Size="Size.Medium" Clicked="ResetChangesAsync" Disabled="@CanNotReset" Loading="@CanNotReset">@L["Reset"]</Button>
+                <Button Color="Color.Primary" Size="Size.Medium" Clicked="() => InstallationActuatorModal.OpenAsync(GetAddManyModuleInputList(), GetRemoveManyModuleInputList(), RebuildModulesDataAsync)">@L["Install"]</Button>
             </Column>
         </Row>
     </CardHeader>
@@ -22,7 +22,7 @@
                 @foreach (var group in ModuleGroups)
                 {
                     <Tab Name="@group.Id">
-                        @if (group.Modules.Any(x => x.Checked))
+                        @if (group.Modules.Any(x => x.Checked || x.Indeterminate))
                         {
                             <span>
                                 <b>@group.Id</b>
@@ -47,8 +47,8 @@
                         
                         <Field>
                             <Check
-                                Checked="@group.Modules.All(x => x.Checked)"
-                                Indeterminate="@(group.Modules.Any(x => x.Checked) && group.Modules.Any(x => !x.Checked))"
+                                Checked="@group.Modules.All(x => x.Checked || x.Indeterminate)"
+                                Indeterminate="@(group.Modules.Any(x => x.Checked || x.Indeterminate) && group.Modules.Any(x => !x.Checked && !x.Indeterminate))"
                                 Cursor="Cursor.Pointer"
                                 CheckedChanged="@(b => ModulesAllChanged(b, group))"
                                 TValue="bool">
@@ -64,6 +64,7 @@
                                 <Check
                                     Cursor="Cursor.Pointer"
                                     Checked="@module.Checked"
+                                    Indeterminate="@module.Indeterminate"
                                     CheckedChanged="@(b => ModuleChanged(b, module))"
                                     TValue="bool">
                                     @($"{group.Id}.{module.Id}")

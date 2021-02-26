@@ -22,6 +22,10 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
         protected Dictionary<ModuleDto, ModuleGroupDto> ModuleModuleGroupMapping { get; set; }
 
         protected string SelectedTab { get; set; }
+        
+        protected bool BuildingModulesData { get; set; }
+        
+        protected bool CanNotReset { get; set; }
 
         private readonly ICurrentSolution _currentSolution;
         private readonly IInstalledModulesLookupService _installedModulesLookupService;
@@ -44,14 +48,35 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
             SelectedTab = ModuleGroups.FirstOrDefault()?.Id;
         }
 
+        protected override bool ShouldRender()
+        {
+            return !BuildingModulesData;
+        }
+
         private async Task RebuildModulesDataAsync()
         {
+            BuildingModulesData = true;
+            
             await BuildModuleGroupsAsync();
             await BuildAppProjectsInstalledModuleNamesAsync();
             
             BuildModuleNamesModuleMapping();
             BuildModuleModuleGroupMapping();
             ChangeModuleCheckBoxesAccordingToInstalledModules();
+
+            BuildingModulesData = false;
+            
+            StateHasChanged();
+        }
+
+        private async Task ResetChangesAsync()
+        {
+            CanNotReset = true;
+            StateHasChanged();
+
+            await RebuildModulesDataAsync();
+
+            CanNotReset = false;
         }
 
         private async Task BuildModuleGroupsAsync()
@@ -74,7 +99,9 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
                     where ModuleNamesModuleMapping.ContainsKey(installedModuleName)
                     select ModuleNamesModuleMapping[installedModuleName])
                 {
-                    module.Checked = true;
+                    module.Checked = false;
+                    module.Indeterminate = true;
+                    module.Installed = true;
                     module.Targets.AddIfNotContains(appLayerName);
                 }
             }
@@ -96,14 +123,27 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
                         new KeyValuePair<string, ModuleDto>($"{moduleGroup.Id}.{module.Id}", module)).ToList());
         }
         
-        private void ModuleChanged(bool value, ModuleDto module)
+        private void ModuleChanged(bool value, ModuleDto module, bool forceCheck = false)
         {
-            if (module.Checked != value)
+            if (value)
             {
-                module.Checked = value;
+                if (forceCheck || module.Indeterminate || !module.Installed)
+                {
+                    module.Checked = true;
+                    module.Indeterminate = false;
+                }
+                else if (!module.Checked)
+                {
+                    module.Indeterminate = true;
+                }
+            }
+            else
+            {
+                module.Checked = false;
+                module.Indeterminate = false;
             }
 
-            if (value)
+            if (module.Checked)
             {
                 if (module.Targets.IsNullOrEmpty())
                 {
@@ -116,20 +156,18 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
         {
             if (value)
             {
-                if (moduleGroup.Modules.All(x => !x.Checked))
+                if (moduleGroup.Modules.All(x => !x.Checked && !x.Indeterminate))
                 {
                     foreach (var module in moduleGroup.Modules.Where(x => x.Default))
                     {
-                        module.Checked = true;
-                        ModuleChanged(true, module);
+                        ModuleChanged(true, module, true);
                     }
                 }
                 else
                 {
                     foreach (var module in moduleGroup.Modules)
                     {
-                        module.Checked = true;
-                        ModuleChanged(true, module);
+                        ModuleChanged(true, module, true);
                     }
                 }
             }
@@ -137,8 +175,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
             {
                 foreach (var module in moduleGroup.Modules)
                 {
-                    module.Checked = false;
-                    ModuleChanged(false, module);
+                    ModuleChanged(false, module, true);
                 }
             }
         }
@@ -149,9 +186,9 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
             
             foreach (var moduleGroup in ModuleGroups)
             {
-                var installationInfos = new List<AddManyModuleInputInstallationInfo>(moduleGroup.Modules
+                var installationInfos = new List<InstallationInfo>(moduleGroup.Modules
                     .Where(x => x.Checked).Select(module =>
-                        new AddManyModuleInputInstallationInfo
+                        new InstallationInfo
                         {
                             ModuleGroupId = moduleGroup.Id,
                             ModuleId = module.Id,
@@ -162,8 +199,6 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
                         }
                     )
                 );
-
-                installationInfos.RemoveAll(x => !x.Targets.Any());
                 
                 list.Add(new AddManyModuleInput
                 {
@@ -190,7 +225,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
 
                     var module = ModuleNamesModuleMapping[moduleName];
 
-                    if (module.Checked && module.Targets.Contains(appLayerName))
+                    if ((module.Checked || module.Indeterminate) && module.Targets.Contains(appLayerName))
                     {
                         continue;
                     }
@@ -202,7 +237,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
                         moduleGroupRemoveManyModuleInputDictionary[moduleGroup] = new RemoveManyModuleInput
                         {
                             DirectoryPath = _currentSolution.Value.DirectoryPath,
-                            InstallationInfos = new List<RemoveManyModuleInputInstallationInfo>()
+                            InstallationInfos = new List<InstallationInfo>()
                         };
                     }
 
@@ -213,7 +248,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
 
                     if (existingInstallationInfo == null)
                     {
-                        installationInfos.Add(new RemoveManyModuleInputInstallationInfo
+                        installationInfos.Add(new InstallationInfo
                         {
                             ModuleGroupId = moduleGroup.Id,
                             ModuleId = module.Id,
