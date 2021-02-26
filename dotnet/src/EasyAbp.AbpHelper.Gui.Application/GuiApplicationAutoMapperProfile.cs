@@ -1,9 +1,11 @@
 using System.Linq;
 using AutoMapper;
+using EasyAbp.AbpHelper.Core.Commands.Generate.Controller;
 using EasyAbp.AbpHelper.Core.Commands.Generate.Crud;
 using EasyAbp.AbpHelper.Core.Commands.Generate.Methods;
 using EasyAbp.AbpHelper.Core.Commands.Generate.Service;
 using EasyAbp.AbpHelper.Gui.CodeGeneration.AppService.Dtos;
+using EasyAbp.AbpHelper.Gui.CodeGeneration.Controller.Dtos;
 using EasyAbp.AbpHelper.Gui.CodeGeneration.Crud.Dtos;
 
 namespace EasyAbp.AbpHelper.Gui
@@ -28,6 +30,10 @@ namespace EasyAbp.AbpHelper.Gui
                     opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToList()))
                 .ForMember(dest => dest.MethodNames,
                     opt => opt.MapFrom(src => src.MethodNames.SplitBySpace().ToList()));
+            
+            CreateMap<AbpHelperGenerateControllerInput, ControllerCommandOption>()
+                .ForMember(dest => dest.Exclude,
+                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToList()));
         }
     }
 }

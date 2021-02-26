@@ -1,7 +1,7 @@
 ﻿@using EasyAbp.AbpHelper.Gui.Localization
-@using EasyAbp.AbpHelper.Gui.CodeGeneration.AppService.Dtos;
+@using EasyAbp.AbpHelper.Gui.CodeGeneration.Controller.Dtos;
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
-@inherits ExecutableComponentBaseWithDirectory<AbpHelperGenerateAppServiceClassInput>
+@inherits ExecutableComponentBaseWithDirectory<AbpHelperGenerateControllerInput>
 @inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
 
 <Card Class="mb-4">
@@ -19,7 +19,7 @@
             </Validation>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["CodeGeneration_AppService:Name"]</FieldLabel>
+                    <FieldLabel>@L["CodeGeneration_Controller:Name"]</FieldLabel>
                     <TextEdit @bind-Text="Input.Name" Placeholder="e.g. Product">
                         <Feedback>
                             <ValidationError/>
@@ -27,16 +27,9 @@
                     </TextEdit>
                 </Field>
             </Validation>
-            <Validation MessageLocalizer="@Lh.Localize">
-                <Field>
-                    <FieldLabel>@L["CodeGeneration_AppService:Folder"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.Folder">
-                        <Feedback>
-                            <ValidationError/>
-                        </Feedback>
-                    </TextEdit>
-                </Field>
-            </Validation>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.SkipBuild">@L["CodeGeneration_Controller:SkipBuild"]</Check>
+            </Field>
             <Field>
                 <Check TValue="bool" @bind-Checked="@Input.NoOverwrite">@L["NoOverwrite"]</Check>
             </Field>

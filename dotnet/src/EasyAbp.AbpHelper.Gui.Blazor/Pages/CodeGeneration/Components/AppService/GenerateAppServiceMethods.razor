@@ -44,11 +44,11 @@
                 <Check TValue="bool" @bind-Checked="@Input.NoOutput">@L["CodeGeneration_AppService:NoOutput"]</Check>
             </Field>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.NoOverwrite">@L["CodeGeneration_AppService:NoOverwrite"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.NoOverwrite">@L["NoOverwrite"]</Check>
             </Field>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["CodeGeneration_AppService:Exclude"]</FieldLabel>
+                    <FieldLabel>@L["Exclude"]</FieldLabel>
                     <TextEdit @bind-Text="Input.Exclude">
                         <Feedback>
                             <ValidationError/>

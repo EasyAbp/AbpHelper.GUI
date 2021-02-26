@@ -21,6 +21,8 @@
     "Congratulations": "Congratulations",
     "OperationSuccessfulMessage": "Your operation was executed successfully.",
     "Directory": "Directory",
+    "NoOverwrite": "No overwrite",
+    "Exclude": "Exclude directories",
     "AbpCli_New:CreateApp": "Create app",
     "AbpCli_New:CreateModule": "Create module",
     "AbpCli_New:CreateConsole": "Create console app",
@@ -109,10 +111,8 @@
     "CodeGeneration_Crud:SkipLocalization": "Skip localization",
     "CodeGeneration_Crud:SkipTest": "Skip test",
     "CodeGeneration_Crud:SkipEntityConstructors": "Skip entity constructors",
-    "CodeGeneration_Crud:NoOverwrite": "No overwrite",
     "CodeGeneration_Crud:DtoSuffix": "DTO suffix",
     "CodeGeneration_Crud:MigrationProjectName": "Migration project name",
-    "CodeGeneration_Crud:Exclude": "Exclude directories",
     "CodeGeneration_AppService": "AppService",
     "CodeGeneration_AppService:GenerateClass": "Generate class",
     "CodeGeneration_AppService:GenerateMethods": "Generate methods",
@@ -122,7 +122,9 @@
     "CodeGeneration_AppService:ServiceName": "Service name",
     "CodeGeneration_AppService:NoInput": "No input DTO",
     "CodeGeneration_AppService:NoOutput": "No output DTO",
-    "CodeGeneration_AppService:NoOverwrite": "No overwrite",
-    "CodeGeneration_AppService:Exclude": "Exclude directories"
+    "CodeGeneration_Controller": "Controller",
+    "CodeGeneration_Controller:GenerateController": "Generate controller",
+    "CodeGeneration_Controller:Name": "Service name",
+    "CodeGeneration_Controller:SkipBuild": "Skip build"
   }
 }

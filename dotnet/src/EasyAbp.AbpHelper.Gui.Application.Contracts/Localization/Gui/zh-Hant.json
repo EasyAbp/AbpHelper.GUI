@@ -21,6 +21,8 @@
     "Congratulations": "恭喜",
     "OperationSuccessfulMessage": "操作已執行成功。",
     "Directory": "運行目錄",
+    "NoOverwrite": "不覆蓋已存在的內容 - NoOverwrite",
+    "Exclude": "搜索文件時排除的文件夾 - Exclude",
     "AbpCli_New:CreateApp": "創建應用",
     "AbpCli_New:CreateModule": "創建模塊",
     "AbpCli_New:CreateConsole": "創建控制台應用",
@@ -109,10 +111,8 @@
     "CodeGeneration_Crud:SkipLocalization": "不生成 Localization - SkipLocalization",
     "CodeGeneration_Crud:SkipTest": "不生成 Test - SkipTest",
     "CodeGeneration_Crud:SkipEntityConstructors": "不生成 Entity 的構造函數 - SkipEntityConstructors",
-    "CodeGeneration_Crud:NoOverwrite": "不覆蓋已存在的內容 - NoOverwrite",
     "CodeGeneration_Crud:DtoSuffix": "指定 DTO 前綴 - DtoSuffix",
     "CodeGeneration_Crud:MigrationProjectName": "指定 DB migration 使用的項目 - MigrationProjectName",
-    "CodeGeneration_Crud:Exclude": "搜索文件時排除的文件夾 - Exclude",
     "CodeGeneration_AppService": "應用服務",
     "CodeGeneration_AppService:GenerateClass": "生成類",
     "CodeGeneration_AppService:GenerateMethods": "生成方法",
@@ -122,7 +122,9 @@
     "CodeGeneration_AppService:ServiceName": "服務名 - ServiceName",
     "CodeGeneration_AppService:NoInput": "不生成入參 DTO - NoInput",
     "CodeGeneration_AppService:NoOutput": "不生成返回 DTO - NoOutput",
-    "CodeGeneration_AppService:NoOverwrite": "不覆蓋已存在的內容 - NoOverwrite",
-    "CodeGeneration_AppService:Exclude": "搜索文件時排除的文件夾 - Exclude"
+    "CodeGeneration_Controller": "控制器",
+    "CodeGeneration_Controller:GenerateController": "生成控制器",
+    "CodeGeneration_Controller:Name": "服務名 - Name",
+    "CodeGeneration_Controller:SkipBuild": "跳過構建步驟 - SkipBuild"
   }
 }

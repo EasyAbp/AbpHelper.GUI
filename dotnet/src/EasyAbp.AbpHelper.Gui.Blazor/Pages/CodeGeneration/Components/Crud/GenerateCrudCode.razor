@@ -58,7 +58,7 @@
                 <Check TValue="bool" @bind-Checked="@Input.SkipEntityConstructors">@L["CodeGeneration_Crud:SkipEntityConstructors"]</Check>
             </Field>
             <Field>
-                <Check TValue="bool" @bind-Checked="@Input.NoOverwrite">@L["CodeGeneration_Crud:NoOverwrite"]</Check>
+                <Check TValue="bool" @bind-Checked="@Input.NoOverwrite">@L["NoOverwrite"]</Check>
             </Field>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
@@ -82,7 +82,7 @@
             </Validation>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["CodeGeneration_Crud:Exclude"]</FieldLabel>
+                    <FieldLabel>@L["Exclude"]</FieldLabel>
                     <TextEdit @bind-Text="Input.Exclude">
                         <Feedback>
                             <ValidationError/>
