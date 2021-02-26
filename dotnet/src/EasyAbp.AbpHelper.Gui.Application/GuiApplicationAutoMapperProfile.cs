@@ -2,11 +2,13 @@ using System.Linq;
 using AutoMapper;
 using EasyAbp.AbpHelper.Core.Commands.Generate.Controller;
 using EasyAbp.AbpHelper.Core.Commands.Generate.Crud;
+using EasyAbp.AbpHelper.Core.Commands.Generate.Localization;
 using EasyAbp.AbpHelper.Core.Commands.Generate.Methods;
 using EasyAbp.AbpHelper.Core.Commands.Generate.Service;
 using EasyAbp.AbpHelper.Gui.CodeGeneration.AppService.Dtos;
 using EasyAbp.AbpHelper.Gui.CodeGeneration.Controller.Dtos;
 using EasyAbp.AbpHelper.Gui.CodeGeneration.Crud.Dtos;
+using EasyAbp.AbpHelper.Gui.CodeGeneration.Localization.Dtos;
 
 namespace EasyAbp.AbpHelper.Gui
 {
@@ -34,6 +36,12 @@ namespace EasyAbp.AbpHelper.Gui
             CreateMap<AbpHelperGenerateControllerInput, ControllerCommandOption>()
                 .ForMember(dest => dest.Exclude,
                     opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToList()));
+            
+            CreateMap<AbpHelperGenerateLocalizationItemsInput, LocalizationCommandOption>()
+                .ForMember(dest => dest.Exclude,
+                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToList()))
+                .ForMember(dest => dest.Names,
+                    opt => opt.MapFrom(src => src.Names.SplitBySpace().ToList()));
         }
     }
 }

@@ -125,6 +125,9 @@
     "CodeGeneration_Controller": "Controller",
     "CodeGeneration_Controller:GenerateController": "Generate controller",
     "CodeGeneration_Controller:Name": "Service name",
-    "CodeGeneration_Controller:SkipBuild": "Skip build"
+    "CodeGeneration_Controller:SkipBuild": "Skip build",
+    "CodeGeneration_Localization": "Localization",
+    "CodeGeneration_Localization:GenerateLocalizationItems": "Generate items",
+    "CodeGeneration_Localization:Names": "Names"
   }
 }

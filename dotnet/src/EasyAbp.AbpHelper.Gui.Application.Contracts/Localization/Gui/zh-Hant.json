@@ -125,6 +125,9 @@
     "CodeGeneration_Controller": "控制器",
     "CodeGeneration_Controller:GenerateController": "生成控制器",
     "CodeGeneration_Controller:Name": "服務名 - Name",
-    "CodeGeneration_Controller:SkipBuild": "跳過構建步驟 - SkipBuild"
+    "CodeGeneration_Controller:SkipBuild": "跳過構建步驟 - SkipBuild",
+    "CodeGeneration_Localization": "本地化",
+    "CodeGeneration_Localization:GenerateLocalizationItems": "生成項",
+    "CodeGeneration_Localization:Names": "名稱(支持填寫多個) - Name"
   }
 }

@@ -2,6 +2,7 @@
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.Crud
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.AppService
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.Controller
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.Localization
 @inherits GuiComponentBase
 
 <Tabs Pills="true" SelectedTab="Crud" TabPosition="TabPosition.Left">
@@ -9,6 +10,7 @@
         <Tab Name="Crud">@L["CodeGeneration_Crud"]</Tab>
         <Tab Name="AppService">@L["CodeGeneration_AppService"]</Tab>
         <Tab Name="Controller">@L["CodeGeneration_Controller"]</Tab>
+        <Tab Name="Localization">@L["CodeGeneration_Localization"]</Tab>
     </Items>
     <Content>
         <TabPanel Name="Crud">
@@ -47,6 +49,18 @@
                 <Content>
                     <TabPanel Name="GenerateController">
                         <GenerateController></GenerateController>
+                    </TabPanel>
+                </Content>
+            </Tabs>
+        </TabPanel>
+        <TabPanel Name="Localization">
+            <Tabs SelectedTab="GenerateLocalizationItems" TabPosition="TabPosition.Top">
+                <Items>
+                    <Tab Name="GenerateLocalizationItems">@L["CodeGeneration_Localization:GenerateLocalizationItems"]</Tab>
+                </Items>
+                <Content>
+                    <TabPanel Name="GenerateLocalizationItems">
+                        <GenerateLocalizationItems></GenerateLocalizationItems>
                     </TabPanel>
                 </Content>
             </Tabs>
