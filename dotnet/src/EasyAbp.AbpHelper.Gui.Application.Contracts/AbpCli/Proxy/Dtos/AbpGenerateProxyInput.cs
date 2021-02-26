@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos
 {
     [Serializable]
-    public class AbpGenerateProxyInput : InputDtoWithRunningPath
+    public class AbpGenerateProxyInput : InputDtoWithDirectory
     {
         [CanBeNull]
         public virtual string Module { get; set; }
@@ -23,8 +23,8 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos
         {
         }
 
-        protected AbpGenerateProxyInput([NotNull] string runningPath, [CanBeNull] string module,
-            [CanBeNull] string apiName, [CanBeNull] string source, [CanBeNull] string target) : base(runningPath)
+        protected AbpGenerateProxyInput([NotNull] string directory, [CanBeNull] string module,
+            [CanBeNull] string apiName, [CanBeNull] string source, [CanBeNull] string target) : base(directory)
         {
             Module = module;
             ApiName = apiName;

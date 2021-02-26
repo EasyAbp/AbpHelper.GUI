@@ -31,7 +31,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Switch
         {
             var args = CreateCommandLineArgs(input, "abp switch-to-preview");
 
-            using (_currentDirectoryHelper.Change(input.RunningPath))
+            using (_currentDirectoryHelper.Change(input.Directory))
             {
                 await _switchToPreviewCommand.ExecuteAsync(args);
             }
@@ -43,7 +43,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Switch
         {
             var args = CreateCommandLineArgs(input, "abp switch-to-nightly");
 
-            using (_currentDirectoryHelper.Change(input.RunningPath))
+            using (_currentDirectoryHelper.Change(input.Directory))
             {
                 await _switchToNightlyCommand.ExecuteAsync(args);
             }
@@ -55,7 +55,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Switch
         {
             var args = CreateCommandLineArgs(input, "abp switch-to-stable");
 
-            using (_currentDirectoryHelper.Change(input.RunningPath))
+            using (_currentDirectoryHelper.Change(input.Directory))
             {
                 await _switchToStableCommand.ExecuteAsync(args);
             }

@@ -1,0 +1,97 @@
+﻿@using EasyAbp.AbpHelper.Gui.Localization
+@using EasyAbp.AbpHelper.Gui.CodeGeneration.Crud.Dtos;
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
+@inherits ExecutableComponentBaseWithDirectory<AbpHelperGenerateCrudInput>
+@inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
+
+<Card Class="mb-4">
+    <CardBody>
+        <Form>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["Directory"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.Directory" Autofocus="true">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["CodeGeneration_Crud:Entity"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.Entity">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.SeparateDto">@L["CodeGeneration_Crud:SeparateDto"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.EntityPrefixDto">@L["CodeGeneration_Crud:EntityPrefixDto"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.SkipPermissions">@L["CodeGeneration_Crud:SkipPermissions"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.SkipCustomRepository">@L["CodeGeneration_Crud:SkipCustomRepository"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.SkipDbMigrations">@L["CodeGeneration_Crud:SkipDbMigrations"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.SkipUi">@L["CodeGeneration_Crud:SkipUi"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.SkipViewModel">@L["CodeGeneration_Crud:SkipViewModel"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.SkipLocalization">@L["CodeGeneration_Crud:SkipLocalization"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.SkipTest">@L["CodeGeneration_Crud:SkipTest"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.SkipEntityConstructors">@L["CodeGeneration_Crud:SkipEntityConstructors"]</Check>
+            </Field>
+            <Field>
+                <Check TValue="bool" @bind-Checked="@Input.NoOverwrite">@L["CodeGeneration_Crud:NoOverwrite"]</Check>
+            </Field>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["CodeGeneration_Crud:DtoSuffix"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.DtoSuffix">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["CodeGeneration_Crud:MigrationProjectName"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.MigrationProjectName">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["CodeGeneration_Crud:Exclude"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.Exclude">
+                        <Feedback>
+                            <ValidationError/>
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+
+            <SubmitButton Block="true" Clicked="@ExecuteAsync"/>
+        </Form>
+    </CardBody>
+</Card>

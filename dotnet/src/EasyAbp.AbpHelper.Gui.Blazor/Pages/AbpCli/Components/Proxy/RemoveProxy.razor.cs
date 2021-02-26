@@ -15,9 +15,9 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Proxy
             await Service.RemoveProxyAsync(Input);
         }
         
-        protected override void SetRunningPathToCurrentSolutionPath()
+        protected override void SetDirectoryToCurrentSolutionPath()
         {
-            Input.RunningPath = CurrentSolution.Value?.DirectoryPath != null
+            Input.Directory = CurrentSolution.Value?.DirectoryPath != null
                 ? CurrentSolution.Value?.DirectoryPath.SmartPathCombine("angular")
                 : string.Empty;
         }

@@ -23,7 +23,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Update
         {
             var args = CreateCommandLineArgs(input, "abp update");
 
-            using (_currentDirectoryHelper.Change(input.RunningPath))
+            using (_currentDirectoryHelper.Change(input.Directory))
             {
                 await _updateCommand.ExecuteAsync(args);
             }

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
 {
-    public abstract class ExecutableComponentBaseWithRunningPath<TInput> : ExecutableComponentBaseWithCurrentSolution where TInput : InputDtoWithRunningPath, new()
+    public abstract class ExecutableComponentBaseWithDirectory<TInput> : ExecutableComponentBaseWithCurrentSolution where TInput : InputDtoWithDirectory, new()
     {
         [Inject]
         protected ICurrentSolution CurrentSolution { get; set; }
@@ -14,21 +14,21 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
         
         protected override Task OnInitializedAsync()
         {
-            SetRunningPathToCurrentSolutionPath();
+            SetDirectoryToCurrentSolutionPath();
             
             return base.OnInitializedAsync();
         }
 
         protected override Task OnCurrentSolutionChangedAsync()
         {
-            SetRunningPathToCurrentSolutionPath();
+            SetDirectoryToCurrentSolutionPath();
             
             return Task.CompletedTask;
         }
         
-        protected virtual void SetRunningPathToCurrentSolutionPath()
+        protected virtual void SetDirectoryToCurrentSolutionPath()
         {
-            Input.RunningPath = CurrentSolution.Value?.DirectoryPath ?? string.Empty;
+            Input.Directory = CurrentSolution.Value?.DirectoryPath ?? string.Empty;
         }
     }
 }

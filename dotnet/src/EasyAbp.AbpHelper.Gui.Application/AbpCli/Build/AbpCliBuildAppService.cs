@@ -24,7 +24,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Build
         {
             var args = CreateCommandLineArgs(input, "abp build");
 
-            using (_currentDirectoryHelper.Change(input.RunningPath))
+            using (_currentDirectoryHelper.Change(input.Directory))
             {
                 await _buildCommand.ExecuteAsync(args);
             }

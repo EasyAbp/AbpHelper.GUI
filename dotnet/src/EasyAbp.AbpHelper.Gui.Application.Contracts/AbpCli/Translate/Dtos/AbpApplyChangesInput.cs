@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 namespace EasyAbp.AbpHelper.Gui.AbpCli.Translate.Dtos
 {
     [Serializable]
-    public class AbpApplyChangesInput : InputDtoWithRunningPath
+    public class AbpApplyChangesInput : InputDtoWithDirectory
     {
         public virtual bool Apply { get; } = true;
         
@@ -16,7 +16,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Translate.Dtos
         {
         }
 
-        protected AbpApplyChangesInput([NotNull] string runningPath, [CanBeNull] string file) : base(runningPath)
+        protected AbpApplyChangesInput([NotNull] string directory, [CanBeNull] string file) : base(directory)
         {
             File = file;
         }

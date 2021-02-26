@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 namespace EasyAbp.AbpHelper.Gui.AbpCli.Translate.Dtos
 {
     [Serializable]
-    public class AbpCreateTranslationFileInput : InputDtoWithRunningPath
+    public class AbpCreateTranslationFileInput : InputDtoWithDirectory
     {
         [Required]
         [NotNull]
@@ -24,8 +24,8 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Translate.Dtos
         {
         }
 
-        protected AbpCreateTranslationFileInput([NotNull] string runningPath, [NotNull] string culture,
-            [CanBeNull] string referenceCulture, [CanBeNull] string output, bool allValues) : base(runningPath)
+        protected AbpCreateTranslationFileInput([NotNull] string directory, [NotNull] string culture,
+            [CanBeNull] string referenceCulture, [CanBeNull] string output, bool allValues) : base(directory)
         {
             Culture = culture;
             ReferenceCulture = referenceCulture;

@@ -5,13 +5,13 @@ using JetBrains.Annotations;
 namespace EasyAbp.AbpHelper.Gui.AbpCli.Switch.Dtos
 {
     [Serializable]
-    public class AbpSwitchToNightlyInput : InputDtoWithRunningPath
+    public class AbpSwitchToNightlyInput : InputDtoWithDirectory
     {
         public AbpSwitchToNightlyInput()
         {
         }
 
-        protected AbpSwitchToNightlyInput([NotNull] string runningPath) : base(runningPath)
+        protected AbpSwitchToNightlyInput([NotNull] string directory) : base(directory)
         {
         }
     }

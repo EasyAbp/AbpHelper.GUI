@@ -23,7 +23,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.GetSource
         {
             var args = CreateCommandLineArgs(input, "abp get-source", input.ModuleName);
 
-            using (_currentDirectoryHelper.Change(input.RunningPath))
+            using (_currentDirectoryHelper.Change(input.Directory))
             {
                 await _getSourceCommand.ExecuteAsync(args);
             }

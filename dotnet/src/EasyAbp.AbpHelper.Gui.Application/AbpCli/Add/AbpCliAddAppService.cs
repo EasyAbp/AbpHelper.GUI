@@ -26,7 +26,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Add
         {
             var args = CreateCommandLineArgs(input, "abp add-package", input.PackageName);
 
-            using (_currentDirectoryHelper.Change(input.RunningPath))
+            using (_currentDirectoryHelper.Change(input.Directory))
             {
                 await _addPackageCommand.ExecuteAsync(args);
             }
@@ -38,7 +38,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Add
         {
             var args = CreateCommandLineArgs(input, "abp add-module", input.ModuleName);
 
-            using (_currentDirectoryHelper.Change(input.RunningPath))
+            using (_currentDirectoryHelper.Change(input.Directory))
             {
                 await _addModuleCommand.ExecuteAsync(args);
             }

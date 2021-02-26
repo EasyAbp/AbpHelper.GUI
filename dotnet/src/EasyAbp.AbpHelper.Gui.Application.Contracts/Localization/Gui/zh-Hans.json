@@ -20,7 +20,7 @@
     "InstallationActuator:From": "从",
     "Congratulations": "恭喜",
     "OperationSuccessfulMessage": "操作已执行成功。",
-    "RunningPath": "命令运行路径",
+    "Directory": "运行目录",
     "AbpCli_New:CreateApp": "创建应用",
     "AbpCli_New:CreateModule": "创建模块",
     "AbpCli_New:CreateConsole": "创建控制台应用",
@@ -102,6 +102,22 @@
     "AbpCli_Build:DotnetBuildArguments": "额外构建参数 - DotnetBuildArguments",
     "AbpCli_Build:Force": "强制构建 - Force",
     "AbpCli_Bundle": "打包 Blazor",
-    "AbpCli_Bundle:Force": "强制打包 - Force"
+    "AbpCli_Bundle:Force": "强制打包 - Force",
+    "CodeGeneration_Crud:GenerateCrudCode": "生成 CRUD 代码",
+    "CodeGeneration_Crud:Entity": "实体名称 - Entity",
+    "CodeGeneration_Crud:SeparateDto": "分离 DTO 类 - SeparateDto",
+    "CodeGeneration_Crud:EntityPrefixDto": "使用实体名前缀命名 DTO 类 - EntityPrefixDto",
+    "CodeGeneration_Crud:SkipPermissions": "不生成 Permissions - SkipPermissions",
+    "CodeGeneration_Crud:SkipCustomRepository": "不生成自定义 Repository - SkipCustomRepository",
+    "CodeGeneration_Crud:SkipDbMigrations": "不执行 DB migrations - SkipDbMigrations",
+    "CodeGeneration_Crud:SkipUi": "不生成 UI - SkipUi",
+    "CodeGeneration_Crud:SkipViewModel": "不生成 ViewModel - SkipViewModel",
+    "CodeGeneration_Crud:SkipLocalization": "不生成 Localization - SkipLocalization",
+    "CodeGeneration_Crud:SkipTest": "不生成 Test - SkipTest",
+    "CodeGeneration_Crud:SkipEntityConstructors": "不生成 Entity 的构造函数 - SkipEntityConstructors",
+    "CodeGeneration_Crud:NoOverwrite": "不覆盖已存在的内容 - NoOverwrite",
+    "CodeGeneration_Crud:DtoSuffix": "指定 DTO 前缀 - DtoSuffix",
+    "CodeGeneration_Crud:MigrationProjectName": "指定 DB migration 使用的项目 - MigrationProjectName",
+    "CodeGeneration_Crud:Exclude": "搜索文件时排除的文件夹 - Exclude"
   }
 }

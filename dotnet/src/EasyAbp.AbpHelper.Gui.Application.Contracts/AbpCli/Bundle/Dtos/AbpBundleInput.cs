@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 namespace EasyAbp.AbpHelper.Gui.AbpCli.Bundle.Dtos
 {
     [Serializable]
-    public class AbpBundleInput : InputDtoWithRunningPath
+    public class AbpBundleInput : InputDtoWithDirectory
     {
         public virtual bool Force { get; set; }
 
@@ -13,7 +13,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Bundle.Dtos
         {
         }
 
-        protected AbpBundleInput([NotNull] string runningPath, bool force) : base(runningPath)
+        protected AbpBundleInput([NotNull] string directory, bool force) : base(directory)
         {
             Force = force;
         }

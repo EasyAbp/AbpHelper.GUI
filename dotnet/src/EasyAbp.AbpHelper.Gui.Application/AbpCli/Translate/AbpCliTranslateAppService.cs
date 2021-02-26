@@ -25,7 +25,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Translate
         {
             var args = CreateCommandLineArgs(input, "abp translate");
 
-            using (_currentDirectoryHelper.Change(input.RunningPath))
+            using (_currentDirectoryHelper.Change(input.Directory))
             {
                 await _translateCommand.ExecuteAsync(args);
             }
@@ -37,7 +37,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Translate
         {
             var args = CreateCommandLineArgs(input, "abp translate");
 
-            using (_currentDirectoryHelper.Change(input.RunningPath))
+            using (_currentDirectoryHelper.Change(input.Directory))
             {
                 await _translateCommand.ExecuteAsync(args);
             }

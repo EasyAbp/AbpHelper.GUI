@@ -1,7 +1,7 @@
 ﻿@using EasyAbp.AbpHelper.Gui.Localization
 @using EasyAbp.AbpHelper.Gui.AbpCli.Update.Dtos;
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
-@inherits ExecutableComponentBaseWithRunningPath<AbpUpdateInput>
+@inherits ExecutableComponentBaseWithDirectory<AbpUpdateInput>
 @inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
 
 <Card Class="mb-4">
@@ -9,8 +9,8 @@
         <Form>
             <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["RunningPath"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.RunningPath">
+                    <FieldLabel>@L["Directory"]</FieldLabel>
+                    <TextEdit @bind-Text="Input.Directory">
                         <Feedback>
                             <ValidationError />
                         </Feedback>

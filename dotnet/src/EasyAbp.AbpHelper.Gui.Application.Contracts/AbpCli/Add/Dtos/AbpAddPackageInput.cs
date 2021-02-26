@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 namespace EasyAbp.AbpHelper.Gui.AbpCli.Add.Dtos
 {
     [Serializable]
-    public class AbpAddPackageInput : InputDtoWithRunningPath
+    public class AbpAddPackageInput : InputDtoWithDirectory
     {
         [Required]
         [NotNull]
@@ -19,8 +19,8 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Add.Dtos
         {
         }
 
-        public AbpAddPackageInput([NotNull] string runningPath, [NotNull] string packageName,
-            [CanBeNull] string project) : base(runningPath)
+        public AbpAddPackageInput([NotNull] string directory, [NotNull] string packageName,
+            [CanBeNull] string project) : base(directory)
         {
             PackageName = packageName;
             Project = project;

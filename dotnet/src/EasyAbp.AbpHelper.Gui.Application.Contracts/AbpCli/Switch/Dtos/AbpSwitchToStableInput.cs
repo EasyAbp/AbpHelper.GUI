@@ -5,13 +5,13 @@ using JetBrains.Annotations;
 namespace EasyAbp.AbpHelper.Gui.AbpCli.Switch.Dtos
 {
     [Serializable]
-    public class AbpSwitchToStableInput : InputDtoWithRunningPath
+    public class AbpSwitchToStableInput : InputDtoWithDirectory
     {
         public AbpSwitchToStableInput()
         {
         }
 
-        protected AbpSwitchToStableInput([NotNull] string runningPath) : base(runningPath)
+        protected AbpSwitchToStableInput([NotNull] string directory) : base(directory)
         {
         }
     }

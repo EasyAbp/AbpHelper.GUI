@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 namespace EasyAbp.AbpHelper.Gui.AbpCli.GetSource.Dtos
 {
     [Serializable]
-    public class AbpGetSourceInput : InputDtoWithRunningPath
+    public class AbpGetSourceInput : InputDtoWithDirectory
     {
         [Required]
         [NotNull]
@@ -24,8 +24,8 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.GetSource.Dtos
         {
         }
 
-        public AbpGetSourceInput([NotNull] string runningPath, [NotNull] string moduleName, [CanBeNull] string version,
-            [CanBeNull] string localFrameworkRef, bool preview) : base(runningPath)
+        public AbpGetSourceInput([NotNull] string directory, [NotNull] string moduleName, [CanBeNull] string version,
+            [CanBeNull] string localFrameworkRef, bool preview) : base(directory)
         {
             ModuleName = moduleName;
             Version = version;

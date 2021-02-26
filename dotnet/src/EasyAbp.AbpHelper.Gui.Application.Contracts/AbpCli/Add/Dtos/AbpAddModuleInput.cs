@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 namespace EasyAbp.AbpHelper.Gui.AbpCli.Add.Dtos
 {
     [Serializable]
-    public class AbpAddModuleInput : InputDtoWithRunningPath
+    public class AbpAddModuleInput : InputDtoWithDirectory
     {
         [Required]
         [NotNull]
@@ -30,9 +30,9 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Add.Dtos
         {
         }
 
-        public AbpAddModuleInput([NotNull] string runningPath, [NotNull] string moduleName, [CanBeNull] string solution,
+        public AbpAddModuleInput([NotNull] string directory, [NotNull] string moduleName, [CanBeNull] string solution,
             [CanBeNull] string startupProject, bool skipDbMigrations, bool @new, bool withSourceCode,
-            bool addToSolutionFile) : base(runningPath)
+            bool addToSolutionFile) : base(directory)
         {
             ModuleName = moduleName;
             Solution = solution;

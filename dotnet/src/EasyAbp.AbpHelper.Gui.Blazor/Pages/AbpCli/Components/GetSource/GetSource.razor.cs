@@ -15,7 +15,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.GetSource
             await Service.GetSourceAsync(Input);
         }
 
-        protected override void SetRunningPathToCurrentSolutionPath()
+        protected override void SetDirectoryToCurrentSolutionPath()
         {
             // Do nothing.
         }

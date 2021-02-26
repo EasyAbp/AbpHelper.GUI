@@ -26,6 +26,22 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Components\DemoBox\DemoBox.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\GetSource\GetSource.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\Proxy\GenerateProxy.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\Proxy\RemoveProxy.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\Login\Login.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\Login\Logout.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\New\CreateApp.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\New\CreateConsole.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\New\CreateModule.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\Update\Update.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\Add\AddModule.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\Add\AddPackage.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\Switch\SwitchToNightly.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\Switch\SwitchToPreview.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\Switch\SwitchToStable.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\Build\Build.razor" />
+    <_ContentIncludedByDefault Remove="Pages\CodeGeneration\Components\Bundle\Bundle.razor" />
   </ItemGroup>
 
 </Project>

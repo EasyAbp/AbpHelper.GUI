@@ -1,0 +1,23 @@
+﻿@page "/CodeGeneration"
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.Crud
+@inherits GuiComponentBase
+
+<Tabs Pills="true" SelectedTab="Crud" TabPosition="TabPosition.Left">
+    <Items>
+        <Tab Name="Crud">CRUD</Tab>
+    </Items>
+    <Content>
+        <TabPanel Name="Crud">
+            <Tabs SelectedTab="GenerateCrudCode" TabPosition="TabPosition.Top">
+                <Items>
+                    <Tab Name="GenerateCrudCode">@L["CodeGeneration_Crud:GenerateCrudCode"]</Tab>
+                </Items>
+                <Content>
+                    <TabPanel Name="GenerateCrudCode">
+                        <GenerateCrudCode></GenerateCrudCode>
+                    </TabPanel>
+                </Content>
+            </Tabs>
+        </TabPanel>
+    </Content>
+</Tabs>

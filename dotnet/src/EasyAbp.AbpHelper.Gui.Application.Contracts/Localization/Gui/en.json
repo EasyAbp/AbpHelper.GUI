@@ -20,7 +20,7 @@
     "InstallationActuator:From": "from",
     "Congratulations": "Congratulations",
     "OperationSuccessfulMessage": "Your operation was executed successfully.",
-    "RunningPath": "Running path",
+    "Directory": "Directory",
     "AbpCli_New:CreateApp": "Create app",
     "AbpCli_New:CreateModule": "Create module",
     "AbpCli_New:CreateConsole": "Create console app",
@@ -95,6 +95,22 @@
     "AbpCli_Build:DotnetBuildArguments": "Dotnet build arguments",
     "AbpCli_Build:Force": "Force",
     "AbpCli_Bundle": "Bundle Blazor",
-    "AbpCli_Bundle:Force": "Force"
+    "AbpCli_Bundle:Force": "Force",
+    "CodeGeneration_Crud:GenerateCrudCode": "Generate CRUD code",
+    "CodeGeneration_Crud:Entity": "Entity name",
+    "CodeGeneration_Crud:SeparateDto": "Separate DTO",
+    "CodeGeneration_Crud:EntityPrefixDto": "Entity name prefix DTO",
+    "CodeGeneration_Crud:SkipPermissions": "Skip permissions",
+    "CodeGeneration_Crud:SkipCustomRepository": "Skip custom repository",
+    "CodeGeneration_Crud:SkipDbMigrations": "Skip DB migrations",
+    "CodeGeneration_Crud:SkipUi": "Skip UI",
+    "CodeGeneration_Crud:SkipViewModel": "Skip ViewModel",
+    "CodeGeneration_Crud:SkipLocalization": "Skip localization",
+    "CodeGeneration_Crud:SkipTest": "Skip test",
+    "CodeGeneration_Crud:SkipEntityConstructors": "Skip entity constructors",
+    "CodeGeneration_Crud:NoOverwrite": "No overwrite",
+    "CodeGeneration_Crud:DtoSuffix": "DTO suffix",
+    "CodeGeneration_Crud:MigrationProjectName": "Migration project name",
+    "CodeGeneration_Crud:Exclude": "Exclude directories"
   }
 }

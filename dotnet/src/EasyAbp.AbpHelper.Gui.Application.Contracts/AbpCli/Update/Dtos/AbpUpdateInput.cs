@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 namespace EasyAbp.AbpHelper.Gui.AbpCli.Update.Dtos
 {
     [Serializable]
-    public class AbpUpdateInput : InputDtoWithRunningPath
+    public class AbpUpdateInput : InputDtoWithDirectory
     {
         [CanBeNull]
         public virtual string SolutionPath { get; set; }
@@ -27,9 +27,9 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Update.Dtos
         {
         }
 
-        public AbpUpdateInput([NotNull] string runningPath, [CanBeNull] string solutionPath,
+        public AbpUpdateInput([NotNull] string directory, [CanBeNull] string solutionPath,
             [CanBeNull] string solutionName, [CanBeNull] string version, bool checkAll, bool npm, bool nuget) : base(
-            runningPath)
+            directory)
         {
             SolutionPath = solutionPath;
             SolutionName = solutionName;

@@ -28,7 +28,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy
         {
             var args = CreateCommandLineArgs(input, "abp generate-proxy");
 
-            using (_currentDirectoryHelper.Change(input.RunningPath))
+            using (_currentDirectoryHelper.Change(input.Directory))
             {
                 await _generateProxyCommand.ExecuteAsync(args);
             }
@@ -40,7 +40,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy
         {
             var args = CreateCommandLineArgs(input, "abp remove-proxy");
 
-            using (_currentDirectoryHelper.Change(input.RunningPath))
+            using (_currentDirectoryHelper.Change(input.Directory))
             {
                 await _removeProxyCommand.ExecuteAsync(args);
             }

@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 namespace EasyAbp.AbpHelper.Gui.AbpCli.Build.Dtos
 {
     [Serializable]
-    public class AbpBuildInput : InputDtoWithRunningPath
+    public class AbpBuildInput : InputDtoWithDirectory
     {
         [CanBeNull]
         public virtual string BuildName { get; set; }
@@ -20,8 +20,8 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Build.Dtos
         {
         }
 
-        protected AbpBuildInput([NotNull] string runningPath, [CanBeNull] string buildName,
-            [CanBeNull] string dotnetBuildArguments, bool force) : base(runningPath)
+        protected AbpBuildInput([NotNull] string directory, [CanBeNull] string buildName,
+            [CanBeNull] string dotnetBuildArguments, bool force) : base(directory)
         {
             BuildName = buildName;
             DotnetBuildArguments = dotnetBuildArguments;

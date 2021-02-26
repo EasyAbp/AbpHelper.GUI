@@ -23,7 +23,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Bundle
         {
             var args = CreateCommandLineArgs(input, "abp bundle");
 
-            using (_currentDirectoryHelper.Change(input.RunningPath))
+            using (_currentDirectoryHelper.Change(input.Directory))
             {
                 await _bundleCommand.ExecuteAsync(args);
             }
