@@ -8,6 +8,8 @@ namespace EasyAbp.AbpHelper.Gui.ModuleManagement.Installer.Dtos
         
         public string ModuleId { get; set; }
         
+        public string PackageName => ModuleId != "" ? $"{ModuleGroupId}.{ModuleId}" : ModuleGroupId;
+        
         public string Submodule { get; set; }
 
         public List<string> Targets { get; set; }

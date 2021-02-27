@@ -16,7 +16,7 @@
                     {
                         <Field>
                             <span style="color: #008000"><b>[@(L["InstallationActuator:Add"])]&nbsp;</b></span>
-                            <span><b>@($"{installationInfo.ModuleGroupId}.{installationInfo.ModuleId}")</b></span>
+                            <span><b>@installationInfo.PackageName</b></span>
                             @if (addManyModuleInput.SpecifiedVersion != null)
                             {
                                 <span>&nbsp;@($"(v{addManyModuleInput.SpecifiedVersion})")</span>
@@ -33,7 +33,7 @@
                     {
                         <Field>
                             <span style="color: #ff0000"><b>[@(L["InstallationActuator:Remove"])]&nbsp;</b></span>
-                            <span><b>@($"{installationInfo.ModuleGroupId}.{installationInfo.ModuleId}")</b></span>
+                            <span><b>@installationInfo.PackageName</b></span>
                             <span>&nbsp;@L["InstallationActuator:From"]&nbsp;<b>@installationInfo.Targets.JoinAsString(", ")</b></span>
                             <Blazorise.Link Clicked="() => OpenEditTargetModalAsync(installationInfo)"><Icon Name="IconName.Edit"></Icon></Blazorise.Link>
                         </Field>

@@ -86,12 +86,12 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
         {
             Executing = true;
             
-            foreach (var addManyModuleInput in AddInputList)
+            foreach (var addManyModuleInput in AddInputList.Where(x => x.InstallationInfos.Any()))
             {
                 await Service.AddManyAsync(addManyModuleInput);
             }
 
-            foreach (var removeManyModuleInput in RemoveInputList)
+            foreach (var removeManyModuleInput in RemoveInputList.Where(x => x.InstallationInfos.Any()))
             {
                 await Service.RemoveManyAsync(removeManyModuleInput);
             }

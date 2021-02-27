@@ -120,7 +120,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
             ModuleNamesModuleMapping = new Dictionary<string, ModuleDto>(ModuleGroups
                 .SelectMany(moduleGroup => moduleGroup.Modules,
                     (moduleGroup, module) =>
-                        new KeyValuePair<string, ModuleDto>($"{moduleGroup.Id}.{module.Id}", module)).ToList());
+                        new KeyValuePair<string, ModuleDto>(GetModulePackageName(moduleGroup.Id, module.Id), module)).ToList());
         }
         
         private void ModuleChanged(bool value, ModuleDto module, bool forceCheck = false)
@@ -180,6 +180,11 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
             }
         }
 
+        private static string GetModulePackageName(string moduleGroupId, string moduleId)
+        {
+            return moduleId != "" ? $"{moduleGroupId}.{moduleId}" : moduleGroupId;
+        }
+
         private List<AddManyModuleInput> GetAddManyModuleInputList()
         {
             var list = new List<AddManyModuleInput>();
@@ -194,8 +199,9 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
                             ModuleId = module.Id,
                             Submodule = module.Submodule,
                             Targets = module.Targets.Where(tar =>
-                                    !AppProjectsInstalledModuleNames[tar].Contains($"{moduleGroup.Id}.{module.Id}"))
-                                .ToList()
+                                AppProjectsInstalledModuleNames.ContainsKey(tar) &&
+                                !AppProjectsInstalledModuleNames[tar]
+                                    .Contains(GetModulePackageName(moduleGroup.Id, module.Id))).ToList()
                         }
                     )
                 );

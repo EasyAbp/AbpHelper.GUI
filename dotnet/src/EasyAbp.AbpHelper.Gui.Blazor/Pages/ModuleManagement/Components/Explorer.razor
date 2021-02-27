@@ -67,7 +67,7 @@
                                     Indeterminate="@module.Indeterminate"
                                     CheckedChanged="@(b => ModuleChanged(b, module))"
                                     TValue="bool">
-                                    @($"{group.Id}.{module.Id}")
+                                    @GetModulePackageName(group.Id, module.Id)
                                 </Check>
                             </Field>
                         }
