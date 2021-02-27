@@ -8,13 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-<!--    <PackageReference Include="EasyAbp.AbpHelper.Core" Version="0.7.7" />-->
+    <PackageReference Include="EasyAbp.AbpHelper.Core" Version="0.8.0" />
     <PackageReference Include="Volo.Abp.AutoMapper" Version="4.2.0" />
     <PackageReference Include="Volo.Abp.Cli.Core" Version="4.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\AbpHelper.CLI\src\AbpHelper.Core\AbpHelper.Core.csproj" />
     <ProjectReference Include="..\EasyAbp.AbpHelper.Gui.Application.Contracts\EasyAbp.AbpHelper.Gui.Application.Contracts.csproj" />
   </ItemGroup>
 
