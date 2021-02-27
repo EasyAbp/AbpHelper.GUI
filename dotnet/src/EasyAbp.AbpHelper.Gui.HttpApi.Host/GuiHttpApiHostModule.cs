@@ -10,6 +10,7 @@ using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Microsoft.OpenApi.Models;
 using Volo.Abp;
 using Volo.Abp.AspNetCore.Authentication.JwtBearer;
+using Volo.Abp.AspNetCore.Mvc.AntiForgery;
 using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared;
@@ -54,6 +55,8 @@ namespace EasyAbp.AbpHelper.Gui
             ConfigureLocalization();
             ConfigureCors(context, configuration);
             ConfigureSwaggerServices(context);
+            
+            Configure<AbpAntiForgeryOptions>(options => { options.AutoValidate = false; });
         }
 
         private void ConfigureBundles()
