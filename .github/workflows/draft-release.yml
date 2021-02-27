@@ -36,3 +36,5 @@ jobs:
           release: ${{ startsWith(github.ref, 'refs/tags/v') }}
 
           package_root: "./electron"
+
+          build_script_name: "package"
