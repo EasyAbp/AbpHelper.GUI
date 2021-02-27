@@ -10,7 +10,7 @@ namespace EasyAbp.AbpHelper.Gui.ModuleManagement.Explorer
     public class ModuleManagementExplorerAppService : ModuleManagementAppService, IModuleManagementExplorerAppService
     {
         private const string ModuleLibraryIndexUrl =
-            "https://raw.githubusercontent.com/EasyAbp/ModuleLibrary/main/index.json";
+            "https://raw.githubusercontent.com/EasyAbp/ModuleLibrary/v1/index.json";
 
         private readonly IJsonSerializer _jsonSerializer;
         private readonly IHttpClientFactory _httpClientFactory;
@@ -29,7 +29,11 @@ namespace EasyAbp.AbpHelper.Gui.ModuleManagement.Explorer
 
             var str = await client.GetStringAsync(ModuleLibraryIndexUrl);
 
-            return new ListResultDto<ModuleGroupDto>(_jsonSerializer.Deserialize<ModuleLibraryIndexDto>(str).Groups);
+            var groups = _jsonSerializer.Deserialize<ModuleLibraryIndexDto>(str).Groups;
+            
+            groups.Sort();
+            
+            return new ListResultDto<ModuleGroupDto>(groups);
         }
     }
 }
