@@ -42,7 +42,7 @@
     "AbpCli_New:AppDatabaseProvider": "Database provider",
     "AbpCli_New:AppDatabaseProvider:Ef": "Entity Framework Core",
     "AbpCli_New:AppDatabaseProvider:Mongodb": "MongoDB",
-    "AbpCli_New:AbpVersion": "ABP version",
+    "AbpCli_New:Version": "ABP version",
     "AbpCli_New:TemplateSource": "Template source",
     "AbpCli_New:ConnectionString": "Connection string",
     "AbpCli_New:DatabaseManagementSystem": "Database management system",

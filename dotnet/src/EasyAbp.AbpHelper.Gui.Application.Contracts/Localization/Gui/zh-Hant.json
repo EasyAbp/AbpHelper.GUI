@@ -42,7 +42,7 @@
     "AbpCli_New:AppDatabaseProvider": "應用數據庫提供者 - DatabaseProvider",
     "AbpCli_New:AppDatabaseProvider:Ef": "Entity Framework Core",
     "AbpCli_New:AppDatabaseProvider:Mongodb": "MongoDB",
-    "AbpCli_New:AbpVersion": "ABP 版本號 - Version",
+    "AbpCli_New:Version": "ABP 版本號 - Version",
     "AbpCli_New:TemplateSource": "模板源 - TemplateSource",
     "AbpCli_New:ConnectionString": "數據庫連接字符串 - ConnectionString",
     "AbpCli_New:DatabaseManagementSystem": "數據庫 - DatabaseManagementSystem",
