@@ -22,7 +22,12 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli
                 
                 if (propertyInfo.PropertyType == typeof(string))
                 {
-                    args.Options.Add(optionKey, (string) propertyInfo.GetValue(input));
+                    var value = (string) propertyInfo.GetValue(input);
+
+                    if (value != null)
+                    {
+                        args.Options.Add(optionKey, value);
+                    }
                 }
                 else if (propertyInfo.PropertyType == typeof(bool))
                 {
