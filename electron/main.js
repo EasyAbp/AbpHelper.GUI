@@ -5,7 +5,7 @@
 const fetch = require('electron-main-fetch')
 const path = require('path')
 const {spawn, exec} = require('child_process')
-const {app, Menu, Tray, BrowserWindow, shell} = require('electron')
+const {app, Menu, Tray, BrowserWindow, shell, dialog} = require('electron')
 
 const debug = /--debug/.test(process.argv[2])
 
@@ -110,10 +110,24 @@ function initialize () {
   }
 
   app.on('ready', () => {
-    runHttpApiHost()
-    runBlazorHost()
-    createTray()
-    createWindow()
+    let checkDotnetProcess = exec("dotnet --version", (error, stdout, stderr) => {
+      if (error) {
+        dialog.showMessageBoxSync({type: "error", message: "Required .NET 5.0+ runtime is not installed."})
+        app.quit()
+        return
+      }
+      
+      let trustCertProcess = exec("dotnet dev-certs https --trust")
+    
+      trustCertProcess.on('close', function (code) {
+        runHttpApiHost()
+        runBlazorHost()
+        setTimeout(function() {
+          createTray()
+          createWindow()
+        }, 1000);
+      })
+    });
   })
 
   app.on('window-all-closed', () => {
