@@ -50,3 +50,8 @@
 .navbar-brand>img {
     width: 38px;
 }
+
+.modal .modal-dialog .modal-content {
+    word-wrap: break-word;
+    word-break: normal;
+}
