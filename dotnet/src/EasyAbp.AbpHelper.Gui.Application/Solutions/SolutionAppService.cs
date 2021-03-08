@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyAbp.AbpHelper.Core.Services;
@@ -41,21 +42,42 @@ namespace EasyAbp.AbpHelper.Gui.Solutions
             
             if (solution == null)
             {
-                list.AddFirst(input);
+                solution = input;
+                
+                list.AddFirst(solution);
             }
             else
             {
                 list.MoveItem((x) => x == solution, 0);
             }
 
+            if (!await IsSolutionDirectoryValidAsync(solution))
+            {
+                list.RemoveAt(0);
+                
+                await UpdateRecentlySolutionListAsync(list);
+
+                throw new BusinessException("Gui:InvalidSolutionDirectoryPath");
+            }
+
+            await UpdateRecentlySolutionListAsync(list);
+
+            return input;
+        }
+
+        protected virtual async Task UpdateRecentlySolutionListAsync(List<SolutionDto> list)
+        {
             if (list.Count > RecentlySolutionsMaxCount)
             {
                 list = list.GetRange(0, RecentlySolutionsMaxCount);
             }
 
             await _manager.UpdateListAsync(list);
+        }
 
-            return input;
+        protected virtual Task<bool> IsSolutionDirectoryValidAsync(SolutionDto solution)
+        {
+            return Task.FromResult(Directory.Exists(solution.DirectoryPath));
         }
 
         protected virtual SolutionDto FindSolution(IEnumerable<SolutionDto> solutions, SolutionDto target)

@@ -47,9 +47,14 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Components
 
         private async Task ChangeSolutionAsync(SolutionDto solutionDto)
         {
-            await SolutionAppService.UseAsync(solutionDto);
-
-            await RefreshSolutions();
+            try
+            {
+                await SolutionAppService.UseAsync(solutionDto);
+            }
+            finally
+            {
+                await RefreshSolutions();
+            }
         }
 
         private Task OpenOpenSolutionModalAsync()
