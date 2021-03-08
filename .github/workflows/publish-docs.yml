@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 0
 
       - name: Find and Replace
-        uses: shitiomatic/str-replace@master
+        uses: jacobtomlinson/gha-find-replace@master
         with:
           find: \]\((/docs/)
           replace: "](/abphelper/${{ github.event.repository.name }}/"
