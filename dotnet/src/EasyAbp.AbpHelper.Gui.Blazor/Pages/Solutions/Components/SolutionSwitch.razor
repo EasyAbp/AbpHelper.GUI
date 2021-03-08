@@ -2,26 +2,31 @@
 @using EasyAbp.AbpHelper.Gui.Solutions.Dtos
 @using Microsoft.Extensions.Localization
 @using EasyAbp.AbpHelper.Gui.Localization
-@inject AbpBlazorMessageLocalizerHelper<GuiResource> LH
-@inject ISolutionAppService SolutionAppService
-@inject IStringLocalizer<GuiResource> L
-@implements IDisposable
+@inherits EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Shared.SolutionManagementBase
 <BarDropdown>
     <BarDropdownToggle>
         @(CurrentSolution.Value?.DisplayName ?? L["NoSolution"])
     </BarDropdownToggle>
     <BarDropdownMenu RightAligned="true">
-        @foreach (var solution in _recentlySolutions)
+        @foreach (var solution in Solutions)
         {
-            <BarDropdownItem Clicked="() => ChangeSolutionAsync(solution)">@solution.DisplayName</BarDropdownItem>
+            <BarDropdownItem Clicked="() => ChangeSolutionAsync(solution)">
+                @solution.DisplayName @if (CurrentSolution.Value.Equals(solution))
+                                      {
+                                          @($" ({L["Current"].Value})")
+                                      }
+            </BarDropdownItem>
         }
         <BarDropdownItem Clicked="OpenOpenSolutionModalAsync">
-            @L["OpenSolution"] <Icon Name="IconName.FolderOpen"/>
+            <Icon Name="IconName.FolderOpen"/> @L["OpenSolution"]
+        </BarDropdownItem>
+        <BarDropdownItem Clicked="RedirectToSolutionsPageAsync">
+            <Icon Name="IconName.List"/> @L["ManageSolutions"]
         </BarDropdownItem>
     </BarDropdownMenu>
 </BarDropdown>
 
-<Modal @ref="_modal">
+<Modal @ref="Modal">
     <ModalBackdrop />
     <ModalContent Size="ModalSize.Default" IsCentered="true">
         <ModalHeader>
@@ -29,7 +34,7 @@
             <CloseButton Clicked="CloseOpenSolutionModal" />
         </ModalHeader>
         <ModalBody MaxHeight="50">
-            <Validation MessageLocalizer="@LH.Localize">
+            <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
                     <FieldLabel>@L["SolutionDisplayName"]</FieldLabel>
                     <TextEdit @bind-Text="@CreateSolution.DisplayName">
@@ -50,7 +55,7 @@
                     }
                 </Select>
             </Field>
-            <Validation MessageLocalizer="@LH.Localize">
+            <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
                     <FieldLabel>@L["SolutionDirectoryPath"]</FieldLabel>
                     <TextEdit @bind-Text="@CreateSolution.DirectoryPath">

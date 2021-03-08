@@ -1,0 +1,108 @@
+﻿@page "/Solutions"
+@using EasyAbp.AbpHelper.Gui.Localization
+@using EasyAbp.AbpHelper.Gui.Solutions.Dtos
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Components;
+@inherits EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Shared.SolutionManagementBase
+
+<Card>
+    <CardHeader>
+        @* ************************* PAGE HEADER ************************* *@
+        <Row Class="justify-content-between">
+            <Column ColumnSize="ColumnSize.IsAuto">
+                <h4>@L["ManageSolutions"]</h4>
+            </Column>
+            <Column ColumnSize="ColumnSize.IsAuto">
+                <Button Color="Color.Primary" Size="Size.Medium" Clicked="OpenOpenSolutionModalAsync">@L["Open"]</Button>
+            </Column>
+        </Row>
+    </CardHeader>
+    <CardBody>
+        <DataGrid TItem="SolutionDto"
+                  Data="Solutions"
+                  TotalItems="Solutions.Count"
+                  PageSize="100">
+            <DataGridColumns>
+                <DataGridEntityActionsColumn TItem="SolutionDto" @ref="@EntityActionsColumn">
+                    <DisplayTemplate>
+                        <EntityActions TItem="SolutionDto" EntityActionsColumn="@EntityActionsColumn">
+                            <EntityAction TItem="SolutionDto"
+                                          Clicked="() => ChangeSolutionAsync(context)"
+                                          Text="@L["Use"]" />
+                        </EntityActions>
+                        <EntityActions TItem="SolutionDto" EntityActionsColumn="@EntityActionsColumn">
+                            <EntityAction TItem="SolutionDto"
+                                          Clicked="() => DeleteSolutionAsync(context)"
+                                          ConfirmationMessage="()=>GetDeleteConfirmationMessage(context)"
+                                          Text="@L["Delete"]" />
+                        </EntityActions>
+                    </DisplayTemplate>
+                </DataGridEntityActionsColumn>
+                <DataGridColumn TItem="SolutionDto" Field="@nameof(SolutionDto.DisplayName)" Caption="@L["SolutionDisplayName"].Value">
+                    <DisplayTemplate>
+                        @(context.DisplayName) @if (CurrentSolution.Value.Equals(context))
+                                               {
+                                                   @($" ({L["Current"].Value})")
+                                               }
+                    </DisplayTemplate>
+                </DataGridColumn>
+                <DataGridColumn TItem="SolutionDto" Field="@nameof(SolutionDto.SolutionType)" Caption="@L["SolutionSolutionType"].Value">
+                    <DisplayTemplate>
+                        @L[$"SolutionType:{Enum.GetName(context.SolutionType)}"]
+                    </DisplayTemplate>
+                </DataGridColumn>
+                <DataGridColumn TItem="SolutionDto" Field="@nameof(SolutionDto.DirectoryPath)" Caption="@L["SolutionDirectoryPath"].Value">
+                    <DisplayTemplate>
+                        @(context.DirectoryPath)
+                    </DisplayTemplate>
+                </DataGridColumn>
+            </DataGridColumns>
+        </DataGrid>
+    </CardBody>
+</Card>
+
+<Modal @ref="Modal">
+    <ModalBackdrop />
+    <ModalContent Size="ModalSize.Default" IsCentered="true">
+        <ModalHeader>
+            <ModalTitle>@L["OpenSolution"]</ModalTitle>
+            <CloseButton Clicked="CloseOpenSolutionModal" />
+        </ModalHeader>
+        <ModalBody MaxHeight="50">
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["SolutionDisplayName"]</FieldLabel>
+                    <TextEdit @bind-Text="@CreateSolution.DisplayName">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+            <Field>
+                <FieldLabel>@L["SolutionSolutionType"]</FieldLabel>
+                <Select TValue="SolutionType" @bind-SelectedValue="@CreateSolution.SolutionType">
+                    @foreach (var solutionType in Enum.GetValues<SolutionType>())
+                    {
+                        <SelectItem Value="solutionType">
+                            @L[$"SolutionType:{Enum.GetName(solutionType)}"]
+                        </SelectItem>
+                    }
+                </Select>
+            </Field>
+            <Validation MessageLocalizer="@Lh.Localize">
+                <Field>
+                    <FieldLabel>@L["SolutionDirectoryPath"]</FieldLabel>
+                    <TextEdit @bind-Text="@CreateSolution.DirectoryPath">
+                        <Feedback>
+                            <ValidationError />
+                        </Feedback>
+                    </TextEdit>
+                </Field>
+            </Validation>
+        </ModalBody>
+        <ModalFooter>
+            <Button Color="Color.Secondary" Clicked="CloseOpenSolutionModal">@L["Cancel"]</Button>
+            <Button Color="Color.Primary" Clicked="OpenSolutionExecuteAsync">@L["Open"]</Button>
+        </ModalFooter>
+    </ModalContent>
+</Modal>

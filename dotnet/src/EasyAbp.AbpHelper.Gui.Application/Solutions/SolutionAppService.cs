@@ -92,9 +92,9 @@ namespace EasyAbp.AbpHelper.Gui.Solutions
         {
             var list = await _manager.GetListAsync();
 
-            FindSolution(list, input);
+            list.Remove(FindSolution(list, input));
 
-            await _manager.UpdateListAsync(list);
+            await UpdateRecentlySolutionListAsync(list);
         }
 
         public virtual async Task<GetPackageDictionaryOutput> GetPackageDictionaryAsync(GetPackageDictionaryInput input)
