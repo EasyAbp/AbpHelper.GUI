@@ -17,6 +17,7 @@
     "SolutionType:Module": "模塊",
     "Use": "使用",
     "Open": "打開",
+    "NoDataAvailable": "無可用數據",
     "Current": "當前",
     "Gui:InvalidSolutionDirectoryPath": "不正確的解決方案路徑。",
     "ModuleManagement_Explorer": "模塊瀏覽器",

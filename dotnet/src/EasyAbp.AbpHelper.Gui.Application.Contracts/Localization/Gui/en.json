@@ -17,6 +17,7 @@
     "SolutionType:Module": "Module",
     "Use": "Use",
     "Open": "Open",
+    "NoDataAvailable": "No data available",
     "Current": "Current",
     "Gui:InvalidSolutionDirectoryPath": "Invalid solution directory path.",
     "ModuleManagement_Explorer": "Module explorer",

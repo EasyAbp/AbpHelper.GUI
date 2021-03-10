@@ -20,6 +20,12 @@ namespace EasyAbp.AbpHelper.Gui.ModuleManagement.Explorer.Dtos
         
         public List<ModuleDto> Modules { get; set; }
         
+        #region Extra properties
+
+        public bool Visible { get; set; } = true;
+
+        #endregion
+        
         public int CompareTo(object obj)
         {
             return obj is not ModuleGroupDto dto ? 1 : string.Compare(Id, dto.Id, StringComparison.Ordinal);

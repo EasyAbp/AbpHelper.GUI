@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyAbp.AbpHelper.Gui.Blazor.Services;
@@ -51,6 +52,35 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
         protected override bool ShouldRender()
         {
             return !BuildingModulesData;
+        }
+
+        private async Task FilterModuleGroupsAsync(string value)
+        {
+            var selectedTabIsVisible = false;
+            
+            var hasValue = !value.IsNullOrWhiteSpace();
+            
+            foreach (var moduleGroup in ModuleGroups)
+            {
+                if (!hasValue || moduleGroup.Id.Contains(value, StringComparison.OrdinalIgnoreCase))
+                {
+                    moduleGroup.Visible = true;
+
+                    if (moduleGroup.Id == SelectedTab)
+                    {
+                        selectedTabIsVisible = true;
+                    }
+                }
+                else
+                {
+                    moduleGroup.Visible = false;
+                }
+            }
+
+            if (!selectedTabIsVisible)
+            {
+                SelectedTab = null;
+            }
         }
 
         private async Task RebuildModulesDataAsync()

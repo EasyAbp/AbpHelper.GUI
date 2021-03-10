@@ -18,6 +18,7 @@
     "Use": "使用",
     "Open": "打开",
     "Current": "当前",
+    "NoDataAvailable": "无可用数据",
     "Gui:InvalidSolutionDirectoryPath": "不正确的解决方案路径。",
     "ModuleManagement_Explorer": "模块浏览器",
     "Install": "安装",

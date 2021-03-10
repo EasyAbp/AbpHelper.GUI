@@ -19,7 +19,16 @@
     <CardBody>
         <Tabs TabPosition="TabPosition.Left" Pills="true" @bind-SelectedTab="@SelectedTab">
             <Items>
-                @foreach (var group in ModuleGroups)
+                <Field>
+                    <TextEdit Placeholder="@($"{L["Search"]}...")" TextChanged="@FilterModuleGroupsAsync" />
+                </Field>
+                @if (!ModuleGroups.Any(x => x.Visible))
+                {
+                    <Field>
+                        <Text>@L["NoDataAvailable"]</Text>
+                    </Field>
+                }
+                @foreach (var group in ModuleGroups.Where(x => x.Visible))
                 {
                     <Tab Name="@group.Id">
                         @if (group.Modules.Any(x => x.Checked || x.Indeterminate))
