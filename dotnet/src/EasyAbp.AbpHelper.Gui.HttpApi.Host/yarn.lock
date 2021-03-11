@@ -2,37 +2,37 @@
 # yarn lockfile v1
 
 
-"@abp/aspnetcore.mvc.ui.theme.basic@^4.2.0":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/aspnetcore.mvc.ui.theme.basic/download/@abp/aspnetcore.mvc.ui.theme.basic-4.2.1.tgz#78b465ab8fcd68a38e2b868717d00e5f5d3b0c61"
-  integrity sha1-eLRlq4/NaKOOK4aHF9AOX107DGE=
+"@abp/aspnetcore.mvc.ui.theme.basic@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/aspnetcore.mvc.ui.theme.basic/download/@abp/aspnetcore.mvc.ui.theme.basic-4.2.2.tgz#7de6a36c8e6d0a60b8dbd13d1fd15e31b4ea91c3"
+  integrity sha1-feajbI5tCmC429E9H9FeMbTqkcM=
   dependencies:
-    "@abp/aspnetcore.mvc.ui.theme.shared" "~4.2.1"
+    "@abp/aspnetcore.mvc.ui.theme.shared" "~4.2.2"
 
-"@abp/aspnetcore.mvc.ui.theme.shared@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/aspnetcore.mvc.ui.theme.shared/download/@abp/aspnetcore.mvc.ui.theme.shared-4.2.1.tgz#18205c13f137dad9876c4153f34273a7c8e69854"
-  integrity sha1-GCBcE/E32tmHbEFT80Jzp8jmmFQ=
+"@abp/aspnetcore.mvc.ui.theme.shared@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/aspnetcore.mvc.ui.theme.shared/download/@abp/aspnetcore.mvc.ui.theme.shared-4.2.2.tgz#3902475befccfb27b35c37a3372c4c56a7f09588"
+  integrity sha1-OQJHW+/M+yezXDejNyxMVqfwlYg=
   dependencies:
-    "@abp/aspnetcore.mvc.ui" "~4.2.1"
-    "@abp/bootstrap" "~4.2.1"
-    "@abp/bootstrap-datepicker" "~4.2.1"
-    "@abp/datatables.net-bs4" "~4.2.1"
-    "@abp/font-awesome" "~4.2.1"
-    "@abp/jquery-form" "~4.2.1"
-    "@abp/jquery-validation-unobtrusive" "~4.2.1"
-    "@abp/lodash" "~4.2.1"
-    "@abp/luxon" "~4.2.1"
-    "@abp/malihu-custom-scrollbar-plugin" "~4.2.1"
-    "@abp/select2" "~4.2.1"
-    "@abp/sweetalert" "~4.2.1"
-    "@abp/timeago" "~4.2.1"
-    "@abp/toastr" "~4.2.1"
+    "@abp/aspnetcore.mvc.ui" "~4.2.2"
+    "@abp/bootstrap" "~4.2.2"
+    "@abp/bootstrap-datepicker" "~4.2.2"
+    "@abp/datatables.net-bs4" "~4.2.2"
+    "@abp/font-awesome" "~4.2.2"
+    "@abp/jquery-form" "~4.2.2"
+    "@abp/jquery-validation-unobtrusive" "~4.2.2"
+    "@abp/lodash" "~4.2.2"
+    "@abp/luxon" "~4.2.2"
+    "@abp/malihu-custom-scrollbar-plugin" "~4.2.2"
+    "@abp/select2" "~4.2.2"
+    "@abp/sweetalert" "~4.2.2"
+    "@abp/timeago" "~4.2.2"
+    "@abp/toastr" "~4.2.2"
 
-"@abp/aspnetcore.mvc.ui@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/aspnetcore.mvc.ui/download/@abp/aspnetcore.mvc.ui-4.2.1.tgz#2ad368af731678213ff3d8448a3dd30a2f1f66c9"
-  integrity sha1-KtNor3MWeCE/89hEij3TCi8fZsk=
+"@abp/aspnetcore.mvc.ui@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/aspnetcore.mvc.ui/download/@abp/aspnetcore.mvc.ui-4.2.2.tgz#df4640836f460c590574c61607f5a023f2e3f510"
+  integrity sha1-30ZAg29GDFkFdMYWB/WgI/Lj9RA=
   dependencies:
     ansi-colors "^4.1.1"
     extend-object "^1.0.0"
@@ -43,145 +43,145 @@
     micromatch "^4.0.2"
     path "^0.12.7"
 
-"@abp/bootstrap-datepicker@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/bootstrap-datepicker/download/@abp/bootstrap-datepicker-4.2.1.tgz#87fe913aa6923a39206f4481af3b02309e2cebd5"
-  integrity sha1-h/6ROqaSOjkgb0SBrzsCMJ4s69U=
+"@abp/bootstrap-datepicker@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/bootstrap-datepicker/download/@abp/bootstrap-datepicker-4.2.2.tgz#1a553fb6824f2e795aecb0e803b8f5984a6f5ac6"
+  integrity sha1-GlU/toJPLnla7LDoA7j1mEpvWsY=
   dependencies:
     bootstrap-datepicker "^1.9.0"
 
-"@abp/bootstrap@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/bootstrap/download/@abp/bootstrap-4.2.1.tgz#12d8b0cddb5fca55888e01644ff49ed7d78069e9"
-  integrity sha1-EtiwzdtfylWIjgFkT/Se19eAaek=
+"@abp/bootstrap@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/bootstrap/download/@abp/bootstrap-4.2.2.tgz#3ae98e695edc32b2acb106bffc612c02627021b3"
+  integrity sha1-OumOaV7cMrKssQa//GEsAmJwIbM=
   dependencies:
-    "@abp/core" "~4.2.1"
+    "@abp/core" "~4.2.2"
     bootstrap "^4.5.0"
     bootstrap-v4-rtl "4.4.1-2"
 
-"@abp/core@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/core/download/@abp/core-4.2.1.tgz#1e74b0ffbc8c938e8de2f320594637910a09cbab"
-  integrity sha1-HnSw/7yMk46N4vMgWUY3kQoJy6s=
+"@abp/core@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/core/download/@abp/core-4.2.2.tgz#a375404dec4f5b1e3f7496c2d5c92b18ab561fb6"
+  integrity sha1-o3VATexPWx4/dJbC1ckrGKtWH7Y=
   dependencies:
-    "@abp/utils" "^4.2.1"
+    "@abp/utils" "^4.2.2"
 
-"@abp/datatables.net-bs4@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/datatables.net-bs4/download/@abp/datatables.net-bs4-4.2.1.tgz#fa6d711e6af352672879130a931fc2d27e5fd9e7"
-  integrity sha1-+m1xHmrzUmcoeRMKkx/C0n5f2ec=
+"@abp/datatables.net-bs4@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/datatables.net-bs4/download/@abp/datatables.net-bs4-4.2.2.tgz#d74f738b79e87f7b8b9f8c5d8d4b84c7a56d6ac4"
+  integrity sha1-109zi3nof3uLn4xdjUuEx6VtasQ=
   dependencies:
-    "@abp/datatables.net" "~4.2.1"
+    "@abp/datatables.net" "~4.2.2"
     datatables.net-bs4 "^1.10.21"
 
-"@abp/datatables.net@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/datatables.net/download/@abp/datatables.net-4.2.1.tgz#a5f3549b7b581619bbffb398b2172ed7789d0486"
-  integrity sha1-pfNUm3tYFhm7/7OYshcu13idBIY=
+"@abp/datatables.net@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/datatables.net/download/@abp/datatables.net-4.2.2.tgz#5e3ac4f9b40b35696e065ef8ba206ce0aa25973a"
+  integrity sha1-XjrE+bQLNWluBl74uiBs4Kollzo=
   dependencies:
-    "@abp/jquery" "~4.2.1"
+    "@abp/jquery" "~4.2.2"
     datatables.net "^1.10.21"
 
-"@abp/font-awesome@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/font-awesome/download/@abp/font-awesome-4.2.1.tgz#81d718b08a1f08bf35dd0887f9c6c9f1ea5416ee"
-  integrity sha1-gdcYsIofCL813QiH+cbJ8epUFu4=
+"@abp/font-awesome@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/font-awesome/download/@abp/font-awesome-4.2.2.tgz#d6babe704b44bf3902d896a1342569069d6c07e0"
+  integrity sha1-1rq+cEtEvzkC2JahNCVpBp1sB+A=
   dependencies:
-    "@abp/core" "~4.2.1"
+    "@abp/core" "~4.2.2"
     "@fortawesome/fontawesome-free" "^5.13.0"
 
-"@abp/jquery-form@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/jquery-form/download/@abp/jquery-form-4.2.1.tgz#bbc21aafd88aa0f89619ce72fbafc917812d15e4"
-  integrity sha1-u8Iar9iKoPiWGc5y+6/JF4EtFeQ=
+"@abp/jquery-form@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/jquery-form/download/@abp/jquery-form-4.2.2.tgz#a35c3eb8c2f4f0fa535fd020469273ce301c4941"
+  integrity sha1-o1w+uML08PpTX9AgRpJzzjAcSUE=
   dependencies:
-    "@abp/jquery" "~4.2.1"
+    "@abp/jquery" "~4.2.2"
     jquery-form "^4.3.0"
 
-"@abp/jquery-validation-unobtrusive@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/jquery-validation-unobtrusive/download/@abp/jquery-validation-unobtrusive-4.2.1.tgz#36681e75e43e8f708bbd5d6e359eefd8dcce86df"
-  integrity sha1-NmgedeQ+j3CLvV1uNZ7v2NzOht8=
+"@abp/jquery-validation-unobtrusive@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/jquery-validation-unobtrusive/download/@abp/jquery-validation-unobtrusive-4.2.2.tgz#f05298475d263b0f82c59bce23a8a9470782f718"
+  integrity sha1-8FKYR10mOw+CxZvOI6ipRweC9xg=
   dependencies:
-    "@abp/jquery-validation" "~4.2.1"
+    "@abp/jquery-validation" "~4.2.2"
     jquery-validation-unobtrusive "^3.2.11"
 
-"@abp/jquery-validation@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/jquery-validation/download/@abp/jquery-validation-4.2.1.tgz#209b0acb500ac301bb66b3f04bc18b9c574e2fcf"
-  integrity sha1-IJsKy1AKwwG7ZrPwS8GLnFdOL88=
+"@abp/jquery-validation@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/jquery-validation/download/@abp/jquery-validation-4.2.2.tgz#fe245a903c06baaae08222164cb1299af0ecf23b"
+  integrity sha1-/iRakDwGuqrggiIWTLEpmvDs8js=
   dependencies:
-    "@abp/jquery" "~4.2.1"
+    "@abp/jquery" "~4.2.2"
     jquery-validation "^1.19.2"
 
-"@abp/jquery@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/jquery/download/@abp/jquery-4.2.1.tgz#b8ed11cbc02d33cdc99cacbaf5089343a0f164c5"
-  integrity sha1-uO0Ry8AtM83JnKy69QiTQ6DxZMU=
+"@abp/jquery@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/jquery/download/@abp/jquery-4.2.2.tgz#9caf1692cf7153a6166332b72e8f3108b1990268"
+  integrity sha1-nK8Wks9xU6YWYzK3Lo8xCLGZAmg=
   dependencies:
-    "@abp/core" "~4.2.1"
+    "@abp/core" "~4.2.2"
     jquery "~3.5.1"
 
-"@abp/lodash@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/lodash/download/@abp/lodash-4.2.1.tgz#87b7f48cf494553f7cd43dddf625a90581555ae7"
-  integrity sha1-h7f0jPSUVT981D3d9iWpBYFVWuc=
+"@abp/lodash@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/lodash/download/@abp/lodash-4.2.2.tgz#537808a7c062eed62a2f057bd68c80721398e490"
+  integrity sha1-U3gIp8Bi7tYqLwV71oyAchOY5JA=
   dependencies:
-    "@abp/core" "~4.2.1"
+    "@abp/core" "~4.2.2"
     lodash "^4.17.15"
 
-"@abp/luxon@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/luxon/download/@abp/luxon-4.2.1.tgz#e29c1fe9903beb0fc4d32cab90a5de4ebc768e43"
-  integrity sha1-4pwf6ZA76w/E0yyrkKXeTrx2jkM=
+"@abp/luxon@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/luxon/download/@abp/luxon-4.2.2.tgz#29d79ee76e97c148d5d015d7c05cd2eb6f03cde6"
+  integrity sha1-Kdee526XwUjV0BXXwFzS628DzeY=
   dependencies:
-    "@abp/core" "~4.2.1"
+    "@abp/core" "~4.2.2"
     luxon "^1.24.1"
 
-"@abp/malihu-custom-scrollbar-plugin@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/malihu-custom-scrollbar-plugin/download/@abp/malihu-custom-scrollbar-plugin-4.2.1.tgz#0c491d772ab0bb03d7eead0b9715bddb44252d56"
-  integrity sha1-DEkddyqwuwPX7q0LlxW920QlLVY=
+"@abp/malihu-custom-scrollbar-plugin@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/malihu-custom-scrollbar-plugin/download/@abp/malihu-custom-scrollbar-plugin-4.2.2.tgz#41a50143d576b6a6d90cdf555f37071b80198e0c"
+  integrity sha1-QaUBQ9V2tqbZDN9VXzcHG4AZjgw=
   dependencies:
-    "@abp/core" "~4.2.1"
+    "@abp/core" "~4.2.2"
     malihu-custom-scrollbar-plugin "^3.1.5"
 
-"@abp/select2@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/select2/download/@abp/select2-4.2.1.tgz#2f397cc1754135642385333bf47a1a106dd9b165"
-  integrity sha1-Lzl8wXVBNWQjhTM79HoaEG3ZsWU=
+"@abp/select2@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/select2/download/@abp/select2-4.2.2.tgz#cff05d9d8078de237a6ce83642583a9fd1418b7c"
+  integrity sha1-z/BdnYB43iN6bOg2Qlg6n9FBi3w=
   dependencies:
-    "@abp/core" "~4.2.1"
+    "@abp/core" "~4.2.2"
     select2 "^4.0.13"
 
-"@abp/sweetalert@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/sweetalert/download/@abp/sweetalert-4.2.1.tgz#bdbc28c3f73b314b8ca792ea73390fe9f558c03f"
-  integrity sha1-vbwow/c7MUuMp5LqczkP6fVYwD8=
+"@abp/sweetalert@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/sweetalert/download/@abp/sweetalert-4.2.2.tgz#227459cfdac1ef4095c71d08bc2cd52dd49a5390"
+  integrity sha1-InRZz9rB70CVxx0IvCzVLdSaU5A=
   dependencies:
-    "@abp/core" "~4.2.1"
+    "@abp/core" "~4.2.2"
     sweetalert "^2.1.2"
 
-"@abp/timeago@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/timeago/download/@abp/timeago-4.2.1.tgz#38474ed4455e94c687a3124e1a6e77c3b29a87d3"
-  integrity sha1-OEdO1EVelMaHoxJOGm53w7Kah9M=
+"@abp/timeago@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/timeago/download/@abp/timeago-4.2.2.tgz#8b9731fb070f71a7e0a833c771cc527bcbfb937d"
+  integrity sha1-i5cx+wcPcafgqDPHccxSe8v7k30=
   dependencies:
-    "@abp/jquery" "~4.2.1"
+    "@abp/jquery" "~4.2.2"
     timeago "^1.6.7"
 
-"@abp/toastr@~4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/toastr/download/@abp/toastr-4.2.1.tgz#9e30607f7ff7067588d0a660226d338003c37707"
-  integrity sha1-njBgf3/3BnWI0KZgIm0zgAPDdwc=
+"@abp/toastr@~4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/toastr/download/@abp/toastr-4.2.2.tgz#9d9fc8cc131e49cf2ed1cdfeead2a6fc30d16deb"
+  integrity sha1-nZ/IzBMeSc8u0c3+6tKm/DDRbes=
   dependencies:
-    "@abp/jquery" "~4.2.1"
+    "@abp/jquery" "~4.2.2"
     toastr "^2.1.4"
 
-"@abp/utils@^4.2.1":
-  version "4.2.1"
-  resolved "https://registry.npm.taobao.org/@abp/utils/download/@abp/utils-4.2.1.tgz#1f5bfa7aae0065ec4dc38f1f5dc393b664c92d5c"
-  integrity sha1-H1v6eq4AZexNw48fXcOTtmTJLVw=
+"@abp/utils@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/@abp/utils/download/@abp/utils-4.2.2.tgz#7afdbbd14246ce06c074109c51d01588596805a9"
+  integrity sha1-ev270UJGzgbAdBCcUdAViFloBak=
   dependencies:
     just-compare "^1.3.0"
 
