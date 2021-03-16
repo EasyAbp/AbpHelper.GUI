@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using Blazor.Analytics;
 using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
 using EasyAbp.AbpHelper.Gui.Menus;
@@ -42,6 +43,12 @@ namespace EasyAbp.AbpHelper.Gui
             ConfigureRouter(context);
             ConfigureUI(builder);
             ConfigureAutoMapper(context);
+            ConfigureGoogleAnalytics(context);
+        }
+
+        private void ConfigureGoogleAnalytics(ServiceConfigurationContext context)
+        {
+            context.Services.AddGoogleAnalytics("G-7EJ58X64VW");
         }
 
         private void ConfigureMenu(ServiceConfigurationContext context)
