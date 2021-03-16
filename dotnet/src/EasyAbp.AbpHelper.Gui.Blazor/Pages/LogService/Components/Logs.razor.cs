@@ -3,7 +3,7 @@ using EasyAbp.AbpHelper.Gui.LogService;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.LogService.Components
+namespace EasyAbp.AbpHelper.Gui.Pages.LogService.Components
 {
     public partial class Logs
     {

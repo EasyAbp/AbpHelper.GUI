@@ -1,7 +1,7 @@
 ﻿using Volo.Abp.DependencyInjection;
 using Volo.Abp.Ui.Branding;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor
+namespace EasyAbp.AbpHelper.Gui
 {
     [Dependency(ReplaceServices = true)]
     public class GuiBrandingProvider : DefaultBrandingProvider

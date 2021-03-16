@@ -2,7 +2,7 @@
 using EasyAbp.AbpHelper.Gui.CodeGeneration.Localization;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.Localization
+namespace EasyAbp.AbpHelper.Gui.Pages.CodeGeneration.Components.Localization
 {
     public partial class GenerateLocalizationItems
     {

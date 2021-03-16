@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using Volo.Abp.BlazoriseUI.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions
+namespace EasyAbp.AbpHelper.Gui.Pages.Solutions
 {
     public partial class Index
     {

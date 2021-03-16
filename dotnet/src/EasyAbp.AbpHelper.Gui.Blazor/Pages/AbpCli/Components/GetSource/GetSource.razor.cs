@@ -3,7 +3,7 @@ using EasyAbp.AbpHelper.Gui.AbpCli.GetSource;
 using EasyAbp.AbpHelper.Gui.AbpCli.Update;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.GetSource
+namespace EasyAbp.AbpHelper.Gui.Pages.AbpCli.Components.GetSource
 {
     public partial class GetSource
     {

@@ -2,7 +2,7 @@
 using EasyAbp.AbpHelper.Gui.CodeGeneration.Controller;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.Controller
+namespace EasyAbp.AbpHelper.Gui.Pages.CodeGeneration.Components.Controller
 {
     public partial class GenerateController
     {

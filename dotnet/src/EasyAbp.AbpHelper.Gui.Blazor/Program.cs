@@ -1,11 +1,11 @@
 using System;
 using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Gui.Blazor.Services;
+using EasyAbp.AbpHelper.Gui.Services;
 using EasyAbp.AbpHelper.Gui.Solutions;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor
+namespace EasyAbp.AbpHelper.Gui
 {
     public class Program
     {

@@ -4,7 +4,7 @@ using EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos;
 using Microsoft.AspNetCore.Components;
 using Volo.Abp.AspNetCore.Components.Messages;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.New
+namespace EasyAbp.AbpHelper.Gui.Pages.AbpCli.Components.New
 {
     public partial class CreateConsole
     {

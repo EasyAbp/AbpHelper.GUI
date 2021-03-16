@@ -2,7 +2,7 @@
 using EasyAbp.AbpHelper.Gui.AbpCli.Build;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Build
+namespace EasyAbp.AbpHelper.Gui.Pages.AbpCli.Components.Build
 {
     public partial class Build
     {

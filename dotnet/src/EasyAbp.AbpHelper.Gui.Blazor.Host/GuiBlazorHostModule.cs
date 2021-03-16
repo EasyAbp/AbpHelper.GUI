@@ -1,5 +1,4 @@
-﻿using EasyAbp.AbpHelper.Gui.Blazor;
-using Volo.Abp.Modularity;
+﻿using Volo.Abp.Modularity;
 
 namespace EasyAbp.AbpHelper.Gui
 {

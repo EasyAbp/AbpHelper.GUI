@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Gui.Blazor.Services;
+using EasyAbp.AbpHelper.Gui.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
+namespace EasyAbp.AbpHelper.Gui.Pages.Shared
 {
     public abstract class ExecutableComponentBaseWithCurrentSolution : ExecutableComponentBase, IDisposable
     {

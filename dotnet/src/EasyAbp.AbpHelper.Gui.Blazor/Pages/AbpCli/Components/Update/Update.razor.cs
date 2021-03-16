@@ -3,10 +3,10 @@ using EasyAbp.AbpHelper.Gui.AbpCli.New;
 using EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos;
 using EasyAbp.AbpHelper.Gui.AbpCli.Update;
 using EasyAbp.AbpHelper.Gui.AbpCli.Update.Dtos;
-using EasyAbp.AbpHelper.Gui.Blazor.Services;
+using EasyAbp.AbpHelper.Gui.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Update
+namespace EasyAbp.AbpHelper.Gui.Pages.AbpCli.Components.Update
 {
     public partial class Update
     {

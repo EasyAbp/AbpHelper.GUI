@@ -1,6 +1,6 @@
 ﻿using Volo.Abp.Bundling;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor
+namespace EasyAbp.AbpHelper.Gui
 {
     public class GuiBundleContributor : IBundleContributor
     {

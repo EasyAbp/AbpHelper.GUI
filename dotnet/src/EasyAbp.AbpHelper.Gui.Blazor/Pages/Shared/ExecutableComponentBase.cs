@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using Volo.Abp.AspNetCore.Components.Messages;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
+namespace EasyAbp.AbpHelper.Gui.Pages.Shared
 {
     public abstract class ExecutableComponentBase : GuiComponentBase
     {

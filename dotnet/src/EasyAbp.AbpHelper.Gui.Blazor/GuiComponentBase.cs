@@ -1,7 +1,7 @@
 ﻿using EasyAbp.AbpHelper.Gui.Localization;
 using Volo.Abp.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor
+namespace EasyAbp.AbpHelper.Gui
 {
     public abstract class GuiComponentBase : AbpComponentBase
     {

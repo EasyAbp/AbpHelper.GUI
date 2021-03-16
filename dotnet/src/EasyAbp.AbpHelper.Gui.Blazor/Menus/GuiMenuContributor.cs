@@ -7,7 +7,7 @@ using Volo.Abp.Account.Localization;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.Users;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Menus
+namespace EasyAbp.AbpHelper.Gui.Menus
 {
     public class GuiMenuContributor : IMenuContributor
     {

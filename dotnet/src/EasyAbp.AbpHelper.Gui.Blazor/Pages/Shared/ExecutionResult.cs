@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
+namespace EasyAbp.AbpHelper.Gui.Pages.Shared
 {
     [Flags]
     public enum ExecutionResult

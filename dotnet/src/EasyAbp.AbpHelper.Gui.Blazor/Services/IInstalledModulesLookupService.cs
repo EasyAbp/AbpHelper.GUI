@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using EasyAbp.AbpHelper.Gui.Solutions.Dtos;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Services
+namespace EasyAbp.AbpHelper.Gui.Services
 {
     public interface IInstalledModulesLookupService
     {

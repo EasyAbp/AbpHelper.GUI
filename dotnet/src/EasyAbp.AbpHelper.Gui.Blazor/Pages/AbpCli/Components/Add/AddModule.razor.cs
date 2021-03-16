@@ -3,10 +3,10 @@ using EasyAbp.AbpHelper.Gui.AbpCli.Add;
 using EasyAbp.AbpHelper.Gui.AbpCli.Add.Dtos;
 using EasyAbp.AbpHelper.Gui.AbpCli.Update;
 using EasyAbp.AbpHelper.Gui.AbpCli.Update.Dtos;
-using EasyAbp.AbpHelper.Gui.Blazor.Services;
+using EasyAbp.AbpHelper.Gui.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Add
+namespace EasyAbp.AbpHelper.Gui.Pages.AbpCli.Components.Add
 {
     public partial class AddModule
     {

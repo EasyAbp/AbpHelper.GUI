@@ -2,8 +2,8 @@
 using System.Net.Http;
 using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
-using EasyAbp.AbpHelper.Gui.Blazor.Menus;
-using EasyAbp.AbpHelper.Gui.Blazor.Toolbars;
+using EasyAbp.AbpHelper.Gui.Menus;
+using EasyAbp.AbpHelper.Gui.Toolbars;
 using IdentityModel;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +18,7 @@ using Volo.Abp.AutoMapper;
 using Volo.Abp.Identity.Blazor;
 using Volo.Abp.UI.Navigation;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor
+namespace EasyAbp.AbpHelper.Gui
 {
     [DependsOn(
         typeof(AbpAutofacWebAssemblyModule),

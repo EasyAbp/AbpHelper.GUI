@@ -3,7 +3,7 @@ using EasyAbp.AbpHelper.Gui.AbpCli.Proxy;
 using EasyAbp.AbpHelper.Gui.AbpCli.Switch;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Switch
+namespace EasyAbp.AbpHelper.Gui.Pages.AbpCli.Components.Switch
 {
     public partial class SwitchToPreview
     {

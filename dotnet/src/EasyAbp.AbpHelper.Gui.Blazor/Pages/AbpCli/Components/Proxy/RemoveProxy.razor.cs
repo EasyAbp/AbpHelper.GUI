@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using EasyAbp.AbpHelper.Gui.AbpCli.Proxy;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Proxy
+namespace EasyAbp.AbpHelper.Gui.Pages.AbpCli.Components.Proxy
 {
     public partial class RemoveProxy
     {

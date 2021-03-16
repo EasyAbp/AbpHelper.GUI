@@ -2,7 +2,7 @@
 using EasyAbp.AbpHelper.Gui.AbpCli.Translate;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Translate
+namespace EasyAbp.AbpHelper.Gui.Pages.AbpCli.Components.Translate
 {
     public partial class ApplyChanges
     {

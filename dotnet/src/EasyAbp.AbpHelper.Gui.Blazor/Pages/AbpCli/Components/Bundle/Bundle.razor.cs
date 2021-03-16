@@ -2,7 +2,7 @@
 using EasyAbp.AbpHelper.Gui.AbpCli.Bundle;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Bundle
+namespace EasyAbp.AbpHelper.Gui.Pages.AbpCli.Components.Bundle
 {
     public partial class Bundle
     {

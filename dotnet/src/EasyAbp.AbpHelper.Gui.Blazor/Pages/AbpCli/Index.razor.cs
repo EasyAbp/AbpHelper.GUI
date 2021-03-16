@@ -1,4 +1,4 @@
-﻿namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli
+﻿namespace EasyAbp.AbpHelper.Gui.Pages.AbpCli
 {
     public partial class Index
     {

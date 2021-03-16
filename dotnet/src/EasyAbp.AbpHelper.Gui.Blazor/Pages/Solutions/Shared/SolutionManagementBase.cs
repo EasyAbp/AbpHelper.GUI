@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Blazorise;
-using EasyAbp.AbpHelper.Gui.Blazor.Services;
+using EasyAbp.AbpHelper.Gui.Services;
 using EasyAbp.AbpHelper.Gui.Localization;
 using EasyAbp.AbpHelper.Gui.Solutions;
 using EasyAbp.AbpHelper.Gui.Solutions.Dtos;
 using Microsoft.AspNetCore.Components;
 using Volo.Abp.AspNetCore.Components.WebAssembly;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Shared
+namespace EasyAbp.AbpHelper.Gui.Pages.Solutions.Shared
 {
     public class SolutionManagementBase : GuiComponentBase, IDisposable
     {

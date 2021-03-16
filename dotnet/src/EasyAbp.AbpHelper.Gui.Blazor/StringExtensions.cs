@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor
+namespace EasyAbp.AbpHelper.Gui
 {
     public static class StringExtensions
     {

@@ -1,4 +1,4 @@
-﻿namespace EasyAbp.AbpHelper.Gui.Blazor.Menus
+﻿namespace EasyAbp.AbpHelper.Gui.Menus
 {
     public class GuiMenus
     {

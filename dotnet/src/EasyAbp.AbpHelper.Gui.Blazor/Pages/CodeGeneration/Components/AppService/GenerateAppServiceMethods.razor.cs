@@ -3,7 +3,7 @@ using EasyAbp.AbpHelper.Gui.CodeGeneration.AppService;
 using EasyAbp.AbpHelper.Gui.CodeGeneration.Crud;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration.Components.AppService
+namespace EasyAbp.AbpHelper.Gui.Pages.CodeGeneration.Components.AppService
 {
     public partial class GenerateAppServiceMethods
     {
