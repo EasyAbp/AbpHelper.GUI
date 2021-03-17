@@ -22,19 +22,7 @@ namespace EasyAbp.AbpHelper.Gui
 
             await application.InitializeAsync(host.Services);
 
-            // await SetCurrentSolutionAsync(host.Services);
-
             await host.RunAsync();
-        }
-        
-        private static async Task SetCurrentSolutionAsync(IServiceProvider services)
-        {
-            var currentSolution = services.GetRequiredService<ICurrentSolution>();
-            var solutionAppService = services.GetRequiredService<ISolutionAppService>();
-
-            var solutions = await solutionAppService.GetListAsync();
-
-            await currentSolution.SetAsync(solutions.Items.Count > 0 ? solutions.Items[0] : null);
         }
     }
 }

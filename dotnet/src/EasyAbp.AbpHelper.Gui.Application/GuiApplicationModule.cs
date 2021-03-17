@@ -1,5 +1,7 @@
 ﻿using EasyAbp.AbpHelper.Core;
+using EasyAbp.AbpHelper.Gui.LogService;
 using Microsoft.Extensions.DependencyInjection;
+using Volo.Abp;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Cli;
 using Volo.Abp.Modularity;
@@ -23,6 +25,11 @@ namespace EasyAbp.AbpHelper.Gui
             {
                 options.AddMaps<GuiApplicationModule>(validate: true);
             });
+        }
+        
+        public override void OnPostApplicationInitialization(ApplicationInitializationContext context)
+        {
+            context.ServiceProvider.GetRequiredService<ILogFilePathProvider>();
         }
     }
 }

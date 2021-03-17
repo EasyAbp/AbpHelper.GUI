@@ -18,9 +18,9 @@ namespace EasyAbp.AbpHelper.Gui.Pages.LogService.Components
             await JsRuntime.InvokeVoidAsync("open", await GetRecentLogFilePathAsync(), "_blank");
         }
         
-        private Task<string> GetRecentLogFilePathAsync()
+        private async Task<string> GetRecentLogFilePathAsync()
         {
-            return Service.GetRecentLogFilePathAsync();
+            return await Service.GetRecentLogFilePathAsync();
         }
 
     }

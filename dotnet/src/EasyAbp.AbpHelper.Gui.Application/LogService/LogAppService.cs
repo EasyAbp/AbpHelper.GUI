@@ -1,19 +1,20 @@
-﻿using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Volo.Abp.Application.Services;
 
 namespace EasyAbp.AbpHelper.Gui.LogService
 {
     public class LogAppService : ApplicationService, ILogAppService
     {
-        public virtual Task<string> GetRecentLogFilePathAsync()
-        {
-            var directory = new DirectoryInfo("Logs");
+        private readonly ILogFilePathProvider _logFilePathProvider;
 
-            return Task.FromResult(directory.GetFiles()
-                .OrderByDescending(f => f.LastWriteTime)
-                .First().FullName);
+        public LogAppService(ILogFilePathProvider logFilePathProvider)
+        {
+            _logFilePathProvider = logFilePathProvider;
+        }
+        
+        public virtual async Task<string> GetRecentLogFilePathAsync()
+        {
+            return await _logFilePathProvider.GetRecentlyAsync();
         }
     }
 }
