@@ -188,7 +188,8 @@ namespace EasyAbp.AbpHelper.Gui.Pages.ModuleManagement.Components
             {
                 if (moduleGroup.Modules.All(x => !x.Checked && !x.Indeterminate))
                 {
-                    foreach (var module in moduleGroup.Modules.Where(x => x.Default))
+                    foreach (var module in moduleGroup.Modules.Where(x =>
+                        x.Default && x.DefaultTargets.Any(y => AppProjectsInstalledModuleNames.ContainsKey(y))))
                     {
                         ModuleChanged(true, module, true);
                     }
