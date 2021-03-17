@@ -57,9 +57,6 @@ function initialize () {
     console.log(trayIcon)
     tray = new Tray(path.join(__dirname, trayIcon))
     buildTrayMenuFromTemplate()
-    if (!debug) {
-      checkForUpdate()
-    }
 
     tray.on('double-click', function () {
       if (mainWindow) {
@@ -153,20 +150,6 @@ function initialize () {
 
 let tray = null
 
-let checkUpdateMenuItem = {
-  id: 'checkUpdate',
-  label: 'GUI Version: Ready for update checking',
-  enabled: false,
-  click: async () => await checkForUpdate()
-}
-
-let downloadReleaseMenuItem = {
-  id: 'downloadRelease',
-  label: 'Download AbpHelper GUI latest release',
-  visible: false,
-  click: () => shell.openExternal('https://github.com/EasyAbp/AbpHelper.GUI/releases')
-}
-
 let template = [{
   label: 'Show',
   click: () => mainWindow.show()
@@ -205,8 +188,6 @@ let template = [{
       click: () => shell.openExternal('https://github.com/EasyAbp/AbpHelper.CLI')
     }]
   },
-  checkUpdateMenuItem,
-  downloadReleaseMenuItem,
   {
     label: 'About...',
     // click: () => loadShowPage('about')
@@ -228,29 +209,6 @@ function buildTrayMenuFromTemplate() {
   contextMenu = Menu.buildFromTemplate(template)
   tray.setToolTip('AbpHelper v' + app.getVersion())
   tray.setContextMenu(contextMenu)
-}
-
-async function checkForUpdate() {
-  const currentVersion = app.getVersion()
-  downloadReleaseMenuItem.visible = false
-  checkUpdateMenuItem.label = 'GUI Version: Checking for Update....'
-  checkUpdateMenuItem.enabled = false
-  const data = await (await fetch('https://api.github.com/repos/EasyAbp/AbpHelper.GUI/releases/latest', {type: 'text'})).json()
-  var tagName = data.tag_name.replace('v', '')
-  if (tagName) {
-    checkUpdateMenuItem.label = tagName == currentVersion ? 'GUI Version: v' + currentVersion : 'GUI Version: v' + currentVersion + ' (Latest: v' + tagName + ')'
-    checkUpdateMenuItem.enabled = true
-    if (currentVersion != tagName) {
-      downloadReleaseMenuItem.visible = true
-    }
-  } else if (data.message && data.message.indexOf('API rate limit exceeded') == 0) {
-    checkUpdateMenuItem.label = 'GUI Version: Update checking failed (API rate limit exceeded)'
-    checkUpdateMenuItem.enabled = true
-  } else {
-    checkUpdateMenuItem.label = 'GUI Version: Update checking failed'
-    checkUpdateMenuItem.enabled = true
-  }
-  buildTrayMenuFromTemplate()
 }
 
 // Make this app a single instance app.

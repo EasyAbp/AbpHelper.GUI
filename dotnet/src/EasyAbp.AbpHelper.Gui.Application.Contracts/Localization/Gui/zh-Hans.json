@@ -20,6 +20,8 @@
     "Current": "当前",
     "NoDataAvailable": "无可用数据",
     "Gui:InvalidSolutionDirectoryPath": "不正确的解决方案路径。",
+    "UpdateCheckAlertMessage": "发现新版本！",
+    "UpdateCheckAlertDescription": "点击了解 AbpHelper GUI v{0} 的新功能。",
     "ModuleManagement_Explorer": "模块浏览器",
     "Install": "安装",
     "Reset": "重置",

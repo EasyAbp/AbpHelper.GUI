@@ -5,6 +5,18 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 <div class="container">
 
+    <Alert Color="Color.Info" @bind-Visible="@UpdateCheckAlertVisible">
+        <AlertMessage>
+            @L["UpdateCheckAlertMessage"]
+        </AlertMessage>
+        <AlertDescription>
+            <Blazorise.Link To="https://github.com/EasyAbp/AbpHelper.GUI/releases" Target="Target.Blank" Style="color: #0c5460">
+                @L["UpdateCheckAlertDescription", LatestVersion]
+            </Blazorise.Link>
+        </AlertDescription>
+        <CloseButton/>
+    </Alert>
+    
     <div class="p-5 text-center" style="margin-top: 100px">
 
         <h1>@L["Welcome"]</h1>

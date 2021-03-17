@@ -20,6 +20,8 @@
     "NoDataAvailable": "No data available",
     "Current": "Current",
     "Gui:InvalidSolutionDirectoryPath": "Invalid solution directory path.",
+    "UpdateCheckAlertMessage": "New release!",
+    "UpdateCheckAlertDescription": "Click to see what's new in the AbpHelper GUI v{0}.",
     "ModuleManagement_Explorer": "Module explorer",
     "Install": "Install",
     "Reset": "Reset",
