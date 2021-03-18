@@ -2,90 +2,96 @@
 @using EasyAbp.AbpHelper.Gui.Localization
 @inherits ComponentBaseWithCurrentSolution
 @inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
-
-<Card>
-    <CardHeader>
-        @* ************************* PAGE HEADER ************************* *@
-        <Row Class="justify-content-between">
-            <Column ColumnSize="ColumnSize.IsAuto">
-                <h4>@L["ModuleManagement_Explorer"]</h4>
-            </Column>
-            <Column ColumnSize="ColumnSize.IsAuto">
-                <Button Color="Color.Secondary" Size="Size.Medium" Clicked="ResetChangesAsync" Disabled="@CanNotReset" Loading="@CanNotReset">@L["Reset"]</Button>
-                <Button Color="Color.Primary" Size="Size.Medium" Clicked="() => InstallationActuatorModal.OpenAsync(GetAddManyModuleInputList(), GetRemoveManyModuleInputList(), RebuildModulesDataAsync)">@L["Install"]</Button>
-            </Column>
-        </Row>
-    </CardHeader>
-    <CardBody>
-        <Tabs TabPosition="TabPosition.Left" Pills="true" @bind-SelectedTab="@SelectedTab">
-            <Items>
-                <Field>
-                    <TextEdit Placeholder="@($"{L["Search"]}...")" TextChanged="@FilterModuleGroupsAsync" />
+<div>
+    <Card>
+        <CardHeader>
+            @* ************************* PAGE HEADER ************************* *@
+            <Row Class="justify-content-between">
+                <Column ColumnSize="ColumnSize.IsAuto">
+                    <h4>@L["ModuleManagement_Explorer"]</h4>
+                </Column>
+                <Column ColumnSize="ColumnSize.IsAuto">
+                    <Button Color="Color.Secondary" Size="Size.Medium" Clicked="ResetChangesAsync" Disabled="@CanNotReset" Loading="@CanNotReset">@L["Reset"]</Button>
+                    <Button Color="Color.Primary" Size="Size.Medium" Clicked="() => InstallationActuatorModal.OpenAsync(GetAddManyModuleInputList(), GetRemoveManyModuleInputList(), RebuildModulesDataAsync)">@L["Install"]</Button>
+                </Column>
+            </Row>
+        </CardHeader>
+        <CardBody ElementId="module-explorer-body">
+            @if (ModuleGroups.Count > 0)
+            {
+                <Field ElementId="search-input">
+                    <TextEdit Placeholder="@($"{L["Search"]}...")" TextChanged="@FilterModuleGroupsAsync"/>
                 </Field>
-                @if (!ModuleGroups.Any(x => x.Visible))
-                {
-                    <Field>
-                        <Text>@L["NoDataAvailable"]</Text>
-                    </Field>
-                }
-                @foreach (var group in ModuleGroups.Where(x => x.Visible))
-                {
-                    <Tab Name="@group.Id">
-                        @if (group.Modules.Any(x => x.Checked || x.Indeterminate))
+            }
+            <Tabs TabPosition="TabPosition.Left" Pills="true" @bind-SelectedTab="@SelectedTab">
+                <Items>
+                    @if (ModuleGroups.Count > 0)
+                    {
+                        @if (!ModuleGroups.Any(x => x.Visible))
                         {
-                            <span>
-                                <b>@group.Id</b>
-                            </span>
-                        }
-                        else
-                        {
-                            <span>
-                                @group.Id
-                            </span>
-                        }
-                    </Tab>
-                }
-            </Items>
-            <Content>
-                @foreach (var group in ModuleGroups)
-                {
-                    <TabPanel Name="@group.Id">
-                        <h4>@group.Id</h4>
-                        
-                        <Divider />
-                        
-                        <Field>
-                            <Check
-                                Checked="@group.Modules.All(x => x.Checked || x.Indeterminate)"
-                                Indeterminate="@(group.Modules.Any(x => x.Checked || x.Indeterminate) && group.Modules.Any(x => !x.Checked && !x.Indeterminate))"
-                                Cursor="Cursor.Pointer"
-                                CheckedChanged="@(b => ModulesAllChanged(b, group))"
-                                TValue="bool">
-                                @L["InstallThisModuleGroup"]
-                            </Check>
-                        </Field>
-
-                        <Divider />
-                        
-                        @foreach (var module in group.Modules)
-                        {
-                            <Field Margin="Margin.Is0.OnAll">
-                                <Check
-                                    Cursor="Cursor.Pointer"
-                                    Checked="@module.Checked"
-                                    Indeterminate="@module.Indeterminate"
-                                    CheckedChanged="@(b => ModuleChanged(b, module))"
-                                    TValue="bool">
-                                    @GetModulePackageName(group.Id, module.Id)
-                                </Check>
+                            <Field>
+                                <Text>@L["NoDataAvailable"]</Text>
                             </Field>
                         }
-                        
-                    </TabPanel>
-                }
-            </Content>
-        </Tabs>
-    </CardBody>
-</Card>
+                    }
+                    @foreach (var group in ModuleGroups.Where(x => x.Visible))
+                    {
+                        <Tab Name="@group.Id">
+                            @if (group.Modules.Any(x => x.Checked || x.Indeterminate))
+                            {
+                                <span>
+                                    <b>@group.Id</b>
+                                </span>
+                            }
+                            else
+                            {
+                                <span>
+                                    @group.Id
+                                </span>
+                            }
+                        </Tab>
+                    }
+                </Items>
+                <Content>
+                    @foreach (var group in ModuleGroups)
+                    {
+                        <TabPanel Name="@group.Id">
+                            <h4>@group.Id</h4>
 
+                            <Divider/>
+
+                            <Field>
+                                <Check
+                                    Checked="@group.Modules.All(x => x.Checked || x.Indeterminate)"
+                                    Indeterminate="@(group.Modules.Any(x => x.Checked || x.Indeterminate) && group.Modules.Any(x => !x.Checked && !x.Indeterminate))"
+                                    Cursor="Cursor.Pointer"
+                                    CheckedChanged="@(b => ModulesAllChanged(b, group))"
+                                    TValue="bool">
+                                    @L["InstallThisModuleGroup"]
+                                </Check>
+                            </Field>
+
+                            <Divider/>
+
+                            @foreach (var module in group.Modules)
+                            {
+                                <Field Margin="Margin.Is0.OnAll">
+                                    <Check
+                                        Cursor="Cursor.Pointer"
+                                        Checked="@module.Checked"
+                                        Indeterminate="@module.Indeterminate"
+                                        CheckedChanged="@(b => ModuleChanged(b, module))"
+                                        TValue="bool">
+                                        @GetModulePackageName(group.Id, module.Id)
+                                    </Check>
+                                </Field>
+                            }
+
+                        </TabPanel>
+                    }
+                </Content>
+            </Tabs>
+        </CardBody>
+    </Card>
+</div>
 <InstallationActuatorModal @ref="InstallationActuatorModal" />

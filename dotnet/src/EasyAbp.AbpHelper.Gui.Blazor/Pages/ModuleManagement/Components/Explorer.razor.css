@@ -1,0 +1,34 @@
+﻿::deep #module-explorer-body {
+    max-height: 600px;
+    overflow: auto;
+}
+::deep #module-explorer-body .col-auto {
+    margin-top: 50px;
+    width: 350px;
+    max-height: 500px;
+    overflow: auto;
+}
+::deep #search-input{
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    width: 320px;
+}
+@media all and (max-width: 420px) {
+    ::deep #module-explorer-body {
+        max-height: 100%;
+        overflow: auto;
+    }
+    ::deep #module-explorer-body .col-auto {
+        margin-top: 0;
+        width: 350px;
+        max-height: 500px;
+        overflow: auto;
+    }
+    ::deep #search-input{
+        position: relative;
+        top: 0;
+        left: 0;
+        width: auto;
+    }
+}
