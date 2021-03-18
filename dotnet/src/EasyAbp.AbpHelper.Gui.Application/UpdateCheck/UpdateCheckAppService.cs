@@ -42,7 +42,7 @@ namespace EasyAbp.AbpHelper.Gui.UpdateCheck
 
         protected virtual async Task<string> GetLatestVersionAsync()
         {
-            var item = await _cache.GetOrAddAsync(null,
+            var item = await _cache.GetOrAddAsync("",
                 async () => new UpdateCheckCacheItem
                     {LatestVersion = await RequestLatestVersionFromGithubRepositoryAsync()},
                 () => new DistributedCacheEntryOptions
