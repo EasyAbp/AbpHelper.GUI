@@ -4,7 +4,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
 {
     public class AbpNewConsoleInput : AbpNewInput
     {
-        public override string Template { get; } = "module";
+        public override string Template { get; } = "console";
 
         public AbpNewConsoleInput()
         {
