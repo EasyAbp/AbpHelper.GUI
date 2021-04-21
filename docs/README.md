@@ -21,6 +21,6 @@ Providing code generation and more features to help you develop applications and
 ## Roadmap
 
 - [x] AbpHelper CLI update check
-- [x] Remember recently solutions
-- [x] Module manaegement
+- [x] Remember recent solutions
+- [x] Module management
 - [x] Localization support
