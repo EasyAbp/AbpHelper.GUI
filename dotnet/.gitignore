@@ -252,9 +252,4 @@ paket-files/
 *.sln.iml
 
 # Gui
-src/EasyAbp.AbpHelper.Gui.Web/Logs/*
-src/EasyAbp.AbpHelper.Gui.Web.Host/Logs/*
-src/EasyAbp.AbpHelper.Gui.IdentityServer/Logs/*
-src/EasyAbp.AbpHelper.Gui.HttpApi.Host/Logs/*
-src/EasyAbp.AbpHelper.Gui.HttpApi.Host/Logs/*
-src/EasyAbp.AbpHelper.Gui.DbMigrator/Logs/*
+src/EasyAbp.AbpHelper.Gui.Blazor/Logs/*
