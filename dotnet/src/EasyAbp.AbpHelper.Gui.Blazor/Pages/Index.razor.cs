@@ -2,7 +2,7 @@
 using EasyAbp.AbpHelper.Gui.UpdateCheck;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Pages
+namespace EasyAbp.AbpHelper.Gui.Blazor.Pages
 {
     public partial class Index
     {

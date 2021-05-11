@@ -1,5 +1,6 @@
-﻿@using EasyAbp.AbpHelper.Gui.Localization
-@using EasyAbp.AbpHelper.Gui.Pages.Shared;
+﻿@using Volo.Abp.AspNetCore.Components.Web
+@using EasyAbp.AbpHelper.Gui.Localization
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
 @using EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
 @inherits ExecutableComponentBase
 @inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
@@ -7,127 +8,129 @@
 <Card Class="mb-4">
     <CardBody>
         <Form>
-            <Validation MessageLocalizer="@Lh.Localize">
+            <Validations Mode="ValidationMode.Auto" ValidateOnLoad="false">
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_New:SolutionName"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.SolutionName" Autofocus="true">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_New:OutputFolder"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.OutputFolder">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
                 <Field>
-                    <FieldLabel>@L["AbpCli_New:SolutionName"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.SolutionName" Autofocus="true">
-                        <Feedback>
-                            <ValidationError />
-                        </Feedback>
-                    </TextEdit>
+                    <FieldLabel>@L["AbpCli_New:AppUiFramework"]</FieldLabel>
+                    <Select TValue="AppUiFramework" @bind-SelectedValue="Input.Ui">
+                        @foreach (var appUiFramework in Enum.GetValues<AppUiFramework>())
+                        {
+                            <SelectItem Value="appUiFramework">
+                                @L[$"AbpCli_New:AppUiFramework:{Enum.GetName(appUiFramework)}"]
+                            </SelectItem>
+                        }
+                    </Select>
                 </Field>
-            </Validation>
-            <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["AbpCli_New:OutputFolder"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.OutputFolder">
-                        <Feedback>
-                            <ValidationError />
-                        </Feedback>
-                    </TextEdit>
+                    <FieldLabel>@L["AbpCli_New:AppMobileApplicationFramework"]</FieldLabel>
+                    <Select TValue="AppMobileApplicationFramework" @bind-SelectedValue="Input.Mobile">
+                        @foreach (var mobileApplicationFramework in Enum.GetValues<AppMobileApplicationFramework>())
+                        {
+                            <SelectItem Value="mobileApplicationFramework">
+                                @L[$"AbpCli_New:AppMobileApplicationFramework:{Enum.GetName(mobileApplicationFramework)}"]
+                            </SelectItem>
+                        }
+                    </Select>
                 </Field>
-            </Validation>
-            <Field>
-                <FieldLabel>@L["AbpCli_New:AppUiFramework"]</FieldLabel>
-                <Select TValue="AppUiFramework" @bind-SelectedValue="Input.Ui">
-                    @foreach (var appUiFramework in Enum.GetValues<AppUiFramework>())
-                    {
-                        <SelectItem Value="appUiFramework">
-                            @L[$"AbpCli_New:AppUiFramework:{Enum.GetName(appUiFramework)}"]
-                        </SelectItem>
-                    }
-                </Select>
-            </Field>
-            <Field>
-                <FieldLabel>@L["AbpCli_New:AppMobileApplicationFramework"]</FieldLabel>
-                <Select TValue="AppMobileApplicationFramework" @bind-SelectedValue="Input.Mobile">
-                    @foreach (var mobileApplicationFramework in Enum.GetValues<AppMobileApplicationFramework>())
-                    {
-                        <SelectItem Value="mobileApplicationFramework">
-                            @L[$"AbpCli_New:AppMobileApplicationFramework:{Enum.GetName(mobileApplicationFramework)}"]
-                        </SelectItem>
-                    }
-                </Select>
-            </Field>
-            <Validation MessageLocalizer="@Lh.Localize">
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_New:Version"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.Version">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_New:TemplateSource"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.TemplateSource">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
                 <Field>
-                    <FieldLabel>@L["AbpCli_New:Version"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.Version">
-                        <Feedback>
-                            <ValidationError />
-                        </Feedback>
-                    </TextEdit>
+                    <FieldLabel>@L["AbpCli_New:AppDatabaseProvider"]</FieldLabel>
+                    <Select TValue="AppDatabaseProvider" @bind-SelectedValue="Input.DatabaseProvider">
+                        @foreach (var databaseProvider in Enum.GetValues<AppDatabaseProvider>())
+                        {
+                            <SelectItem Value="databaseProvider">
+                                @L[$"AbpCli_New:AppDatabaseProvider:{Enum.GetName(databaseProvider)}"]
+                            </SelectItem>
+                        }
+                    </Select>
                 </Field>
-            </Validation>
-            <Validation MessageLocalizer="@Lh.Localize">
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_New:ConnectionString"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.ConnectionString">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
                 <Field>
-                    <FieldLabel>@L["AbpCli_New:TemplateSource"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.TemplateSource">
-                        <Feedback>
-                            <ValidationError />
-                        </Feedback>
-                    </TextEdit>
+                    <FieldLabel>@L["AbpCli_New:DatabaseManagementSystem"]</FieldLabel>
+                    <Select TValue="Database" @bind-SelectedValue="Input.DatabaseManagementSystem">
+                        @foreach (var database in Enum.GetValues<Database>())
+                        {
+                            <SelectItem Value="database">
+                                @L[$"AbpCli_New:Database:{Enum.GetName(database)}"]
+                            </SelectItem>
+                        }
+                    </Select>
                 </Field>
-            </Validation>
-            <Field>
-                <FieldLabel>@L["AbpCli_New:AppDatabaseProvider"]</FieldLabel>
-                <Select TValue="AppDatabaseProvider" @bind-SelectedValue="Input.DatabaseProvider">
-                    @foreach (var databaseProvider in Enum.GetValues<AppDatabaseProvider>())
-                    {
-                        <SelectItem Value="databaseProvider">
-                            @L[$"AbpCli_New:AppDatabaseProvider:{Enum.GetName(databaseProvider)}"]
-                        </SelectItem>
-                    }
-                </Select>
-            </Field>
-            <Validation MessageLocalizer="@Lh.Localize">
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_New:LocalFrameworkRef"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.LocalFrameworkRef">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
                 <Field>
-                    <FieldLabel>@L["AbpCli_New:ConnectionString"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.ConnectionString">
-                        <Feedback>
-                            <ValidationError />
-                        </Feedback>
-                    </TextEdit>
+                    <Check TValue="bool" @bind-Checked="@Input.SeparateIdentityServer">@L["AbpCli_New:SeparateIdentityServer"]</Check>
                 </Field>
-            </Validation>
-            <Field>
-                <FieldLabel>@L["AbpCli_New:DatabaseManagementSystem"]</FieldLabel>
-                <Select TValue="Database" @bind-SelectedValue="Input.DatabaseManagementSystem">
-                    @foreach (var database in Enum.GetValues<Database>())
-                    {
-                        <SelectItem Value="database">
-                            @L[$"AbpCli_New:Database:{Enum.GetName(database)}"]
-                        </SelectItem>
-                    }
-                </Select>
-            </Field>
-            <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["AbpCli_New:LocalFrameworkRef"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.LocalFrameworkRef">
-                        <Feedback>
-                            <ValidationError />
-                        </Feedback>
-                    </TextEdit>
+                    <Check TValue="bool" @bind-Checked="@Input.Tiered">@L["AbpCli_New:Tiered"]</Check>
                 </Field>
-            </Validation>
-            <Field>
-                <Check TValue="bool" @bind-Checked="@Input.SeparateIdentityServer">@L["AbpCli_New:SeparateIdentityServer"]</Check>
-            </Field>
-            <Field>
-                <Check TValue="bool" @bind-Checked="@Input.Tiered">@L["AbpCli_New:Tiered"]</Check>
-            </Field>
-            <Field>
-                <Check TValue="bool" @bind-Checked="@Input.Preview">@L["AbpCli_New:Preview"]</Check>
-            </Field>
-            <Field>
-                <Check TValue="bool" @bind-Checked="@Input.CreateSolutionFolder">@L["AbpCli_New:CreateSolutionFolder"]</Check>
-            </Field>
-            <Field>
-                <Check TValue="bool" @bind-Checked="@Input.NoRandomPort">@L["AbpCli_New:NoRandomPort"]</Check>
-            </Field>
-            
-            <SubmitButton Block="true" Clicked="@ExecuteAsync" />
+                <Field>
+                    <Check TValue="bool" @bind-Checked="@Input.Preview">@L["AbpCli_New:Preview"]</Check>
+                </Field>
+                <Field>
+                    <Check TValue="bool" @bind-Checked="@Input.CreateSolutionFolder">@L["AbpCli_New:CreateSolutionFolder"]</Check>
+                </Field>
+                <Field>
+                    <Check TValue="bool" @bind-Checked="@Input.NoRandomPort">@L["AbpCli_New:NoRandomPort"]</Check>
+                </Field>
+                
+                <SubmitButton Block="true" Clicked="@ExecuteAsync" />
+            </Validations>
         </Form>
     </CardBody>
 </Card>

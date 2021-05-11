@@ -1,8 +1,0 @@
-{
-  "version": "1.2.0",
-  "name": "abphelper-gui",
-  "private": true,
-  "dependencies": {
-    "@abp/aspnetcore.mvc.ui.theme.basic": "~4.2.2"
-  }
-}

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
+using EasyAbp.AbpHelper.Gui.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using EasyAbp.AbpHelper.Gui.Localization;
 using Volo.Abp.Account.Localization;
 using Volo.Abp.UI.Navigation;
 using Volo.Abp.Users;
 
-namespace EasyAbp.AbpHelper.Gui.Menus
+namespace EasyAbp.AbpHelper.Gui.Blazor.Menus
 {
     public class GuiMenuContributor : IMenuContributor
     {

@@ -1,9 +1,7 @@
-﻿@using Volo.Abp.AspNetCore.Components.WebAssembly.Theming.Routing
-@using Microsoft.Extensions.Options
-@using Volo.Abp.AspNetCore.Components.WebAssembly.BasicTheme.Themes.Basic
+﻿@using Volo.Abp.AspNetCore.Components.Web.BasicTheme.Themes.Basic
+@using Volo.Abp.AspNetCore.Components.Web.Theming.Routing
 @using Volo.Abp.DependencyInjection
-@using Blazor.Analytics
-@using Blazor.Analytics.Components
+@using Microsoft.Extensions.Options
 @inject IOptions<AbpRouterOptions> RouterOptions
 @inherits App
 @attribute [ExposeServices(typeof(App))]
@@ -16,7 +14,7 @@
                 <NotAuthorized>
                     @if (!context.User.Identity.IsAuthenticated)
                     {
-                        <RedirectToLogin />
+                        <RedirectToLogin/>
                     }
                     else
                     {
@@ -31,5 +29,5 @@
             </LayoutView>
         </NotFound>
     </Router>
-    <NavigationTracker />
+    <NavigationTracker/>
 </CascadingAuthenticationState>

@@ -1,8 +1,9 @@
 ﻿@page "/Solutions"
+@using Volo.Abp.AspNetCore.Components.Web
 @using EasyAbp.AbpHelper.Gui.Localization
 @using EasyAbp.AbpHelper.Gui.Solutions.Dtos
-@using EasyAbp.AbpHelper.Gui.Pages.Solutions.Components;
-@inherits EasyAbp.AbpHelper.Gui.Pages.Solutions.Shared.SolutionManagementBase
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Components;
+@inherits EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Shared.SolutionManagementBase
 
 <Card>
     <CardHeader>
@@ -61,44 +62,45 @@
 </Card>
 
 <Modal @ref="Modal">
-    <ModalBackdrop />
     <ModalContent Size="ModalSize.Default" IsCentered="true">
         <ModalHeader>
             <ModalTitle>@L["OpenSolution"]</ModalTitle>
             <CloseButton Clicked="CloseOpenSolutionModal" />
         </ModalHeader>
         <ModalBody MaxHeight="50">
-            <Validation MessageLocalizer="@Lh.Localize">
+            <Validations Mode="ValidationMode.Auto" ValidateOnLoad="false">
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["SolutionDisplayName"]</FieldLabel>
+                        <TextEdit @bind-Text="@CreateSolution.DisplayName">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
                 <Field>
-                    <FieldLabel>@L["SolutionDisplayName"]</FieldLabel>
-                    <TextEdit @bind-Text="@CreateSolution.DisplayName">
-                        <Feedback>
-                            <ValidationError />
-                        </Feedback>
-                    </TextEdit>
+                    <FieldLabel>@L["SolutionSolutionType"]</FieldLabel>
+                    <Select TValue="SolutionType" @bind-SelectedValue="@CreateSolution.SolutionType">
+                        @foreach (var solutionType in Enum.GetValues<SolutionType>())
+                        {
+                            <SelectItem Value="solutionType">
+                                @L[$"SolutionType:{Enum.GetName(solutionType)}"]
+                            </SelectItem>
+                        }
+                    </Select>
                 </Field>
-            </Validation>
-            <Field>
-                <FieldLabel>@L["SolutionSolutionType"]</FieldLabel>
-                <Select TValue="SolutionType" @bind-SelectedValue="@CreateSolution.SolutionType">
-                    @foreach (var solutionType in Enum.GetValues<SolutionType>())
-                    {
-                        <SelectItem Value="solutionType">
-                            @L[$"SolutionType:{Enum.GetName(solutionType)}"]
-                        </SelectItem>
-                    }
-                </Select>
-            </Field>
-            <Validation MessageLocalizer="@Lh.Localize">
-                <Field>
-                    <FieldLabel>@L["SolutionDirectoryPath"]</FieldLabel>
-                    <TextEdit @bind-Text="@CreateSolution.DirectoryPath">
-                        <Feedback>
-                            <ValidationError />
-                        </Feedback>
-                    </TextEdit>
-                </Field>
-            </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["SolutionDirectoryPath"]</FieldLabel>
+                        <TextEdit @bind-Text="@CreateSolution.DirectoryPath">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+            </Validations>
         </ModalBody>
         <ModalFooter>
             <Button Color="Color.Secondary" Clicked="CloseOpenSolutionModal">@L["Cancel"]</Button>

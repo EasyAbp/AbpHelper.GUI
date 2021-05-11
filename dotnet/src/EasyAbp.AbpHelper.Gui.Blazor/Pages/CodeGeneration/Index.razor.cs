@@ -1,4 +1,4 @@
-﻿namespace EasyAbp.AbpHelper.Gui.Pages.CodeGeneration
+﻿namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.CodeGeneration
 {
     public partial class Index
     {

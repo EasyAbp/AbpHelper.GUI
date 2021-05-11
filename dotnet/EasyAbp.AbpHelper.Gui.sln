@@ -13,19 +13,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.AbpHelper.Gui.TestB
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.AbpHelper.Gui.HttpApi.Client.ConsoleTestApp", "test\EasyAbp.AbpHelper.Gui.HttpApi.Client.ConsoleTestApp\EasyAbp.AbpHelper.Gui.HttpApi.Client.ConsoleTestApp.csproj", "{EF480016-9127-4916-8735-D2466BDBC582}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.AbpHelper.Gui.HttpApi.Host", "src\EasyAbp.AbpHelper.Gui.HttpApi.Host\EasyAbp.AbpHelper.Gui.HttpApi.Host.csproj", "{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyAbp.AbpHelper.Gui.Blazor", "src\EasyAbp.AbpHelper.Gui.Blazor\EasyAbp.AbpHelper.Gui.Blazor.csproj", "{27B2DDC7-8B75-4322-A312-25419C15D9D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.AbpHelper.Gui.HttpApi", "src\EasyAbp.AbpHelper.Gui.HttpApi\EasyAbp.AbpHelper.Gui.HttpApi.csproj", "{EA728778-AF6E-41A9-8A4C-A878A8E51DD0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.AbpHelper.Gui.Application.Contracts", "src\EasyAbp.AbpHelper.Gui.Application.Contracts\EasyAbp.AbpHelper.Gui.Application.Contracts.csproj", "{63B6D95A-C16E-475F-A871-1F97EA5A629C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.AbpHelper.Gui.Blazor.Host", "src\EasyAbp.AbpHelper.Gui.Blazor.Host\EasyAbp.AbpHelper.Gui.Blazor.Host.csproj", "{BEAA566E-5519-4A02-B272-9A4C4D9C5008}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.AbpHelper.Gui.Application", "src\EasyAbp.AbpHelper.Gui.Application\EasyAbp.AbpHelper.Gui.Application.csproj", "{DF9F3996-3664-40E8-B6C0-1792AFD1BAE3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.AbpHelper.Gui.Application.Tests", "test\EasyAbp.AbpHelper.Gui.Application.Tests\EasyAbp.AbpHelper.Gui.Application.Tests.csproj", "{2C603A1A-A8E9-4EC7-AC03-DCDFB8A9E3BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blazor.Analytics", "src\Blazor.Analytics\Blazor.Analytics.csproj", "{FA79DC73-A767-4B85-988C-229FF785A4B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +43,6 @@ Global
 		{EF480016-9127-4916-8735-D2466BDBC582}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF480016-9127-4916-8735-D2466BDBC582}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF480016-9127-4916-8735-D2466BDBC582}.Release|Any CPU.Build.0 = Release|Any CPU
-		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{27B2DDC7-8B75-4322-A312-25419C15D9D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{27B2DDC7-8B75-4322-A312-25419C15D9D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27B2DDC7-8B75-4322-A312-25419C15D9D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,10 +55,6 @@ Global
 		{63B6D95A-C16E-475F-A871-1F97EA5A629C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63B6D95A-C16E-475F-A871-1F97EA5A629C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63B6D95A-C16E-475F-A871-1F97EA5A629C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BEAA566E-5519-4A02-B272-9A4C4D9C5008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEAA566E-5519-4A02-B272-9A4C4D9C5008}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEAA566E-5519-4A02-B272-9A4C4D9C5008}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEAA566E-5519-4A02-B272-9A4C4D9C5008}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DF9F3996-3664-40E8-B6C0-1792AFD1BAE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DF9F3996-3664-40E8-B6C0-1792AFD1BAE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF9F3996-3664-40E8-B6C0-1792AFD1BAE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -73,6 +63,10 @@ Global
 		{2C603A1A-A8E9-4EC7-AC03-DCDFB8A9E3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C603A1A-A8E9-4EC7-AC03-DCDFB8A9E3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C603A1A-A8E9-4EC7-AC03-DCDFB8A9E3BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA79DC73-A767-4B85-988C-229FF785A4B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA79DC73-A767-4B85-988C-229FF785A4B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA79DC73-A767-4B85-988C-229FF785A4B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA79DC73-A767-4B85-988C-229FF785A4B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,13 +75,12 @@ Global
 		{3B5A0094-670D-4BB1-BFDD-61B88A8773DC} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{91853F21-9CD9-4132-BC29-A7D5D84FFFE7} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
 		{EF480016-9127-4916-8735-D2466BDBC582} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
-		{748584B1-BA69-4F6A-81AA-F4BDE6BCE29D} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{27B2DDC7-8B75-4322-A312-25419C15D9D8} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{EA728778-AF6E-41A9-8A4C-A878A8E51DD0} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{63B6D95A-C16E-475F-A871-1F97EA5A629C} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
-		{BEAA566E-5519-4A02-B272-9A4C4D9C5008} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{DF9F3996-3664-40E8-B6C0-1792AFD1BAE3} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{2C603A1A-A8E9-4EC7-AC03-DCDFB8A9E3BF} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
+		{FA79DC73-A767-4B85-988C-229FF785A4B6} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}

@@ -6,5 +6,7 @@ namespace EasyAbp.AbpHelper.Gui.LogService
     public interface ILogAppService : IApplicationService
     {
         Task<string> GetRecentLogFilePathAsync();
+        
+        Task<string> GetRecentErrorLogFilePathAsync();
     }
 }

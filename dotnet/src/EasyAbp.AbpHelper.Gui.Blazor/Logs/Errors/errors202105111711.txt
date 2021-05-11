@@ -1,0 +1,275 @@
+2021-05-11 17:11:00.001 +08:00 [INF] Executed endpoint '/_blazor'
+2021-05-11 17:11:00.001 +08:00 [INF] Request finished HTTP/1.1 GET https://localhost:44307/_blazor?id=VVHhznQ6GUERNfDfyC5o2w - - - 101 - - 5813.8335ms
+2021-05-11 17:11:01.033 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/123 - -
+2021-05-11 17:11:01.034 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:01.034 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:01.034 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:01.034 +08:00 [INF] Executing endpoint '/_Host'
+2021-05-11 17:11:01.035 +08:00 [INF] Route matched with {page = "/_Host", action = "", controller = "", area = ""}. Executing page /_Host
+2021-05-11 17:11:01.035 +08:00 [INF] Skipping the execution of current filter as its not the most effective filter implementing the policy Microsoft.AspNetCore.Mvc.ViewFeatures.IAntiforgeryPolicy
+2021-05-11 17:11:01.036 +08:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2021-05-11 17:11:01.036 +08:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2021-05-11 17:11:01.039 +08:00 [DBG] Added bundle 'Blazor.BasicTheme.Global' to the page in 1.49 ms.
+2021-05-11 17:11:01.043 +08:00 [DBG] Added bundle 'Blazor.BasicTheme.Global' to the page in 1.44 ms.
+2021-05-11 17:11:01.043 +08:00 [INF] Executed page /_Host in 8.7416ms
+2021-05-11 17:11:01.044 +08:00 [INF] Executed endpoint '/_Host'
+2021-05-11 17:11:01.044 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/123 - - - 200 - text/html;+charset=utf-8 10.7725ms
+2021-05-11 17:11:01.089 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/libs/bootstrap/css/bootstrap.css?_v=637562461630768797 - -
+2021-05-11 17:11:01.089 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/libs/@fortawesome/fontawesome-free/css/v4-shims.css?_v=637562461630798898 - -
+2021-05-11 17:11:01.090 +08:00 [INF] The file /libs/bootstrap/css/bootstrap.css was not modified
+2021-05-11 17:11:01.090 +08:00 [INF] The file /libs/@fortawesome/fontawesome-free/css/v4-shims.css was not modified
+2021-05-11 17:11:01.090 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/libs/@fortawesome/fontawesome-free/css/v4-shims.css?_v=637562461630798898 - - - 304 - text/css 0.4093ms
+2021-05-11 17:11:01.090 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Blazorise/blazorise.css?_v=637545677580000000 - -
+2021-05-11 17:11:01.090 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/libs/bootstrap/css/bootstrap.css?_v=637562461630768797 - - - 304 - text/css 0.9806ms
+2021-05-11 17:11:01.090 +08:00 [INF] The file /_content/Blazorise/blazorise.css was not modified
+2021-05-11 17:11:01.091 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Blazorise/blazorise.css?_v=637545677580000000 - - - 304 - text/css 0.7877ms
+2021-05-11 17:11:01.091 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/libs/@fortawesome/fontawesome-free/css/all.css?_v=637562461630788867 - -
+2021-05-11 17:11:01.092 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Blazorise.Bootstrap/blazorise.bootstrap.css?_v=637545677580000000 - -
+2021-05-11 17:11:01.092 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Blazorise.Snackbar/blazorise.snackbar.css?_v=637538716940000000 - -
+2021-05-11 17:11:01.093 +08:00 [INF] The file /_content/Blazorise.Snackbar/blazorise.snackbar.css was not modified
+2021-05-11 17:11:01.093 +08:00 [INF] The file /_content/Blazorise.Bootstrap/blazorise.bootstrap.css was not modified
+2021-05-11 17:11:01.093 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Blazorise.Snackbar/blazorise.snackbar.css?_v=637538716940000000 - - - 304 - text/css 0.9359ms
+2021-05-11 17:11:01.093 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Volo.Abp.AspNetCore.Components.Web.BasicTheme/libs/abp/css/theme.css?_v=637546705440000000 - -
+2021-05-11 17:11:01.093 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Blazorise.Bootstrap/blazorise.bootstrap.css?_v=637545677580000000 - - - 304 - text/css 1.2278ms
+2021-05-11 17:11:01.093 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/blazor-global-styles.css?_v=637562430877159364 - -
+2021-05-11 17:11:01.093 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/EasyAbp.AbpHelper.Gui.Blazor.styles.css?_v=637562458596194610 - -
+2021-05-11 17:11:01.093 +08:00 [INF] The file /blazor-global-styles.css was not modified
+2021-05-11 17:11:01.093 +08:00 [INF] The file /EasyAbp.AbpHelper.Gui.Blazor.styles.css was not modified
+2021-05-11 17:11:01.093 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/blazor-global-styles.css?_v=637562430877159364 - - - 304 - text/css 0.5045ms
+2021-05-11 17:11:01.094 +08:00 [INF] The file /_content/Volo.Abp.AspNetCore.Components.Web.BasicTheme/libs/abp/css/theme.css was not modified
+2021-05-11 17:11:01.094 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/EasyAbp.AbpHelper.Gui.Blazor.styles.css?_v=637562458596194610 - - - 304 - text/css 0.6279ms
+2021-05-11 17:11:01.094 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Volo.Abp.AspNetCore.Components.Web.BasicTheme/libs/abp/css/theme.css?_v=637546705440000000 - - - 304 - text/css 0.9580ms
+2021-05-11 17:11:01.094 +08:00 [INF] The file /libs/@fortawesome/fontawesome-free/css/all.css was not modified
+2021-05-11 17:11:01.094 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/libs/@fortawesome/fontawesome-free/css/all.css?_v=637562461630788867 - - - 304 - text/css 4.6502ms
+2021-05-11 17:11:01.096 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_framework/blazor.server.js?_v=637434903940000000 - -
+2021-05-11 17:11:01.096 +08:00 [INF] The file /_framework/blazor.server.js was not modified
+2021-05-11 17:11:01.096 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_framework/blazor.server.js?_v=637434903940000000 - - - 304 - application/javascript 0.6352ms
+2021-05-11 17:11:01.097 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Blazorise/blazorise.js?_v=637545691220000000 - -
+2021-05-11 17:11:01.100 +08:00 [INF] The file /_content/Blazorise/blazorise.js was not modified
+2021-05-11 17:11:01.100 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Blazorise/blazorise.js?_v=637545691220000000 - - - 304 - application/javascript 3.1838ms
+2021-05-11 17:11:01.102 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Blazorise.Bootstrap/blazorise.bootstrap.js?_v=637545677580000000 - -
+2021-05-11 17:11:01.104 +08:00 [INF] The file /_content/Blazorise.Bootstrap/blazorise.bootstrap.js was not modified
+2021-05-11 17:11:01.104 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Blazorise.Bootstrap/blazorise.bootstrap.js?_v=637545677580000000 - - - 304 - application/javascript 2.5910ms
+2021-05-11 17:11:01.110 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Volo.Abp.AspNetCore.Components.Web/libs/abp/js/abp.js?_v=637546705440000000 - -
+2021-05-11 17:11:01.110 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Blazor-Analytics/blazor-analytics.js - -
+2021-05-11 17:11:01.111 +08:00 [INF] The file /_content/Volo.Abp.AspNetCore.Components.Web/libs/abp/js/abp.js was not modified
+2021-05-11 17:11:01.111 +08:00 [INF] The file /_content/Blazor-Analytics/blazor-analytics.js was not modified
+2021-05-11 17:11:01.111 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Blazor-Analytics/blazor-analytics.js - - - 304 - application/javascript 0.9964ms
+2021-05-11 17:11:01.111 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Volo.Abp.AspNetCore.Components.Web/libs/abp/js/abp.js?_v=637546705440000000 - - - 304 - application/javascript 1.3117ms
+2021-05-11 17:11:01.222 +08:00 [INF] Request starting HTTP/2 POST https://localhost:44307/_blazor/negotiate?negotiateVersion=1 text/plain;charset=UTF-8 0
+2021-05-11 17:11:01.222 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:01.224 +08:00 [INF] No CORS policy found for the specified request.
+2021-05-11 17:11:01.224 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:01.225 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:01.225 +08:00 [INF] Executing endpoint '/_blazor/negotiate'
+2021-05-11 17:11:01.226 +08:00 [INF] Executed endpoint '/_blazor/negotiate'
+2021-05-11 17:11:01.226 +08:00 [INF] Request finished HTTP/2 POST https://localhost:44307/_blazor/negotiate?negotiateVersion=1 text/plain;charset=UTF-8 0 - 200 316 application/json 4.9585ms
+2021-05-11 17:11:01.287 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:44307/_blazor?id=m8s4G5mC3cqYP1wwAkV3eA - -
+2021-05-11 17:11:01.288 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:01.288 +08:00 [INF] No CORS policy found for the specified request.
+2021-05-11 17:11:01.288 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:01.288 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:01.289 +08:00 [INF] Executing endpoint '/_blazor'
+2021-05-11 17:11:01.303 +08:00 [INF] Authorization failed. These requirements were not met:
+PermissionRequirement: SettingManagement.Emailing
+2021-05-11 17:11:06.588 +08:00 [INF] Request starting HTTP/2 POST https://localhost:44307/_blazor/disconnect multipart/form-data;+boundary=----WebKitFormBoundaryxmihRA2XxJbqmlwR 359
+2021-05-11 17:11:06.591 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:06.595 +08:00 [INF] No CORS policy found for the specified request.
+2021-05-11 17:11:06.595 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:06.595 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:06.596 +08:00 [INF] Executing endpoint 'Blazor disconnect'
+2021-05-11 17:11:06.599 +08:00 [INF] Executed endpoint 'Blazor disconnect'
+2021-05-11 17:11:06.599 +08:00 [INF] Request finished HTTP/2 POST https://localhost:44307/_blazor/disconnect multipart/form-data;+boundary=----WebKitFormBoundaryxmihRA2XxJbqmlwR 359 - 200 0 - 10.8416ms
+2021-05-11 17:11:06.620 +08:00 [INF] Executed endpoint '/_blazor'
+2021-05-11 17:11:06.620 +08:00 [INF] Request finished HTTP/1.1 GET https://localhost:44307/_blazor?id=m8s4G5mC3cqYP1wwAkV3eA - - - 101 - - 5333.6089ms
+2021-05-11 17:11:33.471 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/AbpCli - -
+2021-05-11 17:11:33.692 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:33.693 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:33.693 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:33.693 +08:00 [INF] Executing endpoint '/_Host'
+2021-05-11 17:11:33.695 +08:00 [INF] Route matched with {page = "/_Host", action = "", controller = "", area = ""}. Executing page /_Host
+2021-05-11 17:11:33.695 +08:00 [INF] Skipping the execution of current filter as its not the most effective filter implementing the policy Microsoft.AspNetCore.Mvc.ViewFeatures.IAntiforgeryPolicy
+2021-05-11 17:11:33.697 +08:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2021-05-11 17:11:33.697 +08:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2021-05-11 17:11:33.708 +08:00 [DBG] Added bundle 'Blazor.BasicTheme.Global' to the page in 1.00 ms.
+2021-05-11 17:11:33.713 +08:00 [DBG] Added bundle 'Blazor.BasicTheme.Global' to the page in 0.46 ms.
+2021-05-11 17:11:33.713 +08:00 [INF] Executed page /_Host in 18.2967ms
+2021-05-11 17:11:33.713 +08:00 [INF] Executed endpoint '/_Host'
+2021-05-11 17:11:33.713 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/AbpCli - - - 200 - text/html;+charset=utf-8 242.5672ms
+2021-05-11 17:11:33.748 +08:00 [INF] Request starting HTTP/2 POST https://localhost:44307/_blazor/disconnect multipart/form-data;+boundary=----WebKitFormBoundaryLFMMGnBhCkAb3GGd 359
+2021-05-11 17:11:33.751 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:33.751 +08:00 [INF] No CORS policy found for the specified request.
+2021-05-11 17:11:33.751 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:33.752 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:33.752 +08:00 [INF] Executing endpoint 'Blazor disconnect'
+2021-05-11 17:11:33.752 +08:00 [INF] Executed endpoint 'Blazor disconnect'
+2021-05-11 17:11:33.752 +08:00 [INF] Request finished HTTP/2 POST https://localhost:44307/_blazor/disconnect multipart/form-data;+boundary=----WebKitFormBoundaryLFMMGnBhCkAb3GGd 359 - 200 0 - 4.0395ms
+2021-05-11 17:11:33.809 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/libs/bootstrap/css/bootstrap.css?_v=637562461630768797 - -
+2021-05-11 17:11:33.813 +08:00 [INF] Sending file. Request path: '/libs/bootstrap/css/bootstrap.css'. Physical path: 'C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\wwwroot\libs\bootstrap\css\bootstrap.css'
+2021-05-11 17:11:33.813 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/libs/bootstrap/css/bootstrap.css?_v=637562461630768797 - - - 200 199412 text/css 3.8151ms
+2021-05-11 17:11:33.814 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/libs/@fortawesome/fontawesome-free/css/all.css?_v=637562461630788867 - -
+2021-05-11 17:11:33.817 +08:00 [INF] Sending file. Request path: '/libs/@fortawesome/fontawesome-free/css/all.css'. Physical path: 'C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\wwwroot\libs\@fortawesome\fontawesome-free\css\all.css'
+2021-05-11 17:11:33.817 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/libs/@fortawesome/fontawesome-free/css/all.css?_v=637562461630788867 - - - 200 73117 text/css 3.3069ms
+2021-05-11 17:11:33.819 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/libs/@fortawesome/fontawesome-free/css/v4-shims.css?_v=637562461630798898 - -
+2021-05-11 17:11:33.821 +08:00 [INF] Sending file. Request path: '/libs/@fortawesome/fontawesome-free/css/v4-shims.css'. Physical path: 'C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\wwwroot\libs\@fortawesome\fontawesome-free\css\v4-shims.css'
+2021-05-11 17:11:33.822 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/libs/@fortawesome/fontawesome-free/css/v4-shims.css?_v=637562461630798898 - - - 200 41312 text/css 2.6413ms
+2021-05-11 17:11:33.825 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Blazorise/blazorise.css?_v=637545677580000000 - -
+2021-05-11 17:11:33.826 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Blazorise.Snackbar/blazorise.snackbar.css?_v=637538716940000000 - -
+2021-05-11 17:11:33.826 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Blazorise.Bootstrap/blazorise.bootstrap.css?_v=637545677580000000 - -
+2021-05-11 17:11:33.828 +08:00 [INF] Sending file. Request path: '/_content/Blazorise.Bootstrap/blazorise.bootstrap.css'. Physical path: 'C:\Users\AA\.nuget\packages\blazorise.bootstrap\0.9.3.5\staticwebassets\blazorise.bootstrap.css'
+2021-05-11 17:11:33.829 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Blazorise.Bootstrap/blazorise.bootstrap.css?_v=637545677580000000 - - - 200 28712 text/css 2.3448ms
+2021-05-11 17:11:33.830 +08:00 [INF] Sending file. Request path: '/_content/Blazorise/blazorise.css'. Physical path: 'C:\Users\AA\.nuget\packages\blazorise\0.9.3.5\staticwebassets\blazorise.css'
+2021-05-11 17:11:33.830 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Blazorise/blazorise.css?_v=637545677580000000 - - - 200 44362 text/css 5.1782ms
+2021-05-11 17:11:33.830 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Volo.Abp.AspNetCore.Components.Web.BasicTheme/libs/abp/css/theme.css?_v=637546705440000000 - -
+2021-05-11 17:11:33.831 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/blazor-global-styles.css?_v=637562430877159364 - -
+2021-05-11 17:11:33.831 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/EasyAbp.AbpHelper.Gui.Blazor.styles.css?_v=637562458596194610 - -
+2021-05-11 17:11:33.833 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_framework/blazor.server.js?_v=637434903940000000 - -
+2021-05-11 17:11:33.833 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Blazorise/blazorise.js?_v=637545691220000000 - -
+2021-05-11 17:11:33.834 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Blazorise.Bootstrap/blazorise.bootstrap.js?_v=637545677580000000 - -
+2021-05-11 17:11:33.835 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Volo.Abp.AspNetCore.Components.Web/libs/abp/js/abp.js?_v=637546705440000000 - -
+2021-05-11 17:11:33.836 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/_content/Blazor-Analytics/blazor-analytics.js - -
+2021-05-11 17:11:33.837 +08:00 [INF] Sending file. Request path: '/_content/Blazor-Analytics/blazor-analytics.js'. Physical path: 'C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\Blazor.Analytics\wwwroot\blazor-analytics.js'
+2021-05-11 17:11:33.837 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Blazor-Analytics/blazor-analytics.js - - - 200 1447 application/javascript 1.3043ms
+2021-05-11 17:11:33.837 +08:00 [INF] Sending file. Request path: '/blazor-global-styles.css'. Physical path: 'C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\wwwroot\blazor-global-styles.css'
+2021-05-11 17:11:33.837 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/blazor-global-styles.css?_v=637562430877159364 - - - 200 361 text/css 6.0769ms
+2021-05-11 17:11:33.837 +08:00 [INF] Sending file. Request path: '/EasyAbp.AbpHelper.Gui.Blazor.styles.css'. Physical path: 'C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\obj\Debug\net5.0\scopedcss\bundle\EasyAbp.AbpHelper.Gui.Blazor.styles.css'
+2021-05-11 17:11:33.838 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/EasyAbp.AbpHelper.Gui.Blazor.styles.css?_v=637562458596194610 - - - 200 999 text/css 6.2270ms
+2021-05-11 17:11:33.839 +08:00 [INF] Sending file. Request path: '/_framework/blazor.server.js'. Physical path: 'N/A'
+2021-05-11 17:11:33.839 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_framework/blazor.server.js?_v=637434903940000000 - - - 200 249672 application/javascript 6.1370ms
+2021-05-11 17:11:33.842 +08:00 [INF] Sending file. Request path: '/_content/Volo.Abp.AspNetCore.Components.Web.BasicTheme/libs/abp/css/theme.css'. Physical path: 'C:\Users\AA\.nuget\packages\volo.abp.aspnetcore.components.web.basictheme\4.3.0\staticwebassets\libs\abp\css\theme.css'
+2021-05-11 17:11:33.842 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Volo.Abp.AspNetCore.Components.Web.BasicTheme/libs/abp/css/theme.css?_v=637546705440000000 - - - 200 1940 text/css 11.6138ms
+2021-05-11 17:11:33.842 +08:00 [INF] Sending file. Request path: '/_content/Blazorise/blazorise.js'. Physical path: 'C:\Users\AA\.nuget\packages\blazorise\0.9.3.5\staticwebassets\blazorise.js'
+2021-05-11 17:11:33.842 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Blazorise/blazorise.js?_v=637545691220000000 - - - 200 29564 application/javascript 9.5074ms
+2021-05-11 17:11:33.852 +08:00 [INF] Sending file. Request path: '/_content/Blazorise.Snackbar/blazorise.snackbar.css'. Physical path: 'C:\Users\AA\.nuget\packages\blazorise.snackbar\0.9.3.5\staticwebassets\blazorise.snackbar.css'
+2021-05-11 17:11:33.852 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Blazorise.Snackbar/blazorise.snackbar.css?_v=637538716940000000 - - - 200 8392 text/css 26.0079ms
+2021-05-11 17:11:33.854 +08:00 [INF] Sending file. Request path: '/_content/Volo.Abp.AspNetCore.Components.Web/libs/abp/js/abp.js'. Physical path: 'C:\Users\AA\.nuget\packages\volo.abp.aspnetcore.components.web\4.3.0\staticwebassets\libs\abp\js\abp.js'
+2021-05-11 17:11:33.854 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Volo.Abp.AspNetCore.Components.Web/libs/abp/js/abp.js?_v=637546705440000000 - - - 200 6281 application/javascript 18.6766ms
+2021-05-11 17:11:33.860 +08:00 [INF] Sending file. Request path: '/_content/Blazorise.Bootstrap/blazorise.bootstrap.js'. Physical path: 'C:\Users\AA\.nuget\packages\blazorise.bootstrap\0.9.3.5\staticwebassets\blazorise.bootstrap.js'
+2021-05-11 17:11:33.860 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/_content/Blazorise.Bootstrap/blazorise.bootstrap.js?_v=637545677580000000 - - - 200 2046 application/javascript 26.6929ms
+2021-05-11 17:11:33.976 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/libs/bootstrap/css/bootstrap.css.map - -
+2021-05-11 17:11:33.981 +08:00 [INF] Sending file. Request path: '/libs/bootstrap/css/bootstrap.css.map'. Physical path: 'C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\wwwroot\libs\bootstrap\css\bootstrap.css.map'
+2021-05-11 17:11:33.981 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/libs/bootstrap/css/bootstrap.css.map - - - 200 511248 text/plain 4.8029ms
+2021-05-11 17:11:34.005 +08:00 [INF] Request starting HTTP/2 POST https://localhost:44307/_blazor/negotiate?negotiateVersion=1 text/plain;charset=UTF-8 0
+2021-05-11 17:11:34.010 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:34.011 +08:00 [INF] No CORS policy found for the specified request.
+2021-05-11 17:11:34.011 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:34.012 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:34.012 +08:00 [INF] Executing endpoint '/_blazor/negotiate'
+2021-05-11 17:11:34.013 +08:00 [INF] Executed endpoint '/_blazor/negotiate'
+2021-05-11 17:11:34.013 +08:00 [INF] Request finished HTTP/2 POST https://localhost:44307/_blazor/negotiate?negotiateVersion=1 text/plain;charset=UTF-8 0 - 200 316 application/json 7.4596ms
+2021-05-11 17:11:34.096 +08:00 [INF] Request starting HTTP/1.1 GET https://localhost:44307/_blazor?id=IPOLM0H7C7cqSgi_D80XNg - -
+2021-05-11 17:11:34.097 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:34.098 +08:00 [INF] No CORS policy found for the specified request.
+2021-05-11 17:11:34.099 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:34.099 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/favicon.ico - -
+2021-05-11 17:11:34.099 +08:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2021-05-11 17:11:34.099 +08:00 [INF] Executing endpoint '/_blazor'
+2021-05-11 17:11:34.101 +08:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\wwwroot\favicon.ico'
+2021-05-11 17:11:34.101 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/favicon.ico - - - 200 32038 image/x-icon 2.0087ms
+2021-05-11 17:11:34.150 +08:00 [INF] Authorization failed. These requirements were not met:
+PermissionRequirement: SettingManagement.Emailing
+2021-05-11 17:11:38.492 +08:00 [INF] Start processing HTTP request GET "https://abp.io/api/license/check-multiple-organizations?username=1"
+2021-05-11 17:11:38.492 +08:00 [INF] Sending HTTP request GET "https://abp.io/api/license/check-multiple-organizations?username=1"
+2021-05-11 17:11:39.625 +08:00 [INF] Received HTTP response headers after 1133.3289ms - 200
+2021-05-11 17:11:39.625 +08:00 [INF] End processing HTTP request after 1133.4832ms - 200
+2021-05-11 17:11:39.626 +08:00 [INF] Start processing HTTP request POST "https://account.abp.io/connect/token"
+2021-05-11 17:11:39.626 +08:00 [INF] Sending HTTP request POST "https://account.abp.io/connect/token"
+2021-05-11 17:11:40.462 +08:00 [INF] Received HTTP response headers after 835.7124ms - 400
+2021-05-11 17:11:40.462 +08:00 [INF] End processing HTTP request after 835.8399ms - 400
+2021-05-11 17:11:40.466 +08:00 [INF] AUDIT LOG: [101: GET    ] /_blazor
+- UserName - UserId                 :  - 
+- ClientIpAddress        : ::1
+- ExecutionDuration      : 1972
+- Actions:
+  - EasyAbp.AbpHelper.Gui.AbpCli.Login.AbpCliLoginAppService.LoginAsync (1972 ms.)
+    {"input":{"username":"1","password":"1","organization":null}}
+- Exceptions:
+  - Could not get token from the OpenId Connect server! ErrorType: Protocol. Error: invalid_grant. ErrorDescription: Invalid username or password!. HttpStatusCode: BadRequest
+    Volo.Abp.AbpException: Could not get token from the OpenId Connect server! ErrorType: Protocol. Error: invalid_grant. ErrorDescription: Invalid username or password!. HttpStatusCode: BadRequest
+   at Volo.Abp.IdentityModel.IdentityModelAuthenticationService.GetAccessTokenAsync(IdentityClientConfiguration configuration)
+   at Volo.Abp.Cli.Auth.AuthService.LoginAsync(String userName, String password, String organizationName)
+   at Volo.Abp.Cli.Commands.LoginCommand.ExecuteAsync(CommandLineArgs commandLineArgs)
+   at EasyAbp.AbpHelper.Gui.AbpCli.Login.AbpCliLoginAppService.LoginAsync(AbpLoginInput input) in C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Application\AbpCli\Login\AbpCliLoginAppService.cs:line 30
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.GlobalFeatures.GlobalFeatureInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Validation.ValidationInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Auditing.AuditingInterceptor.ProceedByLoggingAsync(IAbpMethodInvocation invocation, IAuditingHelper auditingHelper, IAuditLogScope auditLogScope)
+   at Volo.Abp.Auditing.AuditingInterceptor.ProcessWithNewAuditingScopeAsync(IAbpMethodInvocation invocation, AbpAuditingOptions options, ICurrentUser currentUser, IAuditingManager auditingManager, IAuditingHelper auditingHelper)
+
+2021-05-11 17:11:40.467 +08:00 [WRN] Unhandled exception rendering component: Could not get token from the OpenId Connect server! ErrorType: Protocol. Error: invalid_grant. ErrorDescription: Invalid username or password!. HttpStatusCode: BadRequest
+Volo.Abp.AbpException: Could not get token from the OpenId Connect server! ErrorType: Protocol. Error: invalid_grant. ErrorDescription: Invalid username or password!. HttpStatusCode: BadRequest
+   at Volo.Abp.IdentityModel.IdentityModelAuthenticationService.GetAccessTokenAsync(IdentityClientConfiguration configuration)
+   at Volo.Abp.Cli.Auth.AuthService.LoginAsync(String userName, String password, String organizationName)
+   at Volo.Abp.Cli.Commands.LoginCommand.ExecuteAsync(CommandLineArgs commandLineArgs)
+   at EasyAbp.AbpHelper.Gui.AbpCli.Login.AbpCliLoginAppService.LoginAsync(AbpLoginInput input) in C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Application\AbpCli\Login\AbpCliLoginAppService.cs:line 30
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.GlobalFeatures.GlobalFeatureInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Validation.ValidationInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Auditing.AuditingInterceptor.ProceedByLoggingAsync(IAbpMethodInvocation invocation, IAuditingHelper auditingHelper, IAuditLogScope auditLogScope)
+   at Volo.Abp.Auditing.AuditingInterceptor.ProcessWithNewAuditingScopeAsync(IAbpMethodInvocation invocation, AbpAuditingOptions options, ICurrentUser currentUser, IAuditingManager auditingManager, IAuditingHelper auditingHelper)
+   at Volo.Abp.Auditing.AuditingInterceptor.ProcessWithNewAuditingScopeAsync(IAbpMethodInvocation invocation, AbpAuditingOptions options, ICurrentUser currentUser, IAuditingManager auditingManager, IAuditingHelper auditingHelper)
+   at Volo.Abp.Auditing.AuditingInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Uow.UnitOfWorkInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Login.Login.InternalExecuteAsync() in C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\Pages\AbpCli\Components\Login\Login.razor.cs:line 17
+   at EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared.ExecutableComponentBase.ExecuteAsync() in C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\Pages\Shared\ExecutableComponentBase.cs:line 17
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Volo.Abp.BlazoriseUI.Components.SubmitButton.OnClickedHandler()
+   at Volo.Abp.BlazoriseUI.Components.SubmitButton.OnClickedHandler()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Blazorise.Button.ClickHandler()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle)
+2021-05-11 17:11:40.467 +08:00 [ERR] Unhandled exception in circuit '25vpUEOFLDWCe1b_5UXd696ZvAqGCMqMAWaY5EV4SJE'.
+Volo.Abp.AbpException: Could not get token from the OpenId Connect server! ErrorType: Protocol. Error: invalid_grant. ErrorDescription: Invalid username or password!. HttpStatusCode: BadRequest
+   at Volo.Abp.IdentityModel.IdentityModelAuthenticationService.GetAccessTokenAsync(IdentityClientConfiguration configuration)
+   at Volo.Abp.Cli.Auth.AuthService.LoginAsync(String userName, String password, String organizationName)
+   at Volo.Abp.Cli.Commands.LoginCommand.ExecuteAsync(CommandLineArgs commandLineArgs)
+   at EasyAbp.AbpHelper.Gui.AbpCli.Login.AbpCliLoginAppService.LoginAsync(AbpLoginInput input) in C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Application\AbpCli\Login\AbpCliLoginAppService.cs:line 30
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.GlobalFeatures.GlobalFeatureInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Validation.ValidationInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Auditing.AuditingInterceptor.ProceedByLoggingAsync(IAbpMethodInvocation invocation, IAuditingHelper auditingHelper, IAuditLogScope auditLogScope)
+   at Volo.Abp.Auditing.AuditingInterceptor.ProcessWithNewAuditingScopeAsync(IAbpMethodInvocation invocation, AbpAuditingOptions options, ICurrentUser currentUser, IAuditingManager auditingManager, IAuditingHelper auditingHelper)
+   at Volo.Abp.Auditing.AuditingInterceptor.ProcessWithNewAuditingScopeAsync(IAbpMethodInvocation invocation, AbpAuditingOptions options, ICurrentUser currentUser, IAuditingManager auditingManager, IAuditingHelper auditingHelper)
+   at Volo.Abp.Auditing.AuditingInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at Castle.DynamicProxy.AsyncInterceptorBase.ProceedAsynchronous[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo)
+   at Volo.Abp.Castle.DynamicProxy.CastleAbpMethodInvocationAdapterWithReturnValue`1.ProceedAsync()
+   at Volo.Abp.Uow.UnitOfWorkInterceptor.InterceptAsync(IAbpMethodInvocation invocation)
+   at Volo.Abp.Castle.DynamicProxy.CastleAsyncAbpInterceptorAdapter`1.InterceptAsync[TResult](IInvocation invocation, IInvocationProceedInfo proceedInfo, Func`3 proceed)
+   at EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Login.Login.InternalExecuteAsync() in C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\Pages\AbpCli\Components\Login\Login.razor.cs:line 17
+   at EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared.ExecutableComponentBase.ExecuteAsync() in C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\Pages\Shared\ExecutableComponentBase.cs:line 17
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Volo.Abp.BlazoriseUI.Components.SubmitButton.OnClickedHandler()
+   at Volo.Abp.BlazoriseUI.Components.SubmitButton.OnClickedHandler()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Blazorise.Button.ClickHandler()
+   at Microsoft.AspNetCore.Components.ComponentBase.CallStateHasChangedOnAsyncCompletion(Task task)
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.GetErrorHandledTask(Task taskToHandle)
+2021-05-11 17:11:40.474 +08:00 [INF] Executed endpoint '/_blazor'
+2021-05-11 17:11:40.474 +08:00 [INF] Request finished HTTP/1.1 GET https://localhost:44307/_blazor?id=IPOLM0H7C7cqSgi_D80XNg - - - 101 - - 6377.6483ms

@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Gui.Services;
-using EasyAbp.AbpHelper.Gui.ModuleManagement.Explorer.Dtos;
+using EasyAbp.AbpHelper.Gui.Blazor.Services;
 using EasyAbp.AbpHelper.Gui.ModuleManagement.Explorer;
+using EasyAbp.AbpHelper.Gui.ModuleManagement.Explorer.Dtos;
 using EasyAbp.AbpHelper.Gui.ModuleManagement.Installer.Dtos;
-using Volo.Abp.Application.Dtos;
 
-namespace EasyAbp.AbpHelper.Gui.Pages.ModuleManagement.Components
+namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
 {
     public partial class Explorer
     {
@@ -81,6 +80,8 @@ namespace EasyAbp.AbpHelper.Gui.Pages.ModuleManagement.Components
             {
                 SelectedTab = null;
             }
+
+            await Task.CompletedTask;
         }
 
         private async Task RebuildModulesDataAsync()

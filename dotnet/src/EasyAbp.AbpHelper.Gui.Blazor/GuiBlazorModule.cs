@@ -1,54 +1,180 @@
 ﻿using System;
+using System.IO;
 using System.Net.Http;
-using Blazor.Analytics;
+using Blazorx.Analytics;
 using Blazorise.Bootstrap;
 using Blazorise.Icons.FontAwesome;
-using EasyAbp.AbpHelper.Gui.Menus;
-using EasyAbp.AbpHelper.Gui.Toolbars;
-using IdentityModel;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using EasyAbp.AbpHelper.Gui.Blazor.Menus;
+using EasyAbp.AbpHelper.Gui.Blazor.Toolbars;
+using EasyAbp.AbpHelper.Gui.Localization;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Volo.Abp.AspNetCore.Components.WebAssembly.BasicTheme;
-using Volo.Abp.AspNetCore.Components.WebAssembly.BasicTheme.Themes.Basic;
-using Volo.Abp.AspNetCore.Components.WebAssembly.Theming.Routing;
-using Volo.Abp.Autofac.WebAssembly;
-using Volo.Abp.Modularity;
-using Volo.Abp.AspNetCore.Components.WebAssembly.Theming.Toolbars;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using Volo.Abp;
+using Volo.Abp.Account.Web;
+using Volo.Abp.AspNetCore.Authentication.JwtBearer;
+using Volo.Abp.AspNetCore.Components.Server.BasicTheme;
+using Volo.Abp.AspNetCore.Components.Server.BasicTheme.Bundling;
+using Volo.Abp.AspNetCore.Components.Web.Theming.Routing;
+using Volo.Abp.AspNetCore.Components.Web.Theming.Toolbars;
+using Volo.Abp.AspNetCore.Mvc;
+using Volo.Abp.AspNetCore.Mvc.Localization;
+using Volo.Abp.AspNetCore.Mvc.UI.Bundling;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
+using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
+using Volo.Abp.AspNetCore.Serilog;
+using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
-using Volo.Abp.Identity.Blazor;
+using Volo.Abp.Identity.Blazor.Server;
+using Volo.Abp.Json;
+using Volo.Abp.Localization;
+using Volo.Abp.Modularity;
+using Volo.Abp.SettingManagement.Blazor.Server;
+using Volo.Abp.Swashbuckle;
 using Volo.Abp.UI.Navigation;
+using Volo.Abp.UI.Navigation.Urls;
+using Volo.Abp.VirtualFileSystem;
 
-namespace EasyAbp.AbpHelper.Gui
+namespace EasyAbp.AbpHelper.Gui.Blazor
 {
     [DependsOn(
-        typeof(AbpAutofacWebAssemblyModule),
-        typeof(GuiHttpApiClientModule),
-        typeof(AbpAutoMapperModule),
-        typeof(AbpAspNetCoreComponentsWebAssemblyBasicThemeModule),
-        typeof(AbpIdentityBlazorModule)
+        typeof(GuiApplicationModule),
+        typeof(GuiHttpApiModule),
+        typeof(AbpAspNetCoreMvcUiBasicThemeModule),
+        typeof(AbpAutofacModule),
+        typeof(AbpSwashbuckleModule),
+        typeof(AbpAspNetCoreAuthenticationJwtBearerModule),
+        typeof(AbpAspNetCoreSerilogModule),
+        typeof(AbpAccountWebIdentityServerModule),
+        typeof(AbpAspNetCoreComponentsServerBasicThemeModule),
+        typeof(AbpIdentityBlazorServerModule),
+        typeof(AbpSettingManagementBlazorServerModule)
     )]
     public class GuiBlazorModule : AbpModule
     {
+        public override void PreConfigureServices(ServiceConfigurationContext context)
+        {
+            PreConfigure<AbpJsonOptions>(options =>
+            {
+                options.UseHybridSerializer = false;
+            });
+            
+            context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
+            {
+                options.AddAssemblyResource(
+                    typeof(GuiResource),
+                    typeof(GuiApplicationModule).Assembly,
+                    typeof(GuiApplicationContractsModule).Assembly,
+                    typeof(GuiBlazorModule).Assembly
+                );
+                
+            });
+        }
+
         public override void ConfigureServices(ServiceConfigurationContext context)
         {
-            var environment = context.Services.GetSingletonInstance<IWebAssemblyHostEnvironment>();
-            var builder = context.Services.GetSingletonInstance<WebAssemblyHostBuilder>();
+            var hostingEnvironment = context.Services.GetHostingEnvironment();
+            var configuration = context.Services.GetConfiguration();
 
-            ConfigureAuthentication(builder);
-            ConfigureHttpClient(context, environment);
-            ConfigureMenu(context);
-            ConfigureToolbar(context);
+            ConfigureUrls(configuration);
+            ConfigureBundles();
+            ConfigureAuthentication(context, configuration);
+            ConfigureAutoMapper();
+            ConfigureVirtualFileSystem(hostingEnvironment);
+            ConfigureLocalizationServices();
+            ConfigureSwaggerServices(context.Services);
+            ConfigureAutoApiControllers();
+            ConfigureHttpClient(context);
             ConfigureBlazorise(context);
             ConfigureRouter(context);
-            ConfigureUI(builder);
-            ConfigureAutoMapper(context);
+            ConfigureMenu(context);
+            ConfigureToolbar(context);
             ConfigureGoogleAnalytics(context);
         }
 
         private void ConfigureGoogleAnalytics(ServiceConfigurationContext context)
         {
             context.Services.AddGoogleAnalytics("G-7EJ58X64VW");
+        }
+        
+        private void ConfigureUrls(IConfiguration configuration)
+        {
+            Configure<AppUrlOptions>(options =>
+            {
+                options.Applications["MVC"].RootUrl = configuration["App:SelfUrl"];
+            });
+        }
+        
+        private void ConfigureBundles()
+        {
+            Configure<AbpBundlingOptions>(options =>
+            {
+                // MVC UI
+                options.StyleBundles.Configure(
+                    BasicThemeBundles.Styles.Global,
+                    bundle =>
+                    {
+                        bundle.AddFiles("/global-styles.css");
+                    }
+                );
+
+                //BLAZOR UI
+                options.StyleBundles.Configure(
+                    BlazorBasicThemeBundles.Styles.Global,
+                    bundle =>
+                    {
+                        bundle.AddFiles("/blazor-global-styles.css");
+                        //You can remove the following line if you don't use Blazor CSS isolation for components
+                        bundle.AddFiles("/EasyAbp.AbpHelper.Gui.Blazor.styles.css");
+                    }
+                );
+            });
+        }
+        
+                private void ConfigureVirtualFileSystem(IWebHostEnvironment hostingEnvironment)
+        {
+            if (hostingEnvironment.IsDevelopment())
+            {
+                Configure<AbpVirtualFileSystemOptions>(options =>
+                {
+                    options.FileSets.ReplaceEmbeddedByPhysical<GuiApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}EasyAbp.AbpHelper.Gui.Application.Contracts"));
+                    options.FileSets.ReplaceEmbeddedByPhysical<GuiApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, $"..{Path.DirectorySeparatorChar}EasyAbp.AbpHelper.Gui.Application"));
+                    options.FileSets.ReplaceEmbeddedByPhysical<GuiBlazorModule>(hostingEnvironment.ContentRootPath);
+                });
+            }
+        }
+
+        private void ConfigureLocalizationServices()
+        {
+            Configure<AbpLocalizationOptions>(options =>
+            {
+                options.Languages.Add(new LanguageInfo("en", "en", "English"));
+                options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
+                options.Languages.Add(new LanguageInfo("zh-Hant", "zh-Hant", "繁體中文"));
+            });
+        }
+
+        private void ConfigureSwaggerServices(IServiceCollection services)
+        {
+            services.AddSwaggerGen(
+                options =>
+                {
+                    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Gui API", Version = "v1" });
+                    options.DocInclusionPredicate((docName, description) => true);
+                    options.CustomSchemaIds(type => type.FullName);
+                }
+            );
+        }
+        
+        private void ConfigureAutoApiControllers()
+        {
+            Configure<AbpAspNetCoreMvcOptions>(options =>
+            {
+                options.ConventionalControllers.Create(typeof(GuiApplicationModule).Assembly);
+            });
         }
 
         private void ConfigureMenu(ServiceConfigurationContext context)
@@ -82,38 +208,66 @@ namespace EasyAbp.AbpHelper.Gui
                 .AddFontAwesomeIcons();
         }
 
-        private static void ConfigureAuthentication(WebAssemblyHostBuilder builder)
+        private void ConfigureAuthentication(ServiceConfigurationContext context, IConfiguration configuration)
         {
-            builder.Services.AddOidcAuthentication(options =>
-            {
-                builder.Configuration.Bind("AuthServer", options.ProviderOptions);
-                options.UserOptions.RoleClaim = JwtClaimTypes.Role;
-                options.ProviderOptions.DefaultScopes.Add("Gui");
-                options.ProviderOptions.DefaultScopes.Add("role");
-                options.ProviderOptions.DefaultScopes.Add("email");
-                options.ProviderOptions.DefaultScopes.Add("phone");
-            });
+            context.Services.AddAuthentication()
+                .AddJwtBearer(options =>
+                {
+                    options.Authority = configuration["AuthServer:Authority"];
+                    options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
+                    options.Audience = "Gui";
+                });
         }
 
-        private static void ConfigureUI(WebAssemblyHostBuilder builder)
-        {
-            builder.RootComponents.Add<App>("#ApplicationContainer");
-        }
-
-        private static void ConfigureHttpClient(ServiceConfigurationContext context, IWebAssemblyHostEnvironment environment)
+        private static void ConfigureHttpClient(ServiceConfigurationContext context)
         {
             context.Services.AddTransient(sp => new HttpClient
             {
-                BaseAddress = new Uri(environment.BaseAddress)
+                BaseAddress = new Uri("/")
             });
         }
 
-        private void ConfigureAutoMapper(ServiceConfigurationContext context)
+        private void ConfigureAutoMapper()
         {
             Configure<AbpAutoMapperOptions>(options =>
             {
                 options.AddMaps<GuiBlazorModule>();
             });
+        }
+        
+        public override void OnApplicationInitialization(ApplicationInitializationContext context)
+        {
+            var env = context.GetEnvironment();
+            var app = context.GetApplicationBuilder();
+
+            app.UseAbpRequestLocalization();
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
+            }
+
+            app.UseHttpsRedirection();
+            app.UseCorrelationId();
+            app.UseStaticFiles();
+            app.UseRouting();
+            app.UseAuthentication();
+            app.UseJwtTokenMiddleware();
+
+            app.UseUnitOfWork();
+            app.UseIdentityServer();
+            app.UseAuthorization();
+            app.UseSwagger();
+            app.UseAbpSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "AbpHelper GUI API");
+            });
+            app.UseConfiguredEndpoints();
         }
     }
 }

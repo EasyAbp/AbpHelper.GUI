@@ -1,66 +1,69 @@
-﻿@using EasyAbp.AbpHelper.Gui.Localization
+﻿@using Volo.Abp.AspNetCore.Components.Web
+@using EasyAbp.AbpHelper.Gui.Localization
 @using EasyAbp.AbpHelper.Gui.AbpCli.Add.Dtos;
-@using EasyAbp.AbpHelper.Gui.Pages.Shared;
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
 @inherits ExecutableComponentBaseWithDirectory<AbpAddModuleInput>
 @inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
 
 <Card Class="mb-4">
     <CardBody>
         <Form>
-            <Validation MessageLocalizer="@Lh.Localize">
+            <Validations Mode="ValidationMode.Auto" ValidateOnLoad="false">
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["Directory"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.Directory">
+                            <Feedback>
+                                <ValidationError/>
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_Add:ModuleName"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.ModuleName">
+                            <Feedback>
+                                <ValidationError/>
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_Add:Solution"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.Solution" Autofocus="true">
+                            <Feedback>
+                                <ValidationError/>
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_Add:StartupProject"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.StartupProject" Autofocus="true">
+                            <Feedback>
+                                <ValidationError/>
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
                 <Field>
-                    <FieldLabel>@L["Directory"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.Directory">
-                        <Feedback>
-                            <ValidationError />
-                        </Feedback>
-                    </TextEdit>
+                    <Check TValue="bool" @bind-Checked="@Input.SkipDbMigrations">@L["AbpCli_Add:SkipDbMigrations"]</Check>
                 </Field>
-            </Validation>
-            <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["AbpCli_Add:ModuleName"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.ModuleName">
-                        <Feedback>
-                            <ValidationError />
-                        </Feedback>
-                    </TextEdit>
+                    <Check TValue="bool" @bind-Checked="@Input.New">@L["AbpCli_Add:New"]</Check>
                 </Field>
-            </Validation>
-            <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["AbpCli_Add:Solution"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.Solution" Autofocus="true">
-                        <Feedback>
-                            <ValidationError />
-                        </Feedback>
-                    </TextEdit>
+                    <Check TValue="bool" @bind-Checked="@Input.WithSourceCode">@L["AbpCli_Add:WithSourceCode"]</Check>
                 </Field>
-            </Validation>
-            <Validation MessageLocalizer="@Lh.Localize">
                 <Field>
-                    <FieldLabel>@L["AbpCli_Add:StartupProject"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.StartupProject" Autofocus="true">
-                        <Feedback>
-                            <ValidationError />
-                        </Feedback>
-                    </TextEdit>
+                    <Check TValue="bool" @bind-Checked="@Input.AddToSolutionFile">@L["AbpCli_Add:AddToSolutionFile"]</Check>
                 </Field>
-            </Validation>
-            <Field>
-                <Check TValue="bool" @bind-Checked="@Input.SkipDbMigrations">@L["AbpCli_Add:SkipDbMigrations"]</Check>
-            </Field>
-            <Field>
-                <Check TValue="bool" @bind-Checked="@Input.New">@L["AbpCli_Add:New"]</Check>
-            </Field>
-            <Field>
-                <Check TValue="bool" @bind-Checked="@Input.WithSourceCode">@L["AbpCli_Add:WithSourceCode"]</Check>
-            </Field>
-            <Field>
-                <Check TValue="bool" @bind-Checked="@Input.AddToSolutionFile">@L["AbpCli_Add:AddToSolutionFile"]</Check>
-            </Field>
-            
-            <SubmitButton Block="true" Clicked="@ExecuteAsync" />
+
+                <SubmitButton Block="true" Clicked="@ExecuteAsync"/>
+            </Validations>
         </Form>
     </CardBody>
 </Card>

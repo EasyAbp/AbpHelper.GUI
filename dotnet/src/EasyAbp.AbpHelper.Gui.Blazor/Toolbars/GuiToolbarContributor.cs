@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Gui.Pages.LogService.Components;
-using EasyAbp.AbpHelper.Gui.Pages.Solutions.Components;
-using Volo.Abp.AspNetCore.Components.WebAssembly.BasicTheme.Themes.Basic;
-using Volo.Abp.AspNetCore.Components.WebAssembly.Theming.Toolbars;
+using EasyAbp.AbpHelper.Gui.Blazor.Pages.LogService.Components;
+using EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Components;
+using Volo.Abp.AspNetCore.Components.Server.BasicTheme.Themes.Basic;
+using Volo.Abp.AspNetCore.Components.Web.Theming.Toolbars;
 
-namespace EasyAbp.AbpHelper.Gui.Toolbars
+namespace EasyAbp.AbpHelper.Gui.Blazor.Toolbars
 {
     public class GuiToolbarContributor : IToolbarContributor
     {

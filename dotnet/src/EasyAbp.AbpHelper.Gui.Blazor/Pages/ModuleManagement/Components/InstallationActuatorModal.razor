@@ -1,8 +1,7 @@
-﻿@using EasyAbp.AbpHelper.Gui.Pages.Shared;
+﻿@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
 @inherits ExecutableComponentBase
 
 <Modal @ref="_actuatorModal">
-    <ModalBackdrop />
     <ModalContent Size="ModalSize.Large" IsCentered="true">
         <ModalHeader>
             <ModalTitle>@L["InstallationActuator"]</ModalTitle>
@@ -49,7 +48,6 @@
 </Modal>
 
 <Modal @ref="_editTargetModal">
-    <ModalBackdrop />
     <ModalContent Size="ModalSize.Small" IsCentered="true">
         <ModalHeader>
             <ModalTitle>@L["InstallationTarget"]</ModalTitle>

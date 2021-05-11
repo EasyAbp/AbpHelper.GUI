@@ -1,18 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Blazorise;
-using EasyAbp.AbpHelper.Gui.Services;
-using EasyAbp.AbpHelper.Gui.Solutions;
-using EasyAbp.AbpHelper.Gui.Solutions.Dtos;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Pages.Solutions.Components
+namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Components
 {
     public partial class SolutionSwitch
     {
+        private readonly NavigationManager _navigationManager;
+
+        public SolutionSwitch(NavigationManager navigationManager)
+        {
+            _navigationManager = navigationManager;
+        }
+        
         private Task RedirectToSolutionsPageAsync()
         {
-            NavigationManager.NavigateTo("/Solutions");
+            _navigationManager.NavigateTo("/Solutions");
             
             return Task.CompletedTask;
         }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace EasyAbp.AbpHelper.Gui
+namespace EasyAbp.AbpHelper.Gui.Blazor
 {
     public class GuiBlazorAutoMapperProfile : Profile
     {

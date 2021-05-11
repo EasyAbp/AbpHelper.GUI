@@ -1,7 +1,7 @@
 {
   "name": "abphelper-gui",
   "productName": "AbpHelper",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "AbpHelper is a tool that helps you with developing Abp vNext applications.",
   "main": "main.js",
   "bin": "cli.js",
@@ -42,10 +42,10 @@
     }
   },
   "scripts": {
-    "start": "cd ../dotnet/src/EasyAbp.AbpHelper.Gui.Blazor.Host && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.Blazor.Host && cd ../EasyAbp.AbpHelper.Gui.HttpApi.Host && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.HttpApi.Host && cd ../../../electron && electron .",
-    "dev": "cd ../dotnet/src/EasyAbp.AbpHelper.Gui.Blazor.Host && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.Blazor.Host && cd ../EasyAbp.AbpHelper.Gui.HttpApi.Host && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.HttpApi.Host && cd ../../../electron && electron . --debug",
+    "start": "cd ../dotnet/src/EasyAbp.AbpHelper.Gui.Blazor && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.Blazor && cd ../../../electron && electron .",
+    "dev": "cd ../dotnet/src/EasyAbp.AbpHelper.Gui.Blazor && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.Blazor && cd ../../../electron && electron . --debug",
     "test": "mocha && standard",
-    "package": "cd ../dotnet/src/EasyAbp.AbpHelper.Gui.Blazor.Host && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.Blazor.Host && cd ../EasyAbp.AbpHelper.Gui.HttpApi.Host && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.HttpApi.Host && cd ../../../electron && electron-builder",
+    "package": "cd ../dotnet/src/EasyAbp.AbpHelper.Gui.Blazor && dotnet publish -c Release -o ../../../electron/dotnet/EasyAbp.AbpHelper.Gui.Blazor && cd ../../../electron && electron-builder",
     "prepack": "check-for-leaks",
     "prepush": "check-for-leaks"
   },

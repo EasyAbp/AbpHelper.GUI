@@ -1,0 +1,39 @@
+2021-05-11 17:23:43.083 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/AbpCli - -
+2021-05-11 17:23:43.850 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.CompilationFailedException: One or more compilation failures occurred:
+C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\Pages\_Host.cshtml(11,7): error CS0103: The name 'code' does not exist in the current context
+C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\Pages\_Host.cshtml(26,29): error CS0103: The name 'GetRecentErrorLogFilePathAsync' does not exist in the current context
+   at Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler.CompileAndEmit(RazorCodeDocument codeDocument, String generatedCode)
+   at Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler.CompileAndEmit(String relativePath)
+   at Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler.OnCacheMiss(String normalizedPath)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageLoader.LoadAsyncCore(PageActionDescriptor actionDescriptor, EndpointMetadataCollection endpointMetadata)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DynamicPageEndpointMatcherPolicy.ApplyAsync(HttpContext httpContext, CandidateSet candidates)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.SelectEndpointWithPoliciesAsync(HttpContext httpContext, IEndpointSelectorPolicy[] policies, CandidateSet candidateSet)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.<Invoke>g__AwaitMatch|8_1(EndpointRoutingMiddleware middleware, HttpContext httpContext, Task matchTask)
+   at Volo.Abp.AspNetCore.Tracing.AbpCorrelationIdMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-05-11 17:23:43.871 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/AbpCli - - - 500 - text/html;+charset=utf-8 787.8190ms
+2021-05-11 17:23:43.890 +08:00 [INF] Request starting HTTP/2 POST https://localhost:44307/_blazor/disconnect multipart/form-data;+boundary=----WebKitFormBoundaryNA6Bw250T4UuNEFZ 359
+2021-05-11 17:23:43.894 +08:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.CompilationFailedException: One or more compilation failures occurred:
+C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\Pages\_Host.cshtml(11,7): error CS0103: The name 'code' does not exist in the current context
+C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\Pages\_Host.cshtml(26,29): error CS0103: The name 'GetRecentErrorLogFilePathAsync' does not exist in the current context
+   at Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler.CompileAndEmit(RazorCodeDocument codeDocument, String generatedCode)
+   at Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler.CompileAndEmit(String relativePath)
+   at Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.RuntimeViewCompiler.OnCacheMiss(String normalizedPath)
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DefaultPageLoader.LoadAsyncCore(PageActionDescriptor actionDescriptor, EndpointMetadataCollection endpointMetadata)
+   at Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure.DynamicPageEndpointMatcherPolicy.ApplyAsync(HttpContext httpContext, CandidateSet candidates)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcher.SelectEndpointWithPoliciesAsync(HttpContext httpContext, IEndpointSelectorPolicy[] policies, CandidateSet candidateSet)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.<Invoke>g__AwaitMatch|8_1(EndpointRoutingMiddleware middleware, HttpContext httpContext, Task matchTask)
+   at Volo.Abp.AspNetCore.Tracing.AbpCorrelationIdMiddleware.InvokeAsync(HttpContext context, RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.UseMiddlewareExtensions.<>c__DisplayClass6_1.<<UseMiddlewareInterface>b__1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-05-11 17:23:43.912 +08:00 [INF] Request finished HTTP/2 POST https://localhost:44307/_blazor/disconnect multipart/form-data;+boundary=----WebKitFormBoundaryNA6Bw250T4UuNEFZ 359 - 500 - text/plain 21.7633ms
+2021-05-11 17:23:44.164 +08:00 [INF] Request starting HTTP/2 GET https://localhost:44307/favicon.ico - -
+2021-05-11 17:23:44.194 +08:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Projects\EasyAbp\AbpHelper.GUI\dotnet\src\EasyAbp.AbpHelper.Gui.Blazor\wwwroot\favicon.ico'
+2021-05-11 17:23:44.195 +08:00 [INF] Request finished HTTP/2 GET https://localhost:44307/favicon.ico - - - 200 32038 image/x-icon 30.9684ms

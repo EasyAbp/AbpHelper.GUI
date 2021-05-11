@@ -22,5 +22,12 @@ namespace EasyAbp.AbpHelper.Gui.Controllers.LogService
         {
             return _service.GetRecentLogFilePathAsync();
         }
+
+        [HttpGet]
+        [Route("recent-error-log-file-path")]
+        public Task<string> GetRecentErrorLogFilePathAsync()
+        {
+            return _service.GetRecentErrorLogFilePathAsync();
+        }
     }
 }

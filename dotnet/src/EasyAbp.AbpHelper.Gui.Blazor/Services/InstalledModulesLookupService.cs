@@ -5,7 +5,7 @@ using EasyAbp.AbpHelper.Gui.Solutions;
 using EasyAbp.AbpHelper.Gui.Solutions.Dtos;
 using Volo.Abp.DependencyInjection;
 
-namespace EasyAbp.AbpHelper.Gui.Services
+namespace EasyAbp.AbpHelper.Gui.Blazor.Services
 {
     public class InstalledModulesLookupService : IInstalledModulesLookupService, ITransientDependency
     {

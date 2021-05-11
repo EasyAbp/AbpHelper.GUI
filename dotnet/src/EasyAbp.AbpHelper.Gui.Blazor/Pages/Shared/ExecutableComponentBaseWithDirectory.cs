@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Gui.Services;
+using EasyAbp.AbpHelper.Gui.Blazor.Services;
 using EasyAbp.AbpHelper.Gui.Shared.Dtos;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Pages.Shared
+namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
 {
     public abstract class ExecutableComponentBaseWithDirectory<TInput> : ExecutableComponentBaseWithCurrentSolution where TInput : InputDtoWithDirectory, new()
     {

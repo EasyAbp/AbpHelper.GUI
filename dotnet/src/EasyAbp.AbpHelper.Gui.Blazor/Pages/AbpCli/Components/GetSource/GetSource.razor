@@ -1,57 +1,60 @@
-﻿@using EasyAbp.AbpHelper.Gui.Localization
+﻿@using Volo.Abp.AspNetCore.Components.Web
+@using EasyAbp.AbpHelper.Gui.Localization
 @using EasyAbp.AbpHelper.Gui.AbpCli.GetSource.Dtos;
-@using EasyAbp.AbpHelper.Gui.Pages.Shared;
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
 @inherits ExecutableComponentBaseWithDirectory<AbpGetSourceInput>
 @inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
 
 <Card Class="mb-4">
     <CardBody>
         <Form>
-            <Validation MessageLocalizer="@Lh.Localize">
+            <Validations Mode="ValidationMode.Auto" ValidateOnLoad="false">
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["Directory"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.Directory" Autofocus="true">
+                            <Feedback>
+                                <ValidationError/>
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_GetSource:ModuleName"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.ModuleName">
+                            <Feedback>
+                                <ValidationError/>
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_GetSource:Version"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.Version">
+                            <Feedback>
+                                <ValidationError/>
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_GetSource:LocalFrameworkRef"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.LocalFrameworkRef">
+                            <Feedback>
+                                <ValidationError/>
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
                 <Field>
-                    <FieldLabel>@L["Directory"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.Directory" Autofocus="true">
-                        <Feedback>
-                            <ValidationError />
-                        </Feedback>
-                    </TextEdit>
+                    <Check TValue="bool" @bind-Checked="@Input.Preview">@L["AbpCli_GetSource:Preview"]</Check>
                 </Field>
-            </Validation>
-            <Validation MessageLocalizer="@Lh.Localize">
-                <Field>
-                    <FieldLabel>@L["AbpCli_GetSource:ModuleName"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.ModuleName">
-                        <Feedback>
-                            <ValidationError/>
-                        </Feedback>
-                    </TextEdit>
-                </Field>
-            </Validation>
-            <Validation MessageLocalizer="@Lh.Localize">
-                <Field>
-                    <FieldLabel>@L["AbpCli_GetSource:Version"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.Version">
-                        <Feedback>
-                            <ValidationError/>
-                        </Feedback>
-                    </TextEdit>
-                </Field>
-            </Validation>
-            <Validation MessageLocalizer="@Lh.Localize">
-                <Field>
-                    <FieldLabel>@L["AbpCli_GetSource:LocalFrameworkRef"]</FieldLabel>
-                    <TextEdit @bind-Text="Input.LocalFrameworkRef">
-                        <Feedback>
-                            <ValidationError/>
-                        </Feedback>
-                    </TextEdit>
-                </Field>
-            </Validation>
-            <Field>
-                <Check TValue="bool" @bind-Checked="@Input.Preview">@L["AbpCli_GetSource:Preview"]</Check>
-            </Field>
 
-            <SubmitButton Block="true" Clicked="@ExecuteAsync"/>
+                <SubmitButton Block="true" Clicked="@ExecuteAsync"/>
+            </Validations>
         </Form>
     </CardBody>
 </Card>

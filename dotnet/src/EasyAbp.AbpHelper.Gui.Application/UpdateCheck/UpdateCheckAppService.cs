@@ -57,8 +57,9 @@ namespace EasyAbp.AbpHelper.Gui.UpdateCheck
             
             client.DefaultRequestHeaders.Add("Accept", "application/vnd.github.v3+json");
             client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("product", "1"));
-            
-            var data = _jsonSerializer.Deserialize<JObject>(await client.GetStringAsync(LatestReleaseUri));
+
+            var str = await client.GetStringAsync(LatestReleaseUri);
+            var data = _jsonSerializer.Deserialize<JObject>(str);
 
             var tagName = data["tag_name"]?.ToString() ?? "";
 

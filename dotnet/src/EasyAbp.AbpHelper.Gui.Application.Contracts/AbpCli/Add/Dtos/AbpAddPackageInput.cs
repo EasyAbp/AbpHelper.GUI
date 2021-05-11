@@ -14,16 +14,22 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Add.Dtos
         
         [CanBeNull]
         public virtual string Project { get; set; }
+        
+        public virtual bool WithSourceCode { get; set; }
+        
+        public virtual bool AddToSolutionFile { get; set; }
 
         public AbpAddPackageInput()
         {
         }
 
         public AbpAddPackageInput([NotNull] string directory, [NotNull] string packageName,
-            [CanBeNull] string project) : base(directory)
+            [CanBeNull] string project, bool withSourceCode, bool addToSolutionFile) : base(directory)
         {
             PackageName = packageName;
             Project = project;
+            WithSourceCode = withSourceCode;
+            AddToSolutionFile = addToSolutionFile;
         }
     }
 }

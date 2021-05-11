@@ -3,7 +3,7 @@ using EasyAbp.AbpHelper.Gui.LogService;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace EasyAbp.AbpHelper.Gui.Pages.LogService.Components
+namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.LogService.Components
 {
     public partial class Logs
     {
@@ -17,10 +17,20 @@ namespace EasyAbp.AbpHelper.Gui.Pages.LogService.Components
         {
             await JsRuntime.InvokeVoidAsync("open", await GetRecentLogFilePathAsync(), "_blank");
         }
+
+        private async Task OpenRecentErrorLogFileAsync()
+        {
+            await JsRuntime.InvokeVoidAsync("open", await GetRecentErrorLogFilePathAsync(), "_blank");
+        }
         
         private async Task<string> GetRecentLogFilePathAsync()
         {
             return await Service.GetRecentLogFilePathAsync();
+        }
+        
+        private async Task<string> GetRecentErrorLogFilePathAsync()
+        {
+            return await Service.GetRecentErrorLogFilePathAsync();
         }
 
     }

@@ -16,27 +16,14 @@ if (process.platform === 'darwin') require('fix-path')()
 let mainWindow = null
 let contextMenu = null
 let blazorHost = null
-let httpApiHost = null
 
 let forceQuit = false
 
 function initialize () {
   makeSingleInstance()
 
-  function runHttpApiHost() {
-    httpApiHost = spawn('dotnet', ['EasyAbp.AbpHelper.Gui.HttpApi.Host.dll', '--urls', 'https://localhost:44373'], {cwd: "./dotnet/EasyAbp.AbpHelper.Gui.HttpApi.Host"})
-
-    httpApiHost.on('close', function (code) {
-      if (code !== 0) {
-        console.log(`grep process exited with code ${code}`);
-      }
-      forceQuit = true;
-      app.quit()
-    })
-  }
-
   function runBlazorHost() {
-    blazorHost = spawn('dotnet', ['EasyAbp.AbpHelper.Gui.Blazor.Host.dll', '--urls', 'https://localhost:8005'], {cwd: "./dotnet/EasyAbp.AbpHelper.Gui.Blazor.Host"})
+    blazorHost = spawn('dotnet', ['EasyAbp.AbpHelper.Gui.Blazor.dll', '--urls', 'https://localhost:44313'], {cwd: "./dotnet/EasyAbp.AbpHelper.Gui.Blazor"})
 
     blazorHost.on('close', function (code) {
       if (code !== 0) {
@@ -49,7 +36,6 @@ function initialize () {
 
   process.on('exit', function () {
     if (blazorHost != null) blazorHost.kill(2)
-    if (httpApiHost != null) httpApiHost.kill(2)
   });
 
   function createTray() {
@@ -88,7 +74,7 @@ function initialize () {
 
     mainWindow = new BrowserWindow(windowOptions)
     mainWindow.setMenuBarVisibility(false)
-    mainWindow.loadURL(path.join('https://localhost:8005'))
+    mainWindow.loadURL(path.join('https://localhost:44313'))
 
     // Launch fullscreen with DevTools open, usage: npm run debug
     if (debug) {
@@ -117,7 +103,6 @@ function initialize () {
       let trustCertProcess = exec("dotnet dev-certs https --trust")
     
       trustCertProcess.on('close', function (code) {
-        runHttpApiHost()
         runBlazorHost()
         setTimeout(function() {
           createTray()

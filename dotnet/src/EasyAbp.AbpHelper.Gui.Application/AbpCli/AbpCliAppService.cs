@@ -38,7 +38,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli
                 }
                 else if (typeof(Enum).IsAssignableFrom(propertyInfo.PropertyType))
                 {
-                    args.Options.Add(optionKey, propertyInfo.GetValue(input)?.ToString().ToLower());
+                    args.Options.Add(optionKey, propertyInfo.GetValue(input)?.ToString().PascalToKebabCase());
                 }
             }
 

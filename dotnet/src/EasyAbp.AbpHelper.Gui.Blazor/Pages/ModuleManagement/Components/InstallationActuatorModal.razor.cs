@@ -7,7 +7,7 @@ using EasyAbp.AbpHelper.Gui.ModuleManagement.Installer;
 using EasyAbp.AbpHelper.Gui.ModuleManagement.Installer.Dtos;
 using Microsoft.AspNetCore.Components;
 
-namespace EasyAbp.AbpHelper.Gui.Pages.ModuleManagement.Components
+namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
 {
     public partial class InstallationActuatorModal
     {

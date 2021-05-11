@@ -8,6 +8,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
         None = 1,
         Mvc = 2,
         Angular = 4,
-        Blazor = 8
+        Blazor = 8,
+        BlazorServer = 16
     }
 }

@@ -7,16 +7,24 @@ namespace EasyAbp.AbpHelper.Gui.LogService
 {
     public class LogFilePathProvider : ILogFilePathProvider, ISingletonDependency
     {
-        protected DirectoryInfo Directory { get; set; }
+        protected DirectoryInfo LogDirectory { get; set; }
+        
+        protected DirectoryInfo ErrorLogDirectory { get; set; }
         
         public LogFilePathProvider()
         {
-            Directory = new DirectoryInfo("Logs");
+            LogDirectory = new DirectoryInfo("Logs");
+            ErrorLogDirectory = new DirectoryInfo("Logs/Errors");
         }
         
-        public virtual Task<string> GetRecentlyAsync()
+        public virtual Task<string> GetRecentLogPathAsync()
         {
-            return Task.FromResult(Directory.GetFiles().OrderByDescending(f => f.LastWriteTime).First().FullName);
+            return Task.FromResult(LogDirectory.GetFiles().OrderByDescending(f => f.LastWriteTime).First().FullName);
+        }
+
+        public virtual Task<string> GetRecentErrorLogPathAsync()
+        {
+            return Task.FromResult(ErrorLogDirectory.GetFiles().OrderByDescending(f => f.LastWriteTime).First().FullName);
         }
     }
 }

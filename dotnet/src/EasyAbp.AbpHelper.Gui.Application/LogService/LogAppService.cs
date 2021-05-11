@@ -14,7 +14,12 @@ namespace EasyAbp.AbpHelper.Gui.LogService
         
         public virtual async Task<string> GetRecentLogFilePathAsync()
         {
-            return await _logFilePathProvider.GetRecentlyAsync();
+            return await _logFilePathProvider.GetRecentLogPathAsync();
+        }
+
+        public virtual async Task<string> GetRecentErrorLogFilePathAsync()
+        {
+            return await _logFilePathProvider.GetRecentErrorLogPathAsync();
         }
     }
 }
