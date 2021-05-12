@@ -19,12 +19,12 @@ namespace EasyAbp.AbpHelper.Gui.LogService
         
         public virtual Task<string> GetRecentLogPathAsync()
         {
-            return Task.FromResult(LogDirectory.GetFiles().OrderByDescending(f => f.LastWriteTime).First().FullName);
+            return Task.FromResult(LogDirectory.GetFiles().OrderByDescending(f => f.LastWriteTime).FirstOrDefault()?.FullName);
         }
 
         public virtual Task<string> GetRecentErrorLogPathAsync()
         {
-            return Task.FromResult(ErrorLogDirectory.GetFiles().OrderByDescending(f => f.LastWriteTime).First().FullName);
+            return Task.FromResult(ErrorLogDirectory.GetFiles().OrderByDescending(f => f.LastWriteTime).FirstOrDefault()?.FullName);
         }
     }
 }
