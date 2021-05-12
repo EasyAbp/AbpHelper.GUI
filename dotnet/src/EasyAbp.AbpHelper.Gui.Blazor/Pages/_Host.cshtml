@@ -1,9 +1,7 @@
 ﻿@page "/"
 @namespace EasyAbp.AbpHelper.Gui.Blazor.Pages
-@inject ILogAppService LogAppService
 @using System.Globalization
 @using EasyAbp.AbpHelper.Gui.LogService
-@using Microsoft.JSInterop
 @using Volo.Abp.AspNetCore.Components.Server.BasicTheme.Bundling
 @using Volo.Abp.AspNetCore.Components.Web.BasicTheme.Themes.Basic
 @using Volo.Abp.Localization
@@ -11,16 +9,11 @@
 @{
     Layout = null;
     var rtl = CultureHelper.IsRtl ? "rtl" : string.Empty;
-
-    async Task<object> GetRecentErrorLogFilePathAsync()
-    {
-        return (await LogAppService.GetRecentErrorLogFilePathAsync()).Replace("\\", "\\\\");
-    }
 }
 
 <script>
     function openErrorLogFile() {
-        window.open('@await GetRecentErrorLogFilePathAsync()', '_blank');
+        window.open('/logs/recent-error-log-file', '_blank');
     }
 </script>
 
