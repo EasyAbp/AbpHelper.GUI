@@ -64,6 +64,7 @@
     "AbpCli_New:Database:SqlServer": "SQL Server",
     "AbpCli_New:Database:MySQL": "MySQL",
     "AbpCli_New:Database:SQLite": "SQLite",
+    "AbpCli_New:Database:Oracle": "Oracle",
     "AbpCli_New:Database:OracleDevart": "Oracle-Devart",
     "AbpCli_New:Database:PostgreSQL": "PostgreSQL",
     "AbpCli_New:LocalFrameworkRef": "Local framework ref",

@@ -1,4 +1,6 @@
 ﻿using System;
+using EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos;
+using EasyAbp.AbpHelper.Gui.Common;
 using EasyAbp.AbpHelper.Gui.Shared;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Cli.Args;
@@ -38,7 +40,10 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli
                 }
                 else if (typeof(Enum).IsAssignableFrom(propertyInfo.PropertyType))
                 {
-                    args.Options.Add(optionKey, propertyInfo.GetValue(input)?.ToString().PascalToKebabCase());
+                    args.Options.Add(optionKey,
+                        Attribute.IsDefined(propertyInfo.PropertyType, typeof(ToStringUseDescriptionAttribute))
+                            ? (propertyInfo.GetValue(input) as Enum)?.ToDescriptionString()
+                            : propertyInfo.GetValue(input)?.ToString().PascalToKebabCase());
                 }
             }
 
