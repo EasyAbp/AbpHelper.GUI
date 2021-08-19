@@ -29,8 +29,6 @@
                             <EntityAction TItem="SolutionDto"
                                           Clicked="() => ChangeSolutionAsync(context)"
                                           Text="@L["Use"]" />
-                        </EntityActions>
-                        <EntityActions TItem="SolutionDto" EntityActionsColumn="@EntityActionsColumn">
                             <EntityAction TItem="SolutionDto"
                                           Clicked="() => DeleteSolutionAsync(context)"
                                           ConfirmationMessage="()=>GetDeleteConfirmationMessage(context)"
