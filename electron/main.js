@@ -7,7 +7,7 @@ const path = require('path')
 const {spawn, exec} = require('child_process')
 const {app, Menu, Tray, BrowserWindow, shell, dialog} = require('electron')
 
-const debug = /--debug/.test(process.argv[2])
+const debug = /--dev-debug/.test(process.argv[2])
 
 if (process.mas) app.setName('AbpHelper')
 

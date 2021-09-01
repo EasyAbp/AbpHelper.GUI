@@ -2,6 +2,7 @@
 using EasyAbp.AbpHelper.Gui.LogService;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp;
+using Volo.Abp.Application;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Cli;
 using Volo.Abp.Modularity;
@@ -10,6 +11,7 @@ namespace EasyAbp.AbpHelper.Gui
 {
     [DependsOn(
         typeof(AbpAutoMapperModule),
+        typeof(AbpDddApplicationModule),
         typeof(AbpCliCoreModule),
         typeof(AbpHelperCoreModule),
         typeof(GuiApplicationContractsModule)
