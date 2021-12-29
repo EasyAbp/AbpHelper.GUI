@@ -1,5 +1,7 @@
 # AbpHelper.GUI
 
+[![Discord online](https://badgen.net/discord/online-members/S6QaezrCRq?label=Discord)](https://discord.gg/S6QaezrCRq)
+
 Providing code generation and more features to help you develop applications and modules with the [ABP framework](https://abp.io). It can be used to call ABP CLI, generate code, manage modules, etc.
 
 **Make sure backup your source files before using it!**
