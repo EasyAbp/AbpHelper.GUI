@@ -2,7 +2,7 @@
 using System.IO;
 using System.Net.Http;
 using Blazorx.Analytics;
-using Blazorise.Bootstrap;
+using Blazorise.Bootstrap5;
 using Blazorise.Icons.FontAwesome;
 using EasyAbp.AbpHelper.Gui.Blazor.Menus;
 using EasyAbp.AbpHelper.Gui.Blazor.Toolbars;
@@ -14,8 +14,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Volo.Abp;
-using Volo.Abp.Account.Web;
-using Volo.Abp.AspNetCore.Authentication.JwtBearer;
 using Volo.Abp.AspNetCore.Components.Server.BasicTheme;
 using Volo.Abp.AspNetCore.Components.Server.BasicTheme.Bundling;
 using Volo.Abp.AspNetCore.Components.Web.Theming.Routing;
@@ -28,7 +26,6 @@ using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
-using Volo.Abp.Identity.Blazor.Server;
 using Volo.Abp.Json;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
@@ -46,11 +43,8 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
         typeof(AbpAspNetCoreMvcUiBasicThemeModule),
         typeof(AbpAutofacModule),
         typeof(AbpSwashbuckleModule),
-        typeof(AbpAspNetCoreAuthenticationJwtBearerModule),
         typeof(AbpAspNetCoreSerilogModule),
-        typeof(AbpAccountWebIdentityServerModule),
         typeof(AbpAspNetCoreComponentsServerBasicThemeModule),
-        typeof(AbpIdentityBlazorServerModule),
         typeof(AbpSettingManagementBlazorServerModule)
     )]
     public class GuiBlazorModule : AbpModule
@@ -81,7 +75,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
 
             ConfigureUrls(configuration);
             ConfigureBundles();
-            ConfigureAuthentication(context, configuration);
+            // ConfigureAuthentication(context, configuration);
             ConfigureAutoMapper();
             ConfigureVirtualFileSystem(hostingEnvironment);
             ConfigureLocalizationServices();
@@ -204,19 +198,8 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
         private void ConfigureBlazorise(ServiceConfigurationContext context)
         {
             context.Services
-                .AddBootstrapProviders()
+                .AddBootstrap5Providers()
                 .AddFontAwesomeIcons();
-        }
-
-        private void ConfigureAuthentication(ServiceConfigurationContext context, IConfiguration configuration)
-        {
-            context.Services.AddAuthentication()
-                .AddJwtBearer(options =>
-                {
-                    options.Authority = configuration["AuthServer:Authority"];
-                    options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
-                    options.Audience = "Gui";
-                });
         }
 
         private static void ConfigureHttpClient(ServiceConfigurationContext context)
@@ -242,26 +225,12 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
 
             app.UseAbpRequestLocalization();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                app.UseHsts();
-            }
+            app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
             app.UseCorrelationId();
             app.UseStaticFiles();
             app.UseRouting();
-            app.UseAuthentication();
-            app.UseJwtTokenMiddleware();
-
-            app.UseUnitOfWork();
-            app.UseIdentityServer();
-            app.UseAuthorization();
             app.UseSwagger();
             app.UseAbpSwaggerUI(options =>
             {

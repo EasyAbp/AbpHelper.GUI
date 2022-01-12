@@ -2,6 +2,7 @@
 using Volo.Abp.Account;
 using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
+using Volo.Abp.VirtualFileSystem;
 
 namespace EasyAbp.AbpHelper.Gui
 {
@@ -20,6 +21,12 @@ namespace EasyAbp.AbpHelper.Gui
                 typeof(GuiApplicationContractsModule).Assembly,
                 RemoteServiceName
             );
+            
+            Configure<AbpVirtualFileSystemOptions>(options =>
+            {
+                options.FileSets.AddEmbedded<GuiHttpApiClientModule>();
+            });
+
         }
     }
 }

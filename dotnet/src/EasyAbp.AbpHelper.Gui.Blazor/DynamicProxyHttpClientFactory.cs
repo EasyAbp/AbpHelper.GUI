@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Net.Http;
 using Volo.Abp.DependencyInjection;
-using Volo.Abp.Http.Client.DynamicProxying;
+using Volo.Abp.Http.Client.Proxying;
 
 namespace EasyAbp.AbpHelper.Gui.Blazor
 {
     [Dependency(ReplaceServices = true)]
-    public class DynamicProxyHttpClientFactory : IDynamicProxyHttpClientFactory, ITransientDependency
+    public class DynamicProxyHttpClientFactory : IProxyHttpClientFactory, ITransientDependency
     {
         private readonly IHttpClientFactory _httpClientFactory;
 

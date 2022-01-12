@@ -5,7 +5,7 @@ namespace EasyAbp.AbpHelper.Gui.Controllers
 {
     /* Inherit your controllers from this class.
      */
-    public abstract class GuiController : AbpController
+    public abstract class GuiController : AbpControllerBase
     {
         protected GuiController()
         {

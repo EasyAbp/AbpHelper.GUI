@@ -3,11 +3,10 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-    <PreserveCompilationContext>true</PreserveCompilationContext>
     <MvcRazorExcludeRefAssembliesFromPublish>false</MvcRazorExcludeRefAssembliesFromPublish>
     <PreserveCompilationReferences>true</PreserveCompilationReferences>
     <UserSecretsId>EasyAbp.AbpHelper.Gui-4681b4fd-151f-4221-84a4-929d86723e4c</UserSecretsId>
@@ -16,10 +15,10 @@
   <ItemGroup>
 <!--    <PackageReference Include="Blazor-Analytics" Version="3.3.0" />-->
     <PackageReference Include="Blazorx-Analytics" Version="1.0.0" />
-    <PackageReference Include="Blazorise.Bootstrap" Version="$(BlazoriseVersion)" />
+    <PackageReference Include="Blazorise.Bootstrap5" Version="$(BlazoriseVersion)" />
     <PackageReference Include="Blazorise.Icons.FontAwesome" Version="$(BlazoriseVersion)" />
     <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
-    <PackageReference Include="Serilog.Sinks.Async" Version="1.4.0" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,11 +27,8 @@
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.Autofac" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.Swashbuckle" Version="$(AbpVersion)" />
-    <PackageReference Include="Volo.Abp.AspNetCore.Authentication.JwtBearer" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.AspNetCore.Components.Server.BasicTheme" Version="$(AbpVersion)" />
-    <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" Version="$(AbpVersion)" />
-    <PackageReference Include="Volo.Abp.Identity.Blazor.Server" Version="$(AbpVersion)" />
     <PackageReference Include="Volo.Abp.SettingManagement.Blazor.Server" Version="$(AbpVersion)" />
   </ItemGroup>
 
