@@ -24,7 +24,7 @@
                     <TextEdit Placeholder="@($"{L["Search"]}...")" TextChanged="@FilterModuleGroupsAsync"/>
                 </Field>
             }
-            <Tabs TabPosition="TabPosition.Left" Pills="true" @bind-SelectedTab="@SelectedTab">
+            <Tabs TabPosition="TabPosition.Start" Pills="true" @bind-SelectedTab="@SelectedTab">
                 <Items>
                     @if (ModuleGroups.Count > 0)
                     {

@@ -20,3 +20,24 @@
 .nav-link {
     color: black;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+    height: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #f1f1f1;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #f1f1f1;
+}

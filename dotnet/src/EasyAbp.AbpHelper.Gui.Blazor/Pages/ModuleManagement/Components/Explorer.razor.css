@@ -10,7 +10,7 @@
 }
 ::deep #search-input{
     position: absolute;
-    top: 80px;
+    top: 70px;
     left: 20px;
     width: 320px;
 }
