@@ -41,3 +41,19 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #f1f1f1;
 }
+
+.lpx-menu-item-icon i {
+    font-size: 15px;
+    top: 16px;
+}
+
+.lpx-brand-logo {
+    background-image: url("/images/app-icon/icon-lpx.png");
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .lpx-sidebar-container:not(:hover) .lpx-brand-logo {
+        background-image: url("/images/app-icon/icon-lpx.png");
+    }
+}
+

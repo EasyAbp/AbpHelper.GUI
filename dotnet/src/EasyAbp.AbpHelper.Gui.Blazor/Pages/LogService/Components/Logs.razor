@@ -1,17 +1,18 @@
 ﻿@using Microsoft.Extensions.Localization
-@using Volo.Abp.AspNetCore.Components.Web
 @using EasyAbp.AbpHelper.Gui.Localization
 @inject IStringLocalizer<GuiResource> L
-<BarDropdown>
-    <BarDropdownToggle>
-        @L["Logs"]
-    </BarDropdownToggle>
-    <BarDropdownMenu RightAligned="true">
-        <BarDropdownItem Clicked="OpenRecentLogFileAsync">
-            @L["RecentLogs"] <Icon Name="IconName.ExternalLinkSquareAlt"/>
-        </BarDropdownItem>
-        <BarDropdownItem Clicked="OpenRecentErrorLogFileAsync">
-            @L["RecentErrorLogs"] <Icon Name="IconName.ExternalLinkSquareAlt"/>
-        </BarDropdownItem>
-    </BarDropdownMenu>
-</BarDropdown>
+<BarItem>
+    <BarDropdown>
+        <BarDropdownToggle>
+            @L["Logs"]
+        </BarDropdownToggle>
+        <BarDropdownMenu>
+            <BarDropdownItem Clicked="OpenRecentLogFileAsync">
+                @L["RecentLogs"] <Icon Name="IconName.ExternalLinkSquareAlt"/>
+            </BarDropdownItem>
+            <BarDropdownItem Clicked="OpenRecentErrorLogFileAsync">
+                @L["RecentErrorLogs"] <Icon Name="IconName.ExternalLinkSquareAlt"/>
+            </BarDropdownItem>
+        </BarDropdownMenu>
+    </BarDropdown>
+</BarItem>
