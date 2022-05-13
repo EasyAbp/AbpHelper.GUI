@@ -90,11 +90,26 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Shared
         
         protected virtual async Task OpenSolutionExecuteAsync()
         {
-            await Service.UseAsync(CreateSolution);
+            try
+            {
+                var validate = true;
+                if (ValidationsRef != null)
+                {
+                    validate = await ValidationsRef.ValidateAll();
+                }
+                if (validate)
+                {
+                    await Service.UseAsync(CreateSolution);
             
-            Modal.Hide();
+                    await Modal.Hide();
 
-            await RefreshSolutions();
+                    await RefreshSolutions();
+                }
+            }
+            catch (Exception ex)
+            {
+                await HandleErrorAsync(ex);
+            }
         }
 
         protected virtual async Task DeleteSolutionAsync(SolutionDto solution)
