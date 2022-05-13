@@ -160,6 +160,14 @@
     "CodeGeneration_Migration:RemoveEfMigration": "移除 EF migration",
     "CodeGeneration_Migration:Name": "名称 - Name",
     "CodeGeneration_Migration:EfOptions": "额外的 EF 选项 - EfOptions",
-    "CodeGeneration_Migration:MigrationProjectName": "迁移项目名称 - MigrationProjectName"
+    "CodeGeneration_Migration:MigrationProjectName": "迁移项目名称 - MigrationProjectName",
+    "Info:FunctionIsBasedOnAbpHelperPart1": "本功能基于 AbpHelper CLI 实现，你可以查看",
+    "Info:FunctionIsBasedOnAbpHelperPart2_SourceCode": "源代码",
+    "Info:FunctionIsBasedOnAbpHelperPart2_Document": "文档",
+    "Info:FunctionIsBasedOnAbpHelperPart3": "获得帮助。",
+    "Info:FunctionIsBasedOnAbpCliPart1": "本功能基于 ABP CLI 实现，你可以查看",
+    "Info:FunctionIsBasedOnAbpCliPart2_SourceCode": "源代码",
+    "Info:FunctionIsBasedOnAbpCliPart2_Document": "文档",
+    "Info:FunctionIsBasedOnAbpCliPart3": "获得帮助。"
   }
 }
