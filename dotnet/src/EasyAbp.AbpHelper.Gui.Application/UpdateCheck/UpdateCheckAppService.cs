@@ -35,7 +35,7 @@ namespace EasyAbp.AbpHelper.Gui.UpdateCheck
         {
             return new()
             {
-                CurrentVersion = GetType().Assembly.GetName().Version.ToString(3),
+                CurrentVersion = GetType().Assembly.GetName().Version?.ToString(3),
                 LatestVersion = await GetLatestVersionAsync()
             };
         }
