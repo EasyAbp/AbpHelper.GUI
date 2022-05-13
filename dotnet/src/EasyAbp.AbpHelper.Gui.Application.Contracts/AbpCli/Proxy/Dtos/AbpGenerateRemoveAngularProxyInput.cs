@@ -5,11 +5,13 @@ using JetBrains.Annotations;
 namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos
 {
     [Serializable]
-    public class AbpGenerateProxyInput : InputDtoWithDirectory
+    public class AbpGenerateRemoveAngularProxyInput : InputDtoWithDirectory
     {
+        public virtual ProxyType Type => ProxyType.Angular;
+
         [CanBeNull]
         public virtual string Module { get; set; }
-        
+
         [CanBeNull]
         public virtual string ApiName { get; set; }
         
@@ -18,18 +20,22 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos
         
         [CanBeNull]
         public virtual string Target { get; set; }
+        
+        [CanBeNull]
+        public virtual string Url { get; set; }
 
-        public AbpGenerateProxyInput()
+        public AbpGenerateRemoveAngularProxyInput()
         {
         }
 
-        protected AbpGenerateProxyInput([NotNull] string directory, [CanBeNull] string module,
-            [CanBeNull] string apiName, [CanBeNull] string source, [CanBeNull] string target) : base(directory)
+        public AbpGenerateRemoveAngularProxyInput([CanBeNull] string module, [CanBeNull] string apiName,
+            [CanBeNull] string source, [CanBeNull] string target, [CanBeNull] string url)
         {
             Module = module;
             ApiName = apiName;
             Source = source;
             Target = target;
+            Url = url;
         }
     }
 }

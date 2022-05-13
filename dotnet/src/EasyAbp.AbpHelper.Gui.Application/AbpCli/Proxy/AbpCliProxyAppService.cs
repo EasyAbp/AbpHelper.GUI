@@ -1,6 +1,4 @@
 ﻿using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Gui.AbpCli.GetSource;
-using EasyAbp.AbpHelper.Gui.AbpCli.GetSource.Dtos;
 using EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos;
 using EasyAbp.AbpHelper.Gui.Common;
 using EasyAbp.AbpHelper.Gui.Shared.Dtos;
@@ -24,7 +22,37 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy
             _currentDirectoryHelper = currentDirectoryHelper;
         }
 
-        public virtual async Task<ServiceExecutionResult> GenerateProxyAsync(AbpGenerateProxyInput input)
+        public virtual Task<ServiceExecutionResult> GenerateAngularProxyAsync(AbpGenerateRemoveAngularProxyInput input)
+        {
+            return GenerateProxyAsync(input);
+        }
+
+        public virtual Task<ServiceExecutionResult> RemoveAngularProxyAsync(AbpGenerateRemoveAngularProxyInput input)
+        {
+            return RemoveProxyAsync(input);
+        }
+
+        public virtual Task<ServiceExecutionResult> GenerateCSharpProxyAsync(AbpGenerateRemoveCSharpProxyInput input)
+        {
+            return GenerateProxyAsync(input);
+        }
+
+        public virtual Task<ServiceExecutionResult> RemoveCSharpProxyAsync(AbpGenerateRemoveCSharpProxyInput input)
+        {
+            return RemoveProxyAsync(input);
+        }
+
+        public virtual Task<ServiceExecutionResult> GenerateJavaScriptProxyAsync(AbpGenerateRemoveJavaScriptProxyInput input)
+        {
+            return GenerateProxyAsync(input);
+        }
+
+        public virtual Task<ServiceExecutionResult> RemoveJavaScriptProxyAsync(AbpGenerateRemoveJavaScriptProxyInput input)
+        {
+            return RemoveProxyAsync(input);
+        }
+
+        protected virtual async Task<ServiceExecutionResult> GenerateProxyAsync(InputDtoWithDirectory input)
         {
             var args = CreateCommandLineArgs(input, "abp generate-proxy");
 
@@ -36,7 +64,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy
             return new ServiceExecutionResult(true);
         }
 
-        public virtual async Task<ServiceExecutionResult> RemoveProxyAsync(AbpRemoveProxyInput input)
+        protected virtual async Task<ServiceExecutionResult> RemoveProxyAsync(InputDtoWithDirectory input)
         {
             var args = CreateCommandLineArgs(input, "abp remove-proxy");
 

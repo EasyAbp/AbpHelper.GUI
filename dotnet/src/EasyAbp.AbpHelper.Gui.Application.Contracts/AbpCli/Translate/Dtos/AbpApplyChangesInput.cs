@@ -16,7 +16,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Translate.Dtos
         {
         }
 
-        protected AbpApplyChangesInput([NotNull] string directory, [CanBeNull] string file) : base(directory)
+        public AbpApplyChangesInput([NotNull] string directory, [CanBeNull] string file) : base(directory)
         {
             File = file;
         }

@@ -67,7 +67,7 @@
             <CloseButton Clicked="CloseOpenSolutionModal" />
         </ModalHeader>
         <ModalBody MaxHeight="50">
-            <Validations Mode="ValidationMode.Auto" ValidateOnLoad="false">
+            <Validations @ref="ValidationsRef" Model="CreateSolution" ValidateOnLoad="false">
                 <Validation MessageLocalizer="@Lh.Localize">
                     <Field>
                         <FieldLabel>@L["SolutionDisplayName"]</FieldLabel>

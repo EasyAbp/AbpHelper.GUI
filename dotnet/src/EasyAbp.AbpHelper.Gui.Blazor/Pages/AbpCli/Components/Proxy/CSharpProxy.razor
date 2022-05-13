@@ -2,7 +2,7 @@
 @using EasyAbp.AbpHelper.Gui.Localization
 @using EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos;
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
-@inherits ExecutableComponentBaseWithDirectory<AbpGenerateProxyInput>
+@inherits ExecutableComponentBaseWithDirectory<AbpGenerateRemoveCSharpProxyInput>
 @inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
 
 <Card Class="mb-4">
@@ -22,11 +22,21 @@
             </AlertDescription>
         </Alert>
         <Form>
-            <Validations Mode="ValidationMode.Auto" ValidateOnLoad="false">
+            <Validations @ref="ValidationsRef" Model="Input" ValidateOnLoad="false">
                 <Validation MessageLocalizer="@Lh.Localize">
                     <Field>
                         <FieldLabel>@L["Directory"]</FieldLabel>
                         <TextEdit @bind-Text="Input.Directory" Autofocus="true">
+                            <Feedback>
+                                <ValidationError/>
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_Proxy:Url"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.Url">
                             <Feedback>
                                 <ValidationError/>
                             </Feedback>
@@ -45,28 +55,8 @@
                 </Validation>
                 <Validation MessageLocalizer="@Lh.Localize">
                     <Field>
-                        <FieldLabel>@L["AbpCli_Proxy:ApiName"]</FieldLabel>
-                        <TextEdit @bind-Text="Input.ApiName">
-                            <Feedback>
-                                <ValidationError/>
-                            </Feedback>
-                        </TextEdit>
-                    </Field>
-                </Validation>
-                <Validation MessageLocalizer="@Lh.Localize">
-                    <Field>
-                        <FieldLabel>@L["AbpCli_Proxy:Source"]</FieldLabel>
-                        <TextEdit @bind-Text="Input.Source">
-                            <Feedback>
-                                <ValidationError/>
-                            </Feedback>
-                        </TextEdit>
-                    </Field>
-                </Validation>
-                <Validation MessageLocalizer="@Lh.Localize">
-                    <Field>
-                        <FieldLabel>@L["AbpCli_Proxy:Target"]</FieldLabel>
-                        <TextEdit @bind-Text="Input.Target">
+                        <FieldLabel>@L["AbpCli_Proxy:Folder"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.Folder">
                             <Feedback>
                                 <ValidationError/>
                             </Feedback>
@@ -74,7 +64,8 @@
                     </Field>
                 </Validation>
 
-                <SubmitButton Block="true" Clicked="@ExecuteAsync"/>
+                <SubmitButton Block="true" Clicked="@ExecuteAsync" SaveResourceKey="Button:GenerateProxy" />
+                <SubmitButton Block="true" Clicked="@ExecuteRemoveAsync" SaveResourceKey="Button:RemoveProxy" Color="Color.Warning" />
             </Validations>
         </Form>
     </CardBody>

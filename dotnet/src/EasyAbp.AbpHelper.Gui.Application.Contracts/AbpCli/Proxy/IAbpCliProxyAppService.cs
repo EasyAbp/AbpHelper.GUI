@@ -7,8 +7,16 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy
 {
     public interface IAbpCliProxyAppService : IApplicationService
     {
-        Task<ServiceExecutionResult> GenerateProxyAsync(AbpGenerateProxyInput input);
+        Task<ServiceExecutionResult> GenerateAngularProxyAsync(AbpGenerateRemoveAngularProxyInput input);
         
-        Task<ServiceExecutionResult> RemoveProxyAsync(AbpRemoveProxyInput input);
+        Task<ServiceExecutionResult> RemoveAngularProxyAsync(AbpGenerateRemoveAngularProxyInput input);
+        
+        Task<ServiceExecutionResult> GenerateCSharpProxyAsync(AbpGenerateRemoveCSharpProxyInput input);
+        
+        Task<ServiceExecutionResult> RemoveCSharpProxyAsync(AbpGenerateRemoveCSharpProxyInput input);
+        
+        Task<ServiceExecutionResult> GenerateJavaScriptProxyAsync(AbpGenerateRemoveJavaScriptProxyInput input);
+        
+        Task<ServiceExecutionResult> RemoveJavaScriptProxyAsync(AbpGenerateRemoveJavaScriptProxyInput input);
     }
 }

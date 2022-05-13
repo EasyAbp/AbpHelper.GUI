@@ -11,7 +11,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Switch.Dtos
         {
         }
 
-        protected AbpSwitchToPreviewInput([NotNull] string directory) : base(directory)
+        public AbpSwitchToPreviewInput([NotNull] string directory) : base(directory)
         {
         }
     }

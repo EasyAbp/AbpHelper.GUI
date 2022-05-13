@@ -38,11 +38,11 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
         
         public virtual bool NoRandomPort { get; set; }
 
-        protected AbpNewInput()
+        public AbpNewInput()
         {
         }
         
-        protected AbpNewInput([NotNull] string solutionName, [NotNull] string outputFolder, [CanBeNull] string version,
+        public AbpNewInput([NotNull] string solutionName, [NotNull] string outputFolder, [CanBeNull] string version,
             bool preview, [CanBeNull] string templateSource, bool createSolutionFolder,
             [CanBeNull] string connectionString, Database databaseManagementSystem,
             [CanBeNull] string localFrameworkRef, bool noRandomPort)

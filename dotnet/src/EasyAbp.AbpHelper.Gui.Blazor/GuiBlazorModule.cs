@@ -7,6 +7,7 @@ using Blazorise.Icons.FontAwesome;
 using EasyAbp.AbpHelper.Gui.Blazor.Menus;
 using EasyAbp.AbpHelper.Gui.Blazor.Toolbars;
 using EasyAbp.AbpHelper.Gui.Localization;
+using Localization.Resources.AbpUi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -145,6 +146,10 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
         {
             Configure<AbpLocalizationOptions>(options =>
             {
+                options.Resources
+                    .Get<AbpUiResource>()
+                    .AddVirtualJson("/Localization/AbpUi");
+                
                 options.Languages.Add(new LanguageInfo("en", "en", "English"));
                 options.Languages.Add(new LanguageInfo("zh-Hans", "zh-Hans", "简体中文"));
                 options.Languages.Add(new LanguageInfo("zh-Hant", "zh-Hant", "繁體中文"));

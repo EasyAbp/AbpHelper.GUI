@@ -48,4 +48,8 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <AdditionalFiles Include="Pages\AbpCli\Components\Clean\Clean.razor" />
+  </ItemGroup>
+
 </Project>

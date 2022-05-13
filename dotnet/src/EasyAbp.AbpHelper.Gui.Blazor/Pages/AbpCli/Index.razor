@@ -1,40 +1,46 @@
 ﻿@page "/AbpCli"
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.New
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Update
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Clean
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Add
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.GetSource
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Proxy
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Switch
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Translate
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Login
-@using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Build
 @using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Bundle
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.InstallLibs
 @inherits GuiComponentBase
 
 <Tabs Pills="true" SelectedTab="AbpNew" TabPosition="TabPosition.Start">
     <Items>
         <Tab Name="AbpNew">abp new</Tab>
         <Tab Name="AbpUpdate">abp update</Tab>
+        <Tab Name="AbpClean">abp clean</Tab>
         <Tab Name="AbpAdd">abp add</Tab>
         <Tab Name="AbpGetSource">abp get-source</Tab>
         <Tab Name="AbpProxy">abp proxy</Tab>
         <Tab Name="AbpSwitch">abp switch</Tab>
         <Tab Name="AbpTranslate">abp translate</Tab>
         <Tab Name="AbpLogin">abp login</Tab>
-        <Tab Name="AbpBuild">abp build</Tab>
         <Tab Name="AbpBundle">abp bundle</Tab>
+        <Tab Name="AbpInstallLibs">abp install-libs</Tab>
     </Items>
     <Content>
         <TabPanel Name="AbpNew">
             <Tabs SelectedTab="CreateApp" TabPosition="TabPosition.Top">
                 <Items>
                     <Tab Name="CreateApp">@L["AbpCli_New:CreateApp"]</Tab>
+                    <Tab Name="CreateAppNoLayers">@L["AbpCli_New:CreateAppNoLayers"]</Tab>
                     <Tab Name="CreateModule">@L["AbpCli_New:CreateModule"]</Tab>
                     <Tab Name="CreateConsole">@L["AbpCli_New:CreateConsole"]</Tab>
                 </Items>
                 <Content>
                     <TabPanel Name="CreateApp">
                         <CreateApp></CreateApp>
+                    </TabPanel>
+                    <TabPanel Name="CreateAppNoLayers">
+                        <CreateAppNoLayers></CreateAppNoLayers>
                     </TabPanel>
                     <TabPanel Name="CreateModule">
                         <CreateModule></CreateModule>
@@ -53,6 +59,18 @@
                 <Content>
                     <TabPanel Name="Update">
                         <Update></Update>
+                    </TabPanel>
+                </Content>
+            </Tabs>
+        </TabPanel>
+        <TabPanel Name="AbpClean">
+            <Tabs SelectedTab="Clean" TabPosition="TabPosition.Top">
+                <Items>
+                    <Tab Name="Clean">@L["AbpCli_Clean"]</Tab>
+                </Items>
+                <Content>
+                    <TabPanel Name="Clean">
+                        <Clean></Clean>
                     </TabPanel>
                 </Content>
             </Tabs>
@@ -86,17 +104,21 @@
             </Tabs>
         </TabPanel>
         <TabPanel Name="AbpProxy">
-            <Tabs SelectedTab="GenerateProxy" TabPosition="TabPosition.Top">
+            <Tabs SelectedTab="CSharpProxy" TabPosition="TabPosition.Top">
                 <Items>
-                    <Tab Name="GenerateProxy">@L["AbpCli_Proxy:GenerateProxy"]</Tab>
-                    <Tab Name="RemoveProxy">@L["AbpCli_Proxy:RemoveProxy"]</Tab>
+                    <Tab Name="CSharpProxy">@L["AbpCli_Proxy:CSharpProxy"]</Tab>
+                    <Tab Name="AngularProxy">@L["AbpCli_Proxy:AngularProxy"]</Tab>
+                    <Tab Name="JavaScriptProxy">@L["AbpCli_Proxy:JavaScriptProxy"]</Tab>
                 </Items>
                 <Content>
-                    <TabPanel Name="GenerateProxy">
-                        <GenerateProxy></GenerateProxy>
+                    <TabPanel Name="CSharpProxy">
+                        <CSharpProxy></CSharpProxy>
                     </TabPanel>
-                    <TabPanel Name="RemoveProxy">
-                        <RemoveProxy></RemoveProxy>
+                    <TabPanel Name="AngularProxy">
+                        <AngularProxy></AngularProxy>
+                    </TabPanel>
+                    <TabPanel Name="JavaScriptProxy">
+                        <JavaScriptProxy></JavaScriptProxy>
                     </TabPanel>
                 </Content>
             </Tabs>
@@ -153,18 +175,6 @@
                 </Content>
             </Tabs>
         </TabPanel>
-        <TabPanel Name="AbpBuild">
-            <Tabs SelectedTab="Build" TabPosition="TabPosition.Top">
-                <Items>
-                    <Tab Name="Build">@L["AbpCli_Build"]</Tab>
-                </Items>
-                <Content>
-                    <TabPanel Name="Build">
-                        <Build></Build>
-                    </TabPanel>
-                </Content>
-            </Tabs>
-        </TabPanel>
         <TabPanel Name="AbpBundle">
             <Tabs SelectedTab="Bundle" TabPosition="TabPosition.Top">
                 <Items>
@@ -173,6 +183,18 @@
                 <Content>
                     <TabPanel Name="Bundle">
                         <Bundle></Bundle>
+                    </TabPanel>
+                </Content>
+            </Tabs>
+        </TabPanel>
+        <TabPanel Name="AbpInstallLibs">
+            <Tabs SelectedTab="InstallLibs" TabPosition="TabPosition.Top">
+                <Items>
+                    <Tab Name="InstallLibs">@L["AbpCli_InstallLibs"]</Tab>
+                </Items>
+                <Content>
+                    <TabPanel Name="InstallLibs">
+                        <InstallLibs></InstallLibs>
                     </TabPanel>
                 </Content>
             </Tabs>
