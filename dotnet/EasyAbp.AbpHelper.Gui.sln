@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.AbpHelper.Gui.Appli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyAbp.AbpHelper.Gui.Application.Tests", "test\EasyAbp.AbpHelper.Gui.Application.Tests\EasyAbp.AbpHelper.Gui.Application.Tests.csproj", "{2C603A1A-A8E9-4EC7-AC03-DCDFB8A9E3BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbpHelper.Core", "..\AbpHelper.CLI\src\AbpHelper.Core\AbpHelper.Core.csproj", "{8FF0D556-CF73-4796-935B-DBA1AFC643C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external", "external", "{B6FCF58A-0ABD-4AA3-A3F4-122A18E239E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +65,10 @@ Global
 		{2C603A1A-A8E9-4EC7-AC03-DCDFB8A9E3BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C603A1A-A8E9-4EC7-AC03-DCDFB8A9E3BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C603A1A-A8E9-4EC7-AC03-DCDFB8A9E3BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FF0D556-CF73-4796-935B-DBA1AFC643C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF0D556-CF73-4796-935B-DBA1AFC643C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF0D556-CF73-4796-935B-DBA1AFC643C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF0D556-CF73-4796-935B-DBA1AFC643C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +82,7 @@ Global
 		{63B6D95A-C16E-475F-A871-1F97EA5A629C} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{DF9F3996-3664-40E8-B6C0-1792AFD1BAE3} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{2C603A1A-A8E9-4EC7-AC03-DCDFB8A9E3BF} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
+		{8FF0D556-CF73-4796-935B-DBA1AFC643C8} = {B6FCF58A-0ABD-4AA3-A3F4-122A18E239E6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}

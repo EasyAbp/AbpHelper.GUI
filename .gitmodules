@@ -1,0 +1,5 @@
+
+[submodule "AbpHelper.CLI"]
+	path = AbpHelper.CLI
+	url = https://github.com/EasyAbp/AbpHelper.CLI.git
+	branch = gui-used
