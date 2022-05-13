@@ -11,7 +11,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Switch.Dtos
         {
         }
 
-        protected AbpSwitchToStableInput([NotNull] string directory) : base(directory)
+        public AbpSwitchToStableInput([NotNull] string directory) : base(directory)
         {
         }
     }

@@ -24,7 +24,14 @@ namespace EasyAbp.AbpHelper.Gui.Controllers.AbpCli
         {
             return _service.CreateAppAsync(input);
         }
-        
+
+        [HttpPost]
+        [Route("app-nolayers")]
+        public virtual Task<ServiceExecutionResult> CreateAppNoLayersAsync(AbpNewAppNoLayersInput input)
+        {
+            return _service.CreateAppNoLayersAsync(input);
+        }
+
         [HttpPost]
         [Route("module")]
         public virtual Task<ServiceExecutionResult> CreateModuleAsync(AbpNewModuleInput input)

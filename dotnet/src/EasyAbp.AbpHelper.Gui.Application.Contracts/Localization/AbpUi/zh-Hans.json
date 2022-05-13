@@ -1,0 +1,8 @@
+{
+  "culture": "zh-Hans",
+  "texts": {
+    "Button:Execute": "执行",
+    "Button:GenerateProxy": "生成代理",
+    "Button:RemoveProxy": "移除代理"
+  }
+}

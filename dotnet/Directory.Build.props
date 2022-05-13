@@ -1,9 +1,9 @@
 <Project>
   <PropertyGroup>
 
-    <AbpVersion>5.1.3</AbpVersion>
+    <AbpVersion>5.2.1</AbpVersion>
     <AbpHelperCliVersion>0.8.3</AbpHelperCliVersion>
-    <BlazoriseVersion>0.9.5</BlazoriseVersion>
+    <BlazoriseVersion>1.0.2</BlazoriseVersion>
 
   </PropertyGroup>
 </Project>

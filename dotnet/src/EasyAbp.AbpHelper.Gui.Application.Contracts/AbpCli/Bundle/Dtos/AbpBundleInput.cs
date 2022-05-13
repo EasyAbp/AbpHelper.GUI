@@ -13,7 +13,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Bundle.Dtos
         {
         }
 
-        protected AbpBundleInput([NotNull] string directory, bool force) : base(directory)
+        public AbpBundleInput([NotNull] string directory, bool force) : base(directory)
         {
             Force = force;
         }

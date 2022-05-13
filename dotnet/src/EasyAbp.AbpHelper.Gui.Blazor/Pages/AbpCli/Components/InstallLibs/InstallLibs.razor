@@ -1,0 +1,41 @@
+﻿@using Volo.Abp.AspNetCore.Components.Web
+@using EasyAbp.AbpHelper.Gui.Localization
+@using EasyAbp.AbpHelper.Gui.AbpCli.InstallLibs.Dtos;
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared;
+@inherits ExecutableComponentBaseWithDirectory<AbpInstallLibsInput>
+@inject AbpBlazorMessageLocalizerHelper<GuiResource> Lh
+
+<Card Class="mb-4">
+    <CardBody>
+        <Alert Color="Color.Info"  Visible>
+            <AlertDescription>
+                <Icon Name="IconName.QuestionCircle" /> @L["Info:FunctionIsBasedOnAbpCliPart1"]
+            </AlertDescription>
+            <AlertMessage>
+                <Icon Name="IconName.ExternalLinkSquareAlt"/>
+                <Link To="https://docs.abp.io/en/abp/latest/CLI#install-libs" Target="Target.Blank" Style="text-decoration: none">
+                    @L["Info:FunctionIsBasedOnAbpCliPart2_Document"]
+                </Link>
+            </AlertMessage>
+            <AlertDescription>
+                @L["Info:FunctionIsBasedOnAbpCliPart3"]
+            </AlertDescription>
+        </Alert>
+        <Form>
+            <Validations @ref="ValidationsRef" Model="Input" ValidateOnLoad="false">
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["Directory"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.Directory">
+                            <Feedback>
+                                <ValidationError/>
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+
+                <SubmitButton Block="true" Clicked="@ExecuteAsync" SaveResourceKey="Button:Execute" />
+            </Validations>
+        </Form>
+    </CardBody>
+</Card>

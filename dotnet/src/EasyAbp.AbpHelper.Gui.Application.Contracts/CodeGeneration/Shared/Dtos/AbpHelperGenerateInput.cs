@@ -9,7 +9,7 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.Shared.Dtos
     {
         public virtual bool NoOverwrite { get; set; }
 
-        protected AbpHelperGenerateInput()
+        public AbpHelperGenerateInput()
         {
             
         }

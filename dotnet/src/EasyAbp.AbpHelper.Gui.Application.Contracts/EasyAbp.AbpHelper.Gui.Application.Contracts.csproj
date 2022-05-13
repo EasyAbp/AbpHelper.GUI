@@ -15,6 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Localization\AbpUi\en.json" />
+    <EmbeddedResource Include="Localization\AbpUi\zh-Hans.json" />
+    <EmbeddedResource Include="Localization\AbpUi\zh-Hant.json" />
     <EmbeddedResource Include="Localization\Gui\*.json" />
     <Content Remove="Localization\Gui\*.json" />
   </ItemGroup>

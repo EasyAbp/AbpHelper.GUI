@@ -8,7 +8,7 @@ namespace EasyAbp.AbpHelper.Gui.Shared.Dtos
     {
         public virtual string Exclude { get; set; }
 
-        protected AbpHelperInput()
+        public AbpHelperInput()
         {
             
         }

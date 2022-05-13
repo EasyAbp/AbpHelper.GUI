@@ -31,6 +31,8 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Shared
         protected ISolutionAppService SolutionAppService { get; set; }
 
         protected Modal Modal;
+        
+        protected Validations ValidationsRef;
 
         protected virtual SolutionDto CreateSolution { get; set; } = new()
         {

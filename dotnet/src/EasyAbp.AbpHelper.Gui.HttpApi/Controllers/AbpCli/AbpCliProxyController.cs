@@ -19,17 +19,45 @@ namespace EasyAbp.AbpHelper.Gui.Controllers.AbpCli
         }
         
         [HttpPost]
-        [Route("generate")]
-        public Task<ServiceExecutionResult> GenerateProxyAsync(AbpGenerateProxyInput input)
+        [Route("generate/ng")]
+        public Task<ServiceExecutionResult> GenerateAngularProxyAsync(AbpGenerateRemoveAngularProxyInput input)
         {
-            return _service.GenerateProxyAsync(input);
+            return _service.GenerateAngularProxyAsync(input);
         }
 
         [HttpPost]
-        [Route("remove")]
-        public Task<ServiceExecutionResult> RemoveProxyAsync(AbpRemoveProxyInput input)
+        [Route("remove/ng")]
+        public virtual Task<ServiceExecutionResult> RemoveAngularProxyAsync(AbpGenerateRemoveAngularProxyInput input)
         {
-            return _service.RemoveProxyAsync(input);
+            return _service.RemoveAngularProxyAsync(input);
+        }
+
+        [HttpPost]
+        [Route("generate/csharp")]
+        public virtual Task<ServiceExecutionResult> GenerateCSharpProxyAsync(AbpGenerateRemoveCSharpProxyInput input)
+        {
+            return _service.GenerateCSharpProxyAsync(input);
+        }
+
+        [HttpPost]
+        [Route("remove/csharp")]
+        public virtual Task<ServiceExecutionResult> RemoveCSharpProxyAsync(AbpGenerateRemoveCSharpProxyInput input)
+        {
+            return _service.RemoveCSharpProxyAsync(input);
+        }
+
+        [HttpPost]
+        [Route("generate/js")]
+        public virtual Task<ServiceExecutionResult> GenerateJavaScriptProxyAsync(AbpGenerateRemoveJavaScriptProxyInput input)
+        {
+            return _service.GenerateJavaScriptProxyAsync(input);
+        }
+
+        [HttpPost]
+        [Route("remove/js")]
+        public virtual Task<ServiceExecutionResult> RemoveJavaScriptProxyAsync(AbpGenerateRemoveJavaScriptProxyInput input)
+        {
+            return _service.RemoveJavaScriptProxyAsync(input);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Translate.Dtos
         {
         }
 
-        protected AbpCreateTranslationFileInput([NotNull] string directory, [NotNull] string culture,
+        public AbpCreateTranslationFileInput([NotNull] string directory, [NotNull] string culture,
             [CanBeNull] string referenceCulture, [CanBeNull] string output, bool allValues) : base(directory)
         {
             Culture = culture;

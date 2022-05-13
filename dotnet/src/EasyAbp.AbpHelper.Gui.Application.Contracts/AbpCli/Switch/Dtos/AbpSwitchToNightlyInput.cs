@@ -11,7 +11,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Switch.Dtos
         {
         }
 
-        protected AbpSwitchToNightlyInput([NotNull] string directory) : base(directory)
+        public AbpSwitchToNightlyInput([NotNull] string directory) : base(directory)
         {
         }
     }
