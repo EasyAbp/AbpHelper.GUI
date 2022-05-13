@@ -1,9 +1,8 @@
 ﻿@page "/"
 @namespace EasyAbp.AbpHelper.Gui.Blazor.Pages
 @using System.Globalization
-@using EasyAbp.AbpHelper.Gui.LogService
-@using Volo.Abp.AspNetCore.Components.Server.BasicTheme.Bundling
-@using Volo.Abp.AspNetCore.Components.Web.BasicTheme.Themes.Basic
+@using Volo.Abp.AspNetCore.Components.Web.LeptonXLiteTheme.Themes.LeptonXLite
+@using Volo.Abp.AspNetCore.Components.Server.LeptonXLiteTheme.Bundling
 @using Volo.Abp.Localization
 
 @{
@@ -25,7 +24,7 @@
     <title>EasyAbp.AbpHelper.Gui.Blazor</title>
     <base href="~/" />
     
-    <abp-style-bundle name="@BlazorBasicThemeBundles.Styles.Global" />
+    <abp-style-bundle name="@BlazorLeptonXLiteThemeBundles.Styles.Global" />
 </head>
 <body class="abp-application-layout bg-light @rtl">
     <component type="typeof(App)" render-mode="Server" />
@@ -42,7 +41,7 @@
         <a class="dismiss">🗙</a>
     </div>
 
-    <abp-script-bundle name="@BlazorBasicThemeBundles.Scripts.Global" />
+    <abp-script-bundle name="@BlazorLeptonXLiteThemeBundles.Scripts.Global" />
     <script src="_content/Blazorx-Analytics/blazor-analytics.js"></script>
 </body>
 </html>

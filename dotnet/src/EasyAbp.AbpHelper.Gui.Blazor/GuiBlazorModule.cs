@@ -15,8 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Volo.Abp;
-using Volo.Abp.AspNetCore.Components.Server.BasicTheme;
-using Volo.Abp.AspNetCore.Components.Server.BasicTheme.Bundling;
+using Volo.Abp.AspNetCore.Components.Server.LeptonXLiteTheme;
+using Volo.Abp.AspNetCore.Components.Server.LeptonXLiteTheme.Bundling;
 using Volo.Abp.AspNetCore.Components.Web.Theming.Routing;
 using Volo.Abp.AspNetCore.Components.Web.Theming.Toolbars;
 using Volo.Abp.AspNetCore.Mvc;
@@ -45,7 +45,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
         typeof(AbpAutofacModule),
         typeof(AbpSwashbuckleModule),
         typeof(AbpAspNetCoreSerilogModule),
-        typeof(AbpAspNetCoreComponentsServerBasicThemeModule),
+        typeof(AbpAspNetCoreComponentsServerLeptonXLiteThemeModule),
         typeof(AbpSettingManagementBlazorServerModule)
     )]
     public class GuiBlazorModule : AbpModule
@@ -118,7 +118,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
 
                 //BLAZOR UI
                 options.StyleBundles.Configure(
-                    BlazorBasicThemeBundles.Styles.Global,
+                    BlazorLeptonXLiteThemeBundles.Styles.Global,
                     bundle =>
                     {
                         bundle.AddFiles("/blazor-global-styles.css");

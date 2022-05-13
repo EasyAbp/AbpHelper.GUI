@@ -37,21 +37,24 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Menus
             context.Menu.Items.Add(new ApplicationMenuItem(
                     GuiMenus.AbpCli,
                     l["Menu:AbpCli"],
-                    "/AbpCli"
+                    "/AbpCli",
+                    "fa fa-television"
                 )
             );
             
             context.Menu.Items.Add(new ApplicationMenuItem(
                     GuiMenus.CodeGeneration,
                     l["Menu:CodeGeneration"],
-                    "/CodeGeneration"
+                    "/CodeGeneration",
+                    "fa fa-code"
                 )
             );
-            
+
             context.Menu.Items.Add(new ApplicationMenuItem(
-                GuiMenus.ModuleManagement,
-                l["Menu:ModuleManagement"],
-                "/ModuleManagement"
+                    GuiMenus.ModuleManagement,
+                    l["Menu:ModuleManagement"],
+                    "/ModuleManagement",
+                    "fa fa-cubes"
                 )
             );
 

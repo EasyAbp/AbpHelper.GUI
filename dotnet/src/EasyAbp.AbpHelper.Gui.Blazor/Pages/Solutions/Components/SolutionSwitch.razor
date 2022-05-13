@@ -1,33 +1,31 @@
-﻿@using EasyAbp.AbpHelper.Gui.Solutions
-@using EasyAbp.AbpHelper.Gui.Solutions.Dtos
-@using Microsoft.Extensions.Localization
-@using Volo.Abp.AspNetCore.Components.Web
-@using EasyAbp.AbpHelper.Gui.Localization
+﻿@using EasyAbp.AbpHelper.Gui.Solutions.Dtos
 @inherits EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Shared.SolutionManagementBase
-<BarDropdown>
-    <BarDropdownToggle>
-        @(CurrentSolution.Value?.DisplayName ?? L["NoSolution"])
-    </BarDropdownToggle>
-    <BarDropdownMenu RightAligned="true">
-        @foreach (var solution in Solutions)
-        {
-            <BarDropdownItem Clicked="() => ChangeSolutionAsync(solution)">
-                @solution.DisplayName @if (CurrentSolution.Value.Equals(solution))
-                                      {
-                                          @($" ({L["Current"].Value})")
-                                      }
+<BarItem>
+    <BarDropdown RightAligned>
+        <BarDropdownToggle>
+            @(CurrentSolution.Value?.DisplayName ?? L["NoSolution"])
+        </BarDropdownToggle>
+        <BarDropdownMenu>
+            @foreach (var solution in Solutions)
+            {
+                <BarDropdownItem Clicked="() => ChangeSolutionAsync(solution)">
+                    @solution.DisplayName @if (CurrentSolution.Value.Equals(solution))
+                                          {
+                                              @($" ({L["Current"].Value})")
+                                          }
+                </BarDropdownItem>
+            }
+            <BarDropdownItem Clicked="OpenOpenSolutionModalAsync">
+                <Icon Name="IconName.FolderOpen"/> @L["OpenSolution"]
             </BarDropdownItem>
-        }
-        <BarDropdownItem Clicked="OpenOpenSolutionModalAsync">
-            <Icon Name="IconName.FolderOpen"/> @L["OpenSolution"]
-        </BarDropdownItem>
-        <BarDropdownItem Clicked="RedirectToSolutionsPageAsync">
-            <Icon Name="IconName.List"/> @L["ManageSolutions"]
-        </BarDropdownItem>
-    </BarDropdownMenu>
-</BarDropdown>
+            <BarDropdownItem Clicked="RedirectToSolutionsPageAsync">
+                <Icon Name="IconName.List"/> @L["ManageSolutions"]
+            </BarDropdownItem>
+        </BarDropdownMenu>
+    </BarDropdown>
+</BarItem>
 
-<Modal @ref="Modal">
+<Modal @ref="Modal" Style="overflow: visible">
     <ModalContent Size="ModalSize.Default" IsCentered="true">
         <ModalHeader>
             <ModalTitle>@L["OpenSolution"]</ModalTitle>
