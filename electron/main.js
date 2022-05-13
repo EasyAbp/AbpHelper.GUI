@@ -171,6 +171,10 @@ let template = [{
       label: 'AbpHelper CLI',
       icon: path.join(__dirname, '/assets/app-icon/menuitem/abphelper/icon.png'),
       click: () => shell.openExternal('https://github.com/EasyAbp/AbpHelper.CLI')
+    }, {
+      label: 'Discord channel',
+      icon: path.join(__dirname, '/assets/app-icon/menuitem/discord/icon.png'),
+      click: () => shell.openExternal('https://discord.gg/S6QaezrCRq')
     }]
   },
   {
