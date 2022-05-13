@@ -153,6 +153,14 @@
     "CodeGeneration_Migration:RemoveEfMigration": "Remove EF migration",
     "CodeGeneration_Migration:Name": "Name",
     "CodeGeneration_Migration:EfOptions": "Extra EF options",
-    "CodeGeneration_Migration:MigrationProjectName": "Migration project name"
+    "CodeGeneration_Migration:MigrationProjectName": "Migration project name",
+    "Info:FunctionIsBasedOnAbpHelperPart1": "This function is based on AbpHelper CLI. You can see the ",
+    "Info:FunctionIsBasedOnAbpHelperPart2_SourceCode": "source code",
+    "Info:FunctionIsBasedOnAbpHelperPart2_Document": "document",
+    "Info:FunctionIsBasedOnAbpHelperPart3": "for help.",
+    "Info:FunctionIsBasedOnAbpCliPart1": "This function is based on ABP CLI. You can see the ",
+    "Info:FunctionIsBasedOnAbpCliPart2_SourceCode": "source code",
+    "Info:FunctionIsBasedOnAbpCliPart2_Document": "document",
+    "Info:FunctionIsBasedOnAbpCliPart3": "for help."
   }
 }

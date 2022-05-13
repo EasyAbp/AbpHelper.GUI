@@ -7,6 +7,20 @@
 
 <Card Class="mb-4">
     <CardBody>
+        <Alert Color="Color.Info"  Visible>
+            <AlertDescription>
+                <Icon Name="IconName.QuestionCircle" /> @L["Info:FunctionIsBasedOnAbpCliPart1"]
+            </AlertDescription>
+            <AlertMessage>
+                <Icon Name="IconName.ExternalLinkSquareAlt"/>
+                <Link To="https://docs.abp.io/en/abp/latest/CLI#generate-proxy" Target="Target.Blank" Style="text-decoration: none">
+                    @L["Info:FunctionIsBasedOnAbpCliPart2_Document"]
+                </Link>
+            </AlertMessage>
+            <AlertDescription>
+                @L["Info:FunctionIsBasedOnAbpCliPart3"]
+            </AlertDescription>
+        </Alert>
         <Form>
             <Validations Mode="ValidationMode.Auto" ValidateOnLoad="false">
                 <Validation MessageLocalizer="@Lh.Localize">

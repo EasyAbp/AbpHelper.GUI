@@ -153,6 +153,14 @@
     "CodeGeneration_Migration:RemoveEfMigration": "移除 EF migration",
     "CodeGeneration_Migration:Name": "名稱 - Name",
     "CodeGeneration_Migration:EfOptions": "額外的 EF 選項 - EfOptions",
-    "CodeGeneration_Migration:MigrationProjectName": "遷移項目名稱 - MigrationProjectName"
+    "CodeGeneration_Migration:MigrationProjectName": "遷移項目名稱 - MigrationProjectName",
+    "Info:FunctionIsBasedOnAbpHelperPart1": "本功能基於 AbpHelper CLI 實現，你可以查看",
+    "Info:FunctionIsBasedOnAbpHelperPart2_SourceCode": "源代碼",
+    "Info:FunctionIsBasedOnAbpHelperPart2_Document": "文檔",
+    "Info:FunctionIsBasedOnAbpHelperPart3": "獲得幫助。",
+    "Info:FunctionIsBasedOnAbpCliPart1": "本功能基於 ABP CLI 實現，你可以查看",
+    "Info:FunctionIsBasedOnAbpCliPart2_SourceCode": "源代碼",
+    "Info:FunctionIsBasedOnAbpCliPart2_Document": "文檔",
+    "Info:FunctionIsBasedOnAbpCliPart3": "獲得幫助。"
   }
 }
