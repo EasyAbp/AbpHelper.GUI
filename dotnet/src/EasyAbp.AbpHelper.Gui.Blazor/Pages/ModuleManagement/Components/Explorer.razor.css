@@ -8,6 +8,10 @@
     max-height: 500px;
     overflow: auto;
 }
+::deep #module-explorer-body > .row > div {
+    max-height: 500px;
+    overflow: auto;
+}
 ::deep #search-input{
     position: absolute;
     top: 70px;
