@@ -15,6 +15,7 @@ Providing code generation and more features to help you develop applications and
 ![preview 1](/docs/images/preview1.png)
 ![preview 2](/docs/images/preview2.png)
 ![preview 3](/docs/images/preview3.png)
+![preview 4](/docs/images/preview4.png)
 
 ## Usage
 
