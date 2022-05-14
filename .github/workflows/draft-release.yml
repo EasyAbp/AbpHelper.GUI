@@ -12,11 +12,10 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
 
     steps:
-      - name: Check out Git repository
+      - name: Check out Git repository with submodules
         uses: actions/checkout@v2
-
-      - name: Check out Git submodules
-        uses: git submodule update --init --recursive
+        with:
+          submodules: recursive
         
       - name: Install .NET SDK
         uses: actions/setup-dotnet@v1
