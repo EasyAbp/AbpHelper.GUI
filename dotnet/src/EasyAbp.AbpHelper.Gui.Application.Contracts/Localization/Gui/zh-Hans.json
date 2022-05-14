@@ -3,6 +3,7 @@
   "texts": {
     "Welcome": "欢迎使用",
     "LongWelcomeMessage": "AbpHelper 是帮助快速开发 ABP vNext 应用的工具，它可以使用 ABP CLI，自动生成代码，管理模块等。",
+    "Menu:Home": "首页",
     "Menu:AbpCli": "ABP CLI",
     "Menu:CodeGeneration": "代码生成器",
     "Menu:ModuleManagement": "模块管理",

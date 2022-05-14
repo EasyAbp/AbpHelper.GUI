@@ -3,6 +3,7 @@
   "texts": {
     "Welcome": "Welcome",
     "LongWelcomeMessage": "AbpHelper is a tool that helps you with developing Abp vNext applications. It can be used to call ABP CLI, generate code, manage modules, etc.",
+    "Menu:Home": "Home",
     "Menu:AbpCli": "ABP CLI",
     "Menu:CodeGeneration": "Code generation",
     "Menu:ModuleManagement": "Module management",
