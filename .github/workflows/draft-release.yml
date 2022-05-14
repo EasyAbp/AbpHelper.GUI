@@ -12,6 +12,12 @@ jobs:
         os: [macos-latest, ubuntu-latest, windows-latest]
 
     steps:
+      - name: Prerare Git
+        run: |-
+          git config --global core.longpaths true
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+        
       - name: Check out Git repository with submodules
         uses: actions/checkout@v2
         with:
