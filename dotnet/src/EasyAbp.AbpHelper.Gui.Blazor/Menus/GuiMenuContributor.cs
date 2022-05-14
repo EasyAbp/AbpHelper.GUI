@@ -36,6 +36,14 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Menus
 
             context.Menu.Items.Add(new ApplicationMenuItem(
                     GuiMenus.AbpCli,
+                    l["Menu:Home"],
+                    "/",
+                    "fa fa-home"
+                )
+            );
+            
+            context.Menu.Items.Add(new ApplicationMenuItem(
+                    GuiMenus.AbpCli,
                     l["Menu:AbpCli"],
                     "/AbpCli",
                     "fa fa-television"
