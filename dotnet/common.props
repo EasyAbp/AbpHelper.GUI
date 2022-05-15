@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <Version>2.0.1</Version>
+    <Version>2.1.0</Version>
     <NoWarn>$(NoWarn);CS1591;CS0436</NoWarn>
 	<AbpProjectType>app</AbpProjectType>
   </PropertyGroup>
