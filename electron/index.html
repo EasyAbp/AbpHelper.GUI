@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .loading {
+            width: 80px;
+            height: 40px;
+            margin: 0 auto;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .loading span {
+            display: inline-block;
+            width: 8px;
+            height: 100%;
+            border-radius: 4px;
+            background: #d92577;
+            animation: load 1s ease infinite;
+        }
+
+        @keyframes load {
+
+            0%,
+            100% {
+                height: 40px;
+                background: #d92577;
+            }
+
+            50% {
+                height: 70px;
+                margin: -15px 0;
+                background: #daa4bc;
+            }
+        }
+
+        .loading span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .loading span:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .loading span:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let retry = 0;
+        function redirectToHost() {
+            fetch('https://localhost:44313').then(function () {
+                location.href = 'https://localhost:44313'
+            }).catch(e => {
+                console.error(e);
+                retry++;
+                if (retry > 10) {
+                    return;
+                }
+                var delay = 300 * retry;
+                if (delay > 1000) {
+                    delay = 1000;
+                }
+                setTimeout(function () {
+                    redirectToHost()
+                }, delay)
+            })
+        }
+        redirectToHost();
+    </script>
+
+    <div class="loading">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+
+</html>

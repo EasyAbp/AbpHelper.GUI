@@ -1,7 +1,7 @@
 {
   "name": "abphelper-gui",
   "productName": "AbpHelper",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "Apache-2.0",
   "description": "AbpHelper is a tool that helps you with developing Abp vNext applications.",
   "repository": "https://github.com/EasyAbp/AbpHelper.GUI",
@@ -86,7 +86,7 @@
     "electron-main-fetch": "^1.0.0",
     "electron-settings": "^4.0.2",
     "electron-shortcut-normalizer": "^1.0.0",
-    "fix-path": "^4.0.0",
+    "fix-path": "^3.0.0",
     "glob": "^8.0.3",
     "highlight.js": "^11.5.1",
     "update-electron-app": "^2.0.1"
