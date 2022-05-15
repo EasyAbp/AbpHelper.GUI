@@ -95,6 +95,9 @@ function initialize () {
       mainWindow.hide(); 
       if (!forceQuit) event.preventDefault();
     })
+    mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+      shell.openExternal(url);
+    });
   }
 
   app.on('ready', () => {
