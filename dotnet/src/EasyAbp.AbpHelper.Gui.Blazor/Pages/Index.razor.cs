@@ -29,5 +29,10 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages
         {
             return typeof(AbpCliCoreModule).Assembly.GetName().Version?.ToString(3);
         }
+
+        protected virtual string GetAbpHelperGuiVersion()
+        {
+            return typeof(GuiBlazorModule).Assembly.GetName().Version?.ToString(3);
+        }
     }
 }
