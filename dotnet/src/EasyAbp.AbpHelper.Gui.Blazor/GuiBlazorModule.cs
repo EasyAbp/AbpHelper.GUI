@@ -100,6 +100,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
             Configure<AppUrlOptions>(options =>
             {
                 options.Applications["MVC"].RootUrl = configuration["App:SelfUrl"];
+                options.RedirectAllowedUrls.AddRange(configuration["App:RedirectAllowedUrls"].Split(','));
             });
         }
         
