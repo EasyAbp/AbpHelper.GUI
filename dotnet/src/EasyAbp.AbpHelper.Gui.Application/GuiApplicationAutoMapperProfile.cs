@@ -24,35 +24,37 @@ namespace EasyAbp.AbpHelper.Gui
              * into multiple profile classes for a better organization. */
             CreateMap<AbpHelperGenerateCrudInput, CrudCommandOption>()
                 .ForMember(dest => dest.Exclude,
-                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToList()));
+                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToArray()));
             
             CreateMap<AbpHelperGenerateAppServiceClassInput, ServiceCommandOption>()
                 .ForMember(dest => dest.Exclude,
-                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToList()));
+                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToArray()));
             
             CreateMap<AbpHelperGenerateAppServiceMethodsInput, MethodsCommandOption>()
                 .ForMember(dest => dest.Exclude,
-                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToList()))
+                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToArray()))
                 .ForMember(dest => dest.MethodNames,
-                    opt => opt.MapFrom(src => src.MethodNames.SplitBySpace().ToList()));
+                    opt => opt.MapFrom(src => src.MethodNames.SplitBySpace().ToArray()));
             
             CreateMap<AbpHelperGenerateControllerInput, ControllerCommandOption>()
                 .ForMember(dest => dest.Exclude,
-                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToList()));
+                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToArray()));
             
             CreateMap<AbpHelperGenerateLocalizationItemsInput, LocalizationCommandOption>()
                 .ForMember(dest => dest.Exclude,
-                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToList()))
+                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToArray()))
                 .ForMember(dest => dest.Names,
-                    opt => opt.MapFrom(src => src.Names.SplitBySpace().ToList()));
+                    opt => opt.MapFrom(src => src.Names.SplitBySpace().ToArray()));
 
             CreateMap<AbpHelperGenerateMigrationAddInput, AddCommandOption>()
+                .ForMember(dest => dest.EfOptions, opt => opt.MapFrom(src => src.EfOptions.SplitBySpace().ToArray()))
                 .ForMember(dest => dest.Exclude,
-                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToList()));
+                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToArray()));
             
             CreateMap<AbpHelperGenerateMigrationRemoveInput, RemoveCommandOption>()
+                .ForMember(dest => dest.EfOptions, opt => opt.MapFrom(src => src.EfOptions.SplitBySpace().ToArray()))
                 .ForMember(dest => dest.Exclude,
-                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToList()));
+                    opt => opt.MapFrom(src => src.Exclude.SplitBySpace().ToArray()));
         }
     }
 }
