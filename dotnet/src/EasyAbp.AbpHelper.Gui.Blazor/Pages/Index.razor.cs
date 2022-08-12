@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using EasyAbp.AbpHelper.Gui.UpdateCheck;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Logging;
 using Volo.Abp.Cli;
 
 namespace EasyAbp.AbpHelper.Gui.Blazor.Pages
@@ -18,11 +20,19 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages
 
         protected override async Task OnParametersSetAsync()
         {
-            var result = await UpdateCheckAppService.CheckAsync();
+            try
+            {
+                var result = await UpdateCheckAppService.CheckAsync();
 
-            LatestVersion = result.LatestVersion;
-            CurrentVersion = result.CurrentVersion;
-            UpdateCheckAlertVisible = result.ShouldUpdate;
+                LatestVersion = result.LatestVersion;
+                CurrentVersion = result.CurrentVersion;
+                UpdateCheckAlertVisible = result.ShouldUpdate;
+            }
+            catch (Exception e)
+            {
+                Logger.LogWarning(e, "Failed to check latest version");
+                UpdateCheckAlertVisible = false;
+            }
         }
 
         protected virtual string GetAbpVersion()
