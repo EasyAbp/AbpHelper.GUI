@@ -128,6 +128,7 @@
     "CodeGeneration_Crud": "CRUD",
     "CodeGeneration_Crud:GenerateCrudCode": "生成 CRUD 代碼",
     "CodeGeneration_Crud:Entity": "實體名稱 - Entity",
+    "CodeGeneration_Crud:SkipGetListInputDto": "不生成 GetListInput DTO -SkipGetListInputDto",
     "CodeGeneration_Crud:SeparateDto": "分離 DTO 類 - SeparateDto",
     "CodeGeneration_Crud:EntityPrefixDto": "使用實體名前綴命名 DTO 類 - EntityPrefixDto",
     "CodeGeneration_Crud:SkipPermissions": "不生成 Permissions - SkipPermissions",
