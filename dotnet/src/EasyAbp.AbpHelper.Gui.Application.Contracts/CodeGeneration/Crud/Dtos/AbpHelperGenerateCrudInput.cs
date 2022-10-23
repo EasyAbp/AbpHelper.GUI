@@ -41,12 +41,13 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.Crud.Dtos
         public AbpHelperGenerateCrudInput()
         {
         }
-        
-        public AbpHelperGenerateCrudInput([NotNull] string directory, [CanBeNull] string exclude, bool noOverwrite,
-            [NotNull] string entity, [CanBeNull] string migrationProjectName, bool skipPermissions, bool separateDto,
-            bool entityPrefixDto, [CanBeNull] string dtoSuffix, bool skipCustomRepository, bool skipDbMigrations,
-            bool skipUi, bool skipViewModel, bool skipLocalization, bool skipTest, bool skipEntityConstructors) : base(
-            directory, exclude, noOverwrite)
+
+        public AbpHelperGenerateCrudInput([NotNull] string directory, [CanBeNull] string projectName,
+            [CanBeNull] string exclude, bool noOverwrite, [NotNull] string entity,
+            [CanBeNull] string migrationProjectName, bool skipPermissions, bool separateDto, bool entityPrefixDto,
+            [CanBeNull] string dtoSuffix, bool skipCustomRepository, bool skipDbMigrations, bool skipUi,
+            bool skipViewModel, bool skipLocalization, bool skipTest, bool skipEntityConstructors) : base(directory,
+            projectName, exclude, noOverwrite)
         {
             Entity = entity;
             MigrationProjectName = migrationProjectName;

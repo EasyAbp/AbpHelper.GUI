@@ -19,8 +19,9 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.Controller.Dtos
         {
         }
 
-        public AbpHelperGenerateControllerInput([NotNull] string directory, [CanBeNull] string exclude,
-            bool noOverwrite, [NotNull] string name, bool skipBuild) : base(directory, exclude, noOverwrite)
+        public AbpHelperGenerateControllerInput([NotNull] string directory, [CanBeNull] string projectName,
+            [CanBeNull] string exclude, bool noOverwrite, [NotNull] string name, bool skipBuild) : base(directory,
+            projectName, exclude, noOverwrite)
         {
             Name = name;
             SkipBuild = skipBuild;

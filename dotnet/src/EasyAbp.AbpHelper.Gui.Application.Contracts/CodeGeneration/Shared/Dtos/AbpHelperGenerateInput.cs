@@ -11,13 +11,12 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.Shared.Dtos
 
         public AbpHelperGenerateInput()
         {
-            
         }
-        
-        public AbpHelperGenerateInput([NotNull] string directory, [CanBeNull] string exclude, bool noOverwrite) :
-            base(directory, exclude)
+
+        public AbpHelperGenerateInput([NotNull] string directory, [CanBeNull] string projectName,
+            [CanBeNull] string exclude, bool noOverwrite) :
+            base(directory, projectName, exclude)
         {
-            NoOverwrite = noOverwrite;
         }
     }
 }
