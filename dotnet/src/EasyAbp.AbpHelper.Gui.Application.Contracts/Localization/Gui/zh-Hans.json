@@ -135,7 +135,7 @@
     "CodeGeneration_Crud": "CRUD",
     "CodeGeneration_Crud:GenerateCrudCode": "生成 CRUD 代码",
     "CodeGeneration_Crud:Entity": "实体名称 - Entity",
-    "CodeGeneration_Crud:SkipGetListInputDto": "不生成 GetListInput DTO -SkipGetListInputDto",
+    "CodeGeneration_Crud:SkipGetListInputDto": "不生成 GetListInput DTO - SkipGetListInputDto",
     "CodeGeneration_Crud:SeparateDto": "分离 DTO 类 - SeparateDto",
     "CodeGeneration_Crud:EntityPrefixDto": "使用实体名前缀命名 DTO 类 - EntityPrefixDto",
     "CodeGeneration_Crud:SkipPermissions": "不生成 Permissions - SkipPermissions",
