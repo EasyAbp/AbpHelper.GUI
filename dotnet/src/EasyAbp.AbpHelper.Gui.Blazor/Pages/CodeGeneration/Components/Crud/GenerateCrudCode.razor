@@ -44,6 +44,9 @@
                     </Field>
                 </Validation>
                 <Field>
+                    <Check TValue="bool" @bind-Checked="@Input.SkipGetListInputDto">@L["CodeGeneration_Crud:SkipGetListInputDto"]</Check>
+                </Field>
+                <Field>
                     <Check TValue="bool" @bind-Checked="@Input.SeparateDto">@L["CodeGeneration_Crud:SeparateDto"]</Check>
                 </Field>
                 <Field>

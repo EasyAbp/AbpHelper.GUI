@@ -131,6 +131,7 @@
     "CodeGeneration_Crud": "CRUD",
     "CodeGeneration_Crud:GenerateCrudCode": "Generate CRUD code",
     "CodeGeneration_Crud:Entity": "Entity name",
+    "CodeGeneration_Crud:SkipGetListInputDto": "Skip GetListInput DTO",
     "CodeGeneration_Crud:SeparateDto": "Separate DTO",
     "CodeGeneration_Crud:EntityPrefixDto": "Entity name prefix DTO",
     "CodeGeneration_Crud:SkipPermissions": "Skip permissions",
