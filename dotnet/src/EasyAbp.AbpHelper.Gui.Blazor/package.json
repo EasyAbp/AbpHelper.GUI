@@ -1,9 +1,9 @@
 {
-  "version": "2.2.1",
+  "version": "2.3.2",
   "name": "easyabp-abphelper-gui",
   "private": true,
   "dependencies": {
-    "@abp/aspnetcore.mvc.ui.theme.basic": "~5.3.1",
-    "@abp/aspnetcore.components.server.basictheme": "~5.3.1"
+    "@abp/aspnetcore.mvc.ui.theme.basic": "~6.0.1",
+    "@abp/aspnetcore.components.server.basictheme": "~6.0.1"
   }
 }
