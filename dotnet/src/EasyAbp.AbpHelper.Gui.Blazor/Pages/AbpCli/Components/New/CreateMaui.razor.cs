@@ -5,24 +5,19 @@ using Microsoft.AspNetCore.Components;
 
 namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.New
 {
-    public partial class CreateApp
+    public partial class CreateMaui
     {
         [Inject]
         private IAbpCliNewAppService Service { get; set; }
-        
-        protected AbpNewAppInput Input { get; set; } = new()
+
+        protected AbpNewMauiInput Input { get; set; } = new()
         {
-            Ui = AppUiFramework.Mvc,
-            Mobile = AppMobileApplicationFramework.None,
-            DatabaseProvider = AppDatabaseProvider.Ef,
             DatabaseManagementSystem = Database.SqlServer
         };
 
-        public bool HasTieredOption => Input.Ui is AppUiFramework.Mvc or AppUiFramework.BlazorServer;
-
         protected override async Task InternalExecuteAsync()
         {
-            await Service.CreateAppAsync(Input);
+            await Service.CreateMauiAsync(Input);
         }
     }
 }

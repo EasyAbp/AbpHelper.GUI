@@ -128,10 +128,10 @@
                     </Field>
                 </Validation>
                 <Field>
-                    <Check TValue="bool" @bind-Checked="@Input.SeparateIdentityServer">@L["AbpCli_New:SeparateIdentityServer"]</Check>
+                    <Check TValue="bool" @bind-Checked="@Input.SeparateAuthServer" Disabled="@(!HasTieredOption)">@L["AbpCli_New:SeparateAuthServer"]</Check>
                 </Field>
                 <Field>
-                    <Check TValue="bool" @bind-Checked="@Input.Tiered">@L["AbpCli_New:Tiered"]</Check>
+                    <Check TValue="bool" @bind-Checked="@Input.Tiered" Disabled="@HasTieredOption">@L["AbpCli_New:Tiered"]</Check>
                 </Field>
                 <Field>
                     <Check TValue="bool" @bind-Checked="@Input.Preview">@L["AbpCli_New:Preview"]</Check>
@@ -142,7 +142,13 @@
                 <Field>
                     <Check TValue="bool" @bind-Checked="@Input.NoRandomPort">@L["AbpCli_New:NoRandomPort"]</Check>
                 </Field>
-                
+                <Field>
+                    <Check TValue="bool" @bind-Checked="@Input.SkipInstallingLibs">@L["AbpCli_New:SkipInstallingLibs"]</Check>
+                </Field>
+                <Field>
+                    <Check TValue="bool" @bind-Checked="@Input.SkipBundling" Disabled="@(Input.Ui != AppUiFramework.Blazor)">@L["AbpCli_New:SkipBundling"]</Check>
+                </Field>
+
                 <SubmitButton Block="true" Clicked="@ExecuteAsync" SaveResourceKey="Button:Execute" />
             </Validations>
         </Form>

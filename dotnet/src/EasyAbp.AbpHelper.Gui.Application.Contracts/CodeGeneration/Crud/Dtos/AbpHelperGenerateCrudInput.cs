@@ -17,6 +17,8 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.Crud.Dtos
 
         public virtual bool SkipPermissions { get; set; }
 
+        public virtual bool SkipGetListInputDto { get; set; }
+
         public virtual bool SeparateDto { get; set; }
 
         public virtual bool EntityPrefixDto { get; set; }
@@ -46,8 +48,8 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.Crud.Dtos
             [CanBeNull] string exclude, bool noOverwrite, [NotNull] string entity,
             [CanBeNull] string migrationProjectName, bool skipPermissions, bool separateDto, bool entityPrefixDto,
             [CanBeNull] string dtoSuffix, bool skipCustomRepository, bool skipDbMigrations, bool skipUi,
-            bool skipViewModel, bool skipLocalization, bool skipTest, bool skipEntityConstructors) : base(directory,
-            projectName, exclude, noOverwrite)
+            bool skipViewModel, bool skipLocalization, bool skipTest, bool skipEntityConstructors,
+            bool skipGetListInputDto) : base(directory, projectName, exclude, noOverwrite)
         {
             Entity = entity;
             MigrationProjectName = migrationProjectName;
@@ -62,6 +64,7 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.Crud.Dtos
             SkipLocalization = skipLocalization;
             SkipTest = skipTest;
             SkipEntityConstructors = skipEntityConstructors;
+            SkipGetListInputDto = skipGetListInputDto;
         }
     }
 }
