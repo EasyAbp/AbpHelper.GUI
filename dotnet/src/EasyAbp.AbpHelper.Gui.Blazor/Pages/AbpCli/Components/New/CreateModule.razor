@@ -106,6 +106,9 @@
                 <Field>
                     <Check TValue="bool" @bind-Checked="@Input.NoRandomPort">@L["AbpCli_New:NoRandomPort"]</Check>
                 </Field>
+                <Field>
+                    <Check TValue="bool" @bind-Checked="@Input.SkipInstallingLibs">@L["AbpCli_New:SkipInstallingLibs"]</Check>
+                </Field>
 
                 <SubmitButton Block="true" Clicked="@ExecuteAsync" SaveResourceKey="Button:Execute" />
             </Validations>

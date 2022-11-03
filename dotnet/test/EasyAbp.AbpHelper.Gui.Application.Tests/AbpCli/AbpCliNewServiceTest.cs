@@ -8,33 +8,36 @@ using Xunit;
 
 namespace EasyAbp.AbpHelper.Gui.AbpCli
 {
-    public class AbpCliNewServiceTest : GuiTestBase<GuiTestBaseModule>
+    public class AbpCliNewServiceTest : GuiApplicationTestBase
     {
         protected const string SolutionName = "CreateAppTest";
-        
+
         [Fact]
         public async Task Should_Create_App()
         {
             var service = ServiceProvider.GetRequiredService<IAbpCliNewAppService>();
 
             await service.CreateAppAsync(new AbpNewAppInput(
-                SolutionName, 
+                SolutionName,
                 GuiTestConsts.Folder,
                 null,
                 false,
                 null,
-                false,
+                true,
                 null,
                 Database.SqlServer,
                 null,
                 false,
+                true,
                 AppUiFramework.Mvc,
                 false,
                 false,
                 AppMobileApplicationFramework.None,
-                AppDatabaseProvider.Ef));
+                AppDatabaseProvider.Ef,
+                false));
 
-            File.Exists(Path.Combine(Path.Combine(GuiTestConsts.Folder, SolutionName), $"{SolutionName}.sln")).ShouldBeTrue();
+            File.Exists(Path.Combine(Path.Combine(GuiTestConsts.Folder, SolutionName), $"{SolutionName}.sln"))
+                .ShouldBeTrue();
         }
     }
 }
