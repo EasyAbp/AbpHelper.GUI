@@ -41,6 +41,7 @@
     "Directory": "Directory",
     "NoOverwrite": "No overwrite",
     "Exclude": "Exclude directories",
+    "ProjectName": "Project name",
     "AbpCli_New:CreateApp": "Create app",
     "AbpCli_New:CreateAppNoLayers": "Create no-layers app",
     "AbpCli_New:CreateModule": "Create module",

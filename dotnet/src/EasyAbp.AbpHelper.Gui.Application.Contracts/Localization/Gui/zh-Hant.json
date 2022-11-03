@@ -41,6 +41,7 @@
     "Directory": "運行目錄",
     "NoOverwrite": "不覆蓋已存在的內容 - NoOverwrite",
     "Exclude": "搜索文件時排除的文件夾 - Exclude",
+    "ProjectName": "項目名稱 - ProjectName",
     "AbpCli_New:CreateApp": "創建應用",
     "AbpCli_New:CreateAppNoLayers": "創建單層應用",
     "AbpCli_New:CreateModule": "創建模塊",

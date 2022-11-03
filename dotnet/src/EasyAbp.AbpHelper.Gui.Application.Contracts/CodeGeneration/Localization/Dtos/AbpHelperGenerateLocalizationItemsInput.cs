@@ -16,8 +16,9 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.Localization.Dtos
         {
         }
 
-        public AbpHelperGenerateLocalizationItemsInput([NotNull] string directory, [CanBeNull] string exclude,
-            bool noOverwrite, [NotNull] string names) : base(directory, exclude, noOverwrite)
+        public AbpHelperGenerateLocalizationItemsInput([NotNull] string directory, [CanBeNull] string projectName,
+            [CanBeNull] string exclude, bool noOverwrite, [NotNull] string names) : base(directory, projectName,
+            exclude, noOverwrite)
         {
             Names = names;
         }

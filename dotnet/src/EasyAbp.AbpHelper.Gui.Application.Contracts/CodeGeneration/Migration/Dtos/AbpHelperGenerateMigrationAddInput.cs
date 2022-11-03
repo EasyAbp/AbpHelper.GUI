@@ -12,10 +12,10 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.Migration.Dtos
         [Required]
         [NotNull]
         public virtual string Name { get; set; }
-        
+
         [CanBeNull]
         public virtual string EfOptions { get; set; }
-        
+
         [CanBeNull]
         public virtual string MigrationProjectName { get; set; }
 
@@ -24,9 +24,9 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.Migration.Dtos
         {
         }
 
-        public AbpHelperGenerateMigrationAddInput([NotNull] string directory, [CanBeNull] string exclude,
-            [NotNull] string name, [CanBeNull] string efOptions, [CanBeNull] string migrationProjectName) : base(
-            directory, exclude)
+        public AbpHelperGenerateMigrationAddInput([NotNull] string directory, [CanBeNull] string projectName,
+            [CanBeNull] string exclude, [NotNull] string name, [CanBeNull] string efOptions,
+            [CanBeNull] string migrationProjectName) : base(directory, projectName, exclude)
         {
             Name = name;
             EfOptions = efOptions;

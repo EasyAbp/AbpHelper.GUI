@@ -20,8 +20,9 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.AppService.Dtos
         {
         }
 
-        public AbpHelperGenerateAppServiceClassInput([NotNull] string directory, [CanBeNull] string exclude,
-            bool noOverwrite, [NotNull] string name, [CanBeNull] string folder) : base(directory, exclude, noOverwrite)
+        public AbpHelperGenerateAppServiceClassInput([NotNull] string directory, [CanBeNull] string projectName,
+            [CanBeNull] string exclude, bool noOverwrite, [NotNull] string name, [CanBeNull] string folder) : base(
+            directory, projectName, exclude, noOverwrite)
         {
             Name = name;
             Folder = folder;

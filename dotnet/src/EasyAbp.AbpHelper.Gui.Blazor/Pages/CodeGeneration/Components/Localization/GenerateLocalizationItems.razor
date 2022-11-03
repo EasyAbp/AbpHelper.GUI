@@ -48,6 +48,16 @@
                 </Field>
                 <Validation MessageLocalizer="@Lh.Localize">
                     <Field>
+                        <FieldLabel>@L["ProjectName"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.ProjectName">
+                            <Feedback>
+                                <ValidationError/>
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
                         <FieldLabel>@L["Exclude"]</FieldLabel>
                         <TextEdit @bind-Text="Input.Exclude">
                             <Feedback>

@@ -10,7 +10,7 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.Migration.Dtos
     {
         [CanBeNull]
         public virtual string EfOptions { get; set; }
-        
+
         [CanBeNull]
         public virtual string MigrationProjectName { get; set; }
 
@@ -19,8 +19,9 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.Migration.Dtos
         {
         }
 
-        public AbpHelperGenerateMigrationRemoveInput([NotNull] string directory, [CanBeNull] string exclude,
-            [CanBeNull] string efOptions, [CanBeNull] string migrationProjectName) : base(directory, exclude)
+        public AbpHelperGenerateMigrationRemoveInput([NotNull] string directory, [CanBeNull] string projectName,
+            [CanBeNull] string exclude, [CanBeNull] string efOptions, [CanBeNull] string migrationProjectName) : base(
+            directory, projectName, exclude)
         {
             EfOptions = efOptions;
             MigrationProjectName = migrationProjectName;
