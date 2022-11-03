@@ -45,5 +45,12 @@ namespace EasyAbp.AbpHelper.Gui.Controllers.AbpCli
         {
             return _service.CreateConsoleAsync(input);
         }
+
+        [HttpPost]
+        [Route("maui")]
+        public virtual Task<ServiceExecutionResult> CreateMauiAsync(AbpNewMauiInput input)
+        {
+            return _service.CreateMauiAsync(input);
+        }
     }
 }

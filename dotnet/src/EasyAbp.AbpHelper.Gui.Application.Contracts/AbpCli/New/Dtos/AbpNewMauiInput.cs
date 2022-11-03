@@ -2,15 +2,15 @@
 
 namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
 {
-    public class AbpNewConsoleInput : AbpNewInputBase
+    public class AbpNewMauiInput : AbpNewInputBase
     {
-        public override string Template => "console";
+        public override string Template => "maui";
 
-        public AbpNewConsoleInput()
+        public AbpNewMauiInput()
         {
         }
 
-        public AbpNewConsoleInput([NotNull] string solutionName, [NotNull] string outputFolder,
+        public AbpNewMauiInput([NotNull] string solutionName, [NotNull] string outputFolder,
             [CanBeNull] string version, bool preview, [CanBeNull] string templateSource, bool createSolutionFolder,
             [CanBeNull] string connectionString, Database databaseManagementSystem,
             [CanBeNull] string localFrameworkRef, bool noRandomPort, bool skipInstallingLibs) : base(solutionName,
