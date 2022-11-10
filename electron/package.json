@@ -70,7 +70,7 @@
     "chai-as-promised": "^7.1.1",
     "check-for-leaks": "^1.2.1",
     "devtron": "^1.4.0",
-    "electron": "^18.2.3",
+    "electron": "^18.3.7",
     "electron-builder": "^23.0.3",
     "husky": "^8.0.1",
     "mocha": "^10.0.0",
