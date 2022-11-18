@@ -12,25 +12,27 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
     public partial class Explorer
     {
         protected InstallationActuatorModal InstallationActuatorModal;
-        
+
         protected IReadOnlyList<ModuleGroupDto> ModuleGroups { get; set; } = new List<ModuleGroupDto>();
-        
+
         protected Dictionary<string, List<string>> AppProjectsInstalledModuleNames = new();
-        
-        protected Dictionary<string, ModuleDto> ModuleNamesModuleMapping { get; set; }
-        
+
+        protected Dictionary<(string ModuleGroupId, string ModuleId), ModuleDto> ModuleKeyModuleMapping { get; set; }
+
         protected Dictionary<ModuleDto, ModuleGroupDto> ModuleModuleGroupMapping { get; set; }
 
         protected string SelectedTab { get; set; }
-        
+
         protected bool BuildingModulesData { get; set; }
-        
+
         protected bool CanNotReset { get; set; }
+
+        protected string SearchingKeyword { get; set; }
 
         private readonly ICurrentSolution _currentSolution;
         private readonly IInstalledModulesLookupService _installedModulesLookupService;
         private readonly IModuleManagementExplorerAppService _service;
-        
+
         public Explorer(
             ICurrentSolution currentSolution,
             IInstalledModulesLookupService installedModulesLookupService,
@@ -56,9 +58,10 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
         private async Task FilterModuleGroupsAsync(string value)
         {
             var selectedTabIsVisible = false;
-            
+            SearchingKeyword = value;
+
             var hasValue = !value.IsNullOrWhiteSpace();
-            
+
             foreach (var moduleGroup in ModuleGroups)
             {
                 if (!hasValue || moduleGroup.Id.Contains(value, StringComparison.OrdinalIgnoreCase))
@@ -87,16 +90,17 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
         private async Task RebuildModulesDataAsync()
         {
             BuildingModulesData = true;
-            
+
             await BuildModuleGroupsAsync();
             await BuildAppProjectsInstalledModuleNamesAsync();
-            
+            await FilterModuleGroupsAsync(SearchingKeyword);
+
             BuildModuleNamesModuleMapping();
             BuildModuleModuleGroupMapping();
             ChangeModuleCheckBoxesAccordingToInstalledModules();
 
             BuildingModulesData = false;
-            
+
             StateHasChanged();
         }
 
@@ -126,14 +130,16 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
         {
             foreach (var (appLayerName, installedModuleNames) in AppProjectsInstalledModuleNames)
             {
-                foreach (var module in from installedModuleName in installedModuleNames
-                    where ModuleNamesModuleMapping.ContainsKey(installedModuleName)
-                    select ModuleNamesModuleMapping[installedModuleName])
+                foreach (var installedModuleName in installedModuleNames)
                 {
-                    module.Checked = false;
-                    module.Indeterminate = true;
-                    module.Installed = true;
-                    module.Targets.AddIfNotContains(appLayerName);
+                    foreach (var (_, module) in ModuleKeyModuleMapping.Where(x =>
+                                 x.Key.ModuleId == installedModuleName))
+                    {
+                        module.Checked = false;
+                        module.Indeterminate = true;
+                        module.Installed = true;
+                        module.Targets.AddIfNotContains(appLayerName);
+                    }
                 }
             }
         }
@@ -142,18 +148,19 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
         {
             ModuleModuleGroupMapping = new Dictionary<ModuleDto, ModuleGroupDto>(ModuleGroups
                 .SelectMany(moduleGroup => moduleGroup.Modules,
-                    (moduleGroup, module) => new KeyValuePair<ModuleDto, ModuleGroupDto>(module, moduleGroup))
-                .ToList());
+                    (moduleGroup, module) => new KeyValuePair<ModuleDto, ModuleGroupDto>(module, moduleGroup)));
         }
 
         private void BuildModuleNamesModuleMapping()
         {
-            ModuleNamesModuleMapping = new Dictionary<string, ModuleDto>(ModuleGroups
-                .SelectMany(moduleGroup => moduleGroup.Modules,
+            ModuleKeyModuleMapping = new Dictionary<(string ModuleGroupId, string ModuleId), ModuleDto>(
+                ModuleGroups.SelectMany(moduleGroup => moduleGroup.Modules,
                     (moduleGroup, module) =>
-                        new KeyValuePair<string, ModuleDto>(GetModulePackageName(moduleGroup.Id, module.Id), module)).ToList());
+                        new KeyValuePair<(string ModuleGroupId, string ModuleId), ModuleDto>(
+                            new ValueTuple<string, string>(moduleGroup.Id,
+                                GetModulePackageName(module.GroupId ?? moduleGroup.Id, module.Id)), module)));
         }
-        
+
         private void ModuleChanged(bool value, ModuleDto module, bool forceCheck = false)
         {
             if (value)
@@ -190,9 +197,10 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
                 if (moduleGroup.Modules.All(x => !x.Checked && !x.Indeterminate))
                 {
                     foreach (var module in moduleGroup.Modules.Where(x =>
-                        x.Default && x.DefaultTargets.Any(y => AppProjectsInstalledModuleNames.ContainsKey(y))))
+                                 x.Default &&
+                                 x.DefaultTargets.Any(y => AppProjectsInstalledModuleNames.ContainsKey(y))))
                     {
-                        ModuleChanged(true, module, true);
+                        ModuleChanged(true, module, !module.Installed);
                     }
                 }
                 else
@@ -220,83 +228,85 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.ModuleManagement.Components
         private List<AddManyModuleInput> GetAddManyModuleInputList()
         {
             var list = new List<AddManyModuleInput>();
-            
+
             foreach (var moduleGroup in ModuleGroups)
             {
                 var installationInfos = new List<InstallationInfo>(moduleGroup.Modules
                     .Where(x => x.Checked).Select(module =>
                         new InstallationInfo
                         {
-                            ModuleGroupId = moduleGroup.Id,
+                            ModuleGroupId = module.GroupId ?? moduleGroup.Id,
                             ModuleId = module.Id,
                             Submodule = module.Submodule,
                             Targets = module.Targets.Where(tar =>
-                                AppProjectsInstalledModuleNames.ContainsKey(tar) &&
-                                !AppProjectsInstalledModuleNames[tar]
-                                    .Contains(GetModulePackageName(moduleGroup.Id, module.Id))).ToList()
+                                    AppProjectsInstalledModuleNames.ContainsKey(tar) &&
+                                    !AppProjectsInstalledModuleNames[tar]
+                                        .Contains(GetModulePackageName(module.GroupId ?? moduleGroup.Id, module.Id)))
+                                .ToList()
                         }
                     )
                 );
-                
-                list.Add(new AddManyModuleInput
+
+                if (installationInfos.Any())
                 {
-                    DirectoryPath = _currentSolution.Value.DirectoryPath,
-                    InstallationInfos = installationInfos
-                });
+                    list.Add(new AddManyModuleInput
+                    {
+                        DirectoryPath = _currentSolution.Value.DirectoryPath,
+                        InstallationInfos = installationInfos
+                    });
+                }
             }
 
             return list;
         }
-        
+
         private List<RemoveManyModuleInput> GetRemoveManyModuleInputList()
         {
             var moduleGroupRemoveManyModuleInputDictionary = new Dictionary<ModuleGroupDto, RemoveManyModuleInput>();
-            
+
             foreach (var (appLayerName, installedModuleNames) in AppProjectsInstalledModuleNames)
             {
-                foreach (var moduleName in installedModuleNames)
+                foreach (var moduleName in installedModuleNames.Where(moduleName =>
+                             ModuleKeyModuleMapping.Any(x => x.Key.ModuleId == moduleName)))
                 {
-                    if (!ModuleNamesModuleMapping.ContainsKey(moduleName))
+                    foreach (var (_, module) in ModuleKeyModuleMapping.Where(x => x.Key.ModuleId == moduleName))
                     {
-                        continue;
-                    }
-
-                    var module = ModuleNamesModuleMapping[moduleName];
-
-                    if ((module.Checked || module.Indeterminate) && module.Targets.Contains(appLayerName))
-                    {
-                        continue;
-                    }
-
-                    var moduleGroup = ModuleModuleGroupMapping[module];
-
-                    if (!moduleGroupRemoveManyModuleInputDictionary.ContainsKey(moduleGroup))
-                    {
-                        moduleGroupRemoveManyModuleInputDictionary[moduleGroup] = new RemoveManyModuleInput
+                        if ((module.Checked || module.Indeterminate) && module.Targets.Contains(appLayerName))
                         {
-                            DirectoryPath = _currentSolution.Value.DirectoryPath,
-                            InstallationInfos = new List<InstallationInfo>()
-                        };
-                    }
+                            continue;
+                        }
 
-                    var installationInfos = moduleGroupRemoveManyModuleInputDictionary[moduleGroup].InstallationInfos;
-                        
-                    var existingInstallationInfo = installationInfos.FirstOrDefault(x =>
-                        x.ModuleGroupId == moduleGroup.Id && x.ModuleId == module.Id);
+                        var moduleGroup = ModuleModuleGroupMapping[module];
 
-                    if (existingInstallationInfo == null)
-                    {
-                        installationInfos.Add(new InstallationInfo
+                        if (!moduleGroupRemoveManyModuleInputDictionary.ContainsKey(moduleGroup))
                         {
-                            ModuleGroupId = moduleGroup.Id,
-                            ModuleId = module.Id,
-                            Submodule = module.Submodule,
-                            Targets = new List<string> {appLayerName}
-                        });
-                    }
-                    else
-                    {
-                        existingInstallationInfo.Targets.AddIfNotContains(appLayerName);
+                            moduleGroupRemoveManyModuleInputDictionary[moduleGroup] = new RemoveManyModuleInput
+                            {
+                                DirectoryPath = _currentSolution.Value.DirectoryPath,
+                                InstallationInfos = new List<InstallationInfo>()
+                            };
+                        }
+
+                        var installationInfos =
+                            moduleGroupRemoveManyModuleInputDictionary[moduleGroup].InstallationInfos;
+
+                        var existingInstallationInfo = installationInfos.FirstOrDefault(x =>
+                            x.ModuleGroupId == (module.GroupId ?? moduleGroup.Id) && x.ModuleId == module.Id);
+
+                        if (existingInstallationInfo == null)
+                        {
+                            installationInfos.Add(new InstallationInfo
+                            {
+                                ModuleGroupId = module.GroupId ?? moduleGroup.Id,
+                                ModuleId = module.Id,
+                                Submodule = module.Submodule,
+                                Targets = new List<string> { appLayerName }
+                            });
+                        }
+                        else
+                        {
+                            existingInstallationInfo.Targets.AddIfNotContains(appLayerName);
+                        }
                     }
                 }
             }
