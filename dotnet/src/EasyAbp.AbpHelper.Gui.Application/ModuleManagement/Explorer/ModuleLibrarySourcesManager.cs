@@ -22,7 +22,7 @@ namespace EasyAbp.AbpHelper.Gui.ModuleManagement.Explorer
             new ModuleLibrarySourceDto
             {
                 Name = "Default",
-                IndexUrl = "https://raw.githubusercontent.com/EasyAbp/ModuleLibrary/v1/index.json"
+                IndexUrl = "https://raw.githubusercontent.com/EasyAbp/ModuleLibrary/v2/index.json"
             }
         };
 
