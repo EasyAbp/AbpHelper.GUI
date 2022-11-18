@@ -6,6 +6,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
     public enum AppMobileApplicationFramework
     {
         None = 1,
-        ReactNative = 2
+        ReactNative = 2,
+        Maui = 4
     }
 }

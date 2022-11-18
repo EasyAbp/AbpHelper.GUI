@@ -9,7 +9,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.New
     {
         [Inject]
         private IAbpCliNewAppService Service { get; set; }
-        
+
         protected AbpNewAppInput Input { get; set; } = new()
         {
             Ui = AppUiFramework.Mvc,
@@ -19,6 +19,11 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.New
         };
 
         public bool HasTieredOption => Input.Ui is AppUiFramework.Mvc or AppUiFramework.BlazorServer;
+
+        public bool HasSeparateAuthServerOption =>
+            Input.Ui is AppUiFramework.Angular or AppUiFramework.Blazor or AppUiFramework.None;
+
+        public bool HasPwaOption => Input.Ui is AppUiFramework.Angular or AppUiFramework.Blazor;
 
         protected override async Task InternalExecuteAsync()
         {
