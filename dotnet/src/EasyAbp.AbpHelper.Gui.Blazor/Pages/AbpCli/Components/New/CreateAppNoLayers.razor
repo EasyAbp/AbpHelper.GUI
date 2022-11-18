@@ -85,6 +85,17 @@
                         }
                     </Select>
                 </Field>
+                <Field>
+                    <FieldLabel>@L["AbpCli_New:Theme"]</FieldLabel>
+                    <Select TValue="AbpThemes" @bind-SelectedValue="Input.Theme">
+                        @foreach (var theme in Enum.GetValues<AbpThemes>())
+                        {
+                            <SelectItem Value="theme">
+                                @L[$"AbpCli_New:Theme:{Enum.GetName(theme)}"]
+                            </SelectItem>
+                        }
+                    </Select>
+                </Field>
                 <Validation MessageLocalizer="@Lh.Localize">
                     <Field>
                         <FieldLabel>@L["AbpCli_New:ConnectionString"]</FieldLabel>

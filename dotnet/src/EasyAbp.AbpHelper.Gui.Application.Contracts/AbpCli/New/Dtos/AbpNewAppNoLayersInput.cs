@@ -12,6 +12,8 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
 
         public virtual AppDatabaseProvider DatabaseProvider { get; set; }
 
+        public virtual AbpThemes Theme { get; set; }
+
         public AbpNewAppNoLayersInput()
         {
         }
@@ -20,12 +22,13 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
             [CanBeNull] string version, bool preview, [CanBeNull] string templateSource, bool createSolutionFolder,
             [CanBeNull] string connectionString, Database databaseManagementSystem,
             [CanBeNull] string localFrameworkRef, bool noRandomPort, bool skipInstallingLibs, AppUiFramework ui,
-            AppDatabaseProvider databaseProvider) : base(solutionName, outputFolder, version,
+            AppDatabaseProvider databaseProvider, AbpThemes theme) : base(solutionName, outputFolder, version,
             preview, templateSource, createSolutionFolder, connectionString, databaseManagementSystem,
             localFrameworkRef, noRandomPort, skipInstallingLibs)
         {
             Ui = ui;
             DatabaseProvider = databaseProvider;
+            Theme = theme;
         }
     }
 }
