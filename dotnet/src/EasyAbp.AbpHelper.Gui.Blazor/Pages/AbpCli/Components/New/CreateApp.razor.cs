@@ -15,7 +15,8 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.New
             Ui = AppUiFramework.Mvc,
             Mobile = AppMobileApplicationFramework.None,
             DatabaseProvider = AppDatabaseProvider.Ef,
-            DatabaseManagementSystem = Database.SqlServer
+            DatabaseManagementSystem = Database.SqlServer,
+            Version = AbpVersionHelper.AbpVersion
         };
 
         public bool HasTieredOption => Input.Ui is AppUiFramework.Mvc or AppUiFramework.BlazorServer;
