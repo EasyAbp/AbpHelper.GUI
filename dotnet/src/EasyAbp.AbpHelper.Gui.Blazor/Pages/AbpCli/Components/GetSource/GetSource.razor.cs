@@ -9,6 +9,11 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.GetSource
         [Inject]
         private IAbpCliGetSourceAppService Service { get; set; }
 
+        public GetSource()
+        {
+            Input.Version = AbpVersionHelper.AbpVersion;
+        }
+
         protected override async Task InternalExecuteAsync()
         {
             await Service.GetSourceAsync(Input);

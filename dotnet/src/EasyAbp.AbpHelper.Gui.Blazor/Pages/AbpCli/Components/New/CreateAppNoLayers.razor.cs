@@ -14,7 +14,8 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.New
         {
             Ui = AppUiFramework.Mvc,
             DatabaseProvider = AppDatabaseProvider.Ef,
-            DatabaseManagementSystem = Database.SqlServer
+            DatabaseManagementSystem = Database.SqlServer,
+            Version = AbpVersionHelper.AbpVersion
         };
 
         protected override async Task InternalExecuteAsync()

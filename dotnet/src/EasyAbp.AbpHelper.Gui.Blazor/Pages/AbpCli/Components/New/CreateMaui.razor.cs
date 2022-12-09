@@ -12,7 +12,8 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.New
 
         protected AbpNewMauiInput Input { get; set; } = new()
         {
-            DatabaseManagementSystem = Database.SqlServer
+            DatabaseManagementSystem = Database.SqlServer,
+            Version = AbpVersionHelper.AbpVersion
         };
 
         protected override async Task InternalExecuteAsync()

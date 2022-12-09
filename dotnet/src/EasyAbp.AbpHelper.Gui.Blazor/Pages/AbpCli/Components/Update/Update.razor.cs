@@ -9,6 +9,11 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.AbpCli.Components.Update
         [Inject]
         private IAbpCliUpdateAppService Service { get; set; }
 
+        public Update()
+        {
+            Input.Version = AbpVersionHelper.AbpVersion;
+        }
+
         protected override async Task InternalExecuteAsync()
         {
             await Service.UpdateAsync(Input);
