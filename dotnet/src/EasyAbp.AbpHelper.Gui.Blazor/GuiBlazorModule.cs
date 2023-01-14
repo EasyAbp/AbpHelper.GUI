@@ -27,7 +27,6 @@ using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.AutoMapper;
-using Volo.Abp.Json;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.SettingManagement.Blazor.Server;
@@ -52,11 +51,6 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
     {
         public override void PreConfigureServices(ServiceConfigurationContext context)
         {
-            PreConfigure<AbpJsonOptions>(options =>
-            {
-                options.UseHybridSerializer = false;
-            });
-            
             context.Services.PreConfigure<AbpMvcDataAnnotationsLocalizationOptions>(options =>
             {
                 options.AddAssemblyResource(
