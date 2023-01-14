@@ -24,9 +24,9 @@ jobs:
           submodules: recursive
         
       - name: Install .NET SDK
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '7.0.x'
 
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
