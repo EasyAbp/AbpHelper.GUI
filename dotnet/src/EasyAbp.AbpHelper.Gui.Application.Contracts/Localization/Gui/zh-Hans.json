@@ -55,6 +55,7 @@
     "AbpCli_New:AppUiFramework:Angular": "Angular",
     "AbpCli_New:AppUiFramework:Blazor": "Blazor",
     "AbpCli_New:AppUiFramework:BlazorServer": "Blazor Server",
+    "AbpCli_New:AppUiFramework:MauiBlazor": "MAUI Blazor",
     "AbpCli_New:AppMobileApplicationFramework": "应用移动端框架 - Mobile",
     "AbpCli_New:AppMobileApplicationFramework:None": "无",
     "AbpCli_New:AppMobileApplicationFramework:ReactNative": "React Native",
