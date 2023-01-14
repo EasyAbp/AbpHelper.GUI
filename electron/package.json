@@ -1,7 +1,7 @@
 {
   "name": "abphelper-gui",
   "productName": "AbpHelper",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "license": "Apache-2.0",
   "description": "AbpHelper is a tool that helps you with developing Abp vNext applications.",
   "repository": "https://github.com/EasyAbp/AbpHelper.GUI",
@@ -65,31 +65,15 @@
     "prepush": "check-for-leaks"
   },
   "devDependencies": {
-    "@octokit/rest": "^18.12.0",
-    "chai": "^4.3.6",
-    "chai-as-promised": "^7.1.1",
     "check-for-leaks": "^1.2.1",
-    "devtron": "^1.4.0",
-    "electron": "^18.2.3",
-    "electron-builder": "^23.0.3",
-    "husky": "^8.0.1",
-    "mocha": "^10.0.0",
-    "npm-run-all": "^4.1.5",
-    "request": "^2.88.2",
-    "rimraf": "^3.0.2",
-    "signcode": "^1.0.0",
-    "spectron": "^19.0.0",
+    "electron": "^22.0.2",
+    "electron-builder": "^23.6.0",
+    "mocha": "^10.2.0",
     "standard": "^17.0.0"
   },
   "dependencies": {
-    "electron-log": "^4.4.7",
     "electron-main-fetch": "^1.0.0",
-    "electron-settings": "^4.0.2",
-    "electron-shortcut-normalizer": "^1.0.0",
-    "fix-path": "^3.0.0",
-    "glob": "^8.0.3",
-    "highlight.js": "^11.5.1",
-    "update-electron-app": "^2.0.1"
+    "fix-path": "^4.0.0"
   },
   "standard": {
     "env": {
