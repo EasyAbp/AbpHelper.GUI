@@ -1,7 +1,7 @@
 {
   "name": "abphelper-gui",
   "productName": "AbpHelper",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "license": "Apache-2.0",
   "description": "AbpHelper is a tool that helps you with developing Abp vNext applications.",
   "repository": "https://github.com/EasyAbp/AbpHelper.GUI",
@@ -16,7 +16,7 @@
   "build": {
     "appId": "org.easyabp.abphelper",
     "productName": "AbpHelper",
-    "copyright": "Copyright © 2020 EasyAbp",
+    "copyright": "Copyright © 2023 EasyAbp",
     "icon": "assets/app-icon/win/app.ico",
     "asar": true,
     "asarUnpack": [
@@ -76,8 +76,7 @@
     "standard": "^17.0.0"
   },
   "dependencies": {
-    "electron-main-fetch": "^1.0.0",
-    "fix-path": "^4.0.0"
+    "fix-path": "^3.0.0"
   },
   "standard": {
     "env": {

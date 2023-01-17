@@ -1,8 +1,3 @@
-// require('update-electron-app')({
-//   logger: require('electron-log')
-// })
-
-const fetch = require('electron-main-fetch')
 const path = require('path')
 const {spawn, exec} = require('child_process')
 const {app, Menu, Tray, BrowserWindow, shell, dialog} = require('electron')
@@ -85,7 +80,6 @@ function initialize () {
     if (debug) {
       mainWindow.webContents.openDevTools()
       mainWindow.maximize()
-      // require('devtron').install()
     }
 
     mainWindow.on('closed', () => {
@@ -103,7 +97,7 @@ function initialize () {
   app.on('ready', () => {
     let checkDotnetProcess = exec("dotnet --version", (error, stdout, stderr) => {
       if (error) {
-        dialog.showMessageBoxSync({type: "error", message: "Required .NET 5.0+ runtime is not installed."})
+        dialog.showMessageBoxSync({type: "error", message: "Required .NET 7.0+ runtime is not installed."})
         app.quit()
         return
       }
@@ -146,19 +140,6 @@ let tray = null
 let template = [{
   label: 'Show',
   click: () => mainWindow.show()
-//   label: 'Abp CLI...',
-//   click: () => loadShowPage('abp-cli-new')
-// }, {
-//   label: 'AbpHelper CLI...',
-//   click: () => loadShowPage('abphelper-cli-generate-crud')
-// }, {
-//   label: 'Modules Manager...',
-//   click: () => loadShowPage('modules-manager-market')
-// }, {
-//   label: 'Awesome Tools...',
-//   click: () => loadShowPage('awesome-tools-ef-provider')
-// }, {
-//   type: 'separator'
 }, {
   label: 'Help',
   submenu: [{
