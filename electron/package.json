@@ -1,7 +1,7 @@
 {
   "name": "abphelper-gui",
   "productName": "AbpHelper",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "license": "Apache-2.0",
   "description": "AbpHelper is a tool that helps you with developing Abp vNext applications.",
   "repository": "https://github.com/EasyAbp/AbpHelper.GUI",
@@ -40,7 +40,11 @@
       "category": "public.app-category.developer-tools",
       "target": [
         {
-          "target": "dmg"
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         }
       ]
     },
