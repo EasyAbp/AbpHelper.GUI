@@ -19,7 +19,7 @@ jobs:
           git config --global core.eol lf
         
       - name: Check out Git repository with submodules
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: recursive
         
