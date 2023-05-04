@@ -8,15 +8,15 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos
     [Serializable]
     public class AbpGenerateRemoveJavaScriptProxyInput : InputDtoWithDirectory
     {
-        public virtual ProxyType Type { get; set; }
-        
+        public virtual ProxyType Type => ProxyType.JavaScript;
+
         [Required]
         [NotNull]
         public virtual string Url { get; set; }
-        
+
         [CanBeNull]
         public virtual string Module { get; set; }
-        
+
         [CanBeNull]
         public virtual string Output { get; set; }
 
@@ -24,10 +24,9 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos
         {
         }
 
-        public AbpGenerateRemoveJavaScriptProxyInput(ProxyType type, [NotNull] string url, [CanBeNull] string module,
+        public AbpGenerateRemoveJavaScriptProxyInput([NotNull] string url, [CanBeNull] string module,
             [CanBeNull] string output)
         {
-            Type = type;
             Url = url;
             Module = module;
             Output = output;

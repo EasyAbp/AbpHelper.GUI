@@ -38,5 +38,12 @@ namespace EasyAbp.AbpHelper.Gui.Controllers.AbpCli
         {
             return _service.SwitchToStableAsync(input);
         }
+
+        [HttpPost]
+        [Route("to-local")]
+        public Task<ServiceExecutionResult> SwitchToLocalAsync(AbpSwitchToLocalInput input)
+        {
+            return _service.SwitchToLocalAsync(input);
+        }
     }
 }
