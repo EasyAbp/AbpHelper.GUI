@@ -1,6 +1,4 @@
 ﻿using System.Threading.Tasks;
-using EasyAbp.AbpHelper.Gui.AbpCli.Proxy;
-using EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos;
 using EasyAbp.AbpHelper.Gui.AbpCli.Switch.Dtos;
 using EasyAbp.AbpHelper.Gui.Common;
 using EasyAbp.AbpHelper.Gui.Shared.Dtos;
@@ -54,6 +52,18 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Switch
         public virtual async Task<ServiceExecutionResult> SwitchToStableAsync(AbpSwitchToStableInput input)
         {
             var args = CreateCommandLineArgs(input, "abp switch-to-stable");
+
+            using (_currentDirectoryHelper.Change(input.Directory))
+            {
+                await _switchToStableCommand.ExecuteAsync(args);
+            }
+
+            return new ServiceExecutionResult(true);
+        }
+
+        public virtual async Task<ServiceExecutionResult> SwitchToLocalAsync(AbpSwitchToLocalInput input)
+        {
+            var args = CreateCommandLineArgs(input, "abp switch-to-local");
 
             using (_currentDirectoryHelper.Change(input.Directory))
             {

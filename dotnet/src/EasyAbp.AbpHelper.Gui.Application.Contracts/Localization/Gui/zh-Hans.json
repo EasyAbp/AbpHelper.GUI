@@ -127,6 +127,8 @@
     "AbpCli_Switch:SwitchToPreview": "切换为 Preview 版",
     "AbpCli_Switch:SwitchToNightly": "切换为 Nightly 版",
     "AbpCli_Switch:SwitchToStable": "切换为 Stable 版",
+    "AbpCli_Switch:SwitchToLocal": "切换为 Local 版",
+    "AbpCli_Switch:Paths": "路径 - Paths",
     "AbpCli_Translate:CreateTranslationFile": "创建翻译文件",
     "AbpCli_Translate:ApplyChanges": "应用变更项",
     "AbpCli_Translate:Culture": "区域代号 - Culture",

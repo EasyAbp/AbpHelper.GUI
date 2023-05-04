@@ -127,6 +127,8 @@
     "AbpCli_Switch:SwitchToPreview": "To preview",
     "AbpCli_Switch:SwitchToNightly": "To nightly",
     "AbpCli_Switch:SwitchToStable": "To stable",
+    "AbpCli_Switch:SwitchToLocal": "To local",
+    "AbpCli_Switch:Paths": "Paths",
     "AbpCli_Login:Login": "Login",
     "AbpCli_Login:Logout": "Logout",
     "AbpCli_Login:Username": "Username",
