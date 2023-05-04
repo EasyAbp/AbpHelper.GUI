@@ -117,6 +117,7 @@
     "AbpCli_Proxy:Url": "Url",
     "AbpCli_Proxy:Module": "Module",
     "AbpCli_Proxy:Folder": "Folder",
+    "AbpCli_Proxy:WithoutContracts": "Without contracts",
     "AbpCli_Proxy:ApiName": "ApiName",
     "AbpCli_Proxy:Source": "Source",
     "AbpCli_Proxy:Target": "Target",
