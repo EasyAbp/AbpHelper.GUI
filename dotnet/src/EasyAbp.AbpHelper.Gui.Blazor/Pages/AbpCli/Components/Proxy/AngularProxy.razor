@@ -83,6 +83,9 @@
                         </TextEdit>
                     </Field>
                 </Validation>
+                <Field>
+                    <Check TValue="bool" @bind-Checked="@Input.WithoutContracts">@L["AbpCli_Proxy:WithoutContracts"]</Check>
+                </Field>
 
                 <SubmitButton Block="true" Clicked="@ExecuteAsync" SaveResourceKey="Button:GenerateProxy" />
                 <SubmitButton Block="true" Clicked="@ExecuteRemoveAsync" SaveResourceKey="Button:RemoveProxy" Color="Color.Warning" />

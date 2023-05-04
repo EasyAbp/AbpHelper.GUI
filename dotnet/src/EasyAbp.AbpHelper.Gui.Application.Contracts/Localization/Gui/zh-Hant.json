@@ -117,6 +117,7 @@
     "AbpCli_Proxy:Url": "網址 - Url",
     "AbpCli_Proxy:Module": "模塊 - Module",
     "AbpCli_Proxy:Folder": "生成到目錄 - Folder",
+    "AbpCli_Proxy:WithoutContracts": "不生成合约层内容 - WithoutContracts",
     "AbpCli_Proxy:ApiName": "API 端點名 - ApiName",
     "AbpCli_Proxy:Source": "源項目名 - Source",
     "AbpCli_Proxy:Target": "目標項目名 - Target",
