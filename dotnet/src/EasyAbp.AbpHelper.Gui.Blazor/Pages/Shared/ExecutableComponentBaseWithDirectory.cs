@@ -29,6 +29,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
         protected virtual void SetDirectoryToCurrentSolutionPath()
         {
             Input.Directory = CurrentSolution.Value?.DirectoryPath ?? string.Empty;
+            Input.TemplatesPath = CurrentSolution.Value?.TemplatesPath ?? string.Empty;
         }
     }
 }

@@ -35,6 +35,16 @@
                 </Validation>
                 <Validation MessageLocalizer="@Lh.Localize">
                     <Field>
+                        <FieldLabel>@L["TemplatesPath"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.TemplatesPath" Placeholder="Default">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
                         <FieldLabel>@L["CodeGeneration_Localization:Names"]</FieldLabel>
                         <TextEdit @bind-Text="Input.Names" Placeholder="e.g. Gender Age Color Size">
                             <Feedback>

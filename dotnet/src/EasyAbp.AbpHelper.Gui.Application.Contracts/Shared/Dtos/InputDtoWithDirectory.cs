@@ -8,12 +8,13 @@ namespace EasyAbp.AbpHelper.Gui.Shared.Dtos
         [Required]
         [NotNull]
         public virtual string Directory { get; set; }
+        public virtual string? TemplatesPath { get; set; }
 
         protected InputDtoWithDirectory()
         {
-            
+
         }
-        
+
         public InputDtoWithDirectory([NotNull] string directory)
         {
             Directory = directory;

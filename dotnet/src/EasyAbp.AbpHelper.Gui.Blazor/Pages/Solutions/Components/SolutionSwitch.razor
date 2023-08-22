@@ -9,17 +9,19 @@
             @foreach (var solution in Solutions)
             {
                 <BarDropdownItem Clicked="() => ChangeSolutionAsync(solution)">
-                    @solution.DisplayName @if (CurrentSolution.Value.Equals(solution))
-                                          {
-                                              @($" ({L["Current"].Value})")
-                                          }
+                    <Icon Name="solution.SolutionType== SolutionType.Application? IconName.Infinity:IconName.Square" />
+                    @solution.DisplayName
+                    @if (CurrentSolution.Value.Equals(solution))
+                    {
+                        @($" ({L["Current"].Value})")
+                    }
                 </BarDropdownItem>
             }
             <BarDropdownItem Clicked="OpenOpenSolutionModalAsync">
-                <Icon Name="IconName.FolderOpen"/> @L["OpenSolution"]
+                <Icon Name="IconName.FolderOpen" /> @L["OpenSolution"]
             </BarDropdownItem>
             <BarDropdownItem Clicked="RedirectToSolutionsPageAsync">
-                <Icon Name="IconName.List"/> @L["ManageSolutions"]
+                <Icon Name="IconName.List" /> @L["ManageSolutions"]
             </BarDropdownItem>
         </BarDropdownMenu>
     </BarDropdown>
@@ -62,6 +64,17 @@
                                 <ValidationError />
                             </Feedback>
                         </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["TemplatesPath"]</FieldLabel>
+                        <TextEdit @bind-Text="@CreateSolution.TemplatesPath">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                        <FieldHelp><a target="_blank" href="https://github.com/EasyAbp/AbpHelper.CLI/tree/develop/src/AbpHelper.Core/Templates">@L["See Project Templates directory structure"]</a></FieldHelp>
                     </Field>
                 </Validation>
             </Validations>

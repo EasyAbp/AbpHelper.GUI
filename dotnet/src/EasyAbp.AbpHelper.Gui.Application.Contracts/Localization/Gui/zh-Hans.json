@@ -16,6 +16,8 @@
     "SolutionSolutionType": "类型",
     "SolutionDirectoryPath": "解决方案路径",
     "SolutionType:Application": "应用",
+    "TemplatesPath": "模板路径",
+    "See Project Templates directory structure": "请参阅项目Templates目录结构",
     "SolutionType:Module": "模块",
     "Use": "使用",
     "Open": "打开",

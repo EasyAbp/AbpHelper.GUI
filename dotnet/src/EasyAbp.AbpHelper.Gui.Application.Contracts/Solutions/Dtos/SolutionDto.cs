@@ -7,11 +7,13 @@ namespace EasyAbp.AbpHelper.Gui.Solutions.Dtos
     {
         [Required]
         public string DisplayName { get; set; }
-        
+
         public SolutionType SolutionType { get; set; }
-        
+
         [Required]
         public string DirectoryPath { get; set; }
+
+        public string? TemplatesPath { get; set; }
 
         public bool Equals([CanBeNull] SolutionDto other)
         {
@@ -19,7 +21,7 @@ namespace EasyAbp.AbpHelper.Gui.Solutions.Dtos
             {
                 return false;
             }
-            
+
             return DisplayName == other.DisplayName &&
                    SolutionType == other.SolutionType &&
                    DirectoryPath == other.DirectoryPath;

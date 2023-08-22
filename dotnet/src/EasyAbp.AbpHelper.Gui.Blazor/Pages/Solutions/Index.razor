@@ -38,9 +38,9 @@
                 <DataGridColumn TItem="SolutionDto" Field="@nameof(SolutionDto.DisplayName)" Caption="@L["SolutionDisplayName"].Value">
                     <DisplayTemplate>
                         @(context.DisplayName) @if (CurrentSolution.Value.Equals(context))
-                                               {
-                                                   @($" ({L["Current"].Value})")
-                                               }
+                        {
+                            @($" ({L["Current"].Value})")
+                        }
                     </DisplayTemplate>
                 </DataGridColumn>
                 <DataGridColumn TItem="SolutionDto" Field="@nameof(SolutionDto.SolutionType)" Caption="@L["SolutionSolutionType"].Value">
@@ -51,6 +51,11 @@
                 <DataGridColumn TItem="SolutionDto" Field="@nameof(SolutionDto.DirectoryPath)" Caption="@L["SolutionDirectoryPath"].Value">
                     <DisplayTemplate>
                         @(context.DirectoryPath)
+                    </DisplayTemplate>
+                </DataGridColumn>
+                <DataGridColumn TItem="SolutionDto" Field="@nameof(SolutionDto.TemplatesPath)" Caption="@L["TemplatesPath"].Value">
+                    <DisplayTemplate>
+                        @(context.TemplatesPath ?? L["Default"])
                     </DisplayTemplate>
                 </DataGridColumn>
             </DataGridColumns>
@@ -95,6 +100,17 @@
                                 <ValidationError />
                             </Feedback>
                         </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["TemplatesPath"]</FieldLabel>
+                        <TextEdit @bind-Text="@CreateSolution.TemplatesPath" Placeholder="Default">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                        <FieldHelp><a target="_blank" href="https://github.com/EasyAbp/AbpHelper.CLI/tree/develop/src/AbpHelper.Core/Templates">@L["See Project Templates directory structure"]</a></FieldHelp>
                     </Field>
                 </Validation>
             </Validations>
