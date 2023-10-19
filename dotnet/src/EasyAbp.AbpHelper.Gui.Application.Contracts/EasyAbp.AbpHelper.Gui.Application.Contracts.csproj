@@ -15,15 +15,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Localization\AbpUi\en.json" />
-    <EmbeddedResource Include="Localization\AbpUi\zh-Hans.json" />
-    <EmbeddedResource Include="Localization\AbpUi\zh-Hant.json" />
+    <EmbeddedResource Include="Localization\AbpUi\*.json" />
+    <Content Remove="Localization\AbpUi\*.json" />
     <EmbeddedResource Include="Localization\Gui\*.json" />
     <Content Remove="Localization\Gui\*.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.10" />
   </ItemGroup>
 
 </Project>
