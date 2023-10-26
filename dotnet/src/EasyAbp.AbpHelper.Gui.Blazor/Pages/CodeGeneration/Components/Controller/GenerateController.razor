@@ -44,6 +44,9 @@
                     </Field>
                 </Validation>
                 <Field>
+                    <Check TValue="bool" @bind-Checked="@Input.IntegrationService">@L["CodeGeneration_Controller:IntegrationController"]</Check>
+                </Field>
+                <Field>
                     <Check TValue="bool" @bind-Checked="@Input.SkipBuild">@L["CodeGeneration_Controller:SkipBuild"]</Check>
                 </Field>
                 <Field>

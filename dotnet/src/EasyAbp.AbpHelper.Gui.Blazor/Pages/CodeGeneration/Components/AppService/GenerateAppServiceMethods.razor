@@ -54,6 +54,9 @@
                     </Field>
                 </Validation>
                 <Field>
+                    <Check TValue="bool" @bind-Checked="@Input.IntegrationService">@L["CodeGeneration_AppService:IntegrationService"]</Check>
+                </Field>
+                <Field>
                     <Check TValue="bool" @bind-Checked="@Input.NoInput">@L["CodeGeneration_AppService:NoInput"]</Check>
                 </Field>
                 <Field>
