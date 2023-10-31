@@ -14,6 +14,7 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.Controller.Dtos
 
         public virtual bool SkipBuild { get; set; }
 
+        public virtual bool IntegrationService { get; set; }
 
         public AbpHelperGenerateControllerInput()
         {

@@ -20,6 +20,7 @@ namespace EasyAbp.AbpHelper.Gui.CodeGeneration.AppService.Dtos
 
         public virtual bool NoOutput { get; set; }
 
+        public virtual bool IntegrationService { get; set; }
 
         public AbpHelperGenerateAppServiceMethodsInput()
         {
