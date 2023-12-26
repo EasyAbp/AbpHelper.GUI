@@ -63,6 +63,17 @@
                         </TextEdit>
                     </Field>
                 </Validation>
+                <Field>
+                    <FieldLabel>@L["AbpCli_Proxy:ServiceType"]</FieldLabel>
+                    <Select TValue="ServiceType" @bind-SelectedValue="Input.ServiceType">
+                        @foreach (var serviceType in Enum.GetValues<ServiceType>())
+                        {
+                            <SelectItem Value="serviceType">
+                                @L[$"AbpCli_Proxy:ServiceType:{Enum.GetName(serviceType)}"]
+                            </SelectItem>
+                        }
+                    </Select>
+                </Field>
 
                 <SubmitButton Block="true" Clicked="@ExecuteAsync" SaveResourceKey="Button:GenerateProxy" />
                 <SubmitButton Block="true" Clicked="@ExecuteRemoveAsync" SaveResourceKey="Button:RemoveProxy" Color="Color.Warning" />

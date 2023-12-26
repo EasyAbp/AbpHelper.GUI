@@ -9,13 +9,16 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Bundle.Dtos
     {
         public virtual bool Force { get; set; }
 
+        public virtual ProjectType ProjectType { get; set; }
+
         public AbpBundleInput()
         {
         }
 
-        public AbpBundleInput([NotNull] string directory, bool force) : base(directory)
+        public AbpBundleInput([NotNull] string directory, bool force, ProjectType projectType) : base(directory)
         {
             Force = force;
+            ProjectType = projectType;
         }
     }
 }

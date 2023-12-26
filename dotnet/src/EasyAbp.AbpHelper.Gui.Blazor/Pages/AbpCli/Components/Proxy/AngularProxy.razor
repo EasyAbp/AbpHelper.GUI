@@ -75,6 +75,16 @@
                 </Validation>
                 <Validation MessageLocalizer="@Lh.Localize">
                     <Field>
+                        <FieldLabel>@L["AbpCli_Proxy:EntryPoint"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.EntryPoint">
+                            <Feedback>
+                                <ValidationError/>
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
                         <FieldLabel>@L["AbpCli_Proxy:Url"]</FieldLabel>
                         <TextEdit @bind-Text="Input.Url">
                             <Feedback>
@@ -84,7 +94,15 @@
                     </Field>
                 </Validation>
                 <Field>
-                    <Check TValue="bool" @bind-Checked="@Input.WithoutContracts">@L["AbpCli_Proxy:WithoutContracts"]</Check>
+                    <FieldLabel>@L["AbpCli_Proxy:ServiceType"]</FieldLabel>
+                    <Select TValue="ServiceType" @bind-SelectedValue="Input.ServiceType">
+                        @foreach (var serviceType in Enum.GetValues<ServiceType>())
+                        {
+                            <SelectItem Value="serviceType">
+                                @L[$"AbpCli_Proxy:ServiceType:{Enum.GetName(serviceType)}"]
+                            </SelectItem>
+                        }
+                    </Select>
                 </Field>
 
                 <SubmitButton Block="true" Clicked="@ExecuteAsync" SaveResourceKey="Button:GenerateProxy" />

@@ -31,8 +31,6 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
 
         public virtual AbpThemes Theme { get; set; }
 
-        public virtual bool SkipBundling { get; set; }
-
         public AbpNewAppInput()
         {
         }
@@ -40,11 +38,11 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
         public AbpNewAppInput([NotNull] string solutionName, [NotNull] string outputFolder, [CanBeNull] string version,
             bool preview, [CanBeNull] string templateSource, bool createSolutionFolder,
             [CanBeNull] string connectionString, Database databaseManagementSystem,
-            [CanBeNull] string localFrameworkRef, bool noRandomPort, bool skipInstallingLibs, AppUiFramework ui,
-            bool separateAuthServer, bool tiered, bool pwa, AppMobileApplicationFramework mobile,
-            AppDatabaseProvider databaseProvider, AbpThemes theme, bool skipBundling) : base(solutionName, outputFolder,
-            version, preview, templateSource, createSolutionFolder, connectionString, databaseManagementSystem,
-            localFrameworkRef, noRandomPort, skipInstallingLibs)
+            [CanBeNull] string localFrameworkRef, bool noRandomPort, bool skipInstallingLibs, bool skipCache,
+            bool withPublicWebsite, AppUiFramework ui, bool separateAuthServer, bool tiered, bool pwa,
+            AppMobileApplicationFramework mobile, AppDatabaseProvider databaseProvider, AbpThemes theme) : base(
+            solutionName, outputFolder, version, preview, templateSource, createSolutionFolder, connectionString,
+            databaseManagementSystem, localFrameworkRef, noRandomPort, skipInstallingLibs, skipCache, withPublicWebsite)
         {
             Ui = ui;
             SeparateAuthServer = separateAuthServer;
@@ -53,7 +51,6 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
             Mobile = mobile;
             DatabaseProvider = databaseProvider;
             Theme = theme;
-            SkipBundling = skipBundling;
         }
     }
 }

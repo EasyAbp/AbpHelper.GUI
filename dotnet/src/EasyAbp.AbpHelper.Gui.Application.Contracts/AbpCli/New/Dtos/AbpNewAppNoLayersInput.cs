@@ -21,10 +21,10 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
         public AbpNewAppNoLayersInput([NotNull] string solutionName, [NotNull] string outputFolder,
             [CanBeNull] string version, bool preview, [CanBeNull] string templateSource, bool createSolutionFolder,
             [CanBeNull] string connectionString, Database databaseManagementSystem,
-            [CanBeNull] string localFrameworkRef, bool noRandomPort, bool skipInstallingLibs, AppUiFramework ui,
-            AppDatabaseProvider databaseProvider, AbpThemes theme) : base(solutionName, outputFolder, version,
-            preview, templateSource, createSolutionFolder, connectionString, databaseManagementSystem,
-            localFrameworkRef, noRandomPort, skipInstallingLibs)
+            [CanBeNull] string localFrameworkRef, bool noRandomPort, bool skipInstallingLibs, bool skipCache,
+            bool withPublicWebsite, AppUiFramework ui, AppDatabaseProvider databaseProvider, AbpThemes theme) : base(
+            solutionName, outputFolder, version, preview, templateSource, createSolutionFolder, connectionString,
+            databaseManagementSystem, localFrameworkRef, noRandomPort, skipInstallingLibs, skipCache, withPublicWebsite)
         {
             Ui = ui;
             DatabaseProvider = databaseProvider;

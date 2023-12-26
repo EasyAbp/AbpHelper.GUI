@@ -40,6 +40,10 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
 
         public virtual bool SkipInstallingLibs { get; set; }
 
+        public virtual bool SkipCache { get; set; }
+
+        public virtual bool WithPublicWebsite { get; set; }
+
         public AbpNewInputBase()
         {
         }
@@ -47,7 +51,8 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
         public AbpNewInputBase([NotNull] string solutionName, [NotNull] string outputFolder, [CanBeNull] string version,
             bool preview, [CanBeNull] string templateSource, bool createSolutionFolder,
             [CanBeNull] string connectionString, Database databaseManagementSystem,
-            [CanBeNull] string localFrameworkRef, bool noRandomPort, bool skipInstallingLibs)
+            [CanBeNull] string localFrameworkRef, bool noRandomPort, bool skipInstallingLibs, bool skipCache,
+            bool withPublicWebsite)
         {
             SolutionName = solutionName;
             OutputFolder = outputFolder;
@@ -60,6 +65,8 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.New.Dtos
             LocalFrameworkRef = localFrameworkRef;
             NoRandomPort = noRandomPort;
             SkipInstallingLibs = skipInstallingLibs;
+            SkipCache = skipCache;
+            WithPublicWebsite = withPublicWebsite;
         }
     }
 }

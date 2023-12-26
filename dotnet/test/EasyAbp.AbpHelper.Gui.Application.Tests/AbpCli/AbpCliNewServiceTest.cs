@@ -29,14 +29,15 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli
                 null,
                 false,
                 true,
+                false,
+                false,
                 AppUiFramework.Mvc,
                 false,
                 false,
                 false,
                 AppMobileApplicationFramework.None,
                 AppDatabaseProvider.Ef,
-                AbpThemes.LeptonxLite,
-                false));
+                AbpThemes.LeptonxLite));
 
             File.Exists(Path.Combine(Path.Combine(GuiTestConsts.Folder, SolutionName), $"{SolutionName}.sln"))
                 .ShouldBeTrue();

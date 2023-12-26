@@ -36,6 +36,17 @@
                 <Field>
                     <Check TValue="bool" @bind-Checked="@Input.Force">@L["AbpCli_Bundle:Force"]</Check>
                 </Field>
+                <Field>
+                    <FieldLabel>@L["AbpCli_Bundle:ProjectType"]</FieldLabel>
+                    <Select TValue="ProjectType" @bind-SelectedValue="Input.ProjectType">
+                        @foreach (var projectType in Enum.GetValues<ProjectType>())
+                        {
+                            <SelectItem Value="projectType">
+                                @L[$"AbpCli_Bundle:ProjectType:{Enum.GetName(projectType)}"]
+                            </SelectItem>
+                        }
+                    </Select>
+                </Field>
 
                 <SubmitButton Block="true" Clicked="@ExecuteAsync" SaveResourceKey="Button:Execute" />
             </Validations>

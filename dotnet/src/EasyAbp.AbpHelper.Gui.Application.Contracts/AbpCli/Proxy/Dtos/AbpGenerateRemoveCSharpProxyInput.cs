@@ -9,13 +9,17 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos
     public class AbpGenerateRemoveCSharpProxyInput : InputDtoWithDirectory
     {
         public virtual ProxyType Type => ProxyType.CSharp;
-        
+
         [Required]
         [NotNull]
         public virtual string Url { get; set; }
-        
+
+        public virtual ServiceType ServiceType { get; set; }
+
         [CanBeNull]
         public virtual string Module { get; set; }
+
+        public virtual bool WithoutContracts { get; set; }
 
         [CanBeNull]
         public virtual string Folder { get; set; }
@@ -24,11 +28,13 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos
         {
         }
 
-        public AbpGenerateRemoveCSharpProxyInput([NotNull] string url, [CanBeNull] string module,
-            [CanBeNull] string folder)
+        public AbpGenerateRemoveCSharpProxyInput([NotNull] string url, ServiceType serviceType,
+            [CanBeNull] string module, bool withoutContracts, [CanBeNull] string folder)
         {
             Url = url;
+            ServiceType = serviceType;
             Module = module;
+            WithoutContracts = withoutContracts;
             Folder = folder;
         }
     }

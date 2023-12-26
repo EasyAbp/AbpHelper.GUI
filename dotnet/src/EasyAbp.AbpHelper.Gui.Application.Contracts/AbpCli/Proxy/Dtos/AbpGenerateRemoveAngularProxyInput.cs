@@ -22,23 +22,28 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos
         public virtual string Target { get; set; }
 
         [CanBeNull]
+        public virtual string EntryPoint { get; set; }
+
+        [CanBeNull]
         public virtual string Url { get; set; }
 
-        public virtual bool WithoutContracts { get; set; }
+        public virtual ServiceType ServiceType { get; set; }
 
         public AbpGenerateRemoveAngularProxyInput()
         {
         }
 
         public AbpGenerateRemoveAngularProxyInput([CanBeNull] string module, [CanBeNull] string apiName,
-            [CanBeNull] string source, [CanBeNull] string target, [CanBeNull] string url, bool withoutContracts)
+            [CanBeNull] string source, [CanBeNull] string target, [CanBeNull] string entryPoint, [CanBeNull] string url,
+            ServiceType serviceType)
         {
             Module = module;
             ApiName = apiName;
             Source = source;
             Target = target;
+            EntryPoint = entryPoint;
             Url = url;
-            WithoutContracts = withoutContracts;
+            ServiceType = serviceType;
         }
     }
 }

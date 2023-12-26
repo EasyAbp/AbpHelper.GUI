@@ -109,6 +109,12 @@
                 <Field>
                     <Check TValue="bool" @bind-Checked="@Input.SkipInstallingLibs">@L["AbpCli_New:SkipInstallingLibs"]</Check>
                 </Field>
+                <Field>
+                    <Check TValue="bool" @bind-Checked="@Input.SkipCache">@L["AbpCli_New:SkipCache"]</Check>
+                </Field>
+                <Field>
+                    <Check TValue="bool" @bind-Checked="@Input.WithPublicWebsite">@L["AbpCli_New:WithPublicWebsite"]</Check>
+                </Field>
 
                 <SubmitButton Block="true" Clicked="@ExecuteAsync" SaveResourceKey="Button:Execute" />
             </Validations>

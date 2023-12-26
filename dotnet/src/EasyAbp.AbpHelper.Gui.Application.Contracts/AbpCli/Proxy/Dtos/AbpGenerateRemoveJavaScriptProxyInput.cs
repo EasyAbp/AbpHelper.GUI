@@ -14,6 +14,8 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos
         [NotNull]
         public virtual string Url { get; set; }
 
+        public virtual ServiceType ServiceType { get; set; }
+
         [CanBeNull]
         public virtual string Module { get; set; }
 
@@ -24,10 +26,11 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Proxy.Dtos
         {
         }
 
-        public AbpGenerateRemoveJavaScriptProxyInput([NotNull] string url, [CanBeNull] string module,
-            [CanBeNull] string output)
+        public AbpGenerateRemoveJavaScriptProxyInput([NotNull] string url, ServiceType serviceType,
+            [CanBeNull] string module, [CanBeNull] string output)
         {
             Url = url;
+            ServiceType = serviceType;
             Module = module;
             Output = output;
         }
