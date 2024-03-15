@@ -1,0 +1,91 @@
+﻿@page "/Templates"
+@using Volo.Abp.AspNetCore.Components.Web
+@using EasyAbp.AbpHelper.Gui.Localization
+@using EasyAbp.AbpHelper.Gui.Templates.Dtos
+@using EasyAbp.AbpHelper.Gui.Blazor.Pages.Templates.Components;
+@inherits EasyAbp.AbpHelper.Gui.Blazor.Pages.Templates.Shared.TemplateManagementBase
+
+<Card>
+    <CardHeader>
+        @* ************************* PAGE HEADER ************************* *@
+        <Row Class="justify-content-between">
+            <Column ColumnSize="ColumnSize.IsAuto">
+                <h4>@L["ManageTemplates"]</h4>
+            </Column><Column ColumnSize="ColumnSize.IsAuto">
+                <Button Color="Color.Primary" Size="global::Blazorise.Size.Medium" Clicked="OpenOpenTemplateModalAsync">@L["Open"]</Button>
+            </Column>
+        </Row>
+    </CardHeader>
+    <CardBody>
+        <DataGrid TItem="TemplateDto"
+                  Data="Templates"
+                  TotalItems="Templates.Count"
+                  PageSize="100">
+            <DataGridColumns>
+                <DataGridEntityActionsColumn TItem="TemplateDto" @ref="@EntityActionsColumn">
+                    <DisplayTemplate>
+                        <EntityActions TItem="TemplateDto" EntityActionsColumn="@EntityActionsColumn">
+                            <EntityAction TItem="TemplateDto"
+                                          Clicked="() => ChangeTemplateAsync(context)"
+                                          Text="@L["Use"]" />
+                            <EntityAction TItem="TemplateDto"
+                                          Clicked="() => DeleteTemplateAsync(context)"
+                                          ConfirmationMessage="()=>GetDeleteConfirmationMessage(context)"
+                                          Text="@L["Delete"]" />
+                        </EntityActions>
+                    </DisplayTemplate>
+                </DataGridEntityActionsColumn>
+                <DataGridColumn TItem="TemplateDto" Field="@nameof(TemplateDto.DisplayName)" Caption="@L["TemplateDisplayName"].Value">
+                    <DisplayTemplate>
+                        @(context.DisplayName) @if (CurrentTemplate.Value.Equals(context))
+                                               {
+                                                   @($" ({L["Current"].Value})")
+                                               }
+                    </DisplayTemplate>
+                </DataGridColumn>
+                <DataGridColumn TItem="TemplateDto" Field="@nameof(TemplateDto.DirectoryPath)" Caption="@L["TemplateDirectoryPath"].Value">
+                    <DisplayTemplate>
+                        @(context.DirectoryPath)
+                    </DisplayTemplate>
+                </DataGridColumn>
+            </DataGridColumns>
+        </DataGrid>
+    </CardBody>
+</Card>
+
+<Modal @ref="Modal">
+    <ModalContent Size="ModalSize.Default" IsCentered="true">
+        <ModalHeader>
+            <ModalTitle>@L["OpenTemplate"]</ModalTitle>
+            <CloseButton Clicked="CloseOpenTemplateModal" />
+        </ModalHeader>
+        <ModalBody MaxHeight="50">
+            <Validations @ref="ValidationsRef" Model="CreateTemplate" ValidateOnLoad="false">
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["TemplateDisplayName"]</FieldLabel>
+                        <TextEdit @bind-Text="@CreateTemplate.DisplayName">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["TemplateDirectoryPath"]</FieldLabel>
+                        <TextEdit @bind-Text="@CreateTemplate.DirectoryPath">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+            </Validations>
+        </ModalBody>
+        <ModalFooter>
+            <Button Color="Color.Secondary" Clicked="CloseOpenTemplateModal">@L["Cancel"]</Button>
+            <Button Color="Color.Primary" Clicked="OpenTemplateExecuteAsync">@L["Open"]</Button>
+        </ModalFooter>
+    </ModalContent>
+</Modal>
