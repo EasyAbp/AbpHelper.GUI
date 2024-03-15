@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using EasyAbp.AbpHelper.Gui.Blazor.Pages.LogService.Components;
 using EasyAbp.AbpHelper.Gui.Blazor.Pages.Solutions.Components;
+using EasyAbp.AbpHelper.Gui.Blazor.Pages.Templates.Components;
 using Volo.Abp.AspNetCore.Components.Server.LeptonXLiteTheme.Themes.LeptonXLite.Toolbar;
 using Volo.Abp.AspNetCore.Components.Web.Theming.Toolbars;
 
@@ -14,12 +15,14 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Toolbars
             {
                 return Task.CompletedTask;
             }
-            
+
             // Remove the login item.
             context.Toolbar.Items.RemoveAll(x => x.ComponentType == typeof(UserMenuComponent));
-            
+
             context.Toolbar.Items.Insert(0, new ToolbarItem(typeof(Logs)));
-            
+
+            context.Toolbar.Items.Add(new ToolbarItem(typeof(TemplateSwitch)));
+
             context.Toolbar.Items.Add(new ToolbarItem(typeof(SolutionSwitch)));
 
             return Task.CompletedTask;

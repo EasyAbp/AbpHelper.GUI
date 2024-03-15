@@ -9,15 +9,20 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
     {
         [Inject]
         private ICurrentSolution CurrentSolution { get; set; }
-        
+
+        [Inject]
+        private ICurrentTemplate CurrentTemplate { get; set; }
+
         protected override void OnInitialized()
         {
             CurrentSolution.OnChangeAsync += CurrentSolutionChangedAsync;
+            CurrentTemplate.OnChangeAsync += CurrentTemplateChangedAsync;
         }
 
         public void Dispose()
         {
             CurrentSolution.OnChangeAsync -= CurrentSolutionChangedAsync;
+            CurrentTemplate.OnChangeAsync -= CurrentTemplateChangedAsync;
         }
         
         protected virtual async Task CurrentSolutionChangedAsync()
@@ -28,5 +33,14 @@ namespace EasyAbp.AbpHelper.Gui.Blazor.Pages.Shared
         }
 
         protected abstract Task OnCurrentSolutionChangedAsync();
+
+        protected virtual async Task CurrentTemplateChangedAsync()
+        {
+            await OnCurrentTemplateChangedAsync();
+
+            StateHasChanged();
+        }
+
+        protected abstract Task OnCurrentTemplateChangedAsync();
     }
 }
