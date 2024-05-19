@@ -66,6 +66,19 @@
                 <Field>
                     <Check TValue="bool" @bind-Checked="@Input.AllValues">@L["AbpCli_Translate:AllValues"]</Check>
                 </Field>
+                <Field>
+                    <Check TValue="bool" @bind-Checked="@Input.Online">@L["AbpCli_Translate:Online"]</Check>
+                </Field>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["AbpCli_Translate:DeeplAuthKey"]</FieldLabel>
+                        <TextEdit @bind-Text="Input.DeeplAuthKey" Disabled="@(!Input.Online)">
+                            <Feedback>
+                                <ValidationError/>
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
 
                 <SubmitButton Block="true" Clicked="@ExecuteAsync" SaveResourceKey="Button:Execute" />
             </Validations>

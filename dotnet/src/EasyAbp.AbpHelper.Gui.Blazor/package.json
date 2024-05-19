@@ -1,9 +1,9 @@
 {
-  "version": "2.11.0",
+  "version": "2.12.0",
   "name": "easyabp-abphelper-gui",
   "private": true,
   "dependencies": {
-    "@abp/aspnetcore.mvc.ui.theme.leptonxlite": "~3.0.0",
-    "@abp/aspnetcore.components.server.leptonxlitetheme": "~3.0.0"
+    "@abp/aspnetcore.mvc.ui.theme.leptonxlite": "~3.1.0",
+    "@abp/aspnetcore.components.server.leptonxlitetheme": "~3.1.0"
   }
 }
