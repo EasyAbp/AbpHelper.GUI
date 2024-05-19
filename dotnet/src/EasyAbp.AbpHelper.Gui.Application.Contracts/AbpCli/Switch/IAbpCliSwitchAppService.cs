@@ -13,6 +13,8 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Switch
 
         Task<ServiceExecutionResult> SwitchToStableAsync(AbpSwitchToStableInput input);
 
+        Task<ServiceExecutionResult> SwitchToPreRcAsync(AbpSwitchToPreRcInput input);
+
         Task<ServiceExecutionResult> SwitchToLocalAsync(AbpSwitchToLocalInput input);
     }
 }

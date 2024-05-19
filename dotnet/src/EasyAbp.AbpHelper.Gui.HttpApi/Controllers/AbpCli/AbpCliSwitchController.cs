@@ -40,6 +40,13 @@ namespace EasyAbp.AbpHelper.Gui.Controllers.AbpCli
         }
 
         [HttpPost]
+        [Route("to-prerc")]
+        public Task<ServiceExecutionResult> SwitchToPreRcAsync(AbpSwitchToPreRcInput input)
+        {
+            return _service.SwitchToPreRcAsync(input);
+        }
+
+        [HttpPost]
         [Route("to-local")]
         public Task<ServiceExecutionResult> SwitchToLocalAsync(AbpSwitchToLocalInput input)
         {

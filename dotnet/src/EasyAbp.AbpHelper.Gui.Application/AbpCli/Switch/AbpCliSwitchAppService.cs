@@ -61,6 +61,18 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli.Switch
             return new ServiceExecutionResult(true);
         }
 
+        public virtual async Task<ServiceExecutionResult> SwitchToPreRcAsync(AbpSwitchToPreRcInput input)
+        {
+            var args = CreateCommandLineArgs(input, "abp switch-to-prerc");
+
+            using (_currentDirectoryHelper.Change(input.Directory))
+            {
+                await _switchToStableCommand.ExecuteAsync(args);
+            }
+
+            return new ServiceExecutionResult(true);
+        }
+
         public virtual async Task<ServiceExecutionResult> SwitchToLocalAsync(AbpSwitchToLocalInput input)
         {
             var args = CreateCommandLineArgs(input, "abp switch-to-local");
