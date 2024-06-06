@@ -7,8 +7,6 @@ using Microsoft.Extensions.Caching.Distributed;
 using Newtonsoft.Json.Linq;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Caching;
-using Volo.Abp.DependencyInjection;
-using Volo.Abp.Json;
 
 namespace EasyAbp.AbpHelper.Gui.UpdateCheck
 {
@@ -17,16 +15,13 @@ namespace EasyAbp.AbpHelper.Gui.UpdateCheck
         private const string LatestReleaseUri = "https://api.github.com/repos/EasyAbp/AbpHelper.GUI/releases/latest";
         private const int CacheExpirationMinutes = 10;
 
-        private readonly IJsonSerializer _jsonSerializer;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IDistributedCache<UpdateCheckCacheItem> _cache;
 
         public UpdateCheckAppService(
-            IJsonSerializer jsonSerializer,
             IHttpClientFactory httpClientFactory,
             IDistributedCache<UpdateCheckCacheItem> cache)
         {
-            _jsonSerializer = jsonSerializer;
             _httpClientFactory = httpClientFactory;
             _cache = cache;
         }
@@ -59,8 +54,8 @@ namespace EasyAbp.AbpHelper.Gui.UpdateCheck
             client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("product", "1"));
 
             var str = await client.GetStringAsync(LatestReleaseUri);
-            var data = _jsonSerializer.Deserialize<JObject>(str);
-
+            var data = JObject.Parse(str);
+            
             var tagName = data["tag_name"]?.ToString() ?? "";
 
             return tagName.Replace("v", "");
