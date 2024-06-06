@@ -71,7 +71,7 @@
   },
   "devDependencies": {
     "check-for-leaks": "^1.2.1",
-    "electron": "^22.0.2",
+    "electron": "^22.3.25",
     "electron-builder": "^23.6.0",
     "mocha": "^10.2.0",
     "standard": "^17.0.0"
