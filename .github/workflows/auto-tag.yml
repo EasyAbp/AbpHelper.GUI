@@ -1,0 +1,40 @@
+name: publish to nuget
+on:
+  push:
+    branches:
+      - master
+      - main
+jobs:
+  publish:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: read common.props
+        id: commonProps
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./dotnet/common.props
+
+      - name: get version
+        id: getVersion
+        uses: AsasInnab/regex-action@v1
+        with:
+          regex_pattern: '(?<=>)[^<>]+(?=</Version>)'
+          regex_flags: 'gim'
+          search_string: '${{ steps.commonProps.outputs.content }}'
+
+      - name: determine if the tag exists
+        uses: mukunku/tag-exists-action@v1.0.0
+        id: checkTag
+        with:
+          tag: ${{ steps.getVersion.outputs.first_match }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: add git tag
+        if: ${{ steps.checkTag.outputs.exists == 'false' }}
+        uses: tvdias/github-tagger@v0.0.1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ steps.getVersion.outputs.first_match }}
