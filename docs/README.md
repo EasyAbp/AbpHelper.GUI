@@ -8,9 +8,9 @@ Providing code generation and more features to help you develop applications and
 
 ## Getting Started
 
-1. Download the package from [EasyAbp/AbpHelper.GUI/releases](https://github.com/EasyAbp/AbpHelper.GUI/releases) and unpack the files. Or you can also download the source code and use `npm run package` command to package the app yourself.
+1. Clone this Git repository.
 
-2. Run the executable file.
+2. Run the `bash ./run.sh` command or the run.ps1 script file to start the AbpHelper GUI.
 
 ![preview 1](/docs/images/preview1.png)
 ![preview 2](/docs/images/preview2.png)
