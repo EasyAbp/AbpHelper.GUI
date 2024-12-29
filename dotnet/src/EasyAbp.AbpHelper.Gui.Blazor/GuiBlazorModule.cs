@@ -229,7 +229,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
 
             app.UseHttpsRedirection();
             app.UseCorrelationId();
-            app.UseStaticFiles();
+            app.MapAbpStaticAssets();
             app.UseRouting();
             app.UseSwagger();
             app.UseAbpSwaggerUI(options =>

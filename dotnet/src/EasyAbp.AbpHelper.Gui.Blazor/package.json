@@ -3,7 +3,7 @@
   "name": "easyabp-abphelper-gui",
   "private": true,
   "dependencies": {
-    "@abp/aspnetcore.mvc.ui.theme.leptonxlite": "~3.3.2",
-    "@abp/aspnetcore.components.server.leptonxlitetheme": "~3.3.2"
+    "@abp/aspnetcore.mvc.ui.theme.leptonxlite": "~4.0.3",
+    "@abp/aspnetcore.components.server.leptonxlitetheme": "~4.0.3"
   }
 }
