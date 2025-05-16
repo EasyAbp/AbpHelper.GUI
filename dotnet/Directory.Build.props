@@ -1,9 +1,7 @@
 <Project>
   <PropertyGroup>
-
-    <AbpVersion>9.0.2</AbpVersion>
-    <AbpLeptonXThemeVersion>4.0.3</AbpLeptonXThemeVersion>
+    <AbpVersion>9.1.1</AbpVersion>
+    <AbpLeptonXThemeVersion>4.1.0</AbpLeptonXThemeVersion>
     <BlazoriseVersion>1.6.2</BlazoriseVersion>
-
   </PropertyGroup>
 </Project>
