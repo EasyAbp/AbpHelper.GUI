@@ -8,7 +8,7 @@ Providing code generation and more features to help you develop applications and
 
 ## Getting Started
 
-1. Clone this Git repository.
+1. Clone this Git repository with submodules. You can try `git clone --recurse-submodules https://github.com/EasyAbp/AbpHelper.GUI.git`.
 
 2. Run the `bash ./run.sh` command or the run.ps1 script file to start the AbpHelper GUI.
 
