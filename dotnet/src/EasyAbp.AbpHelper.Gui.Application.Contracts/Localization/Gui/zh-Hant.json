@@ -1,4 +1,4 @@
-{
+﻿{
   "culture": "zh-Hant",
   "texts": {
     "Welcome": "歡迎使用",
@@ -17,6 +17,11 @@
     "SolutionDirectoryPath": "解決方案路徑",
     "SolutionType:Application": "應用",
     "SolutionType:Module": "模塊",
+    "Template": "範本方案",
+    "OpenTemplate": "打開範本方案",
+    "ManageTemplates": "管理範本方案",
+    "TemplateDisplayName": "名稱",
+    "TemplateDirectoryPath": "範本方案路徑",
     "Use": "使用",
     "Open": "打開",
     "NoDataAvailable": "無可用數據",

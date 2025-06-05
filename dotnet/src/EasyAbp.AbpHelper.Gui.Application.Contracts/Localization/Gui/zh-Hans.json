@@ -1,4 +1,4 @@
-{
+﻿{
   "culture": "zh-Hans",
   "texts": {
     "Welcome": "欢迎使用",
@@ -17,6 +17,11 @@
     "SolutionDirectoryPath": "解决方案路径",
     "SolutionType:Application": "应用",
     "SolutionType:Module": "模块",
+    "Template": "模板方案",
+    "OpenTemplate": "打开模板方案",
+    "ManageTemplates": "管理模板方案",
+    "TemplateDisplayName": "名称",
+    "TemplateDirectoryPath": "模板方案路径",
     "Use": "使用",
     "Open": "打开",
     "Current": "当前",

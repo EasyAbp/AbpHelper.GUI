@@ -1,0 +1,67 @@
+﻿@using EasyAbp.AbpHelper.Gui.Templates.Dtos
+@inherits EasyAbp.AbpHelper.Gui.Blazor.Pages.Templates.Shared.TemplateManagementBase
+@{
+    var templateDefault = new TemplateDto() { DisplayName = "Default", DirectoryPath = "" };
+
+}
+<BarItem>
+    <BarDropdown RightAligned>
+        <BarDropdownToggle>
+            @L["Template"]|@(CurrentTemplate.Value?.DisplayName ?? L["Default"])
+        </BarDropdownToggle>
+        <BarDropdownMenu>
+            @foreach (var template in Templates)
+            {
+                <BarDropdownItem Clicked="() => ChangeTemplateAsync(template)">
+                    @template.DisplayName @if (CurrentTemplate.Value.Equals(template))
+                    {
+                        @($" ({L["Current"].Value})")
+                    }
+                </BarDropdownItem>
+            }
+            <BarDropdownItem Clicked="OpenOpenTemplateModalAsync">
+                <Icon Name="IconName.FolderOpen" /> @L["OpenTemplate"]
+            </BarDropdownItem>
+            <BarDropdownItem Clicked="RedirectToTemplatesPageAsync">
+                <Icon Name="IconName.List" /> @L["ManageTemplates"]
+            </BarDropdownItem>
+        </BarDropdownMenu>
+    </BarDropdown>
+</BarItem>
+
+<Modal @ref="Modal" Style="overflow: visible">
+    <ModalContent Size="ModalSize.Default" IsCentered="true">
+        <ModalHeader>
+            <ModalTitle>@L["OpenTemplate"]</ModalTitle>
+            <CloseButton Clicked="CloseOpenTemplateModal" />
+        </ModalHeader>
+        <ModalBody MaxHeight="50">
+            <Validations @ref="ValidationsRef" Model="CreateTemplate" ValidateOnLoad="false">
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["TemplateDisplayName"]</FieldLabel>
+                        <TextEdit @bind-Text="@CreateTemplate.DisplayName">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+                <Validation MessageLocalizer="@Lh.Localize">
+                    <Field>
+                        <FieldLabel>@L["TemplateDirectoryPath"]</FieldLabel>
+                        <TextEdit @bind-Text="@CreateTemplate.DirectoryPath">
+                            <Feedback>
+                                <ValidationError />
+                            </Feedback>
+                        </TextEdit>
+                    </Field>
+                </Validation>
+            </Validations>
+        </ModalBody>
+        <ModalFooter>
+            <Button Color="Color.Secondary" Clicked="CloseOpenTemplateModal">@L["Cancel"]</Button>
+            <Button Color="Color.Primary" Clicked="OpenTemplateExecuteAsync">@L["Open"]</Button>
+        </ModalFooter>
+    </ModalContent>
+</Modal>
