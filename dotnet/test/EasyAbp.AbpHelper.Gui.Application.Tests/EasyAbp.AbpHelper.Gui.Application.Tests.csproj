@@ -3,14 +3,14 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <RootNamespace>EasyAbp.AbpHelper.Gui</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\EasyAbp.AbpHelper.Gui.Application\EasyAbp.AbpHelper.Gui.Application.csproj" />
     <ProjectReference Include="..\EasyAbp.AbpHelper.Gui.TestBase\EasyAbp.AbpHelper.Gui.TestBase.csproj" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
   </ItemGroup>
 
 </Project>
