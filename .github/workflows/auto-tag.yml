@@ -1,4 +1,4 @@
-name: publish to nuget
+name: auto tag
 on:
   push:
     branches:
@@ -8,7 +8,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: read common.props
         id: commonProps

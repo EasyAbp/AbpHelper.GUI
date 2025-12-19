@@ -4,7 +4,6 @@ namespace EasyAbp.AbpHelper.Gui
 {
     public class GuiTestConsts
     {
-        public static readonly string Folder =
-            $"C:{Path.DirectorySeparatorChar}Temp{Path.DirectorySeparatorChar}AbpHelperGuiTest";
+        public static readonly string Folder = $"{Path.GetTempPath()}AbpHelperGuiTest";
     }
 }

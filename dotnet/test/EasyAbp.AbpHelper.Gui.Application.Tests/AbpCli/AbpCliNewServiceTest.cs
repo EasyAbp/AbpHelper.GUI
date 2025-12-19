@@ -39,7 +39,7 @@ namespace EasyAbp.AbpHelper.Gui.AbpCli
                 AppDatabaseProvider.Ef,
                 AbpThemes.LeptonxLite));
 
-            File.Exists(Path.Combine(Path.Combine(GuiTestConsts.Folder, SolutionName), $"{SolutionName}.sln"))
+            File.Exists(Path.Combine(GuiTestConsts.Folder, SolutionName, $"{SolutionName}.slnx"))
                 .ShouldBeTrue();
         }
     }
