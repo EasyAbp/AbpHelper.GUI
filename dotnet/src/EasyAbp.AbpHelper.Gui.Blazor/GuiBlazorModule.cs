@@ -71,7 +71,7 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
             ConfigureUrls(configuration);
             ConfigureBundles();
             // ConfigureAuthentication(context, configuration);
-            ConfigureAutoMapper();
+            ConfigureAutoMapper(context);
             ConfigureVirtualFileSystem(hostingEnvironment);
             ConfigureLocalizationServices();
             ConfigureSwaggerServices(context.Services);
@@ -210,8 +210,9 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
             });
         }
 
-        private void ConfigureAutoMapper()
+        private void ConfigureAutoMapper(ServiceConfigurationContext context)
         {
+            context.Services.AddAutoMapperObjectMapper();
             Configure<AbpAutoMapperOptions>(options =>
             {
                 options.AddMaps<GuiBlazorModule>();
