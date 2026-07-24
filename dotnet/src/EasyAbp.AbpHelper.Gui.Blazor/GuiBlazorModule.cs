@@ -26,7 +26,6 @@ using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic.Bundling;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
-using Volo.Abp.AutoMapper;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Volo.Abp.SettingManagement.Blazor.Server;
@@ -71,7 +70,6 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
             ConfigureUrls(configuration);
             ConfigureBundles();
             // ConfigureAuthentication(context, configuration);
-            ConfigureAutoMapper(context);
             ConfigureVirtualFileSystem(hostingEnvironment);
             ConfigureLocalizationServices();
             ConfigureSwaggerServices(context.Services);
@@ -210,15 +208,6 @@ namespace EasyAbp.AbpHelper.Gui.Blazor
             });
         }
 
-        private void ConfigureAutoMapper(ServiceConfigurationContext context)
-        {
-            context.Services.AddAutoMapperObjectMapper();
-            Configure<AbpAutoMapperOptions>(options =>
-            {
-                options.AddMaps<GuiBlazorModule>();
-            });
-        }
-        
         public override void OnApplicationInitialization(ApplicationInitializationContext context)
         {
             var env = context.GetEnvironment();

@@ -3,14 +3,14 @@ using EasyAbp.AbpHelper.Gui.LogService;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp;
 using Volo.Abp.Application;
-using Volo.Abp.AutoMapper;
 using Volo.Abp.Cli;
+using Volo.Abp.Mapperly;
 using Volo.Abp.Modularity;
 
 namespace EasyAbp.AbpHelper.Gui
 {
     [DependsOn(
-        typeof(AbpAutoMapperModule),
+        typeof(AbpMapperlyModule),
         typeof(AbpDddApplicationModule),
         typeof(AbpCliCoreModule),
         typeof(AbpHelperCoreModule),
@@ -22,11 +22,7 @@ namespace EasyAbp.AbpHelper.Gui
         {
             context.Services.AddHttpClient();
             
-            context.Services.AddAutoMapperObjectMapper<GuiApplicationModule>();
-            Configure<AbpAutoMapperOptions>(options =>
-            {
-                options.AddMaps<GuiApplicationModule>(validate: true);
-            });
+            context.Services.AddMapperlyObjectMapper<GuiApplicationModule>();
         }
         
         public override void OnPostApplicationInitialization(ApplicationInitializationContext context)
